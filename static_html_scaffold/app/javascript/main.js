@@ -1,7 +1,7 @@
 'use strict';
 
-import TweenMax from 'gsap/TweenMax';
-import EasePack from 'gsap/EasePack';
+//import TweenMax from 'gsap/TweenMax';
+//import EasePack from 'gsap/EasePack';
 import testObj from './test.js';
 
 function init(){
