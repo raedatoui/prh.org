@@ -5,5 +5,5 @@ export function test(){
 }
 
 export default function () {
-  console.log("TESSSST!!!")
+  console.log("TESSSST!!!");
 }

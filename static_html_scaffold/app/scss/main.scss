@@ -1,0 +1,24 @@
+//PRH STATIC SCAFFOLDING SITE FOR WORDPRESS
+
+//MODULES & VARS
+@import "modules/all";
+
+//PARTIALS
+@import "partials/reset";
+@import "partials/fonts";
+@import "partials/buttons";
+@import "partials/grids";
+@import "partials/site-base-styles"; //set base site
+
+//3rd PARTY VENDORS
+@import "vendor/flexboxgrid";
+
+
+//PAGES
+
+
+//SECTIONS
+//use this template
+//@import "sections/site-base-styles";
+
+@import "sections/hero"
