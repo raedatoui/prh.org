@@ -1,8 +1,20 @@
 PRH - Static Scaffold
 
-//npm install
 
-//npm start
+WIP
+
+
+1. npm install
+
+2. gulp serve
+
+
+
+
+
+
+
+Tools Used:
 
 1. Gulp Task Runner
 
