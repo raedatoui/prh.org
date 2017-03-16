@@ -2,11 +2,15 @@ const gulp = require('gulp');
 const gutil = require('gulp-util');
 const jshint = require('gulp-jshint');
 const sass = require('gulp-sass');
+const image = require('gulp-image');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const del = require('del');
 const sourcemaps = require('gulp-sourcemaps');
 const buble = require('gulp-buble');
 const rename = require('gulp-rename');
 const connect = require('gulp-connect');
-//const del = require('del');
 const rollup = require('rollup-stream');
 const uglify = require('rollup-plugin-uglify');
 const source = require('vinyl-source-stream');
@@ -21,7 +25,6 @@ gulp.task('default', [ 'watch' ]);
 gulp.task('html', function(){
 
   gutil.log('HTML UPDATED');
-
   return gulp.src('./app/*.html')
   .pipe( gulp.dest('./pub'))
   .pipe(connect.reload());
@@ -33,20 +36,27 @@ gulp.task('js', function(){
   .pipe( jshint.reporter('jshint-stylish') );
 });
 
+gulp.task('images', ['cleanImage'], function(){
+  return gulp.src('./app/images/**/*')
+  .pipe( image({ svgo: true }) )
+  .pipe( gulp.dest( './pub/images' ) )
+});
 
 gulp.task('sass', [], function(){
   return gulp.src('./app/scss/main.scss')
   .pipe( sourcemaps.init() )
-  //.pipe( sass( { outputStyle: 'compressed' } ).on( 'error', sass.logError ) )
-  .pipe( sass( { outputStyle: 'uncompressed' } ).on( 'error', sass.logError ) )
+  .pipe( sass( { outputStyle: 'uncompressed' } ).on( 'error', sass.logError ) ) //compressed  on launch
+  .pipe( postcss([ require('autoprefixer'), /*require('cssnano')*/ ]) ) //use css nano if not node-sass
   .pipe( sourcemaps.write('.') )
   .pipe( gulp.dest('./pub/stylesheets') )
   .pipe(connect.reload());
 });
 
+gulp.task('cleanImage', function(){
+    return del(['./pub/images']);
+});
 
-gulp.task('build', function(){
-  //gulp.src('./app/javascript/*.js')
+gulp.task('build', [ 'images' ], function(){
   return rollup({
     format: "umd", //umd,amd,cjs
     moduleName: "mainBundle", //only for umd
@@ -69,7 +79,7 @@ gulp.task('build', function(){
       includePaths({
         paths: [ './app/javascript/' ]
       }),
-      //uglify()
+      uglify()
     ]
   })
   .pipe( source( 'main.js', './app/javascript' ) )
@@ -82,7 +92,7 @@ gulp.task('build', function(){
 
 });
 
-gulp.task('serve', ['watch'], function(){
+gulp.task('serve', ['images', 'watch'], function(){
   connect.server({
     port: 9000,
     root: ['./pub'],
@@ -100,4 +110,5 @@ gulp.task('watch', function(){
   gulp.watch('./app/**/*.html', ['html']);
   gulp.watch('./app/javascript/**/*.js', ['js', 'reload']);
   gulp.watch('./app/scss/**/*.scss', ['sass', 'reload']);
+  gulp.watch('app/images/**/*',{cwd:'./'}, ['images', 'reload']);
 });
