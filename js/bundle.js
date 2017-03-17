@@ -10253,7 +10253,7 @@ var testObj = function () {
 
 var main = function () {
   testObj.test();
-
+  console.log("FOO");
 };
 
 exports['default'] = main;

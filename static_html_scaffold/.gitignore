@@ -1,5 +1,0 @@
-node_modules/
-app/.sass-cache/
-pub/assets/javascript/*.map
-pub/assets/stylesheets/*.map
-*.DS_Store
