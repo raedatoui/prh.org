@@ -108,12 +108,14 @@ add_action( 'widgets_init', 'prh_wp_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function prh_wp_theme_scripts() {
+
+  // TODO: replace get_stylesheet_uri with path to css/main.min.css
   wp_enqueue_style( 'prh-wp-theme-style', get_stylesheet_uri() );
 
-  wp_enqueue_script( 'prh-wp-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
+  // TODO: check if this is needed
   wp_enqueue_script( 'prh-wp-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+  // TODO: probably remove since we dont have comments
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
     wp_enqueue_script( 'comment-reply' );
   }
@@ -174,7 +176,7 @@ function home_page_features()
     'rewrite' => true,
     'capability_type' => 'post',
     'hierarchical' => false,
-    'menu_icon' => get_template_directory_uri() .'/ico/feature.png',
+    'menu_icon' => get_template_directory_uri() .'/images/admin/icons/feature.png',
     'menu_position' => null,
     'supports' => array('title')
   );
@@ -210,7 +212,7 @@ function press_release_type() {
       'show_ui' => true,
       'query_var' => true,
       'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
-      'menu_icon' => get_stylesheet_directory_uri() . '/ico/custom-post-icon.png', /* the icon for the custom post type menu */
+      'menu_icon' => get_stylesheet_directory_uri() . '/images/admin/icons/custom-post-icon.png', /* the icon for the custom post type menu */
       'rewrite' => array( 'slug' => 'press-release', 'with_front' => false ), /* you can specify its url slug */
       'has_archive' => 'press-release', /* you can rename the slug here */
       'capability_type' => 'post',
@@ -260,7 +262,7 @@ function phys_story_type() {
       'show_ui' => true,
       'query_var' => true,
       'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
-      'menu_icon' => get_template_directory_uri() .'/ico/phy_story_icon.png', /* the icon for the custom post type menu */
+      'menu_icon' => get_template_directory_uri() .'/images/admin/icons/phy_story_icon.png', /* the icon for the custom post type menu */
       'rewrite' => array( 'slug' => 'physicians-story', 'with_front' => false ), /* you can specify its url slug */
       'has_archive' => 'physicians-story', /* you can rename the slug here */
       'capability_type' => 'post',
@@ -308,7 +310,7 @@ function prh_ipaper_type() {
       'show_ui' => true,
       'query_var' => true,
       'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
-      'menu_icon' => get_template_directory_uri() .'/ico/scribd_documents_icon.png', /* the icon for the custom post type menu */
+      'menu_icon' => get_template_directory_uri() .'/images/admin/icons/scribd_documents_icon.png', /* the icon for the custom post type menu */
       'rewrite' => array( 'slug' => 'iPaper', 'with_front' => false ), /* you can specify its url slug */
       'has_archive' => 'iPaper', /* you can rename the slug here */
       'capability_type' => 'post',
@@ -356,7 +358,7 @@ function timeline_type() {
       'show_ui' => true,
       'query_var' => true,
       'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
-      'menu_icon' => get_template_directory_uri() .'/ico/timeline.png', /* the icon for the custom post type menu */
+      'menu_icon' => get_template_directory_uri() .'/images/admin/icons/timeline.png', /* the icon for the custom post type menu */
       'rewrite' => array( 'slug' => 'timeline-items', 'with_front' => false ), /* you can specify its url slug */
       'has_archive' => 'timeline-items', /* you can rename the slug here */
       'capability_type' => 'post',
