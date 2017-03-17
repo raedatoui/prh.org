@@ -4,7 +4,6 @@
   "description": "Static HTML for PRH Wordpress Site",
   "main": "gulpfile.js",
   "dependencies": {
-    "flexboxgrid-sass": "^8.0.5",
     "gsap": "^1.19.1"
   },
   "devDependencies": {
