@@ -192,7 +192,7 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#. translators: %s: Name of current post. 
+#. translators: %s: Name of current post.
 #: template-parts/content.php:33
 #, php-format
 #@ _s
@@ -205,7 +205,7 @@ msgstr ""
 
 #. Theme URI of the plugin/theme
 #@ _s
-msgid "http://underscores.me/"
+msgid "http://hugeinc.com/"
 msgstr ""
 
 #. Description of the plugin/theme
