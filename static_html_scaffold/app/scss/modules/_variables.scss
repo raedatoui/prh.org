@@ -5,6 +5,7 @@
 //
 //------------------------------------------------
 
+// Set the number of columns you want to use on your layout.
 $grid-columns: 12 !default;
 
 // Set the gutter between columns.
@@ -14,12 +15,13 @@ $gutter-width: 1rem !default;
 $outer-margin: 2rem !default;
 
 // Create or remove breakpoints for your project
-// Syntax:
-// name SIZErem,
+// Syntax: name SIZErem,
 $breakpoints:
+  xs 40em 38rem,
   sm 48em 46rem,
   md 62em 61rem,
   lg 75em 71rem !default;
+
 $flexboxgrid-max-width: 1200px !default;
 
 
@@ -28,6 +30,7 @@ $flexboxgrid-max-width: 1200px !default;
 //  FONTS VARS
 //
 //------------------------------------------------
+
 //Font Weight
 $light: 100;
 $regular: 400;

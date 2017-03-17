@@ -45,7 +45,7 @@ gulp.task('images', ['cleanImage'], function(){
 gulp.task('sass', [], function(){
   return gulp.src('./app/scss/main.scss')
   .pipe( sourcemaps.init() )
-  .pipe( sass( { outputStyle: 'uncompressed' } ).on( 'error', sass.logError ) ) //compressed  on launch
+  .pipe( sass( { outputStyle: 'uncompressed', includePaths: './node_modules' } ).on( 'error', sass.logError ) ) //compressed  on launch
   .pipe( postcss([ require('autoprefixer'), /*require('cssnano')*/ ]) ) //use css nano if not node-sass
   .pipe( sourcemaps.write('.') )
   .pipe( gulp.dest('./pub/stylesheets') )
