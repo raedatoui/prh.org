@@ -17,3 +17,8 @@ tmp/
 
 *.codekit
 *.scssc
+
+
+fe-scaffold/pub/
+fe-scaffold/node_modules/
+node_modules/
