@@ -4,6 +4,7 @@ const jshint = require('gulp-jshint');
 const sass = require('gulp-sass');
 const image = require('gulp-image');
 const postcss = require('gulp-postcss');
+const changed = require('gulp-changed');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const del = require('del');
@@ -26,21 +27,23 @@ gulp.task('html', function(){
 
   gutil.log('HTML UPDATED');
   return gulp.src('./app/*.html')
-  .pipe( gulp.dest('./pub'))
-  .pipe(connect.reload());
+    .pipe( gulp.dest('./pub'))
+    .pipe(connect.reload());
 });
 
 gulp.task('jshint', ['buildJS'], function(){
   return gulp.src('./app/javascript/**/*.js')
-  .pipe( jshint() )
-  .pipe( jshint.reporter('jshint-stylish') );
+    .pipe( jshint() )
+    .pipe( jshint.reporter('jshint-stylish') );
 });
 
 gulp.task('images', ['cleanImage'], function(){
   return gulp.src('./app/images/**/*')
   .pipe( image({ svgo: true }) )
   .pipe( gulp.dest( './pub/images' ) )
-  .pipe( gulp.dest( '../images/build-images' ) );
+  .pipe( gulp.dest( '../images/build-images' ) )
+  .pipe( changed('prhstaging.org/wp-content/themes/prh-wp-theme/images/build-images', {cwd:'../../'}) ) //check for changes from previous version
+  .pipe( gulp.dest('../../prhstaging.org/wp-content/themes/prh-wp-theme/images/build-images') ); //send to prhstaging.org
 });
 
 gulp.task('sass', [], function(){
@@ -50,7 +53,9 @@ gulp.task('sass', [], function(){
   .pipe( postcss([ require('autoprefixer') ]) )
   .pipe( sourcemaps.write('.') )
   .pipe( gulp.dest('./pub/stylesheets') )
-  .pipe( gulp.dest('../css') ) //send to wp dir
+  .pipe( gulp.dest('../css') ) //send to local git wp dir
+  .pipe( changed('prhstaging.org/wp-content/themes/prh-wp-theme/css', {cwd:'../../'}) ) //check for changes from previous version
+  .pipe( gulp.dest('../../prhstaging.org/wp-content/themes/prh-wp-theme/css') ) //send to prhstaging.org
   .pipe(connect.reload());
 });
 
@@ -87,7 +92,17 @@ gulp.task('buildJS', [ 'images' ], function(){
   .pipe( rename('bundle.js' ) )
   .pipe( sourcemaps.write('.') )
   .pipe( gulp.dest('./pub/javascript') ) //send to scaffold env
-  .pipe( gulp.dest('../js') ); //send to wp dir
+  .pipe( gulp.dest('../js') ) //send to wp dir
+  .pipe( changed('prhstaging.org/wp-content/themes/prh-wp-theme/js', {cwd:'../../'}) ) //check for changes from previous version
+  .pipe( gulp.dest('../../prhstaging.org/wp-content/themes/prh-wp-theme/js') ); //send to prhstaging.org
+});
+
+gulp.task('serve', ['images', 'watch'], function(){
+  connect.server({
+    port: 9000,
+    root: ['./pub'],
+    livereload: true
+  });
 });
 
 gulp.task('serve', ['images', 'watch'], function(){
@@ -99,10 +114,12 @@ gulp.task('serve', ['images', 'watch'], function(){
 });
 
 gulp.task('cleanImage', function(){
+  console.log("CLEAN")
   return del(
     [
       './pub/images',
-      '../images/build-images'
+      '../images/build-images',
+      '../../prhstaging.org/wp-content/themes/prh-wp-theme/images/build-images'
     ],
     {
       force: true,
@@ -110,6 +127,15 @@ gulp.task('cleanImage', function(){
     }
   );
 });
+
+gulp.task('updateWPTheme', function(){
+  //This task will take changes from the local git dir and push up to the local phrstaging.org directory
+  gutil.log("WP CHANGED");
+  return gulp.src('../*')
+    .pipe( changed('prhstaging.org/wp-content/themes/prh-wp-theme', {cwd:'../../'}) )
+    .pipe( gulp.dest('../../prhstaging.org/wp-content/themes/prh-wp-theme'))
+});
+
 
 gulp.task('reload', function(){
   gutil.log("reloaded");
@@ -120,5 +146,7 @@ gulp.task('watch', function(){
   gulp.watch('./app/**/*.html', ['html']);
   gulp.watch('./app/javascript/**/*.js', ['jshint', 'reload']);
   gulp.watch('./app/scss/**/*.scss', ['sass', 'reload']);
-  gulp.watch('app/images/**/*',{cwd:'./'}, ['images', 'reload']);
+  gulp.watch('**/*.php',{cwd:'../'},['updateWPTheme']);
+  gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']);
+
 });

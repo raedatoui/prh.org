@@ -14,6 +14,7 @@
     "flexboxgrid-sass": "^8.0.5",
     "gulp": "^3.9.1",
     "gulp-buble": "^0.8.0",
+    "gulp-changed": "^2.0.0",
     "gulp-connect": "^5.0.0",
     "gulp-image": "^2.7.5",
     "gulp-jshint": "^2.0.4",

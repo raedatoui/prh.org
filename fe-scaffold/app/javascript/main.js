@@ -7,7 +7,7 @@ import testObj from './test.js';
 function init(){
   console.log("HELLO!");
 
-
+  //test
   //var obj={x:0};
   //TweenMax.to(obj, .1, {x:.1});
 
