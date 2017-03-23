@@ -33,6 +33,8 @@
 
 	<body <?php body_class(); ?>>
 
+		<div id="test"></div>
+
 		<div id="page-container">
 
 				<nav>
@@ -41,7 +43,7 @@
 
 						<li class="col-xs-12 col-sm-3 col-md-3 col-lg-3 logo-item"><img class="logo" alt="" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/build-images/prh_nav_logo.png" /></li>
 
-						<li class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+						<li class="col-xs-12 col-sm-8 col-md-7 col-lg-7">
 
 							<ul class="secondary-nav-list row">
 
@@ -54,7 +56,7 @@
 
 						</li>
 
-						<li class="col-xs-12 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">Donate</li>
+						<li class="col-xs-12 col-sm-1 col-md-2 col-lg-2" style="text-align: right;">Donate</li>
 
 					</ul>
 

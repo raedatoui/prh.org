@@ -7,6 +7,40 @@ body{
   @include roboto();
 }
 
+#test{
+  position: fixed;
+  bottom: 0px; left: 0px;
+  width: 150px;
+  height: 8px;
+  z-index: 10;
+  @include test-fill(#ccc);
+}
+
+//MEDIA QUERY HANDLERS
+@include responsive-mq("xs") {
+  #test{
+    @include test-fill(#f00);
+  }
+}
+
+@include responsive-mq("sm") {
+  #test{
+    @include test-fill(#0f0);
+  }
+}
+
+@include responsive-mq("md") {
+  #test{
+    @include test-fill(#00f);
+  }
+}
+
+@include responsive-mq("lg") {
+  #test{
+    @include test-fill(#0ff);
+  }
+}
+
 /*
 section{
   max-width: $base-page-max-width;

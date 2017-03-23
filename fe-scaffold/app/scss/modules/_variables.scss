@@ -4,6 +4,7 @@
 //
 //------------------------------------------------
 $base-bg-color: #fff;
+$base-color-blue: #286eaf;
 $base-page-max-width: 1320px !default;
 $base-gutter: 2%;
 
@@ -55,3 +56,10 @@ $breakpoints:
   lg 75em 71rem !default;
 
 $flexboxgrid-max-width: $base-page-max-width !default;
+
+$breakpointmap: (
+  'xs'  : ( min-width:  40em ),
+  'sm' : ( min-width:  48em ),
+  'md'  : ( min-width: 62em ),
+  'lg'  : ( min-width: 75em )
+);

@@ -7,9 +7,28 @@
           border-radius: $radius;
 }
 
-.box {
+.round-box {
   @include border-radius(10px);
 }
+
+
+
+//Responsive Breakpoints - Hugo Giraudel - Sitepoint
+@mixin responsive-mq($name) {
+
+  @if map-has-key($breakpointmap, $name) {
+    @media #{inspect(map-get($breakpointmap, $name))} {
+      @content;
+    }
+  }
+  @else {
+    @warn "No value available from `#{$breakpointmap}`. "
+        + "Make sure it is defined in `$breakpointmap` map.";
+  }
+}
+
+
+
 
 @mixin test-border($color){
   border: 1px solid $color;
