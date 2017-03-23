@@ -1,0 +1,31 @@
+body{
+  background-color: $base-bg-color;
+  color: $base-font-color;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  letter-spacing: $base-font-kerning;
+  @include roboto();
+}
+
+/*
+section{
+  max-width: $base-page-max-width;
+  margin: 0 auto;
+  padding: 5%;
+}
+*/
+
+
+#page-container{
+
+  width: 100%;
+  background-color: #ccc;
+
+  // .page-content{
+  //   padding: 0 $base-gutter;
+  //   max-width: $base-page-max-width;
+  //   margin: 0 auto;
+  // }
+
+
+}

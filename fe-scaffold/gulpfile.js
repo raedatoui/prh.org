@@ -42,8 +42,9 @@ gulp.task('images', ['cleanImage'], function(){
   .pipe( image({ svgo: true }) )
   .pipe( gulp.dest( './pub/images' ) )
   .pipe( gulp.dest( '../images/build-images' ) )
-  .pipe( changed('prhstaging.org/wp-content/themes/prh-wp-theme/images/build-images', {cwd:'../../'}) ) //check for changes from previous version
   .pipe( gulp.dest('../../prhstaging.org/wp-content/themes/prh-wp-theme/images/build-images') ); //send to prhstaging.org
+  //.pipe( changed('prhstaging.org/wp-content/themes/prh-wp-theme/images/build-images', {cwd:'../../'}) ) //check for changes from previous version
+  //.pipe( gulp.dest('../../prhstaging.org/wp-content/themes/prh-wp-theme/images/build-images') ); //send to prhstaging.org
 });
 
 gulp.task('sass', [], function(){
@@ -54,9 +55,11 @@ gulp.task('sass', [], function(){
   .pipe( sourcemaps.write('.') )
   .pipe( gulp.dest('./pub/stylesheets') )
   .pipe( gulp.dest('../css') ) //send to local git wp dir
-  .pipe( changed('prhstaging.org/wp-content/themes/prh-wp-theme/css', {cwd:'../../'}) ) //check for changes from previous version
-  .pipe( gulp.dest('../../prhstaging.org/wp-content/themes/prh-wp-theme/css') ) //send to prhstaging.org
-  .pipe(connect.reload());
+  .pipe(connect.reload())
+  .pipe( gulp.dest('../../prhstaging.org/wp-content/themes/prh-wp-theme/css') ); //send to prhstaging.org
+  //.pipe( changed('prhstaging.org/wp-content/themes/prh-wp-theme/css', {cwd:'../../'}) ) //check for changes from previous version
+
+
 });
 
 gulp.task('buildJS', [ 'images' ], function(){
@@ -93,7 +96,7 @@ gulp.task('buildJS', [ 'images' ], function(){
   .pipe( sourcemaps.write('.') )
   .pipe( gulp.dest('./pub/javascript') ) //send to scaffold env
   .pipe( gulp.dest('../js') ) //send to wp dir
-  .pipe( changed('prhstaging.org/wp-content/themes/prh-wp-theme/js', {cwd:'../../'}) ) //check for changes from previous version
+  //.pipe( changed('prhstaging.org/wp-content/themes/prh-wp-theme/js', {cwd:'../../'}) ) //check for changes from previous version
   .pipe( gulp.dest('../../prhstaging.org/wp-content/themes/prh-wp-theme/js') ); //send to prhstaging.org
 });
 
