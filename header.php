@@ -8,40 +8,72 @@
  *
  * @package prh-wp-theme
  */
+?>
 
-?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<?php wp_head(); ?>
-</head>
-
-<body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'prh-wp-theme' ); ?></a>
-
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
+<!doctype html>
+<html class="no-js" lang="" <?php language_attributes(); ?> >
+  <head>
+    <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
 			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+				wp_title( '|', true, 'right' );
+				bloginfo( 'name' ); // Add the blog name.
+				$site_description = get_bloginfo( 'description', 'display' ); // Add the blog description for the home/front page.
+				if ( $site_description && ( is_home() || is_front_page() ) )
+					echo " | $site_description";
+			?>
+		</title>
+    <meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		<?php wp_head(); ?>
+  </head>
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
+	<body <?php body_class(); ?>>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'prh-wp-theme' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		<div id="page-container">
 
-	<div id="content" class="site-content">
+				<nav>
+
+					<ul id="main-nav-list" class="row bottom-xs">
+
+						<li class="col-xs-12 col-sm-3 col-md-3 col-lg-3 logo-item"><img class="logo" alt="" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/build-images/prh_nav_logo.png" /></li>
+
+						<li class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+
+							<ul class="secondary-nav-list row">
+
+								<li class="col-xs-12 col-sm-3 col-md-3 col-lg-3">About</li>
+								<li class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Our Advocacy</li>
+								<li class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Resources</li>
+								<li class="col-xs-12 col-sm-3 col-md-3 col-lg-3">Take Action</li>
+
+							</ul>
+
+						</li>
+
+						<li class="col-xs-12 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">Donate</li>
+
+					</ul>
+
+				</nav>
+
+
+
+
+
+
+
+
+				<section id="hero">
+					<div class="row">
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">a</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">b</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">c</div>
+					</div>
+				</section>
+
+
+		</div><!-- end home-page-container -->
