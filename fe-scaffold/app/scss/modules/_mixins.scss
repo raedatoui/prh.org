@@ -1,4 +1,4 @@
-@import "_font_mixins";
+@import "font_mixins";
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;

@@ -2,7 +2,9 @@
 
 import TweenMax from 'gsap/TweenMax';
 import EasePack from 'gsap/EasePack';
+import modernizr from './modernizr.js';
 import testObj from './test.js';
+
 
 function init(){
   console.log("HELLO!");

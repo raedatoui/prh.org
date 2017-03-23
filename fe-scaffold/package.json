@@ -5,7 +5,8 @@
   "main": "gulpfile.js",
   "dependencies": {
     "flickity": "^2.0.5",
-    "gsap": "^1.19.1"
+    "gsap": "^1.19.1",
+    "gulp-modernizr": "^1.0.0-alpha"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
@@ -18,6 +19,7 @@
     "gulp-connect": "^5.0.0",
     "gulp-image": "^2.7.5",
     "gulp-jshint": "^2.0.4",
+    "gulp-modernizr": "^1.0.0-alpha",
     "gulp-postcss": "^6.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
