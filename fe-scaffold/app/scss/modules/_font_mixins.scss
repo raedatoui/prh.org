@@ -1,0 +1,163 @@
+//ROBOTO
+@mixin roboto{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: $regular;
+}
+
+@mixin robotoItalic{
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: $regular;
+}
+
+@mixin RobotoThin{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: $thin;
+}
+
+@mixin robotoThinItalic{
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: $thin;
+}
+
+@mixin robotoLight{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: $light;
+}
+
+@mixin robotoLightItalic{
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: $light;
+}
+
+@mixin robotoMedium{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: $medium;
+}
+
+@mixin robotoMediumItalic{
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: $medium;
+}
+
+@mixin robotoBold{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: $bold;
+}
+
+@mixin robotoBoldItalic{
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: $bold;
+}
+
+@mixin robotoBlack{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: $black;
+}
+
+@mixin robotoBlackItalic{
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: $black;
+}
+
+
+
+//ROBOTO CONDENSED
+@mixin robotoCondensed{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: $regular;
+}
+
+@mixin robotoCondensedItalic{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: italic;
+  font-weight: $regular;
+}
+
+@mixin robotoCondensedLight{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: $light;
+}
+
+@mixin robotoCondensedLightItalic{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: italic;
+  font-weight: $light;
+}
+
+@mixin robotoCondensedBold{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: $bold;
+}
+
+@mixin robotoCondensedBoldItalic{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: italic;
+  font-weight: $bold;
+}
+
+
+
+//ROBOTO SLAB
+@mixin robotoSlab{
+  font-family: 'Roboto Slab', sans-serif;
+  font-style: normal;
+  font-weight: $regular;
+}
+
+@mixin robotoSlabThin{
+  font-family: 'Roboto Slab', sans-serif;
+  font-style: normal;
+  font-weight: $thin;
+}
+
+@mixin robotoSlabLight{
+  font-family: 'Roboto Slab', sans-serif;
+  font-style: normal;
+  font-weight: $light;
+}
+
+@mixin robotoSlabBlack{
+  font-family: 'Roboto Bold', sans-serif;
+  font-style: normal;
+  font-weight: $bold;
+}
+
+//LORA
+@mixin lora{
+  font-family: 'Lora', sans-serif;
+  font-style: normal;
+  font-weight: $regular;
+}
+
+@mixin loraItalic{
+  font-family: 'Lora', sans-serif;
+  font-style: italic;
+  font-weight: $regular;
+}
+
+@mixin loraBold{
+  font-family: 'Lora', sans-serif;
+  font-style: normal;
+  font-weight: $bold;
+}
+
+@mixin loraBoldItalic{
+  font-family: 'Lora', sans-serif;
+  font-style: italic;
+  font-weight: $bold;
+}

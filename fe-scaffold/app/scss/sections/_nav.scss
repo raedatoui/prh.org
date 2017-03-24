@@ -1,0 +1,55 @@
+//nav SECTION
+nav{
+
+  @include robotoLight();
+  color: #fff;
+  font-size: 1em;
+  letter-spacing: .05em;
+  position: fixed;
+  left: 50%;
+  width: ( 100% - ( $base-gutter * 2 ) );
+  max-width: $base-page-max-width;
+  padding: 25px 0;
+  transform: translateX(-50%);
+  border-bottom: 1px solid rgba(25, 25, 25, .2);
+}
+
+ul#main-nav-list{
+  li{
+    ul.secondary-nav-list{
+      max-width: 510px;
+      width: 100%;
+      li{
+        text-align: center;
+      }
+    }
+  }
+}
+
+img{
+  width: 100%;
+}
+
+img.logo{
+  max-width: 236px;
+}
+
+
+//MEDIA QUERY HANDLER
+@include responsive-mq("xs") {
+
+}
+
+@include responsive-mq("sm") {
+  ul.secondary-nav-list{
+    width: 90%!important;
+  }
+}
+
+@include responsive-mq("md") {
+
+}
+
+@include responsive-mq("lg") {
+
+}

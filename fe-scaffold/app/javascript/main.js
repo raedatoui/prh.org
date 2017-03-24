@@ -2,11 +2,12 @@
 
 import TweenMax from 'gsap/TweenMax';
 import EasePack from 'gsap/EasePack';
+import modernizr from './modernizr.js';
 import testObj from './test.js';
+
 
 function init(){
   console.log("HELLO!");
-
 
   //var obj={x:0};
   //TweenMax.to(obj, .1, {x:.1});

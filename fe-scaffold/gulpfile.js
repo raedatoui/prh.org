@@ -4,6 +4,7 @@ const jshint = require('gulp-jshint');
 const sass = require('gulp-sass');
 const image = require('gulp-image');
 const postcss = require('gulp-postcss');
+const changed = require('gulp-changed');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const del = require('del');
@@ -18,6 +19,7 @@ const buffer = require('vinyl-buffer');
 const includePaths = require('rollup-plugin-includepaths');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const modernizr = require('gulp-modernizr');
 
 
 gulp.task('default', [ 'watch' ]);
@@ -26,35 +28,42 @@ gulp.task('html', function(){
 
   gutil.log('HTML UPDATED');
   return gulp.src('./app/*.html')
-  .pipe( gulp.dest('./pub'))
-  .pipe(connect.reload());
+    .pipe( gulp.dest('./pub'))
+    .pipe(connect.reload());
 });
 
-gulp.task('jshint', ['buildJS'], function(){
+gulp.task('jshint', function(){
   return gulp.src('./app/javascript/**/*.js')
-  .pipe( jshint() )
-  .pipe( jshint.reporter('jshint-stylish') );
+    .pipe( jshint() )
+    .pipe( jshint.reporter('jshint-stylish') );
 });
 
 gulp.task('images', ['cleanImage'], function(){
   return gulp.src('./app/images/**/*')
+  .pipe(changed('../images/optimized'))
   .pipe( image({ svgo: true }) )
-  .pipe( gulp.dest( './pub/images' ) )
-  .pipe( gulp.dest( '../images/build-images' ) );
+  //.pipe( gulp.dest( './pub/images' ) ) //no longer necessary - consider removal
+  .pipe( gulp.dest( '../images/optimized' ) );
 });
 
-gulp.task('sass', [], function(){
+gulp.task('modernizr', function() {
+  gulp.src('./app/javascript/**/*.js')
+    .pipe(modernizr())
+    .pipe(gulp.dest("./app/javascript"))
+});
+
+gulp.task('sass', function(){
   return gulp.src('./app/scss/main.scss')
-  .pipe( sourcemaps.init() )
-  .pipe( sass( { outputStyle: 'compressed', includePaths: './node_modules' } ).on( 'error', sass.logError ) ) //compressed  on launch
-  .pipe( postcss([ require('autoprefixer') ]) )
-  .pipe( sourcemaps.write('.') )
-  .pipe( gulp.dest('./pub/stylesheets') )
-  .pipe( gulp.dest('../css') ) //send to wp dir
-  .pipe(connect.reload());
+    .pipe( sourcemaps.init() )
+    .pipe( sass( { outputStyle: 'compressed', includePaths: './node_modules' } ).on( 'error', sass.logError ) ) //compressed  on launch
+    .pipe( postcss([ require('autoprefixer') ]) )
+    .pipe( sourcemaps.write('.') )
+    .pipe( gulp.dest('./pub/stylesheets') )
+    .pipe( gulp.dest('../css') ) //send to local git wp dir
+    .pipe(connect.reload());
 });
 
-gulp.task('buildJS', [ 'images' ], function(){
+gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
   return rollup({
     format: "umd", //umd,amd,cjs
     moduleName: "mainBundle", //only for umd
@@ -77,7 +86,7 @@ gulp.task('buildJS', [ 'images' ], function(){
       includePaths({
         paths: [ './app/javascript/' ]
       }),
-      uglify()
+      //uglify()
     ]
   })
   .pipe( source( 'main.js', './app/javascript' ) )
@@ -87,7 +96,11 @@ gulp.task('buildJS', [ 'images' ], function(){
   .pipe( rename('bundle.js' ) )
   .pipe( sourcemaps.write('.') )
   .pipe( gulp.dest('./pub/javascript') ) //send to scaffold env
-  .pipe( gulp.dest('../js') ); //send to wp dir
+  .pipe( gulp.dest('../js') ) //send to wp dir
+  .on('end', function() {
+    del(['./app/javascript/modernizr.js']);
+  });
+
 });
 
 gulp.task('serve', ['images', 'watch'], function(){
@@ -99,10 +112,11 @@ gulp.task('serve', ['images', 'watch'], function(){
 });
 
 gulp.task('cleanImage', function(){
+  console.log("CLEAN")
   return del(
     [
       './pub/images',
-      '../images/build-images'
+      '../images/optimized'
     ],
     {
       force: true,
@@ -118,7 +132,7 @@ gulp.task('reload', function(){
 
 gulp.task('watch', function(){
   gulp.watch('./app/**/*.html', ['html']);
-  gulp.watch('./app/javascript/**/*.js', ['jshint', 'reload']);
+  gulp.watch('./app/javascript/**/*.js', ['buildJS', 'reload']);
   gulp.watch('./app/scss/**/*.scss', ['sass', 'reload']);
-  gulp.watch('app/images/**/*',{cwd:'./'}, ['images', 'reload']);
+  gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']);
 });
