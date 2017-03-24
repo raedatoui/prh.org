@@ -27,7 +27,6 @@
     <meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/main.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 		<?php wp_head(); ?>
   </head>
 
@@ -41,7 +40,7 @@
 
 					<ul id="main-nav-list" class="row bottom-xs">
 
-						<li class="col-xs-12 col-sm-3 col-md-3 col-lg-3 logo-item"><img class="logo" alt="" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/build-images/prh_nav_logo.png" /></li>
+						<li class="col-xs-12 col-sm-3 col-md-3 col-lg-3 logo-item"><img class="logo" alt="" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/optimized/prh_nav_logo.svg" /></li>
 
 						<li class="col-xs-12 col-sm-8 col-md-7 col-lg-7">
 
