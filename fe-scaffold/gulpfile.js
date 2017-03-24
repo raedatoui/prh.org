@@ -42,7 +42,7 @@ gulp.task('images', ['cleanImage'], function(){
   return gulp.src('./app/images/**/*')
   .pipe( image({ svgo: true }) )
   .pipe( gulp.dest( './pub/images' ) )
-  .pipe( gulp.dest( '../images/build-images' ) );
+  .pipe( gulp.dest( '../images' ) );
 });
 
 gulp.task('modernizr', function() {
