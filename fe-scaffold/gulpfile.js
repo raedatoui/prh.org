@@ -40,9 +40,10 @@ gulp.task('jshint', function(){
 
 gulp.task('images', ['cleanImage'], function(){
   return gulp.src('./app/images/**/*')
+  .pipe(changed('../images/optimized'))
   .pipe( image({ svgo: true }) )
-  .pipe( gulp.dest( './pub/images' ) )
-  .pipe( gulp.dest( '../images' ) );
+  //.pipe( gulp.dest( './pub/images' ) ) //no longer necessary - consider removal
+  .pipe( gulp.dest( '../images/optimized' ) );
 });
 
 gulp.task('modernizr', function() {
@@ -110,20 +111,12 @@ gulp.task('serve', ['images', 'watch'], function(){
   });
 });
 
-gulp.task('serve', ['images', 'watch'], function(){
-  connect.server({
-    port: 9000,
-    root: ['./pub'],
-    livereload: true
-  });
-});
-
 gulp.task('cleanImage', function(){
   console.log("CLEAN")
   return del(
     [
       './pub/images',
-      '../images/build-images'
+      '../images/optimized'
     ],
     {
       force: true,
