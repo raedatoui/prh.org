@@ -5,8 +5,7 @@
   "main": "gulpfile.js",
   "dependencies": {
     "flickity": "^2.0.5",
-    "gsap": "^1.19.1",
-    "gulp-modernizr": "^1.0.0-alpha"
+    "gsap": "^1.19.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
@@ -38,6 +37,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "@dyleeo - HUGE",
-  "license": "ISC"
+  "author": "HUGE",
+  "license": ""
 }

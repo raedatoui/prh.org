@@ -13,9 +13,8 @@
 
 
 
-//Responsive Breakpoints - Hugo Giraudel - Sitepoint
+//Responsive Breakpoints - Hugo Giraudel
 @mixin responsive-mq($name) {
-
   @if map-has-key($breakpointmap, $name) {
     @media #{inspect(map-get($breakpointmap, $name))} {
       @content;
@@ -26,7 +25,6 @@
         + "Make sure it is defined in `$breakpointmap` map.";
   }
 }
-
 
 
 
