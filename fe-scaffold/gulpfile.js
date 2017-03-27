@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const gutil = require('gulp-util');
 const jshint = require('gulp-jshint');
 const sass = require('gulp-sass');
+const sassLint = require('gulp-sass-lint');
 const image = require('gulp-image');
 const postcss = require('gulp-postcss');
 const changed = require('gulp-changed');
@@ -111,6 +112,17 @@ gulp.task('serve', ['images', 'watch'], function(){
   });
 });
 
+gulp.task('sass-lint', function() {
+  gulp.src('./app/scss/**/*.scss')
+      .pipe( sassLint({
+        options: {
+          configFile: '.sass-lint.yml'
+        }
+      }) )
+      .pipe( sassLint.format() )
+      .pipe( sassLint.failOnError() );
+});
+
 gulp.task('cleanImage', function(){
   console.log("CLEAN")
   return del(
@@ -133,6 +145,6 @@ gulp.task('reload', function(){
 gulp.task('watch', function(){
   gulp.watch('./app/**/*.html', ['html']);
   gulp.watch('./app/javascript/**/*.js', ['buildJS', 'reload']);
-  gulp.watch('./app/scss/**/*.scss', ['sass', 'reload']);
+  gulp.watch('./app/scss/**/*.scss', ['sass', 'sass-lint', 'reload']);
   gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']);
 });
