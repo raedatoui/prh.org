@@ -32,6 +32,11 @@ const projJsSrc =  projJsSrcDir + '/**/*.js';
 const localJsDest = '../js';
 const pubJsDest = './pub/javascript';
 
+const projSassEntry = './app/scss/main.scss';
+const projSassSrc = './app/scss/**/*.scss';
+const localSassDest = '../css';
+const pubSassDest = './pub/stylesheets';
+
 gulp.task('default', [ 'watch' ]);
 
 gulp.task('html', function(){
@@ -76,19 +81,19 @@ gulp.task('modernizr', function() {
 });
 
 gulp.task('sass', function(){
-  return gulp.src('./app/scss/main.scss')
+  return gulp.src(projSassEntry)
     .pipe( sourcemaps.init() )
     .pipe( sass( { outputStyle: 'compressed', includePaths: './node_modules' } ).on( 'error', sass.logError ) ) //compressed  on launch
     .pipe( postcss([ require('autoprefixer') ]) )
     .pipe( sourcemaps.write('.') )
-    .pipe( gulp.dest('./pub/stylesheets') )
-    .pipe( gulp.dest('../css') ) //send to local git wp dir
+    .pipe( gulp.dest(pubSassDest) )
+    .pipe( gulp.dest(localSassDest) ) //send to local git wp dir
     .pipe(connect.reload());
 });
 
 gulp.task('sass-lint', function() {
   gulp.src([
-    './app/scss/**/*.scss',
+    projSassSrc,
     '!./app/scss/partials/_reset.scss'])
       .pipe( sassLint({
         options: {
@@ -104,7 +109,7 @@ gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
     format: "umd", //umd,amd,cjs
     moduleName: "mainBundle", //only for umd
     exports: "named",
-    entry: "./app/javascript/main.js",
+    entry: projJsSrcDir + "/main.js",
     sourceMap: true,
     plugins: [
       nodeResolve({
@@ -120,7 +125,7 @@ gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
         }
       }),
       includePaths({
-        paths: [ './app/javascript/' ]
+        paths: [ projJsSrcDir + '/' ]
       }),
       uglify()
     ]
@@ -134,7 +139,7 @@ gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
   .pipe( gulp.dest(pubJsDest) ) //send to scaffold env
   .pipe( gulp.dest(localJsDest) ) //send to wp dir
   .on('end', function() {
-    del(['./app/javascript/modernizr.js']);
+    del([projJsSrcDir + '/modernizr.js']);
   });
 
 });
@@ -157,6 +162,6 @@ gulp.task('build', ['images', 'html', 'sass', 'buildJS']);
 gulp.task('watch', function(){
   gulp.watch('./app/**/*.html', ['html']);
   gulp.watch(projJsSrc, ['buildJS', 'reload']);
-  gulp.watch('./app/scss/**/*.scss', ['sass', 'sass-lint', 'reload']);
+  gulp.watch(projSassSrc, ['sass', 'sass-lint', 'reload']);
   // gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']); // @TODO: move this out of the watch and into the build
 });
