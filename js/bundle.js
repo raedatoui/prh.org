@@ -13,13 +13,13 @@ var TweenMax = createCommonjsModule(function (module) {
  * VERSION: 1.19.1
  * DATE: 2017-01-17
  * UPDATES AND DOCS AT: http://greensock.com
- * 
+ *
  * Includes all of the following: TweenLite, TweenMax, TimelineLite, TimelineMax, EasePack, CSSPlugin, RoundPropsPlugin, BezierPlugin, AttrPlugin, DirectionalRotationPlugin
  *
  * @license Copyright (c) 2008-2017, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
- * 
+ *
  * @author: Jack Doyle, jack@greensock.com
  **/
 var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !== "undefined") ? global : this || window; //helps ensure compatibility with AMD/RequireJS and CommonJS/Node
@@ -77,7 +77,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 			this._uncache(true);
 			return TweenLite.prototype.invalidate.call(this);
 		};
-		
+
 		p.updateTo = function(vars, resetDuration) {
 			var this$1 = this;
 
@@ -109,7 +109,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 					if (this._notifyPluginsOfEnabled && this._firstPT) {
 						TweenLite._onPluginEvent("_onDisable", this); //in case a plugin like MotionBlur must perform some cleanup tasks
 					}
-					if (this._time / this._duration > 0.998) { //if the tween has finished (or come extremely close to finishing), we just need to rewind it to 0 and then render it again at the end which forces it to re-initialize (parsing the new vars). We allow tweens that are close to finishing (but haven't quite finished) to work this way too because otherwise, the values are so small when determining where to project the starting values that binary math issues creep in and can make the tween appear to render incorrectly when run backwards. 
+					if (this._time / this._duration > 0.998) { //if the tween has finished (or come extremely close to finishing), we just need to rewind it to 0 and then render it again at the end which forces it to re-initialize (parsing the new vars). We allow tweens that are close to finishing (but haven't quite finished) to work this way too because otherwise, the values are so small when determining where to project the starting values that binary math issues creep in and can make the tween appear to render incorrectly when run backwards.
 						var prevTime = this._totalTime;
 						this.render(0, true, false);
 						this._initted = false;
@@ -132,7 +132,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 			}
 			return this;
 		};
-				
+
 		p.render = function(time, suppressEvents, force) {
 			var this$1 = this;
 
@@ -141,7 +141,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 			}
 			var totalDur = (!this._dirty) ? this._totalDuration : this.totalDuration(),
 				prevTime = this._time,
-				prevTotalTime = this._totalTime, 
+				prevTotalTime = this._totalTime,
 				prevCycle = this._cycle,
 				duration = this._duration,
 				prevRawPrevTime = this._rawPrevTime,
@@ -173,7 +173,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 					}
 					this._rawPrevTime = rawPrevTime = (!suppressEvents || time || prevRawPrevTime === time) ? time : _tinyNum; //when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration tween, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect. We set the _rawPrevTime to be a precise tiny number to indicate this scenario rather than using another property/variable which would increase memory usage. This technique is less readable, but more efficient.
 				}
-				
+
 			} else if (time < 0.0000001) { //to work around occasional floating point math artifacts, round super small values to 0.
 				this._totalTime = this._time = this._cycle = 0;
 				this.ratio = this._ease._calcEnd ? this._ease.getRatio(0) : 0;
@@ -245,9 +245,9 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 				} else {
 					this.ratio = this._ease.getRatio(this._time / duration);
 				}
-				
+
 			}
-				
+
 			if (prevTime === this._time && !force && prevCycle === this._cycle) {
 				if (prevTotalTime !== this._totalTime) if (this._onUpdate) if (!suppressEvents) { //so that onUpdate fires even during the repeatDelay - as long as the totalTime changed, we should trigger onUpdate.
 					this._callback("onUpdate");
@@ -296,7 +296,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 					this._callback("onStart");
 				}
 			}
-			
+
 			pt = this._firstPT;
 			while (pt) {
 				if (pt.f) {
@@ -306,7 +306,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 				}
 				pt = pt._next;
 			}
-			
+
 			if (this._onUpdate) {
 				if (time < 0) if (this._startAt && this._startTime) { //if the tween is positioned at the VERY beginning (_startTime 0) of its parent timeline, it's illegal for the playhead to go back further, so we should not render the recorded startAt values.
 					this._startAt.render(time, suppressEvents, force); //note: for performance reasons, we tuck this conditional logic inside less traveled areas (most tweens don't have an onUpdate). We'd just have it at the end before the onComplete, but the values should be updated before any onUpdate is called, so we ALSO put it here and then if it's not called, we do so later near the onComplete.
@@ -336,25 +336,25 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 				}
 			}
 		};
-		
+
 //---- STATIC FUNCTIONS -----------------------------------------------------------------------------------------------------------
-		
+
 		TweenMax.to = function(target, duration, vars) {
 			return new TweenMax(target, duration, vars);
 		};
-		
+
 		TweenMax.from = function(target, duration, vars) {
 			vars.runBackwards = true;
 			vars.immediateRender = (vars.immediateRender != false);
 			return new TweenMax(target, duration, vars);
 		};
-		
+
 		TweenMax.fromTo = function(target, duration, fromVars, toVars) {
 			toVars.startAt = fromVars;
 			toVars.immediateRender = (toVars.immediateRender != false && fromVars.immediateRender != false);
 			return new TweenMax(target, duration, toVars);
 		};
-		
+
 		TweenMax.staggerTo = TweenMax.allTo = function(targets, duration, vars, stagger, onCompleteAll, onCompleteAllParams, onCompleteAllScope) {
 			stagger = stagger || 0;
 			var delay = 0,
@@ -411,31 +411,31 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 			}
 			return a;
 		};
-		
+
 		TweenMax.staggerFrom = TweenMax.allFrom = function(targets, duration, vars, stagger, onCompleteAll, onCompleteAllParams, onCompleteAllScope) {
 			vars.runBackwards = true;
 			vars.immediateRender = (vars.immediateRender != false);
 			return TweenMax.staggerTo(targets, duration, vars, stagger, onCompleteAll, onCompleteAllParams, onCompleteAllScope);
 		};
-		
+
 		TweenMax.staggerFromTo = TweenMax.allFromTo = function(targets, duration, fromVars, toVars, stagger, onCompleteAll, onCompleteAllParams, onCompleteAllScope) {
 			toVars.startAt = fromVars;
 			toVars.immediateRender = (toVars.immediateRender != false && fromVars.immediateRender != false);
 			return TweenMax.staggerTo(targets, duration, toVars, stagger, onCompleteAll, onCompleteAllParams, onCompleteAllScope);
 		};
-				
+
 		TweenMax.delayedCall = function(delay, callback, params, scope, useFrames) {
 			return new TweenMax(callback, 0, {delay:delay, onComplete:callback, onCompleteParams:params, callbackScope:scope, onReverseComplete:callback, onReverseCompleteParams:params, immediateRender:false, useFrames:useFrames, overwrite:0});
 		};
-		
+
 		TweenMax.set = function(target, vars) {
 			return new TweenMax(target, 0, vars);
 		};
-		
+
 		TweenMax.isTweening = function(target) {
 			return (TweenLite.getTweensOf(target, true).length > 0);
 		};
-		
+
 		var _getChildrenOf = function(timeline, includeTimelines) {
 				var a = [],
 					cnt = 0,
@@ -453,11 +453,11 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 					tween = tween._next;
 				}
 				return a;
-			}, 
+			},
 			getAllTweens = TweenMax.getAllTweens = function(includeTimelines) {
 				return _getChildrenOf(Animation._rootTimeline, includeTimelines).concat( _getChildrenOf(Animation._rootFramesTimeline, includeTimelines) );
 			};
-		
+
 		TweenMax.killAll = function(complete, tweens, delayedCalls, timelines) {
 			if (tweens == null) {
 				tweens = true;
@@ -480,7 +480,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 				}
 			}
 		};
-		
+
 		TweenMax.killChildTweensOf = function(parent, complete) {
 			if (parent == null) {
 				return;
@@ -534,11 +534,11 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 				}
 			}
 		};
-		
+
 		TweenMax.pauseAll = function(tweens, delayedCalls, timelines) {
 			_changePause(true, tweens, delayedCalls, timelines);
 		};
-		
+
 		TweenMax.resumeAll = function(tweens, delayedCalls, timelines) {
 			_changePause(false, tweens, delayedCalls, timelines);
 		};
@@ -557,18 +557,18 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 			tl._timeScale = Animation._rootTimeline._timeScale = value;
 			return value;
 		};
-		
-	
+
+
 //---- GETTERS / SETTERS ----------------------------------------------------------------------------------------------------------
-		
+
 		p.progress = function(value, suppressEvents) {
 			return (!arguments.length) ? this._time / this.duration() : this.totalTime( this.duration() * ((this._yoyo && (this._cycle & 1) !== 0) ? 1 - value : value) + (this._cycle * (this._duration + this._repeatDelay)), suppressEvents);
 		};
-		
+
 		p.totalProgress = function(value, suppressEvents) {
 			return (!arguments.length) ? this._totalTime / this.totalDuration() : this.totalTime( this.totalDuration() * value, suppressEvents);
 		};
-		
+
 		p.time = function(value, suppressEvents) {
 			if (!arguments.length) {
 				return this._time;
@@ -605,7 +605,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 			}
 			return (this._repeat === -1) ? this : this.duration( (value - (this._repeat * this._repeatDelay)) / (this._repeat + 1) );
 		};
-		
+
 		p.repeat = function(value) {
 			if (!arguments.length) {
 				return this._repeat;
@@ -613,7 +613,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 			this._repeat = value;
 			return this._uncache(true);
 		};
-		
+
 		p.repeatDelay = function(value) {
 			if (!arguments.length) {
 				return this._repeatDelay;
@@ -621,7 +621,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 			this._repeatDelay = value;
 			return this._uncache(true);
 		};
-		
+
 		p.yoyo = function(value) {
 			if (!arguments.length) {
 				return this._yoyo;
@@ -629,10 +629,10 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 			this._yoyo = value;
 			return this;
 		};
-		
-		
+
+
 		return TweenMax;
-		
+
 	}, true);
 
 
@@ -1419,11 +1419,11 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 
 
 
-	
-	
-	
-	
-	
+
+
+
+
+
 /*
  * ----------------------------------------------------------------
  * TimelineMax
@@ -1935,18 +1935,18 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 		return TimelineMax;
 
 	}, true);
-	
 
 
 
 
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
 /*
  * ----------------------------------------------------------------
  * BezierPlugin
@@ -2558,14 +2558,14 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
 /*
  * ----------------------------------------------------------------
  * CSSPlugin
@@ -5418,16 +5418,16 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 
 	}, true);
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
 /*
  * ----------------------------------------------------------------
  * RoundPropsPlugin
@@ -5646,17 +5646,17 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 
 
 
-	
-	
-	
-	
+
+
+
+
 /*
  * ----------------------------------------------------------------
  * EasePack
  * ----------------------------------------------------------------
  */
 	_gsScope._gsDefine("easing.Back", ["easing.Ease"], function(Ease) {
-		
+
 		var w = (_gsScope.GreenSockGlobals || _gsScope),
 			gs = w.com.greensock,
 			_2PI = Math.PI * 2,
@@ -5980,7 +5980,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 		_easeReg(SteppedEase, "SteppedEase", "ease,");
 
 		return Back;
-		
+
 	}, true);
 
 
@@ -7947,7 +7947,7 @@ var TweenLite = createCommonjsModule(function (module) {
  * @license Copyright (c) 2008-2017, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
- * 
+ *
  * @author: Jack Doyle, jack@greensock.com
  */
 (function(window, moduleName) {
@@ -8203,7 +8203,7 @@ var TweenLite = createCommonjsModule(function (module) {
 				i, t, listener;
 			if (list) {
 				i = list.length;
-				if (i > 1) { 
+				if (i > 1) {
 					list = list.slice(0); //in case addEventListener() is called from within a listener/callback (otherwise the index could change, resulting in a skip)
 				}
 				t = this._eventTarget;
@@ -9894,7 +9894,7 @@ var EasePack = createCommonjsModule(function (module) {
  * @license Copyright (c) 2008-2017, GreenSock. All rights reserved.
  * This work is subject to the terms at http://greensock.com/standard-license or for
  * Club GreenSock members, the software agreement that was issued with your membership.
- * 
+ *
  * @author: Jack Doyle, jack@greensock.com
  **/
 var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !== "undefined") ? global : this || window; //helps ensure compatibility with AMD/RequireJS and CommonJS/Node
@@ -9903,7 +9903,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 	"use strict";
 
 	_gsScope._gsDefine("easing.Back", ["easing.Ease"], function(Ease) {
-		
+
 		var w = (_gsScope.GreenSockGlobals || _gsScope),
 			gs = w.com.greensock,
 			_2PI = Math.PI * 2,
@@ -9942,7 +9942,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 				var C = _class("easing." + n, function(overshoot) {
 						this._p1 = (overshoot || overshoot === 0) ? overshoot : 1.70158;
 						this._p2 = this._p1 * 1.525;
-					}, true), 
+					}, true),
 					p = C.prototype = new Ease();
 				p.constructor = C;
 				p.getRatio = f;
@@ -9981,7 +9981,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 			}, true),
 			p = SlowMo.prototype = new Ease(),
 			SteppedEase, RoughEase, _createElastic;
-			
+
 		p.constructor = SlowMo;
 		p.getRatio = function(p) {
 			var r = p + (0.5 - p) * this._p;
@@ -9993,7 +9993,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 			return this._calcEnd ? 1 : r;
 		};
 		SlowMo.ease = new SlowMo(0.7, 0.7);
-		
+
 		p.config = SlowMo.config = function(linearRatio, power, yoyoMode) {
 			return new SlowMo(linearRatio, power, yoyoMode);
 		};
@@ -10005,7 +10005,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 				this._p1 = 1 / steps;
 				this._p2 = steps + 1;
 			}, true);
-		p = SteppedEase.prototype = new Ease();	
+		p = SteppedEase.prototype = new Ease();
 		p.constructor = SteppedEase;
 		p.getRatio = function(p) {
 			if (p < 0) {
@@ -10225,9 +10225,9 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 		_easeReg(w.SlowMo, "SlowMo", "ease,");
 		_easeReg(RoughEase, "RoughEase", "ease,");
 		_easeReg(SteppedEase, "SteppedEase", "ease,");
-		
+
 		return Back;
-		
+
 	}, true);
 
 }); if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); }
@@ -10241,7 +10241,7 @@ var _gsScope = ('object' !== "undefined" && module.exports && typeof(global) !==
 	if (typeof(undefined) === "function" && undefined.amd) { //AMD
 		undefined(["./TweenLite"], getGlobal);
 	} else if ('object' !== "undefined" && module.exports) { //node
-		
+
 		module.exports = getGlobal();
 	}
 }());
@@ -10274,7 +10274,7 @@ var modernizr = createCommonjsModule(function (module) {
 
 (function(window, document, undefined){
   var tests = [];
-  
+
 
   /**
    *
@@ -10323,7 +10323,7 @@ var modernizr = createCommonjsModule(function (module) {
     }
   };
 
-  
+
 
   // Fake some of Object.create so we can force non test results to be non "own" properties.
   var Modernizr = function() {};
@@ -10333,10 +10333,10 @@ var modernizr = createCommonjsModule(function (module) {
   // Overwrite name so constructor name is nicer :D
   Modernizr = new Modernizr();
 
-  
+
 
   var classes = [];
-  
+
 
   /**
    * is returns a boolean if the typeof an obj is exactly type.
@@ -10351,7 +10351,7 @@ var modernizr = createCommonjsModule(function (module) {
   function is(obj, type) {
     return typeof obj === type;
   }
-  
+
 
   /**
    * Run through all tests and detect their support in the current UA.
@@ -10421,7 +10421,7 @@ var modernizr = createCommonjsModule(function (module) {
       }
     }
   }
-  
+
 
   /**
    * hasOwnProp is a shim for hasOwnProperty that is needed for Safari 2.0 support
@@ -10454,7 +10454,7 @@ var modernizr = createCommonjsModule(function (module) {
     }
   })();
 
-  
+
 
   /**
    * docElement is a convenience wrapper to grab the root element of the document
@@ -10464,7 +10464,7 @@ var modernizr = createCommonjsModule(function (module) {
    */
 
   var docElement = document.documentElement;
-  
+
 
   /**
    * A convenience helper to check if the document we are running in is an SVG document
@@ -10474,7 +10474,7 @@ var modernizr = createCommonjsModule(function (module) {
    */
 
   var isSVG = docElement.nodeName.toLowerCase() === 'svg';
-  
+
 
   /**
    * setClasses takes an array of class names and adds them to the root element
@@ -10513,7 +10513,7 @@ var modernizr = createCommonjsModule(function (module) {
 
   }
 
-  
+
 
 
    // _l tracks listeners for async tests, as well as tests that execute after the initial run
@@ -10720,7 +10720,7 @@ var modernizr = createCommonjsModule(function (module) {
     ModernizrProto.addTest = addTest;
   });
 
-  
+
 
 
 /**
@@ -11257,7 +11257,7 @@ var modernizr = createCommonjsModule(function (module) {
     }(typeof window !== 'undefined' ? window : this, document));
   }
 
-  
+
 
 
   /**
@@ -11274,7 +11274,7 @@ var modernizr = createCommonjsModule(function (module) {
     return !!~('' + str).indexOf(substr);
   }
 
-  
+
 
   /**
    * createElement is a convenience wrapper around document.createElement. Since we
@@ -11299,7 +11299,7 @@ var modernizr = createCommonjsModule(function (module) {
     }
   }
 
-  
+
 
   /**
    * Create our "modernizr" element that we do most feature tests on.
@@ -11316,7 +11316,7 @@ var modernizr = createCommonjsModule(function (module) {
     delete modElem.elem;
   });
 
-  
+
 
   var mStyle = {
     style: modElem.elem.style
@@ -11328,7 +11328,7 @@ var modernizr = createCommonjsModule(function (module) {
     delete mStyle.style;
   });
 
-  
+
 
   /**
    * getBody returns the body of a document, or an element that can stand in for
@@ -11353,7 +11353,7 @@ var modernizr = createCommonjsModule(function (module) {
     return body;
   }
 
-  
+
 
   /**
    * injectElementWithStyles injects an element with style element and some CSS rules
@@ -11428,7 +11428,7 @@ var modernizr = createCommonjsModule(function (module) {
 
   }
 
-  
+
 
   /**
    * domToCSS takes a camelCase string and converts it to kebab-case
@@ -11445,7 +11445,7 @@ var modernizr = createCommonjsModule(function (module) {
       return '-' + m1.toLowerCase();
     }).replace(/^ms-/, '-ms-');
   }
-  
+
 
 
   /**
@@ -11483,7 +11483,7 @@ var modernizr = createCommonjsModule(function (module) {
     return result;
   }
 
-  
+
 
   /**
    * nativeTestProps allows for us to use native feature detection functionality if available.
@@ -11524,7 +11524,7 @@ var modernizr = createCommonjsModule(function (module) {
     }
     return undefined;
   }
-  
+
 
   /**
    * cssToDOM takes a kebab-case string and converts it to camelCase
@@ -11541,7 +11541,7 @@ var modernizr = createCommonjsModule(function (module) {
       return m1 + m2.toUpperCase();
     }).replace(/^-/, '');
   }
-  
+
 
   // testProps is a generic CSS / DOM property test.
 
@@ -11635,7 +11635,7 @@ var modernizr = createCommonjsModule(function (module) {
     return false;
   }
 
-  
+
 
   /**
    * testProp() investigates whether a given style property is recognized
@@ -11674,7 +11674,7 @@ var modernizr = createCommonjsModule(function (module) {
   var testProp = ModernizrProto.testProp = function(prop, value, useValue) {
     return testProps([prop], undefined, value, useValue);
   };
-  
+
 
   /**
    * fnBind is a super small [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) polyfill.
@@ -11686,7 +11686,7 @@ var modernizr = createCommonjsModule(function (module) {
    * @returns {function} The wrapped version of the supplied function
    */
 
-  
+
 
   // Run each test
   testRunner();
@@ -11709,7 +11709,7 @@ var modernizr = createCommonjsModule(function (module) {
 });
 
 var testObj = function () {
-  console.log("TESSSST!!!"); 
+  console.log("TESSSST!!!");
 };
 
 var main = function () {
@@ -11722,5 +11722,4 @@ exports['default'] = main;
 Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
-
 //# sourceMappingURL=bundle.js.map

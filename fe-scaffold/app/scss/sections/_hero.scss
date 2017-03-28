@@ -1,18 +1,25 @@
 //HERO SECTION
+<<<<<<< HEAD
 section#hero{
 
   padding-top: 150px;
   padding-bottom: 300px;
   background-image: $gradient-radial-blue;
+=======
+#hero {
+  background-image: $gradient-radial-blue;
+  min-height: 300px;
+  padding-top: 150px;
+>>>>>>> origin/develop
 
-  .hero-grid{
-
+  .hero-grid {
     margin-left: 25%;
     max-width: 75%;
 
-    .hero-item{
-      border: 1px solid red;
-      h1{
+    .hero-item {
+      border: 1px solid #f00;
+
+      h1 {
         @include lora();
       }
     }
@@ -24,22 +31,22 @@ section#hero{
 
 
 //MEDIA QUERY HANDLERS
-@include responsive-mq("xs") {
+@include responsive-mq('xs') {
 
 }
 
-@include responsive-mq("sm") {
+@include responsive-mq('sm') {
 
-  section#hero{
+  #hero {
     padding-top: 150px;
   }
 
 }
 
-@include responsive-mq("md") {
+@include responsive-mq('md') {
 
 }
 
-@include responsive-mq("lg") {
+@include responsive-mq('lg') {
 
 }

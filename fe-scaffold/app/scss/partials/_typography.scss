@@ -1,7 +1,7 @@
 //THIS IS WHERE TYPOGRAPHY STYLING SHOULD GO...
 
 @for $index from 1 through 6 {
-  h#{$index}{
+  h#{$index} {
     color: #fff;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -9,13 +9,14 @@
   }
 }
 
-h1{
-  font-size: 54px;
-  line-height: 1.35;
-  letter-spacing: 1.1px;
+h1 {
   -webkit-font-smoothing: antialiased;
+  font-size: 54px;
+  letter-spacing: 1.1px;
+  line-height: 1.35;
   text-rendering: optimizeLegibility;
 }
+
 h2{
 
 }
@@ -42,6 +43,6 @@ h6{
   color: $base-font-blue;
 }
 
-.underline{
+.underline {
   text-decoration: underline;
 }
