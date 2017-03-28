@@ -39,6 +39,20 @@ gulp.task('jshint', function(){
     .pipe( jshint.reporter('jshint-stylish') );
 });
 
+gulp.task('cleanImage', function(){
+  console.log("CLEAN")
+  return del(
+    [
+      './pub/images/optimized',
+      '../images/optimized'
+    ],
+    {
+      force: true,
+      dryrun: true
+    }
+  );
+});
+
 gulp.task('images', ['cleanImage'], function(){
   return gulp.src('./app/images/**/*')
   .pipe(changed('../images/optimized'))
@@ -62,6 +76,19 @@ gulp.task('sass', function(){
     .pipe( gulp.dest('./pub/stylesheets') )
     .pipe( gulp.dest('../css') ) //send to local git wp dir
     .pipe(connect.reload());
+});
+
+gulp.task('sass-lint', function() {
+  gulp.src([
+    './app/scss/**/*.scss',
+    '!./app/scss/partials/_reset.scss'])
+      .pipe( sassLint({
+        options: {
+          configFile: '.sass-lint.yml'
+        }
+      }) )
+      .pipe( sassLint.format() )
+      .pipe( sassLint.failOnError() );
 });
 
 gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
@@ -112,41 +139,12 @@ gulp.task('serve', [ 'build', 'watch'], function(){
   });
 });
 
-gulp.task('sass-lint', function() {
-  gulp.src([
-    './app/scss/**/*.scss',
-    '!./app/scss/partials/_reset.scss'])
-      .pipe( sassLint({
-        options: {
-          configFile: '.sass-lint.yml'
-        }
-      }) )
-      .pipe( sassLint.format() )
-      .pipe( sassLint.failOnError() );
-});
-
-
-gulp.task('build', ['images', 'html', 'sass', 'buildJS']);
-
-
-gulp.task('cleanImage', function(){
-  console.log("CLEAN")
-  return del(
-    [
-      './pub/images/optimized',
-      '../images/optimized'
-    ],
-    {
-      force: true,
-      dryrun: true
-    }
-  );
-});
-
 gulp.task('reload', function(){
   gutil.log("reloaded");
   connect.reload();
 });
+
+gulp.task('build', ['images', 'html', 'sass', 'buildJS']);
 
 gulp.task('watch', function(){
   gulp.watch('./app/**/*.html', ['html']);
