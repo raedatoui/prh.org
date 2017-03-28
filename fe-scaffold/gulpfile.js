@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const gutil = require('gulp-util');
 const jshint = require('gulp-jshint');
 const sass = require('gulp-sass');
+const sassLint = require('gulp-sass-lint');
 const image = require('gulp-image');
 const postcss = require('gulp-postcss');
 const changed = require('gulp-changed');
@@ -38,6 +39,20 @@ gulp.task('jshint', function(){
     .pipe( jshint.reporter('jshint-stylish') );
 });
 
+gulp.task('cleanImage', function(){
+  console.log("CLEAN")
+  return del(
+    [
+      './pub/images/optimized',
+      '../images/optimized'
+    ],
+    {
+      force: true,
+      dryrun: true
+    }
+  );
+});
+
 gulp.task('images', ['cleanImage'], function(){
   return gulp.src('./app/images/**/*')
   .pipe(changed('../images/optimized'))
@@ -61,6 +76,19 @@ gulp.task('sass', function(){
     .pipe( gulp.dest('./pub/stylesheets') )
     .pipe( gulp.dest('../css') ) //send to local git wp dir
     .pipe(connect.reload());
+});
+
+gulp.task('sass-lint', function() {
+  gulp.src([
+    './app/scss/**/*.scss',
+    '!./app/scss/partials/_reset.scss'])
+      .pipe( sassLint({
+        options: {
+          configFile: '.sass-lint.yml'
+        }
+      }) )
+      .pipe( sassLint.format() )
+      .pipe( sassLint.failOnError() );
 });
 
 gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
@@ -111,30 +139,16 @@ gulp.task('serve', [ 'build', 'watch'], function(){
   });
 });
 
-gulp.task('build', ['images', 'html', 'sass', 'buildJS']);
-
-gulp.task('cleanImage', function(){
-  console.log("CLEAN")
-  return del(
-    [
-      './pub/images/optimized',
-      '../images/optimized'
-    ],
-    {
-      force: true,
-      dryrun: true
-    }
-  );
-});
-
 gulp.task('reload', function(){
   gutil.log("reloaded");
   connect.reload();
 });
 
+gulp.task('build', ['images', 'html', 'sass', 'buildJS']);
+
 gulp.task('watch', function(){
   gulp.watch('./app/**/*.html', ['html']);
   gulp.watch('./app/javascript/**/*.js', ['buildJS', 'reload']);
-  gulp.watch('./app/scss/**/*.scss', ['sass', 'reload']);
-  gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']);
+  gulp.watch('./app/scss/**/*.scss', ['sass', 'sass-lint', 'reload']);
+  gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']); // @TODO: move this out of the watch and into the build
 });

@@ -1,26 +1,26 @@
-//ROBOTO
-@mixin roboto{
+// ROBOTO
+@mixin roboto {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: $regular;
 }
 
-//ROBOTO CONDENSED
-@mixin robotoCondensed{
+// ROBOTO CONDENSED
+@mixin roboto-condensed {
   font-family: 'Roboto Condensed', sans-serif;
   font-style: normal;
   font-weight: $regular;
 }
 
-//ROBOTO SLAB
-@mixin robotoSlab{
+// ROBOTO SLAB
+@mixin roboto-slab {
   font-family: 'Roboto Slab', sans-serif;
   font-style: normal;
   font-weight: $regular;
 }
 
-//LORA
-@mixin lora{
+// LORA
+@mixin lora {
   font-family: 'Lora', sans-serif;
   font-style: normal;
   font-weight: $regular;

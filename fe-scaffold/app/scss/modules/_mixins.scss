@@ -1,10 +1,10 @@
-@import "font_mixins";
+@import 'font_mixins';
 
 @mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
   -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
+  border-radius: $radius;
 }
 
 .round-box {
@@ -19,19 +19,18 @@
     @media #{inspect(map-get($breakpointmap, $name))} {
       @content;
     }
-  }
-  @else {
-    @warn "No value available from `#{$breakpointmap}`. "
-        + "Make sure it is defined in `$breakpointmap` map.";
+  } @else {
+    @warn 'No value available from `#{$breakpointmap}`. '
+    + 'Make sure it is defined in `$breakpointmap` map.';
   }
 }
 
 
 
-@mixin test-border($color){
+@mixin test-border($color) {
   border: 1px solid $color;
 }
 
-@mixin test-fill($color){
+@mixin test-fill($color) {
   background-color: $color;
 }
