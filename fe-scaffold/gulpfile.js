@@ -22,11 +22,19 @@ const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const modernizr = require('gulp-modernizr');
 
+// Asset Pathing
+const projImgSrc = './app/images/**/*';
+const localImgDest = '../images/optimized';
+const pubImgDest = './pub/images/optimized';
+
+const projJsSrcDir = './app/javascript';
+const projJsSrc =  projJsSrcDir + '/**/*.js';
+const localJsDest = '../js';
+const pubJsDest = './pub/javascript';
 
 gulp.task('default', [ 'watch' ]);
 
 gulp.task('html', function(){
-
   gutil.log('HTML UPDATED');
   return gulp.src('./app/*.html')
     .pipe( gulp.dest('./pub'))
@@ -34,7 +42,7 @@ gulp.task('html', function(){
 });
 
 gulp.task('jshint', function(){
-  return gulp.src('./app/javascript/**/*.js')
+  return gulp.src(projJsSrc)
     .pipe( jshint() )
     .pipe( jshint.reporter('jshint-stylish') );
 });
@@ -43,8 +51,8 @@ gulp.task('cleanImage', function(){
   console.log("CLEAN")
   return del(
     [
-      './pub/images/optimized',
-      '../images/optimized'
+      localImgDest,
+      pubImgDest
     ],
     {
       force: true,
@@ -54,17 +62,17 @@ gulp.task('cleanImage', function(){
 });
 
 gulp.task('images', ['cleanImage'], function(){
-  return gulp.src('./app/images/**/*')
-  .pipe(changed('../images/optimized'))
+  return gulp.src(projImgSrc)
+  .pipe(changed(localImgDest))
   .pipe( image({ svgo: true }) )
-  .pipe( gulp.dest( './pub/images/optimized' ) )
-  .pipe( gulp.dest( '../images/optimized' ) );
+  .pipe( gulp.dest(pubImgDest) )
+  .pipe( gulp.dest(localImgDest) );
 });
 
 gulp.task('modernizr', function() {
-  gulp.src('./app/javascript/**/*.js')
+  gulp.src(projJsSrc)
     .pipe(modernizr())
-    .pipe(gulp.dest("./app/javascript"))
+    .pipe(gulp.dest(projJsSrcDir))
 });
 
 gulp.task('sass', function(){
@@ -117,14 +125,14 @@ gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
       uglify()
     ]
   })
-  .pipe( source( 'main.js', './app/javascript' ) )
+  .pipe( source( 'main.js', projJsSrcDir ) )
   .pipe( buffer() )
   .pipe( sourcemaps.init( { loadMaps: true } ) )
   .pipe( buble() )
   .pipe( rename('bundle.js' ) )
   .pipe( sourcemaps.write('.') )
-  .pipe( gulp.dest('./pub/javascript') ) //send to scaffold env
-  .pipe( gulp.dest('../js') ) //send to wp dir
+  .pipe( gulp.dest(pubJsDest) ) //send to scaffold env
+  .pipe( gulp.dest(localJsDest) ) //send to wp dir
   .on('end', function() {
     del(['./app/javascript/modernizr.js']);
   });
@@ -148,7 +156,7 @@ gulp.task('build', ['images', 'html', 'sass', 'buildJS']);
 
 gulp.task('watch', function(){
   gulp.watch('./app/**/*.html', ['html']);
-  gulp.watch('./app/javascript/**/*.js', ['buildJS', 'reload']);
+  gulp.watch(projJsSrc, ['buildJS', 'reload']);
   gulp.watch('./app/scss/**/*.scss', ['sass', 'sass-lint', 'reload']);
-  gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']); // @TODO: move this out of the watch and into the build
+  // gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']); // @TODO: move this out of the watch and into the build
 });
