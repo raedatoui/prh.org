@@ -43,7 +43,7 @@ gulp.task('images', ['cleanImage'], function(){
   return gulp.src('./app/images/**/*')
   .pipe(changed('../images/optimized'))
   .pipe( image({ svgo: true }) )
-  //.pipe( gulp.dest( './pub/images' ) ) //no longer necessary - consider removal
+  .pipe( gulp.dest( './pub/images/optimized' ) )
   .pipe( gulp.dest( '../images/optimized' ) );
 });
 
@@ -87,7 +87,7 @@ gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
       includePaths({
         paths: [ './app/javascript/' ]
       }),
-      //uglify()
+      uglify()
     ]
   })
   .pipe( source( 'main.js', './app/javascript' ) )
@@ -104,7 +104,7 @@ gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
 
 });
 
-gulp.task('serve', ['images', 'watch'], function(){
+gulp.task('serve', [ 'build', 'watch'], function(){
   connect.server({
     port: 9000,
     root: ['./pub'],
@@ -123,11 +123,15 @@ gulp.task('sass-lint', function() {
       .pipe( sassLint.failOnError() );
 });
 
+
+gulp.task('build', ['images', 'html', 'sass', 'buildJS']);
+
+
 gulp.task('cleanImage', function(){
   console.log("CLEAN")
   return del(
     [
-      './pub/images',
+      './pub/images/optimized',
       '../images/optimized'
     ],
     {

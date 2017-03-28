@@ -3,8 +3,26 @@
 //  BASE SITE VARS
 //
 //------------------------------------------------
+
+//COLORS DEFINITIONS
+$prh-blue-lt: #286eaf;
+$prh-blue-dk: #14456a;
+$prh-pink-lt: #fed1c8;
+$prh-pink-dk: #fabbb5;
+$prh-cream-lt: #fee7d7;
+$prh-cream-dk: #f9dcc6;
+$prh-navy-lt: #28497e;
+$prh-navy-dk: #1f3e72;
+$prh-purple-lt: #a5aee7;
+$prh-purple-dk: #c0c6e9;
+
+
+//GRADIENTS
+$gradient-linear-blue: linear-gradient(to bottom right, $prh-blue-lt 0%, $prh-blue-dk 100%);
+$gradient-radial-blue: radial-gradient(farthest-corner at 50px 50px , $prh-blue-lt 0%, $prh-blue-dk 100%);
+
 $base-bg-color: #fff;
-$base-color-blue: #286eaf;
+$base-color-blue: $prh-blue-lt;
 $base-page-max-width: 1320px !default;
 $base-gutter: 2%;
 

@@ -7,6 +7,47 @@ body{
   @include roboto();
 }
 
+//------------------------------------------------------------------------------------------
+// COMMON: base page structure
+//------------------------------------------------------------------------------------------
+#page-container{
+  width: 100%;
+  background-color: #ccc;
+}
+
+.page-content{
+  max-width: $base-page-max-width;
+  margin: 0 auto;
+}
+
+//------------------------------------------------------------------------------------------
+// COMMON: section header titles
+//------------------------------------------------------------------------------------------
+.section-title{
+  position: absolute;
+  color: #fff;
+  width: 20%;
+  height: 30px;
+  min-width: 100px;
+  max-width: 290px;
+  text-align: right;
+
+  background: url("../images/optimized/asset_detail_wave.png")  repeat-x bottom right;
+
+
+  h3{
+    font-size: 12px;
+    letter-spacing: .15em;
+    @include roboto();
+    font-weight: $light;
+  }
+
+}
+
+
+//------------------------------------------------------------------------------------------
+// RESPONSIVE TEST MARKER
+//------------------------------------------------------------------------------------------
 #test{
   position: fixed;
   bottom: 0px; left: 0px;
@@ -39,10 +80,4 @@ body{
   #test{
     @include test-fill(#0ff);
   }
-}
-
-
-#page-container{
-  width: 100%;
-  background-color: #ccc;
 }
