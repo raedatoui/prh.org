@@ -1,9 +1,26 @@
 //HERO SECTION
 section#hero{
   padding-top: 150px;
-  background-color: $base-color-blue;
+  background-image: $gradient-radial-blue;
   min-height: 300px;
+
+  .hero-grid{
+
+    margin-left: 25%;
+    max-width: 75%;
+
+    .hero-item{
+      border: 1px solid red;
+      h1{
+        @include lora();
+      }
+    }
+
+  }
+
 }
+
+
 
 
 //MEDIA QUERY HANDLERS
@@ -14,7 +31,7 @@ section#hero{
 @include responsive-mq("sm") {
 
   section#hero{
-    padding-top: 100px;
+    padding-top: 150px;
   }
 
 }

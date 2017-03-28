@@ -1,7 +1,9 @@
 //nav SECTION
 nav{
 
-  @include robotoLight();
+  @include roboto();
+  font-weight: $light;
+  
   color: #fff;
   font-size: 1em;
   letter-spacing: .05em;

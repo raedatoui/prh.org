@@ -1,1 +1,24 @@
 //THIS IS WHERE TYPOGRAPHY STYLING SHOULD GO...
+
+@for $index from 1 through 6 {
+  h#{$index}{
+    color: #fff;
+  }
+}
+
+h1{
+  font-size: 54px;
+  line-height: 1.35;
+  letter-spacing: 1.1px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h2{}
+h3{}
+h4{}
+h5{}
+h6{}
+
+.underline{
+  text-decoration: underline;
+}
