@@ -23,26 +23,31 @@ const commonjs = require('rollup-plugin-commonjs');
 const modernizr = require('gulp-modernizr');
 
 // Asset Pathing
-const projImgSrc = './app/images/**/*';
+const projSrcDir = './app';
+const projDestDir = './pub';
+
+const projHtmlSrc = projSrcDir + '/*.html';
+
+const projImgSrc = projSrcDir + '/images/**/*';
+const pubImgDest = projDestDir + '/images/optimized';
 const localImgDest = '../images/optimized';
-const pubImgDest = './pub/images/optimized';
 
-const projJsSrcDir = './app/javascript';
+const projJsSrcDir = projSrcDir + '/javascript';
 const projJsSrc =  projJsSrcDir + '/**/*.js';
+const pubJsDest = projDestDir + '/javascript';
 const localJsDest = '../js';
-const pubJsDest = './pub/javascript';
 
-const projSassEntry = './app/scss/main.scss';
-const projSassSrc = './app/scss/**/*.scss';
+const projSassEntry = projSrcDir + '/scss/main.scss';
+const projSassSrc = projSrcDir + '/scss/**/*.scss';
+const pubSassDest = projDestDir + '/stylesheets';
 const localSassDest = '../css';
-const pubSassDest = './pub/stylesheets';
 
 gulp.task('default', [ 'watch' ]);
 
 gulp.task('html', function(){
   gutil.log('HTML UPDATED');
-  return gulp.src('./app/*.html')
-    .pipe( gulp.dest('./pub'))
+  return gulp.src(projHtmlSrc)
+    .pipe( gulp.dest(projDestDir))
     .pipe(connect.reload());
 });
 
@@ -104,12 +109,12 @@ gulp.task('sass-lint', function() {
       .pipe( sassLint.failOnError() );
 });
 
-gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
+gulp.task('buildJS', [ 'jshint', 'modernizr' ], function(){
   return rollup({
-    format: "umd", //umd,amd,cjs
-    moduleName: "mainBundle", //only for umd
-    exports: "named",
-    entry: projJsSrcDir + "/main.js",
+    format: 'umd', //umd,amd,cjs
+    moduleName: 'mainBundle', //only for umd
+    exports: 'named',
+    entry: projJsSrcDir + '/main.js',
     sourceMap: true,
     plugins: [
       nodeResolve({
@@ -147,13 +152,13 @@ gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
 gulp.task('serve', [ 'build', 'watch'], function(){
   connect.server({
     port: 9000,
-    root: ['./pub'],
+    root: [projDestDir],
     livereload: true
   });
 });
 
 gulp.task('reload', function(){
-  gutil.log("reloaded");
+  gutil.log('reloaded');
   connect.reload();
 });
 
@@ -163,5 +168,4 @@ gulp.task('watch', function(){
   gulp.watch('./app/**/*.html', ['html']);
   gulp.watch(projJsSrc, ['buildJS', 'reload']);
   gulp.watch(projSassSrc, ['sass', 'sass-lint', 'reload']);
-  // gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']); // @TODO: move this out of the watch and into the build
 });
