@@ -20,6 +20,10 @@ body{
   margin: 0 auto;
 }
 
+section{
+  min-height: 150px;
+}
+
 //------------------------------------------------------------------------------------------
 // COMMON: section header titles
 //------------------------------------------------------------------------------------------
@@ -33,15 +37,14 @@ body{
   text-align: right;
 
   background: url("../images/optimized/asset_detail_wave.png")  repeat-x bottom right;
+}
 
-
+.section-title-dk{
+  @extend .section-title;
   h3{
-    font-size: 12px;
-    letter-spacing: .15em;
-    @include roboto();
-    font-weight: $light;
+    color: $base-font-blue;
   }
-
+  background: url("../images/optimized/asset_detail_wave_dk.png")  repeat-x bottom right;
 }
 
 

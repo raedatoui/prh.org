@@ -18,9 +18,18 @@ $prh-purple-dk: #c0c6e9;
 
 
 //GRADIENTS
-$gradient-linear-blue: linear-gradient(to bottom right, $prh-blue-lt 0%, $prh-blue-dk 100%);
+$gradient-linear-blue: linear-gradient(to right, $prh-blue-lt 0%, $prh-blue-dk 100%);
 $gradient-radial-blue: radial-gradient(farthest-corner at 50px 50px , $prh-blue-lt 0%, $prh-blue-dk 100%);
 
+$gradient-linear-pink: linear-gradient( to bottom, $prh-pink-lt 0%, $prh-pink-dk 75%);
+$gradient-radial-pink: radial-gradient(farthest-corner at 50px 50px , $prh-pink-lt 0%, $prh-pink-dk 100%);
+
+//FONT COLORS
+$base-font-white: #fff;
+$base-font-blue: #02243d;
+$base-font-gray: #322826;
+
+//GENERAL PAGE LAYOUT/CHAR
 $base-bg-color: #fff;
 $base-color-blue: $prh-blue-lt;
 $base-page-max-width: 1320px !default;
@@ -44,10 +53,12 @@ $black: 900;
 // Base Font
 $base-font-family: 'Roboto', sans-serif;
 $base-font-weight: $regular;
-$base-font-color: #02243d;
+$base-font-color: $base-font-blue;
 $base-font-kerning: 0;
 $base-font-size: 16px;
 $base-line-height: 1;
+
+
 
 
 //------------------------------------------------

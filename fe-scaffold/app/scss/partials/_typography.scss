@@ -3,6 +3,9 @@
 @for $index from 1 through 6 {
   h#{$index}{
     color: #fff;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    @include roboto();
   }
 }
 
@@ -13,11 +16,31 @@ h1{
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-h2{}
-h3{}
-h4{}
-h5{}
-h6{}
+h2{
+
+}
+
+h3{
+  font-size: 12px;
+  letter-spacing: .15em;
+  font-weight: $medium;
+}
+
+h4{
+
+}
+
+h5{
+
+}
+
+h6{
+
+}
+
+.dark-blue{
+  color: $base-font-blue;
+}
 
 .underline{
   text-decoration: underline;

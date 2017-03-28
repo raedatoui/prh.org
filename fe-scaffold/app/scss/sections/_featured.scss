@@ -1,0 +1,39 @@
+//USE THIS AS A TEMPLATE TO CREATE NEW SECTIONS
+//featured SECTION
+section#featured{
+
+  background: $prh-pink-lt;
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+  // .hero-grid{
+  //
+  //   margin-left: 25%;
+  //   max-width: 75%;
+  //
+  //   .hero-item{
+  //     border: 1px solid red;
+  //     h1{
+  //       @include lora();
+  //     }
+  //   }
+  // }
+}
+
+
+//MEDIA QUERY HANDLERS
+@include responsive-mq("xs") {
+
+}
+
+@include responsive-mq("sm") {
+
+}
+
+@include responsive-mq("md") {
+
+}
+
+@include responsive-mq("lg") {
+
+}

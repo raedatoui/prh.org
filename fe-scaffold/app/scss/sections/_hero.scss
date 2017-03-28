@@ -1,8 +1,9 @@
 //HERO SECTION
 section#hero{
+
   padding-top: 150px;
+  padding-bottom: 300px;
   background-image: $gradient-radial-blue;
-  min-height: 300px;
 
   .hero-grid{
 
@@ -15,7 +16,6 @@ section#hero{
         @include lora();
       }
     }
-
   }
 
 }
