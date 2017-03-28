@@ -150,5 +150,5 @@ gulp.task('watch', function(){
   gulp.watch('./app/**/*.html', ['html']);
   gulp.watch('./app/javascript/**/*.js', ['buildJS', 'reload']);
   gulp.watch('./app/scss/**/*.scss', ['sass', 'sass-lint', 'reload']);
-  gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']);
+  gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']); // @TODO: move this out of the watch and into the build
 });
