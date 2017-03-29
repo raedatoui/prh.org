@@ -22,3 +22,8 @@ tmp/
 fe-scaffold/pub/
 fe-scaffold/node_modules/
 node_modules/
+
+css/main.css
+css/main.css.map
+js/bundle.js
+js/bundle.js.map
