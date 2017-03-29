@@ -2,8 +2,8 @@
 
 @for $index from 1 through 6 {
   h#{$index} {
-    color: #fff;
     -webkit-font-smoothing: antialiased;
+    color: #fff;
     text-rendering: optimizeLegibility;
     @include roboto();
   }
@@ -17,29 +17,29 @@ h1 {
   text-rendering: optimizeLegibility;
 }
 
-h2{
+h2 {
 
 }
 
-h3{
+h3 {
   font-size: 12px;
-  letter-spacing: .15em;
   font-weight: $medium;
+  letter-spacing: .15em;
 }
 
-h4{
-
-}
-
-h5{
+h4 {
 
 }
 
-h6{
+h5 {
 
 }
 
-.dark-blue{
+h6 {
+
+}
+
+.dark-blue {
   color: $base-font-blue;
 }
 

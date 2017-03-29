@@ -1,86 +1,94 @@
-body{
+body {
   background-color: $base-bg-color;
   color: $base-font-color;
   font-size: $base-font-size;
-  line-height: $base-line-height;
   letter-spacing: $base-font-kerning;
+  line-height: $base-line-height;
   @include roboto();
 }
 
 //------------------------------------------------------------------------------------------
 // COMMON: base page structure
 //------------------------------------------------------------------------------------------
-#page-container{
-  width: 100%;
+.page-container {
   background-color: #ccc;
+  width: 100%;
 }
 
-.page-content{
-  max-width: $base-page-max-width;
+.page-content {
   margin: 0 auto;
+  max-width: $base-page-max-width;
 }
 
-section{
+section {
   min-height: 150px;
 }
 
 //------------------------------------------------------------------------------------------
 // COMMON: section header titles
 //------------------------------------------------------------------------------------------
-.section-title{
-  position: absolute;
-  color: #fff;
-  width: 20%;
-  height: 30px;
-  min-width: 100px;
-  max-width: 290px;
-  text-align: right;
 
-  background: url("../images/optimized/asset_detail_wave.png")  repeat-x bottom right;
+%section-title-placeholder {
+  height: 30px;
+  max-width: 290px;
+  min-width: 100px;
+  position: absolute;
+  text-align: right;
+  width: 20%;
 }
 
-.section-title-dk{
-  @extend .section-title;
-  h3{
+.section-title {
+  @extend %section-title-placeholder;
+  background: url('../images/optimized/asset_detail_wave.png')  repeat-x bottom right;
+  color: #fff;
+}
+
+.section-title-dk {
+  @extend %section-title-placeholder;
+  background: url('../images/optimized/asset_detail_wave_dk.png')  repeat-x bottom right;
+
+  h3 {
     color: $base-font-blue;
   }
-  background: url("../images/optimized/asset_detail_wave_dk.png")  repeat-x bottom right;
+
 }
 
 
 //------------------------------------------------------------------------------------------
 // RESPONSIVE TEST MARKER
 //------------------------------------------------------------------------------------------
-#test{
-  position: fixed;
-  bottom: 0px; left: 0px;
-  width: 150px;
+.test {
+
+  bottom: 0;
   height: 8px;
+  left: 0;
+  position: fixed;
+  width: 150px;
   z-index: 10;
   @include test-fill(#ccc);
 }
 
 //MEDIA QUERY HANDLERS
-@include responsive-mq("xs") {
-  #test{
+@include responsive-mq('xs') {
+  .test {
     @include test-fill(#f00);
   }
 }
 
-@include responsive-mq("sm") {
-  #test{
+@include responsive-mq('sm') {
+  .test {
     @include test-fill(#0f0);
   }
 }
 
-@include responsive-mq("md") {
-  #test{
+@include responsive-mq('md') {
+  .test {
     @include test-fill(#00f);
   }
 }
 
-@include responsive-mq("lg") {
-  #test{
+@include responsive-mq('lg') {
+  .test {
     @include test-fill(#0ff);
   }
 }

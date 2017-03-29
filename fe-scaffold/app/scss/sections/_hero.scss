@@ -1,16 +1,8 @@
 //HERO SECTION
-<<<<<<< HEAD
-section#hero{
-
-  padding-top: 150px;
+.hero {
+  background-image: $gradient-radial-blue;
   padding-bottom: 300px;
-  background-image: $gradient-radial-blue;
-=======
-#hero {
-  background-image: $gradient-radial-blue;
-  min-height: 300px;
   padding-top: 150px;
->>>>>>> origin/develop
 
   .hero-grid {
     margin-left: 25%;
@@ -22,12 +14,11 @@ section#hero{
       h1 {
         @include lora();
       }
+
     }
   }
 
 }
-
-
 
 
 //MEDIA QUERY HANDLERS
@@ -37,7 +28,7 @@ section#hero{
 
 @include responsive-mq('sm') {
 
-  #hero {
+  .hero {
     padding-top: 150px;
   }
 
