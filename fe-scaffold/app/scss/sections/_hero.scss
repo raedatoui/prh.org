@@ -1,20 +1,38 @@
 //HERO SECTION
 .hero {
   background-image: $gradient-radial-blue;
+  color: $base-font-white;
   padding-bottom: 300px;
   padding-top: 150px;
 
+  .section-title {
+    display: none;
+  }
+
+  .hero-device-title {
+    display: block;
+  }
+
+  .hero-item-txt {
+    font-size: 18px;
+    font-weight: $thin;
+    letter-spacing: .09em;
+    margin-top: 15px;
+
+  }
+
   .hero-grid {
-    margin-left: 25%;
-    max-width: 75%;
+    margin-left: 0%;
+    max-width: 100%;
 
     .hero-item {
-      border: 1px solid #f00;
-
       h1 {
         @include lora();
       }
+    }
 
+    .hero-item-txt {
+      padding: 20px 0;
     }
   }
 
@@ -30,11 +48,26 @@
 
   .hero {
     padding-top: 150px;
+
+    .hero-grid {
+      margin-left: 25%;
+      max-width: 75%;
+    }
+
+    .section-title {
+      display: block;
+    }
+
+    .hero-device-title {
+      display: none;
+    }
+
   }
 
 }
 
 @include responsive-mq('md') {
+
 
 }
 
