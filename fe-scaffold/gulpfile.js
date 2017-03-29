@@ -22,19 +22,37 @@ const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const modernizr = require('gulp-modernizr');
 
+// Asset Pathing
+const projSrcDir = './app';
+const projDestDir = './pub';
+
+const projHtmlSrc = projSrcDir + '/*.html';
+
+const projImgSrc = projSrcDir + '/images/**/*';
+const pubImgDest = projDestDir + '/images/optimized';
+const localImgDest = '../images/optimized';
+
+const projJsSrcDir = projSrcDir + '/javascript';
+const projJsSrc =  projJsSrcDir + '/**/*.js';
+const pubJsDest = projDestDir + '/javascript';
+const localJsDest = '../js';
+
+const projSassEntry = projSrcDir + '/scss/main.scss';
+const projSassSrc = projSrcDir + '/scss/**/*.scss';
+const pubSassDest = projDestDir + '/stylesheets';
+const localSassDest = '../css';
 
 gulp.task('default', [ 'watch' ]);
 
 gulp.task('html', function(){
-
   gutil.log('HTML UPDATED');
-  return gulp.src('./app/*.html')
-    .pipe( gulp.dest('./pub'))
+  return gulp.src(projHtmlSrc)
+    .pipe( gulp.dest(projDestDir))
     .pipe(connect.reload());
 });
 
 gulp.task('jshint', function(){
-  return gulp.src('./app/javascript/**/*.js')
+  return gulp.src(projJsSrc)
     .pipe( jshint() )
     .pipe( jshint.reporter('jshint-stylish') );
 });
@@ -43,8 +61,8 @@ gulp.task('cleanImage', function(){
   console.log("CLEAN")
   return del(
     [
-      './pub/images/optimized',
-      '../images/optimized'
+      localImgDest,
+      pubImgDest
     ],
     {
       force: true,
@@ -54,33 +72,33 @@ gulp.task('cleanImage', function(){
 });
 
 gulp.task('images', ['cleanImage'], function(){
-  return gulp.src('./app/images/**/*')
-  .pipe(changed('../images/optimized'))
+  return gulp.src(projImgSrc)
+  .pipe(changed(localImgDest))
   .pipe( image({ svgo: true }) )
-  .pipe( gulp.dest( './pub/images/optimized' ) )
-  .pipe( gulp.dest( '../images/optimized' ) );
+  .pipe( gulp.dest(pubImgDest) )
+  .pipe( gulp.dest(localImgDest) );
 });
 
 gulp.task('modernizr', function() {
-  gulp.src('./app/javascript/**/*.js')
+  gulp.src(projJsSrc)
     .pipe(modernizr())
-    .pipe(gulp.dest("./app/javascript"))
+    .pipe(gulp.dest(projJsSrcDir))
 });
 
 gulp.task('sass', function(){
-  return gulp.src('./app/scss/main.scss')
+  return gulp.src(projSassEntry)
     .pipe( sourcemaps.init() )
     .pipe( sass( { outputStyle: 'compressed', includePaths: './node_modules' } ).on( 'error', sass.logError ) ) //compressed  on launch
     .pipe( postcss([ require('autoprefixer') ]) )
     .pipe( sourcemaps.write('.') )
-    .pipe( gulp.dest('./pub/stylesheets') )
-    .pipe( gulp.dest('../css') ) //send to local git wp dir
+    .pipe( gulp.dest(pubSassDest) )
+    .pipe( gulp.dest(localSassDest) ) //send to local git wp dir
     .pipe(connect.reload());
 });
 
 gulp.task('sass-lint', function() {
   gulp.src([
-    './app/scss/**/*.scss',
+    projSassSrc,
     '!./app/scss/partials/_reset.scss'])
       .pipe( sassLint({
         options: {
@@ -91,12 +109,12 @@ gulp.task('sass-lint', function() {
       .pipe( sassLint.failOnError() );
 });
 
-gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
+gulp.task('buildJS', [ 'jshint', 'modernizr' ], function(){
   return rollup({
-    format: "umd", //umd,amd,cjs
-    moduleName: "mainBundle", //only for umd
-    exports: "named",
-    entry: "./app/javascript/main.js",
+    format: 'umd', //umd,amd,cjs
+    moduleName: 'mainBundle', //only for umd
+    exports: 'named',
+    entry: projJsSrcDir + '/main.js',
     sourceMap: true,
     plugins: [
       nodeResolve({
@@ -112,21 +130,21 @@ gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
         }
       }),
       includePaths({
-        paths: [ './app/javascript/' ]
+        paths: [ projJsSrcDir + '/' ]
       }),
       uglify()
     ]
   })
-  .pipe( source( 'main.js', './app/javascript' ) )
+  .pipe( source( 'main.js', projJsSrcDir ) )
   .pipe( buffer() )
   .pipe( sourcemaps.init( { loadMaps: true } ) )
   .pipe( buble() )
   .pipe( rename('bundle.js' ) )
   .pipe( sourcemaps.write('.') )
-  .pipe( gulp.dest('./pub/javascript') ) //send to scaffold env
-  .pipe( gulp.dest('../js') ) //send to wp dir
+  .pipe( gulp.dest(pubJsDest) ) //send to scaffold env
+  .pipe( gulp.dest(localJsDest) ) //send to wp dir
   .on('end', function() {
-    del(['./app/javascript/modernizr.js']);
+    del([projJsSrcDir + '/modernizr.js']);
   });
 
 });
@@ -134,13 +152,13 @@ gulp.task('buildJS', [ 'jshint', 'modernizr', 'images' ], function(){
 gulp.task('serve', [ 'build', 'watch'], function(){
   connect.server({
     port: 9000,
-    root: ['./pub'],
+    root: [projDestDir],
     livereload: true
   });
 });
 
 gulp.task('reload', function(){
-  gutil.log("reloaded");
+  gutil.log('reloaded');
   connect.reload();
 });
 
@@ -148,7 +166,6 @@ gulp.task('build', ['images', 'html', 'sass', 'buildJS']);
 
 gulp.task('watch', function(){
   gulp.watch('./app/**/*.html', ['html']);
-  gulp.watch('./app/javascript/**/*.js', ['buildJS', 'reload']);
-  gulp.watch('./app/scss/**/*.scss', ['sass', 'sass-lint', 'reload']);
-  gulp.watch('app/images/**/*', {cwd:'./'}, ['images', 'reload']); // @TODO: move this out of the watch and into the build
+  gulp.watch(projJsSrc, ['buildJS', 'reload']);
+  gulp.watch(projSassSrc, ['sass', 'sass-lint', 'reload']);
 });
