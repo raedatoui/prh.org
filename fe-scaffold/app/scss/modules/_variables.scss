@@ -1,7 +1,5 @@
 //------------------------------------------------
-//
 //  BASE SITE VARS
-//
 //------------------------------------------------
 
 //COLORS DEFINITIONS
@@ -15,6 +13,7 @@ $prh-navy-lt: #28497e;
 $prh-navy-dk: #1f3e72;
 $prh-purple-lt: #a5aee7;
 $prh-purple-dk: #c0c6e9;
+$prh-gray: #777777;
 
 
 //GRADIENTS
@@ -37,9 +36,7 @@ $base-gutter: 2%;
 
 
 //------------------------------------------------
-//
 //  FONTS VARS
-//
 //------------------------------------------------
 //Font Weight
 $thin: 100;
@@ -62,13 +59,14 @@ $base-font-kerning: 0;
 $base-font-size: 16px;
 $base-line-height: 1;
 
-
-
+//------------------------------------------------
+//  MODULE SPACINGS
+//------------------------------------------------
+$module-padding-xs: 30px;
+$module-padding-lg: 60px;
 
 //------------------------------------------------
-//
 //  FLEXBOX GRID BREAKPOINTS
-//
 //------------------------------------------------
 
 // Set the number of columns you want to use on your layout.

@@ -1,16 +1,15 @@
+$carousel-side-padding: 50px;
 .hero-grid {
-  margin-left: calc(25% - 50px);
+  margin-left: calc(25% - #{$carousel-side-padding});
 }
 
 .carousel {
-  padding: 0 50px;
+  padding: 0 $carousel-side-padding;
   width: 75%;
   margin-right: 10px;
-  overflow: hidden;
 }
 
 .slide {
-  height: 350px;
   width: 100%;
 }
 
@@ -23,5 +22,20 @@
 
   .arrow {
     fill: #000;
+  }
+}
+
+.flickity-page-dots {
+  width: calc(100% - 100px);
+
+  .dot {
+    background: transparent;
+    border: 2px solid $prh-gray;
+    opacity: 1;
+    margin: 0 5px;
+
+    &.is-selected {
+      border-color: #000;
+    }
   }
 }

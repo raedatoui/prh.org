@@ -12,7 +12,6 @@ function init(){
   let carousel = document.querySelector('.carousel');
   let flickity = new Flickity(carousel, {
     cellAlign: 'left',
-    cellSelector: '.slide',
     imagesLoaded: true,
     adaptiveHeight: true,
     wrapAround: 'true'
