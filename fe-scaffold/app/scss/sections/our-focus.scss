@@ -1,9 +1,9 @@
 //USE THIS AS A TEMPLATE TO CREATE NEW SECTIONS
-//XXXXXX SECTION
-// section#XXXXXX{
 
-// }
-
+//our focus SECTION
+.our-focus {
+  background: $gradient-linear-pink;
+}
 
 //MEDIA QUERY HANDLERS
 @include responsive-mq('xs') {

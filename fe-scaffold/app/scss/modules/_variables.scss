@@ -5,7 +5,7 @@
 //------------------------------------------------
 
 //COLORS DEFINITIONS
-$prh-blue-lt: #286eaf;
+$prh-blue-lt: #2b83c6;
 $prh-blue-dk: #14456a;
 $prh-pink-lt: #fed1c8;
 $prh-pink-dk: #fabbb5;
@@ -18,9 +18,18 @@ $prh-purple-dk: #c0c6e9;
 
 
 //GRADIENTS
-$gradient-linear-blue: linear-gradient(to bottom right, $prh-blue-lt 0%, $prh-blue-dk 100%);
-$gradient-radial-blue: radial-gradient(farthest-corner at 50px 50px , $prh-blue-lt 0%, $prh-blue-dk 100%);
+$gradient-linear-blue: linear-gradient(to right, $prh-blue-lt 0%, $prh-blue-dk 100%);
+$gradient-radial-blue: radial-gradient(farthest-corner at 150px 150px , $prh-blue-lt 0%, $prh-blue-dk 100%);
 
+$gradient-linear-pink: linear-gradient(to bottom, $prh-pink-lt 0%, $prh-pink-dk 75%);
+$gradient-radial-pink: radial-gradient(farthest-corner at 50px 50px , $prh-pink-lt 0%, $prh-pink-dk 100%);
+
+//FONT COLORS
+$base-font-white: #fff;
+$base-font-blue: #02243d;
+$base-font-gray: #322826;
+
+//GENERAL PAGE LAYOUT/CHAR
 $base-bg-color: #fff;
 $base-color-blue: $prh-blue-lt;
 $base-page-max-width: 1320px !default;
@@ -32,7 +41,6 @@ $base-gutter: 2%;
 //  FONTS VARS
 //
 //------------------------------------------------
-
 //Font Weight
 $thin: 100;
 $light: 300;
@@ -41,13 +49,20 @@ $medium: 500;
 $bold: 700;
 $black: 900;
 
-// Base Font
-$base-font-family: 'Roboto', sans-serif;
+// Base Fonts
+$lora: 'Lora', sans-serif;
+$roboto: 'Roboto', sans-serif;
+$roboto-slab: 'Roboto Slab', sans-serif;
+$roboto-condensed: 'Roboto Condensed', sans-serif;
+
+$base-font-family: $roboto;
 $base-font-weight: $regular;
-$base-font-color: #02243d;
+$base-font-color: $base-font-blue;
 $base-font-kerning: 0;
 $base-font-size: 16px;
 $base-line-height: 1;
+
+
 
 
 //------------------------------------------------
@@ -60,14 +75,18 @@ $base-line-height: 1;
 $grid-columns: 12 !default;
 
 // Set the gutter between columns.
-$gutter-width: 0 !default;
+$gutter-width: 0 !default; //use rem
 
 // Set a margin for the container sides.
-$outer-margin: 0 !default;
+$outer-margin: 0 !default; //use rem
 
 // Create or remove breakpoints for your project
 // Syntax: name SIZErem,
-$breakpoints: xs 40em 38rem, sm 48em 46rem, md 62em 61rem, lg 75em 71rem !default;
+$breakpoints:
+xs 40em 38rem,
+sm 48em 46rem,
+md 62em 61rem,
+lg 75em 71rem !default;
 
 $flexboxgrid-max-width: $base-page-max-width !default;
 

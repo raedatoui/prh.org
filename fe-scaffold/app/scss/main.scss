@@ -1,25 +1,29 @@
 //PRH STATIC SCAFFOLDING SITE FOR WORDPRESS
 
-
-// MODULES & VARS
+//MODULES & VARS
 @import 'modules/all';
 
-// PARTIALS
+
+//PARTIALS
 @import 'partials/reset';
-@import 'partials/fonts';
 @import 'partials/buttons';
 @import 'partials/grids';
 @import 'partials/typography';
 @import 'partials/base-styles'; //set base site
 
-// 3rd PARTY VENDORS
+
+//3rd PARTY VENDORS
 @import 'vendor/flexboxgrid';
 
-// PAGES
-// @import 'pages/site-base-styles';
-// @import 'pages/home_template_page';
 
-// SECTIONS
-// @import 'sections/site-base-styles';
+//PAGES
+//@import "pages/site-base-styles";
+//@import "pages/home_template_page"
+
+
+//SECTIONS
+//@import "sections/site-base-styles";
 @import 'sections/nav';
 @import 'sections/hero';
+@import 'sections/featured';
+@import 'sections/our-focus';

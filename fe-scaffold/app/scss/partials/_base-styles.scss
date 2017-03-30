@@ -1,17 +1,16 @@
 body {
-  @include roboto();
-
   background-color: $base-bg-color;
   color: $base-font-color;
   font-size: $base-font-size;
   letter-spacing: $base-font-kerning;
   line-height: $base-line-height;
+  @include roboto();
 }
 
 //------------------------------------------------------------------------------------------
 // COMMON: base page structure
 //------------------------------------------------------------------------------------------
-#page-container {
+.page-container {
   background-color: #ccc;
   width: 100%;
 }
@@ -21,26 +20,35 @@ body {
   max-width: $base-page-max-width;
 }
 
+section {
+  min-height: 150px;
+}
+
 //------------------------------------------------------------------------------------------
 // COMMON: section header titles
 //------------------------------------------------------------------------------------------
-.section-title {
-  background: url('../images/optimized/asset_detail_wave.png')  repeat-x bottom right;
-  color: #fff;
+
+%section-title-placeholder {
   height: 30px;
   max-width: 290px;
   min-width: 100px;
   position: absolute;
   text-align: right;
   width: 20%;
+}
 
+.section-title {
+  @extend %section-title-placeholder;
+  background: url('../images/optimized/asset_detail_wave.png')  repeat-x bottom right;
+  color: #fff;
+}
+
+.section-title-dk {
+  @extend %section-title-placeholder;
+  background: url('../images/optimized/asset_detail_wave_dk.png')  repeat-x bottom right;
 
   h3 {
-    @include roboto();
-
-    font-size: 12px;
-    font-weight: $light;
-    letter-spacing: .15em;
+    color: $base-font-blue;
   }
 
 }
@@ -49,38 +57,37 @@ body {
 //------------------------------------------------------------------------------------------
 // RESPONSIVE TEST MARKER
 //------------------------------------------------------------------------------------------
-#test {
-  @include test-fill(#ccc);
-
+.test {
   bottom: 0;
   height: 8px;
   left: 0;
   position: fixed;
   width: 150px;
   z-index: 10;
+  @include test-fill(#ccc);
 }
 
 //MEDIA QUERY HANDLERS
 @include responsive-mq('xs') {
-  #test {
+  .test {
     @include test-fill(#f00);
   }
 }
 
 @include responsive-mq('sm') {
-  #test {
+  .test {
     @include test-fill(#0f0);
   }
 }
 
 @include responsive-mq('md') {
-  #test {
+  .test {
     @include test-fill(#00f);
   }
 }
 
 @include responsive-mq('lg') {
-  #test {
+  .test {
     @include test-fill(#0ff);
   }
 }
