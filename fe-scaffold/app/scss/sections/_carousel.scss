@@ -1,0 +1,27 @@
+.hero-grid {
+  margin-left: calc(25% - 50px);
+}
+
+.carousel {
+  padding: 0 50px;
+  width: 75%;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.slide {
+  height: 350px;
+  width: 100%;
+}
+
+.flickity-prev-next-button {
+  background: transparent;
+
+  &:hover {
+    background: transparent;
+  }
+
+  .arrow {
+    fill: #000;
+  }
+}
