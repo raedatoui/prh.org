@@ -23,6 +23,13 @@ nav {
 
         li {
           text-align: center;
+          a {
+            color: white;
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
         }
       }
     }

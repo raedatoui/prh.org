@@ -69,7 +69,30 @@ function prh_wp_theme_setup() {
   ) ) );
 
   // Add theme support for selective refresh for widgets.
+
   add_theme_support( 'customize-selective-refresh-widgets' );
+
+  //http://cubiq.org/clean-up-and-optimize-wordpress-for-your-next-theme
+
+  remove_action('wp_head', 'wlwmanifest_link');
+
+  remove_action('wp_head', 'wp_generator');
+  remove_action('wp_head', 'wlwmanifest_link');
+  remove_action('wp_head', 'rsd_link');
+  remove_action('wp_head', 'wp_shortlink_wp_head');
+
+  remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10);
+
+  add_filter('the_generator', '__return_false');
+  //add_filter('show_admin_bar','__return_false');
+
+  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+  remove_action( 'wp_print_styles', 'print_emoji_styles' );
+  add_filter( 'emoji_svg_url', '__return_false' );
+
+  remove_action( 'wp_head', 'rest_output_link_wp_head');
+  remove_action( 'wp_head',  'wp_oembed_add_discovery_links' );
+  add_filter( 'user_can_richedit', '__return_true' );
 }
 endif;
 add_action( 'after_setup_theme', 'prh_wp_theme_setup' );
@@ -110,7 +133,7 @@ add_action( 'widgets_init', 'prh_wp_theme_widgets_init' );
 function prh_wp_theme_scripts() {
 
   // TODO: replace get_stylesheet_uri with path to css/main.min.css
-  wp_enqueue_style( 'prh-wp-theme-style', get_stylesheet_uri() );
+  // wp_enqueue_style( 'prh-wp-theme-style', get_stylesheet_uri() );
 
   // TODO: check if this is needed
   wp_enqueue_script( 'prh-wp-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -148,8 +171,45 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 
+// Callback function to insert 'styleselect' into the $buttons array
+function my_mce_buttons( $buttons ) {
+	array_unshift( $buttons, 'styleselect' );
 
+	return $buttons;
+}
+// Register our callback to the appropriate filter
+add_filter( 'mce_buttons', 'my_mce_buttons' );
 
+// Callback function to filter the MCE settings
+function my_mce_before_init_insert_formats( $init_array ) {
+  // Define the style_formats array
+  $style_formats = array(
+    // Each array child is a format with it's own settings
+    array(
+        'title' => 'hero-header',
+        'block' => 'h1',
+        'classes' => '',
+        'wrapper' => true
+    ),
+    array(
+        'title' => 'hero-caption',
+        'block' => 'div',
+        'classes' => 'col-xs-12 hero-item-txt',
+        'wrapper' => true
+    ),
+    array(
+        'title' => 'hero-link',
+        'block' => 'span',
+        'classes' => 'underline',
+        'wrapper' => true
+    )
+  );
+  // Insert the array, JSON ENCODED, into 'style_formats'
+  $init_array['style_formats'] = json_encode( $style_formats );
+  return $init_array;
+}
+// Attach callback to 'tiny_mce_before_init'
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
 
 add_action('init', 'home_page_features');
 function home_page_features()
