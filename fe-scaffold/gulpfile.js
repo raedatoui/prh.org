@@ -15,6 +15,7 @@ const rename = require('gulp-rename');
 const connect = require('gulp-connect');
 const rollup = require('rollup-stream');
 const uglify = require('rollup-plugin-uglify');
+const minify = require('uglify-js-harmony').minify;
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const includePaths = require('rollup-plugin-includepaths');
@@ -53,7 +54,11 @@ gulp.task('html', function(){
 
 gulp.task('jshint', function(){
   return gulp.src(projJsSrc)
-    .pipe( jshint() )
+    .pipe( jshint({
+      esversion: 6,
+      browser: true,
+      devel: true
+    }) )
     .pipe( jshint.reporter('jshint-stylish') );
 });
 
@@ -132,7 +137,7 @@ gulp.task('buildJS', [ 'jshint', 'modernizr' ], function(){
       includePaths({
         paths: [ projJsSrcDir + '/' ]
       }),
-      uglify()
+      uglify({}, minify)
     ]
   })
   .pipe( source( 'main.js', projJsSrcDir ) )

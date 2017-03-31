@@ -35,7 +35,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 
 //3rd PARTY VENDORS
 @import 'vendor/flexboxgrid';
-
+@import 'vendor/flickity';
 
 //PAGES
 //@import "pages/site-base-styles";
@@ -48,6 +48,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 @import 'sections/hero';
 @import 'sections/featured';
 @import 'sections/our-focus';
+@import 'sections/carousel';
 
 //styles for the Wordpress editor
 @import 'editor';
