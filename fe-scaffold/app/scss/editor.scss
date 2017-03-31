@@ -1,0 +1,6 @@
+.mceContentBody.wp-editor * {
+  color: #000 !important;
+  .underline {
+    background-image: linear-gradient(to bottom, #000 33%, transparent 33%) !important;
+  }
+}
