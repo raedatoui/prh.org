@@ -135,10 +135,7 @@ function prh_wp_theme_scripts() {
   // TODO: check if this is needed
   wp_enqueue_script('prh-wp-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 
-  // TODO: probably remove since we dont have comments
-  if (is_singular() && comments_open() && get_option('thread_comments')) {
-    wp_enqueue_script('comment-reply');
-  }
+  wp_deregister_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'prh_wp_theme_scripts');
 
@@ -167,6 +164,13 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+/************* Cleanups *****************/
+function my_deregister_scripts(){
+  wp_deregister_script( 'wp-embed' );
+}
+add_action( 'wp_footer', 'my_deregister_scripts' );
+
+/************* WYSIWYG *****************/
 // Callback function to insert 'styleselect' into the $buttons array
 function my_mce_buttons($buttons) {
   array_unshift($buttons, 'styleselect');
@@ -209,7 +213,8 @@ function custom_editor_styles() {
 }
 add_action('init', 'custom_editor_styles');
 
-add_action('init', 'home_page_features');
+
+/************* Custom Post Type - Homepage Features *****************/
 function home_page_features() {
   $labels = array(
     'name' => _x('Home Features', 'post type general name', 'prh-wp-theme', 'prh-wp-theme'),
@@ -239,6 +244,7 @@ function home_page_features() {
   );
   register_post_type('hp_features', $args);
 }
+add_action('init', 'home_page_features');
 
 /************* Custom Post Type - Press Release *****************/
 
@@ -283,10 +289,7 @@ function press_release_type() {
   register_taxonomy_for_object_type('category', 'press_release');
   /* this adds your post tags to your custom post type */
   register_taxonomy_for_object_type('post_tag', 'press_release');
-
 }
-
-// adding the function to the Wordpress init
 add_action('init', 'press_release_type');
 
 /************* Custom Post Type - phys_story *****************/
@@ -331,10 +334,7 @@ function phys_story_type() {
   register_taxonomy_for_object_type('category', 'phys_story');
   /* this adds your post tags to your custom post type */
   register_taxonomy_for_object_type('post_tag', 'phys_story');
-
 }
-
-// adding the function to the Wordpress init
 add_action('init', 'phys_story_type');
 
 /************* Custom Post Type - prh_ipaper *****************/
@@ -379,10 +379,7 @@ function prh_ipaper_type() {
   register_taxonomy_for_object_type('category', 'prh_ipaper');
   /* this adds your post tags to your custom post type */
   register_taxonomy_for_object_type('post_tag', 'prh_ipaper');
-
 }
-
-// adding the function to the Wordpress init
 add_action('init', 'prh_ipaper_type');
 
 /************* Custom Post Type - timeline *****************/
@@ -427,8 +424,5 @@ function timeline_type() {
   register_taxonomy_for_object_type('category', 'timeline');
   /* this adds your post tags to your custom post type */
   register_taxonomy_for_object_type('post_tag', 'timeline');
-
 }
-
-// adding the function to the Wordpress init
 add_action('init', 'timeline_type');
