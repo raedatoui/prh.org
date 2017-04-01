@@ -27,13 +27,27 @@ get_header();?>
     endwhile; // End of the loop.
   ?>
 
-  <section class="featured" class="page-content">
-    <div class="section-title-dk">
-      <h3 class="dk-blue">FEATURED</h3>
-    </div>
-    <div class="hero-grid row">
-      <div class="col-xs-12 hero-item">a</div>
-      <div class="col-xs-12 hero-item">b</div>
+  <section class="featured-carousel module">
+    <div class="page-content">
+      <div class="section-title-dk">
+        <h3 class="dk-blue">FEATURED</h3>
+      </div>
+      <div class="hero-grid row">
+        <div class="carousel">
+          <div class="slide slide-1">
+            <a href="#"><img src="<?php echo get_template_directory_uri() ?>/images/optimized/carousel-img-01.png" alt="" /></a>
+          </div>
+          <div class="slide slide-2">
+            <a href="#"><img src="<?php echo get_template_directory_uri() ?>/images/optimized/carousel-img-01.png" alt="" /></a>
+          </div>
+          <div class="slide slide-3">
+            <a href="#"><img src="<?php echo get_template_directory_uri() ?>/images/optimized/carousel-img-01.png" alt="" /></a>
+          </div>
+          <div class="slide slide-4">
+            <a href="#"><img src="<?php echo get_template_directory_uri() ?>/images/optimized/carousel-img-01.png" alt="" /></a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

@@ -16,15 +16,6 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-      <?php
-        wp_title( '|', true, 'right' );
-        bloginfo( 'name' ); // Add the blog name.
-        $site_description = get_bloginfo( 'description', 'display' ); // Add the blog description for the home/front page.
-        if ( $site_description && ( is_home() || is_front_page() ) )
-          echo " | $site_description";
-      ?>
-    </title>
     <?php wp_head(); ?>
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto+Condensed:300,300i,400,400i,700,700i|Roboto+Slab:100,300,400,700|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/main.css">

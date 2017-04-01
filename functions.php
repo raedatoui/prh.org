@@ -128,7 +128,6 @@ add_action('widgets_init', 'prh_wp_theme_widgets_init');
  * Enqueue scripts and styles.
  */
 function prh_wp_theme_scripts() {
-
   // TODO: replace get_stylesheet_uri with path to css/main.min.css
   // wp_enqueue_style( 'prh-wp-theme-style', get_stylesheet_uri() );
 
@@ -136,6 +135,7 @@ function prh_wp_theme_scripts() {
   wp_enqueue_script('prh-wp-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 
   wp_deregister_script('jquery');
+  wp_deregister_script('wp-embed');
 }
 add_action('wp_enqueue_scripts', 'prh_wp_theme_scripts');
 
@@ -165,21 +165,18 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /************* Cleanups *****************/
-function my_deregister_scripts(){
-  wp_deregister_script( 'wp-embed' );
-}
-add_action( 'wp_footer', 'my_deregister_scripts' );
+
 
 /************* WYSIWYG *****************/
 // Callback function to insert 'styleselect' into the $buttons array
-function my_mce_buttons($buttons) {
+function prh_mce_buttons($buttons) {
   array_unshift($buttons, 'styleselect');
   return $buttons;
 }
-add_filter('mce_buttons', 'my_mce_buttons');
+add_filter('prh_mce_buttons', 'my_mce_buttons');
 
 // Callback function to filter the MCE settings
-function my_mce_before_init_insert_formats($init_array) {
+function prh_mce_before_init_insert_formats($init_array) {
   // Define the style_formats array
   $style_formats = array(
     // Each array child is a format with it's own settings
@@ -206,12 +203,12 @@ function my_mce_before_init_insert_formats($init_array) {
   $init_array['style_formats'] = json_encode($style_formats);
   return $init_array;
 }
-add_filter('tiny_mce_before_init', 'my_mce_before_init_insert_formats');
+add_filter('tiny_mce_before_init', 'prh_mce_before_init_insert_formats');
 
-function custom_editor_styles() {
+function prh_custom_editor_styles() {
   add_editor_style('css/main.css');
 }
-add_action('init', 'custom_editor_styles');
+add_action('init', 'prh_custom_editor_styles');
 
 
 /************* Custom Post Type - Homepage Features *****************/
