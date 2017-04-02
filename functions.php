@@ -7,6 +7,18 @@
  * @package prh-wp-theme
  */
 
+
+/*
+ * Custom Fields Definitions. For now, its module names and field names
+ */
+
+const CAROUSEL_MODULE = array(
+    "name" => "Carousel Module",
+    "header" => "module_header",
+    "images" => "images"
+);
+
+
 if (!function_exists('prh_wp_theme_setup')):
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -23,6 +35,7 @@ if (!function_exists('prh_wp_theme_setup')):
      * to change 'prh-wp-theme' to the name of your theme in all the template files.
     */
     load_theme_textdomain('prh-wp-theme', get_template_directory() . '/languages');
+
 
     // Add default posts and comments RSS feed links to head.
     add_theme_support('automatic-feed-links');
