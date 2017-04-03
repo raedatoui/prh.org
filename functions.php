@@ -98,10 +98,30 @@ class PageModules {
 		uasort( $this->modules, $cmp );
 	}
 
-	function render() {
+	function render($module) {
+		switch ($module['module_name']) {
+			case MODULES['HERO']:
+				echo $this->render_hero($module);
+				break;
+			case MODULES['CAROUSEL']:
+				echo $this->render_carousel($module);
+				break;
+			default:
+				echo "m";
+		}
+	}
+
+	function render_hero($module) {
+		return "";
+
+	}
+
+	function render_carousel($module) {
 
 	}
 }
+
+
 
 if ( !function_exists('prh_wp_theme_setup') ):
 /**
@@ -288,8 +308,8 @@ function prh_mce_before_init_insert_formats($init_array) {
 		),
 		array(
 			'title' => 'hero-link',
-			'block' => 'span',
-			'classes' => 'underline',
+			'block' => 'a',
+			'classes' => 'hero__link underline',
 			'wrapper' => true,
 		),
 	);
