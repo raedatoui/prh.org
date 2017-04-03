@@ -2,12 +2,12 @@
 nav {
   @include roboto();
 
-  border-bottom: 1px solid rgba(25, 25, 25, .2);
+  border-bottom: 1px solid rgba(25, 25, 25, 0.2);
   color: #fff;
   font-size: 1em;
   font-weight: $light;
   left: 50%;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
   max-width: $base-page-max-width;
   padding: 25px 0;
   position: fixed;
@@ -47,20 +47,20 @@ img {
 
 
 //MEDIA QUERY HANDLER
-@include responsive-mq('xs') {
+@include responsive-mq("xs") {
 
 }
 
-@include responsive-mq('sm') {
+@include responsive-mq("sm") {
   .secondary-nav-list {
     width: 90%;
   }
 }
 
-@include responsive-mq('md') {
+@include responsive-mq("md") {
 
 }
 
-@include responsive-mq('lg') {
+@include responsive-mq("lg") {
 
 }

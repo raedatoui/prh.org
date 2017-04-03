@@ -20,7 +20,7 @@ $mob-header-height: 180px;
   .hero__subhead {
     font-size: 18px;
     font-weight: $thin;
-    letter-spacing: .09em;
+    letter-spacing: 0.09em;
     margin-top: 15px;
     padding: 20px 0;
   }
@@ -34,11 +34,11 @@ $mob-header-height: 180px;
 
 
 //MEDIA QUERY HANDLERS
-@include responsive-mq('xs') {
+@include responsive-mq("xs") {
 
 }
 
-@include responsive-mq('sm') {
+@include responsive-mq("sm") {
 
   .hero {
     padding-top: 150px;
@@ -46,11 +46,11 @@ $mob-header-height: 180px;
 
 }
 
-@include responsive-mq('md') {
+@include responsive-mq("md") {
 
 
 }
 
-@include responsive-mq('lg') {
+@include responsive-mq("lg") {
 
 }

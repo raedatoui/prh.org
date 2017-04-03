@@ -22,20 +22,20 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 
 
 //MODULES & VARS
-@import 'modules/all';
+@import "modules/all";
 
 
 //PARTIALS
-@import 'partials/reset';
-@import 'partials/base-styles'; //set base site
-@import 'partials/typography';
-@import 'partials/module';
-@import 'partials/buttons';
+@import "partials/reset";
+@import "partials/base-styles"; //set base site
+@import "partials/typography";
+@import "partials/module";
+@import "partials/buttons";
 
 
 //3rd PARTY VENDORS
-@import 'vendor/flexboxgrid';
-@import 'vendor/flickity';
+@import "vendor/flexboxgrid";
+@import "vendor/flickity";
 
 //PAGES
 //@import "pages/site-base-styles";
@@ -44,11 +44,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 
 //SECTIONS
 //@import "sections/site-base-styles";
-@import 'sections/nav';
-@import 'sections/hero';
-@import 'sections/featured';
-@import 'sections/our-focus';
-@import 'sections/carousel';
+@import "sections/nav";
+@import "sections/hero";
+@import "sections/featured";
+@import "sections/our-focus";
+@import "sections/carousel";
 
 //styles for the Wordpress editor
-@import 'editor';
+@import "editor";
