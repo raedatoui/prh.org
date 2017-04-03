@@ -35,6 +35,7 @@ h6 {
 }
 
 .hero__header {
+  // @TODO: Is this reusable? Maybe move to _hero.scss later.
   -webkit-font-smoothing: antialiased;
   font-size: 54px;
   letter-spacing: 1.1px;

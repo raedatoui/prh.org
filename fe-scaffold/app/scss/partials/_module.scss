@@ -1,4 +1,10 @@
-@import 'vendor/flexboxgrid';
+.module {
+  padding: $module-padding-xs 0;
+
+  @include responsive-mq(lg) {
+    padding: $module-padding-lg 0;
+  }
+}
 
 %module-title {
   background-position: bottom right;
@@ -42,10 +48,4 @@
     max-width: 75%;
     padding: 0;
   }
-}
-
-.row {
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0;
 }

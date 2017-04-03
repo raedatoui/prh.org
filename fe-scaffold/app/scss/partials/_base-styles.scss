@@ -7,9 +7,6 @@ body {
   @include roboto();
 }
 
-//------------------------------------------------------------------------------------------
-// COMMON: base page structure
-//------------------------------------------------------------------------------------------
 .page-container {
   background-color: #ccc;
   width: 100%;
@@ -20,21 +17,14 @@ body {
   max-width: $base-page-max-width;
 }
 
-section {
-  min-height: 150px;
+.rows {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
 }
 
-
-//------------------------------------------------------------------------------------------
-// COMMON: MODULE STYLES
-//------------------------------------------------------------------------------------------
-
-.module {
-  padding: $module-padding-xs 0;
-
-  @include responsive-mq(lg) {
-    padding: $module-padding-lg 0;
-  }
+section {
+  min-height: 150px;
 }
 
 //------------------------------------------------------------------------------------------
