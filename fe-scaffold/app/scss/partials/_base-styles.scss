@@ -8,7 +8,6 @@ body {
 }
 
 .page-container {
-  background-color: #ccc;
   width: 100%;
 }
 
@@ -17,7 +16,7 @@ body {
   max-width: $base-page-max-width;
 }
 
-.rows {
+.row {
   margin-left: 0;
   margin-right: 0;
   padding: 0;
