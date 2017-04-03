@@ -42,7 +42,7 @@ http://flickity.metafizzy.co
 
 .flickity-prev-next-button {
   -webkit-transform: translateY(-50%);
-  background: hsla(0, 0%, 100%, .75);
+  background: hsla(0, 0%, 100%, 0.75);
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -63,7 +63,7 @@ http://flickity.metafizzy.co
 }
 
 .flickity-prev-next-button:active {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .flickity-prev-next-button.previous {
@@ -86,7 +86,7 @@ http://flickity.metafizzy.co
 
 .flickity-prev-next-button:disabled {
   cursor: auto;
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .flickity-prev-next-button svg {
@@ -121,7 +121,7 @@ http://flickity.metafizzy.co
   display: inline-block;
   height: 10px;
   margin: 0 8px;
-  opacity: .25;
+  opacity: 0.25;
   width: 10px;
 }
 

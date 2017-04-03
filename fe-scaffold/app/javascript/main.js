@@ -9,24 +9,22 @@ import testObj from './test.js';
 
 function init(){
 
-  let carousel = document.querySelector('.carousel');
-  let flickity = new Flickity(carousel, {
-    cellAlign: 'left',
-    imagesLoaded: true,
-    adaptiveHeight: true,
-    wrapAround: 'true'
+	let carousel = document.querySelector('.carousel'),
+			flickity = new Flickity(carousel, {
+				cellAlign: 'left',
+				imagesLoaded: true,
+				adaptiveHeight: true,
+				wrapAround: 'true'
+			});
 
-  });
-
-  //var obj={x:0};
-  //TweenMax.to(obj, .1, {x:.1});
+	//var obj={x:0};
+	//TweenMax.to(obj, .1, {x:.1});
 
 }
 
 
 export default function () {
-  testObj.test();
-  console.log("FOO");
+	testObj.test();
 }
 
 init();

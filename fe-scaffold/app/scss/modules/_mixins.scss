@@ -1,4 +1,4 @@
-@import 'font_mixins';
+@import "font_mixins";
 
 @mixin border-radius($radius) {
   -moz-border-radius: $radius;
@@ -20,8 +20,8 @@
       @content;
     }
   } @else {
-    @warn 'No value available from `#{$breakpointmap}`. '
-    + 'Make sure it is defined in `$breakpointmap` map.';
+    @warn "No value available from `#{$breakpointmap}`. "
+    + "Make sure it is defined in `$breakpointmap` map.";
   }
 }
 
