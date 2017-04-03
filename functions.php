@@ -17,18 +17,32 @@ const COMPONENTS = array(
 	'Module Options'
 );
 
+const MODULE_OPTIONS = array(
+	'enabled' => 'module_enabled',
+	'order' => 'module_order',
+	'title' => 'module_title',
+	'use_cta' => 'module_use_cta',
+	'cta' => 'module_cta'
+
+);
+
 const CAROUSEL_MODULE = array(
+	'name' => 'Carousel',
 	'options' => 'carousel_options',
-	'images' => 'images'
+	'images' => 'carousel_images',
+	'image' => 'image',
+	'link' => 'link'
 );
 
 const HERO_MODULE = array(
+	'name' => 'Hero',
 	'options' => 'hero_options',
-	'header' => 'header',
-	'text' => 'text'
+	'header' => 'hero_header',
+	'text' => 'hero_text'
 );
 
 const STATISTICS_MODULE = array(
+	'name' => 'Statistics',
 	'options' => 'statistics_options'
 );
 
@@ -41,6 +55,7 @@ const MODULES = array(
 
 class PageModules {
 	public $modules;
+	public $keys;
 
 	function __construct( $modules ) {
 		$this->modules = $modules;
@@ -48,7 +63,7 @@ class PageModules {
 		$this->configure();
 		$this->filter();
 		$this->sort();
-		print_r($this->modules);
+		$this->keys = array_keys($this->modules);
 	}
 
 	function prepare() {
@@ -59,7 +74,7 @@ class PageModules {
 
 	function filter() {
 		$filter = function ( $module ) {
-			return $module['config']['module_enabled'] == 1;
+			return $module['config'][MODULE_OPTIONS['enabled']] == 1;
 		};
 		$this->modules = array_filter( $this->modules, $filter );
 	}
@@ -78,6 +93,7 @@ class PageModules {
 			$config = array_merge( $config, $options );
 			// remove module_options field from module
 			unset( $module[$config['options']] );
+			unset( $module['module_name'] );
 			// remove old options key from const
 			unset( $config ['options'] );
 			$module['config'] = $config;
@@ -88,8 +104,8 @@ class PageModules {
 
 	function sort() {
 		$cmp = function ($a, $b) {
-			$x = $a['config']['module_options_order'];
-			$y = $b['config']['module_options_order'];
+			$x = $a['config'][MODULE_OPTIONS['order']];
+			$y = $b['config'][MODULE_OPTIONS['order']];
 			if ($x == $y) {
 				return 0;
 			}
@@ -113,7 +129,6 @@ class PageModules {
 
 	function render_hero($module) {
 		return "";
-
 	}
 
 	function render_carousel($module) {
@@ -287,7 +302,7 @@ function prh_mce_buttons($buttons) {
 	array_unshift($buttons, 'styleselect');
 	return $buttons;
 }
-add_filter('prh_mce_buttons', 'my_mce_buttons');
+add_filter('mce_buttons', 'prh_mce_buttons');
 
 // Callback function to filter the MCE settings
 function prh_mce_before_init_insert_formats($init_array) {
@@ -295,22 +310,10 @@ function prh_mce_before_init_insert_formats($init_array) {
 	$style_formats = array(
 		// Each array child is a format with it's own settings
 		array(
-			'title' => 'hero-header',
-			'block' => 'h1',
-			'classes' => '',
-			'wrapper' => true,
-		),
-		array(
-			'title' => 'hero-caption',
-			'block' => 'div',
-			'classes' => 'col-xs-12 hero-item-txt',
-			'wrapper' => true,
-		),
-		array(
 			'title' => 'hero-link',
-			'block' => 'a',
+			'inline' => 'a',
 			'classes' => 'hero__link underline',
-			'wrapper' => true,
+			'wrapper' => false,
 		),
 	);
 	// Insert the array, JSON ENCODED, into 'style_formats'
