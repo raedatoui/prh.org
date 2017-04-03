@@ -14,7 +14,6 @@ nav {
   transform: translateX(-50%);
   width: ( 100% - ( $base-gutter * 2 ) );
 
-
   .main-nav-list { //ul
     li {
       .secondary-nav-list { //ul
@@ -23,9 +22,11 @@ nav {
 
         li {
           text-align: center;
+
           a {
-            color: white;
+            color: #fff;
             text-decoration: none;
+
             &:hover {
               text-decoration: underline;
             }

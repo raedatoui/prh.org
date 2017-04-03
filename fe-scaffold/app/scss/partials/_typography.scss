@@ -10,11 +10,6 @@
 }
 
 h1 {
-  -webkit-font-smoothing: antialiased;
-  font-size: 54px;
-  letter-spacing: 1.1px;
-  line-height: 1.25;
-  text-rendering: optimizeLegibility;
 }
 
 h2 {
@@ -39,11 +34,18 @@ h6 {
 
 }
 
+.hero__header {
+  -webkit-font-smoothing: antialiased;
+  font-size: 54px;
+  letter-spacing: 1.1px;
+  line-height: 1.25;
+  text-rendering: optimizeLegibility;
+  @include lora();
+}
+
 .dark-blue {
   color: $base-font-blue;
 }
-
-
 
 .underline {
   background-image: linear-gradient(to bottom, $base-font-white 33%, transparent 33%);

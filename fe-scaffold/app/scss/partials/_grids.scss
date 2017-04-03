@@ -1,5 +1,48 @@
 @import 'vendor/flexboxgrid';
-// set overall grid config styles here - all other scss configs are in the variables partial
+
+%module-title {
+  background-position: bottom right;
+  background-repeat: repeat-x;
+  min-height: 30px;
+  min-width: 100px;
+  text-align: right;
+  text-transform: uppercase;
+  width: 80%;
+
+  @include responsive-mq('sm') {
+    position: absolute;
+    width: 20%;
+  }
+}
+
+.module__title {
+  @extend %module-title;
+  background-image: url('../images/optimized/asset_detail_wave_dk.png');
+
+  h2 {
+    color: $base-font-blue;
+  }
+
+  .hero & {
+    background-image: url('../images/optimized/asset_detail_wave.png');
+
+    h2 {
+      color: #fff;
+    }
+  }
+}
+
+.module__content {
+  margin-left: 0%;
+  max-width: 100%;
+  padding: 0 20px;
+
+  @include responsive-mq('sm') {
+    margin-left: 25%;
+    max-width: 75%;
+    padding: 0;
+  }
+}
 
 .row {
   margin-left: 0;
