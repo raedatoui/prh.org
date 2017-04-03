@@ -48,10 +48,10 @@ $bold: 700;
 $black: 900;
 
 // Base Fonts
-$lora: 'Lora', sans-serif;
-$roboto: 'Roboto', sans-serif;
-$roboto-slab: 'Roboto Slab', sans-serif;
-$roboto-condensed: 'Roboto Condensed', sans-serif;
+$lora: "Lora", sans-serif;
+$roboto: "Roboto", sans-serif;
+$roboto-slab: "Roboto Slab", sans-serif;
+$roboto-condensed: "Roboto Condensed", sans-serif;
 
 $base-font-family: $roboto;
 $base-font-weight: $regular;
@@ -90,8 +90,8 @@ lg 75em 71rem !default;
 $flexboxgrid-max-width: $base-page-max-width !default;
 
 $breakpointmap: (
-  'xs': ( min-width:  40em ),
-  'sm': ( min-width:  48em ),
-  'md': ( min-width: 62em ),
-  'lg': ( min-width: 75em )
+  "xs": ( min-width:  40em ),
+  "sm": ( min-width:  48em ),
+  "md": ( min-width: 62em ),
+  "lg": ( min-width: 75em )
 );
