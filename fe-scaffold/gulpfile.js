@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
-const jshint = require('gulp-jshint');
+const eslint = require('gulp-eslint');
 const sass = require('gulp-sass');
 const sassLint = require('gulp-sass-lint');
 const image = require('gulp-image');
@@ -52,14 +52,10 @@ gulp.task('html', function(){
 		.pipe(connect.reload());
 });
 
-gulp.task('jshint', function(){
-	return gulp.src(projJsSrc)
-		.pipe( jshint({
-			esversion: 6,
-			browser: true,
-			devel: true
-		}) )
-		.pipe( jshint.reporter('jshint-stylish') );
+gulp.task('js-lint', function(){
+	return gulp.src([ projJsSrc , '!node_modules/**'])
+		.pipe(eslint())
+		.pipe(eslint.format());
 });
 
 gulp.task('cleanImage', function(){
@@ -114,7 +110,7 @@ gulp.task('sass-lint', function() {
 			.pipe( sassLint.failOnError() );
 });
 
-gulp.task('buildJS', [ 'jshint', 'modernizr' ], function(){
+gulp.task('buildJS', [ 'js-lint', 'modernizr' ], function(){
 	return rollup({
 		format: 'umd', //umd,amd,cjs
 		moduleName: 'mainBundle', //only for umd
