@@ -6,6 +6,7 @@
         <title>PRH</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- @TODO: Perform font audit w/ design and cut down on font importing. -->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto+Condensed:300,300i,400,400i,700,700i|Roboto+Slab:100,300,400,700|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');" rel="stylesheet">
         <link rel="stylesheet" href="stylesheets/main.css">
 
@@ -14,15 +15,14 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-        <div class="test"></div>
-
     		<div class="page-container">
 
           <header>
     				<nav>
     					<ul class="main-nav-list row bottom-xs">
-    						<li class="col-xs-12 col-sm-3 col-md-3 logo-item"><img class="logo" alt="" src="./images/optimized/prh_nav_logo.svg" /></li>
+    						<li class="col-xs-12 col-sm-3 logo-item">
+                  <h1><img class="logo" alt="Physicians for Reproductive Health" src="./images/optimized/prh_nav_logo.svg" /></h1>
+                </li>
     						<li class="col-xs-12 col-sm-8 col-md-7">
                 <ul class="secondary-nav-list row">
                   <li class="col-xs-12 col-sm-3"><a href="http://154.0d0.mwp.accessdomain.com/about/">About</a></li>
@@ -38,58 +38,65 @@
 
     			<section class="hero module">
             <div class="page-content">
-              <div class="section-title">
-                <h3>OUR PURPOSE</h3>
+              <div class="module__title">
+                <h2>OUR PURPOSE</h2>
               </div>
-      				<div class="hero-grid row">
-      					<div class="col-xs-12 hero-device-title">OUR PURPOSE</div>
-                <div class="col-xs-12 hero-item">
-                  <h1>
-                    We are doctors who use
-                    <span class="underline">training</span>, <span class="underline">evidence</span>, and
-                    <span class="underline">organized action</span> to champion
-                    your healthcare rights.
-                  <h1>
-                </div>
-                <div class="col-xs-12 hero-item-txt ">
-                  Together, we can ensure our ability to control our reproductive destinies.
+      				<div class="module__content">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <h3 class="hero__header">
+                      We are doctors who use
+                      <a class="hero__link underline" href="#">training</a>, <a class="hero__link underline" href="#">evidence</a>, and
+                      <a class="hero__link underline" href="#">organized action</a> to champion
+                      your healthcare rights.
+                    </h3>
+                  </div>
+                  <div class="col-xs-12 hero__subhead">
+                    Together, we can ensure our ability to control our reproductive destinies.
+                  </div>
                 </div>
       				</div>
             </div>
           </section>
 
-          <section class="featured-carousel module">
-            <div class="page-content">
-              <div class="section-title-dk">
-                <h3 class="dk-blue">FEATURED</h3>
+          <section class="featured-carousel module page-content">
+              <div class="module__title">
+                <h2>FEATURED</h2>
               </div>
-      				<div class="hero-grid row">
-                <div class="carousel">
-                  <div class="slide slide-1">
-                    <a href="#"><img src="./images/optimized/carousel-img-01.png" alt="" /></a>
-                  </div>
-                  <div class="slide slide-2">
-                    <a href="#"><img src="./images/optimized/carousel-img-01.png" alt="" /></a>
-                  </div>
-                  <div class="slide slide-3">
-                    <a href="#"><img src="./images/optimized/carousel-img-01.png" alt="" /></a>
-                  </div>
-                  <div class="slide slide-4">
-                    <a href="#"><img src="./images/optimized/carousel-img-01.png" alt="" /></a>
+      				<div class="module__content">
+                <div class="row">
+                  <div class="carousel">
+                    <div class="slide slide-1">
+                      <a href="#"><img src="./images/optimized/carousel-img-01.png" alt="" /></a>
+                    </div>
+                    <div class="slide slide-2">
+                      <a href="#"><img src="./images/optimized/carousel-img-01.png" alt="" /></a>
+                    </div>
+                    <div class="slide slide-3">
+                      <a href="#"><img src="./images/optimized/carousel-img-01.png" alt="" /></a>
+                    </div>
+                    <div class="slide slide-4">
+                      <a href="#"><img src="./images/optimized/carousel-img-01.png" alt="" /></a>
+                    </div>
                   </div>
                 </div>
               </div>
-    				</div>
           </section>
 
-          <section class="our-focus" class="page-content">
-            <div class="section-title-dk">
-              <h3 class="dk-blue">OUR FOCUS</h3>
+          <section class="our-focus module page-content">
+            <div class="module__title">
+              <h2>OUR FOCUS</h2>
             </div>
-    				<div class="hero-grid row">
-    					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hero-item">a</div>
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hero-item">b</div>
-    				</div>
+    				<div class="module__content">
+              <div class="row">
+      					<div class="col-xs-12">
+                 <a class="cta" href="#">Gotta go</a>
+                </div>
+                <div class="col-xs-12">
+                 <a class="cta cta--red" href="#">Red Cta</a>
+                </div>
+      				</div>
+            </div>
           </section>
 
 

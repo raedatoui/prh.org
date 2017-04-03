@@ -7,11 +7,7 @@ body {
   @include roboto();
 }
 
-//------------------------------------------------------------------------------------------
-// COMMON: base page structure
-//------------------------------------------------------------------------------------------
 .page-container {
-  background-color: #ccc;
   width: 100%;
 }
 
@@ -20,50 +16,14 @@ body {
   max-width: $base-page-max-width;
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
 section {
   min-height: 150px;
-}
-
-//------------------------------------------------------------------------------------------
-// COMMON: section header titles
-//------------------------------------------------------------------------------------------
-
-%section-title-placeholder {
-  height: 30px;
-  max-width: 290px;
-  min-width: 100px;
-  position: absolute;
-  text-align: right;
-  width: 20%;
-}
-
-.section-title {
-  @extend %section-title-placeholder;
-  background: url('../images/optimized/asset_detail_wave.png')  repeat-x bottom right;
-  color: #fff;
-}
-
-.section-title-dk {
-  @extend %section-title-placeholder;
-  background: url('../images/optimized/asset_detail_wave_dk.png')  repeat-x bottom right;
-
-  h3 {
-    color: $base-font-blue;
-  }
-
-}
-
-
-//------------------------------------------------------------------------------------------
-// COMMON: MODULE STYLES
-//------------------------------------------------------------------------------------------
-
-.module {
-  padding: $module-padding-xs 0;
-
-  @include responsive-mq(lg) {
-    padding: $module-padding-lg 0;
-  }
 }
 
 //------------------------------------------------------------------------------------------

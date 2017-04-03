@@ -1,1 +1,21 @@
-@import 'modules/all';
+.cta {
+  @include roboto();
+  background: $prh-navy-lt;
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: $medium;
+  letter-spacing: .2em;
+  margin: 20px auto;
+  padding: 22px 35px;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.cta--red {
+  background: $prh-red;
+}
