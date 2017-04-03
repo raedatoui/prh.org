@@ -46,131 +46,131 @@ const localSassDest = '../css';
 gulp.task('default', [ 'watch' ]);
 
 gulp.task('html', function(){
-  gutil.log('HTML UPDATED');
-  return gulp.src(projHtmlSrc)
-    .pipe( gulp.dest(projDestDir))
-    .pipe(connect.reload());
+	gutil.log('HTML UPDATED');
+	return gulp.src(projHtmlSrc)
+		.pipe( gulp.dest(projDestDir))
+		.pipe(connect.reload());
 });
 
 gulp.task('jshint', function(){
-  return gulp.src(projJsSrc)
-    .pipe( jshint({
-      esversion: 6,
-      browser: true,
-      devel: true
-    }) )
-    .pipe( jshint.reporter('jshint-stylish') );
+	return gulp.src(projJsSrc)
+		.pipe( jshint({
+			esversion: 6,
+			browser: true,
+			devel: true
+		}) )
+		.pipe( jshint.reporter('jshint-stylish') );
 });
 
 gulp.task('cleanImage', function(){
-  console.log("CLEAN")
-  return del(
-    [
-      localImgDest,
-      pubImgDest
-    ],
-    {
-      force: true,
-      dryrun: true
-    }
-  );
+	console.log("CLEAN")
+	return del(
+		[
+			localImgDest,
+			pubImgDest
+		],
+		{
+			force: true,
+			dryrun: true
+		}
+	);
 });
 
 gulp.task('images', ['cleanImage'], function(){
-  return gulp.src(projImgSrc)
-  .pipe(changed(localImgDest))
-  .pipe( image({ svgo: true }) )
-  .pipe( gulp.dest(pubImgDest) )
-  .pipe( gulp.dest(localImgDest) );
+	return gulp.src(projImgSrc)
+	.pipe(changed(localImgDest))
+	.pipe( image({ svgo: true }) )
+	.pipe( gulp.dest(pubImgDest) )
+	.pipe( gulp.dest(localImgDest) );
 });
 
 gulp.task('modernizr', function() {
-  gulp.src(projJsSrc)
-    .pipe(modernizr())
-    .pipe(gulp.dest(projJsSrcDir))
+	gulp.src(projJsSrc)
+		.pipe(modernizr())
+		.pipe(gulp.dest(projJsSrcDir))
 });
 
 gulp.task('sass', function(){
-  return gulp.src(projSassEntry)
-    .pipe( sourcemaps.init() )
-    .pipe( sass( { outputStyle: 'compressed', includePaths: './node_modules' } ).on( 'error', sass.logError ) ) //compressed  on launch
-    .pipe( postcss([ require('autoprefixer') ]) )
-    .pipe( sourcemaps.write('.') )
-    .pipe( gulp.dest(pubSassDest) )
-    .pipe( gulp.dest(localSassDest) ) //send to local git wp dir
-    .pipe(connect.reload());
+	return gulp.src(projSassEntry)
+		.pipe( sourcemaps.init() )
+		.pipe( sass( { outputStyle: 'compressed', includePaths: './node_modules' } ).on( 'error', sass.logError ) ) //compressed  on launch
+		.pipe( postcss([ require('autoprefixer') ]) )
+		.pipe( sourcemaps.write('.') )
+		.pipe( gulp.dest(pubSassDest) )
+		.pipe( gulp.dest(localSassDest) ) //send to local git wp dir
+		.pipe(connect.reload());
 });
 
 gulp.task('sass-lint', function() {
-  gulp.src([
-    projSassSrc,
-    '!./app/scss/partials/_reset.scss'])
-      .pipe( sassLint({
-        options: {
-          configFile: '.sass-lint.yml'
-        }
-      }) )
-      .pipe( sassLint.format() )
-      .pipe( sassLint.failOnError() );
+	gulp.src([
+		projSassSrc,
+		'!./app/scss/partials/_reset.scss'])
+			.pipe( sassLint({
+				options: {
+					configFile: '.sass-lint.yml'
+				}
+			}) )
+			.pipe( sassLint.format() )
+			.pipe( sassLint.failOnError() );
 });
 
 gulp.task('buildJS', [ 'jshint', 'modernizr' ], function(){
-  return rollup({
-    format: 'umd', //umd,amd,cjs
-    moduleName: 'mainBundle', //only for umd
-    exports: 'named',
-    entry: projJsSrcDir + '/main.js',
-    sourceMap: true,
-    plugins: [
-      nodeResolve({
-        jsnext: true,
-        main: true,
-        preferBuiltins: true,
-        browser: true,
-      }),
-      commonjs({
-        ignoreGlobal: true,
-        namedExports: {
-          './node_modules/gsap': [ 'TweenMax', 'EasePack' ]
-        }
-      }),
-      includePaths({
-        paths: [ projJsSrcDir + '/' ]
-      }),
-      uglify({}, minify)
-    ]
-  })
-  .pipe( source( 'main.js', projJsSrcDir ) )
-  .pipe( buffer() )
-  .pipe( sourcemaps.init( { loadMaps: true } ) )
-  .pipe( buble() )
-  .pipe( rename('bundle.js' ) )
-  .pipe( sourcemaps.write('.') )
-  .pipe( gulp.dest(pubJsDest) ) //send to scaffold env
-  .pipe( gulp.dest(localJsDest) ) //send to wp dir
-  .on('end', function() {
-    del([projJsSrcDir + '/modernizr.js']);
-  });
+	return rollup({
+		format: 'umd', //umd,amd,cjs
+		moduleName: 'mainBundle', //only for umd
+		exports: 'named',
+		entry: projJsSrcDir + '/main.js',
+		sourceMap: true,
+		plugins: [
+			nodeResolve({
+				jsnext: true,
+				main: true,
+				preferBuiltins: true,
+				browser: true,
+			}),
+			commonjs({
+				ignoreGlobal: true,
+				namedExports: {
+					'./node_modules/gsap': [ 'TweenMax', 'EasePack' ]
+				}
+			}),
+			includePaths({
+				paths: [ projJsSrcDir + '/' ]
+			}),
+			uglify({}, minify)
+		]
+	})
+	.pipe( source( 'main.js', projJsSrcDir ) )
+	.pipe( buffer() )
+	.pipe( sourcemaps.init( { loadMaps: true } ) )
+	.pipe( buble() )
+	.pipe( rename('bundle.js' ) )
+	.pipe( sourcemaps.write('.') )
+	.pipe( gulp.dest(pubJsDest) ) //send to scaffold env
+	.pipe( gulp.dest(localJsDest) ) //send to wp dir
+	.on('end', function() {
+		del([projJsSrcDir + '/modernizr.js']);
+	});
 
 });
 
 gulp.task('serve', [ 'build', 'watch'], function(){
-  connect.server({
-    port: 9000,
-    root: [projDestDir],
-    livereload: true
-  });
+	connect.server({
+		port: 9000,
+		root: [projDestDir],
+		livereload: true
+	});
 });
 
 gulp.task('reload', function(){
-  gutil.log('reloaded');
-  connect.reload();
+	gutil.log('reloaded');
+	connect.reload();
 });
 
 gulp.task('build', ['images', 'html', 'sass', 'buildJS']);
 
 gulp.task('watch', function(){
-  gulp.watch('./app/**/*.html', ['html']);
-  gulp.watch(projJsSrc, ['buildJS', 'reload']);
-  gulp.watch(projSassSrc, ['sass', 'sass-lint', 'reload']);
+	gulp.watch('./app/**/*.html', ['html']);
+	gulp.watch(projJsSrc, ['buildJS', 'reload']);
+	gulp.watch(projSassSrc, ['sass', 'sass-lint', 'reload']);
 });
