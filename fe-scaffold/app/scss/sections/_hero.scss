@@ -1,39 +1,33 @@
+$mob-header-height: 180px;
+
 //HERO SECTION
 .hero {
   background-image: $gradient-radial-blue;
   color: $base-font-white;
-  padding-bottom: 300px;
-  padding-top: 150px;
+  padding-bottom: 200px;
+  padding-top: $mob-header-height;
 
-  .section-title {
-    display: none;
+  // @TODO: Is this reusable? Maybe move to _typography.scss later.
+  .hero__header {
+    -webkit-font-smoothing: antialiased;
+    font-size: 54px;
+    letter-spacing: 1.1px;
+    line-height: 1.25;
+    text-rendering: optimizeLegibility;
+    @include lora();
   }
 
-  .hero-device-title {
-    display: block;
-  }
-
-  .hero-item-txt {
+  .hero__subhead {
     font-size: 18px;
     font-weight: $thin;
     letter-spacing: .09em;
     margin-top: 15px;
-
+    padding: 20px 0;
   }
 
-  .hero-grid {
-    margin-left: 0%;
-    max-width: 100%;
-
-    .hero-item {
-      h1 {
-        @include lora();
-      }
-    }
-
-    .hero-item-txt {
-      padding: 20px 0;
-    }
+  .hero__link {
+    color: #fff;
+    text-decoration: none;
   }
 
 }
@@ -48,20 +42,6 @@
 
   .hero {
     padding-top: 150px;
-
-    .hero-grid {
-      margin-left: 25%;
-      max-width: 75%;
-    }
-
-    .section-title {
-      display: block;
-    }
-
-    .hero-device-title {
-      display: none;
-    }
-
   }
 
 }

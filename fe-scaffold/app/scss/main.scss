@@ -27,10 +27,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 
 //PARTIALS
 @import 'partials/reset';
-@import 'partials/buttons';
-@import 'partials/grids';
-@import 'partials/typography';
 @import 'partials/base-styles'; //set base site
+@import 'partials/typography';
+@import 'partials/module';
+@import 'partials/buttons';
 
 
 //3rd PARTY VENDORS
