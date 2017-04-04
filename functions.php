@@ -114,29 +114,21 @@ class PageModules {
 		uasort( $this->modules, $cmp );
 	}
 
-	function render($module) {
-		switch ($module['module_name']) {
-			case MODULES['HERO']:
-				echo $this->render_hero($module);
-				break;
-			case MODULES['CAROUSEL']:
-				echo $this->render_carousel($module);
-				break;
-			default:
-				echo "m";
+	function render() {
+		foreach ($this->modules as $module) {
+			switch ($module['config']['name']) {
+
+				case HERO_MODULE['name']:
+					include( locate_template( 'template-parts/modules/hero.php', false, false ) );
+					break;
+
+				case CAROUSEL_MODULE['name']:
+					include( locate_template( 'template-parts/modules/carousel.php', false, false ) );
+					break;
+			}
 		}
 	}
-
-	function render_hero($module) {
-		return "";
-	}
-
-	function render_carousel($module) {
-
-	}
 }
-
-
 
 if ( !function_exists('prh_wp_theme_setup') ):
 /**
