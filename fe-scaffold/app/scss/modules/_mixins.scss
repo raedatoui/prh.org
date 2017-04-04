@@ -34,3 +34,11 @@
 @mixin test-fill($color) {
   background-color: $color;
 }
+
+@mixin clearfix() {
+  &::after {
+    clear: both;
+    content: " ";
+    display: table;
+  }
+}

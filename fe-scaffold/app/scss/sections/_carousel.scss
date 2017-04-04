@@ -22,7 +22,7 @@ $carousel-side-padding: 50px;
   }
 
   .arrow {
-    fill: #000;
+    fill: $prh-blue-lt;
   }
 }
 
@@ -31,12 +31,12 @@ $carousel-side-padding: 50px;
 
   .dot {
     background: transparent;
-    border: 2px solid $prh-gray;
+    border: 2px solid $prh-blue-lt;
     margin: 0 5px;
     opacity: 1;
 
     &.is-selected {
-      border-color: #000;
+      background: $prh-blue-lt;
     }
   }
 }
