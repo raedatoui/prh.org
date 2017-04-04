@@ -37,7 +37,8 @@
 }
 
 .tile__source {
-  background: $prh-navy-dk;
+  background: url("../images/optimized/icon_source-huffpo.jpg") 0 0 no-repeat;
+  background-size: contain;
   border-radius: 50%;
   height: 36px;
   position: absolute;
