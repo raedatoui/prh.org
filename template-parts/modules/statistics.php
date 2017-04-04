@@ -19,7 +19,7 @@
 		</div>
 	</div>
 	<div class="cta">
-		<?php $cta =  $stats[STATISTICS_MODULE['cta']][0]; ?>
+		<?php $cta = $stats['config'][MODULE_OPTIONS['cta']][0];  ?>
 		<a href="<? echo $cta[CTA_COMPONENT['link']];?>">
 			<span><? echo $cta[CTA_COMPONENT['label']]; ?></span>
 		</a>
