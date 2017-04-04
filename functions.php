@@ -8,11 +8,8 @@
  */
 
 
-/*
- * Custom Fields Definitions. For now, its module names and field names
- */
-
-const COMPONENTS = array(
+/************* Modules & Components *****************/
+const COMPONENTS_TO_UNSET = array(
 	'CTA',
 	'Module Options',
 	'Statistic'
@@ -35,9 +32,8 @@ const CAROUSEL_MODULE = array(
 	'name' => 'Carousel',
 	'options' => 'carousel_options',
 	'images' => 'carousel_images',
-	// TODO: refactor the image and link field names
-	'image' => 'image',
-	'link' => 'link',
+	'image' => 'carousel_image',
+	'link' => 'carousel_link',
 	'template' => 'template-parts/modules/carousel.php'
 );
 
@@ -66,7 +62,11 @@ const MODULES = array(
 	'Statistics' => STATISTICS_MODULE
 );
 
-
+/**
+ * Class PageModules
+ * This class consumes the Custom Fields data for a given page and renders
+ * the respective templates
+ */
 class PageModules {
 	public $modules;
 	public $keys;
@@ -81,7 +81,7 @@ class PageModules {
 	}
 
 	function prepare() {
-		foreach( COMPONENTS as $c ) {
+		foreach( COMPONENTS_TO_UNSET as $c ) {
 			unset( $this->modules[$c] );
 		}
 	}
@@ -143,7 +143,6 @@ class PageModules {
  */
 define('EDITOR_HIDE_PAGE_TITLES', json_encode(array()));
 define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('homepage.php')));
-
 
 /**
  * Hide the main editor on defined pages
@@ -236,12 +235,6 @@ function prh_wp_theme_setup() {
 		'caption',
 	));
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support('custom-background', apply_filters('prh_wp_theme_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	)));
-
 	// Add theme support for selective refresh for widgets.
 	add_theme_support('customize-selective-refresh-widgets');
 
@@ -315,11 +308,6 @@ function prh_wp_theme_scripts() {
 add_action('wp_enqueue_scripts', 'prh_wp_theme_scripts');
 
 /**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -339,18 +327,20 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-/************* Cleanups *****************/
-
 
 /************* WYSIWYG *****************/
-// Callback function to insert 'styleselect' into the $buttons array
+/**
+ * Callback function to insert 'styleselect' into the $buttons array
+ */
 function prh_mce_buttons($buttons) {
 	array_unshift($buttons, 'styleselect');
 	return $buttons;
 }
 add_filter('mce_buttons', 'prh_mce_buttons');
 
-// Callback function to filter the MCE settings
+/**
+ * Callback function to insert custom styles into the styleselect dropdown.
+ */
 function prh_mce_before_init_insert_formats($init_array) {
 	// Define the style_formats array
 	$style_formats = array(
@@ -368,6 +358,10 @@ function prh_mce_before_init_insert_formats($init_array) {
 }
 add_filter('tiny_mce_before_init', 'prh_mce_before_init_insert_formats');
 
+/**
+ * Callback function for adding the main CSS to the editor allowing to preview
+ * typography styles directly in the editor's visual mode.
+ */
 function prh_custom_editor_styles() {
 	add_editor_style('css/main.css');
 }
@@ -407,7 +401,6 @@ function home_page_features() {
 add_action('init', 'home_page_features');
 
 /************* Custom Post Type - Press Release *****************/
-
 function press_release_type() {
 	// creating (registering) the custom type
 	register_post_type('press_release', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -453,7 +446,6 @@ function press_release_type() {
 add_action('init', 'press_release_type');
 
 /************* Custom Post Type - phys_story *****************/
-
 function phys_story_type() {
 	// creating (registering) the custom type
 	register_post_type('phys_story', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -498,7 +490,6 @@ function phys_story_type() {
 add_action('init', 'phys_story_type');
 
 /************* Custom Post Type - prh_ipaper *****************/
-
 function prh_ipaper_type() {
 	// creating (registering) the custom type
 	register_post_type('prh_ipaper', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -543,7 +534,6 @@ function prh_ipaper_type() {
 add_action('init', 'prh_ipaper_type');
 
 /************* Custom Post Type - timeline *****************/
-
 function timeline_type() {
 
 	register_post_type('timeline',
