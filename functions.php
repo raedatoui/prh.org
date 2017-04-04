@@ -138,6 +138,9 @@ class PageModules {
 }
 
 
+function echo_theme_uri() {
+	echo esc_url( get_template_directory_uri() );
+}
 /**
  * Hide the main editor on specific pages
  */
