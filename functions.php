@@ -14,7 +14,8 @@
 
 const COMPONENTS = array(
 	'CTA',
-	'Module Options'
+	'Module Options',
+	'Statistic'
 );
 
 const MODULE_OPTIONS = array(
@@ -23,27 +24,40 @@ const MODULE_OPTIONS = array(
 	'title' => 'module_title',
 	'use_cta' => 'module_use_cta',
 	'cta' => 'module_cta'
+);
 
+const CTA_COMPONENT = array (
+	'label' => 'cta_label',
+	'link'=> 'cta_link'
 );
 
 const CAROUSEL_MODULE = array(
 	'name' => 'Carousel',
 	'options' => 'carousel_options',
 	'images' => 'carousel_images',
+	// TODO: refactor the image and link field names
 	'image' => 'image',
-	'link' => 'link'
+	'link' => 'link',
+	'template' => 'template-parts/modules/carousel.php'
 );
 
 const HERO_MODULE = array(
 	'name' => 'Hero',
 	'options' => 'hero_options',
 	'header' => 'hero_header',
-	'text' => 'hero_text'
+	'text' => 'hero_text',
+	'template' => 'template-parts/modules/hero.php'
 );
 
 const STATISTICS_MODULE = array(
 	'name' => 'Statistics',
-	'options' => 'statistics_options'
+	'options' => 'statistics_options',
+	'figures' => 'statistics_figures',
+	'figure' => 'statistic_figure',
+	'number' => 'stat_number',
+	'text' => 'stat_text',
+	'cta' => 'statistics_cta',
+	'template' => 'template-parts/modules/statistics.php'
 );
 
 const MODULES = array(
@@ -116,16 +130,9 @@ class PageModules {
 
 	function render() {
 		foreach ($this->modules as $module) {
-			switch ($module['config']['name']) {
-
-				case HERO_MODULE['name']:
-					include( locate_template( 'template-parts/modules/hero.php', false, false ) );
-					break;
-
-				case CAROUSEL_MODULE['name']:
-					include( locate_template( 'template-parts/modules/carousel.php', false, false ) );
-					break;
-			}
+			$mn = $module['config']['name'];
+			$template = MODULES[$mn]['template'];
+			include( locate_template( $template, false, false ) );
 		}
 	}
 }

@@ -9,6 +9,7 @@
 
 get_header();?>
 
+
 <?php
 	while (have_posts()): the_post();
 		$groups = acf_get_field_groups();
@@ -24,7 +25,6 @@ get_header();?>
 		}
 		$page = new PageModules($modules);
 		$page->render();
-
 	endwhile; // End of the loop. ?>
 
 </div><!-- .page-container-->
