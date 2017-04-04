@@ -9,22 +9,34 @@
 %module-title {
   background-position: bottom right;
   background-repeat: repeat-x;
+  margin-bottom: 10px;
   min-height: 30px;
   min-width: 100px;
-  text-align: left;
-  max-width: 7em;
-  float: right;
+  padding-bottom: 10px;
   text-transform: uppercase;
   width: 80%;
+
+  h2 {
+    max-width: 8em;
+    float: right;
+    text-align: left;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.15em;
+  }
 
   @include responsive-mq("sm") {
     position: absolute;
     width: 20%;
+    margin-bottom: 0;
   }
 }
 
 .module__title {
   @extend %module-title;
+
+  @include clearfix();
+
   background-image: url("../images/optimized/asset_detail_wave_dk.png");
 
   h2 {
