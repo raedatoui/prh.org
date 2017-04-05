@@ -82,15 +82,28 @@ gulp.task('images', ['cleanImage'], function(){
 
 gulp.task('modernizr', function() {
 	gulp.src(projJsSrc)
-		.pipe(modernizr())
+		.pipe(modernizr({
+			cache: true,
+			options: [
+				'setClasses',
+				'addTest',
+				'html5printshiv',
+				'testProp',
+				'fnBind'
+			],
+			tests: [
+				'backgroundcliptext'
+			]
+		}))
 		.pipe(gulp.dest(projJsSrcDir))
 });
 
 gulp.task('sass', function(){
 	return gulp.src(projSassEntry)
 		.pipe( sourcemaps.init() )
-		.pipe( sass( { outputStyle: 'compressed', includePaths: './node_modules' } ).on( 'error', sass.logError ) ) //compressed  on launch
-		.pipe( postcss([ require('autoprefixer') ]) )
+		.pipe( sass( { outputStyle: 'compressed', includePaths: './node_modules' } )
+		.on( 'error', sass.logError ) ) //compressed  on launch
+		.pipe( postcss([ autoprefixer() ]) )
 		.pipe( sourcemaps.write('.') )
 		.pipe( gulp.dest(pubSassDest) )
 		.pipe( gulp.dest(localSassDest) ) //send to local git wp dir
