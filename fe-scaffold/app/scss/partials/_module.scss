@@ -9,12 +9,14 @@
 %module-title {
   background-position: bottom right;
   background-repeat: repeat-x;
+  display: inline-block;
   margin-bottom: 10px;
   min-height: 30px;
   min-width: 100px;
   padding-bottom: 0;
+  padding-left: 50px;
   text-transform: uppercase;
-  width: 80%;
+  width: auto;
 
   h2 {
     float: right;
@@ -26,7 +28,9 @@
   }
 
   @include responsive-mq("sm") {
+    display: block;
     margin-bottom: 0;
+    padding-left: 0;
     position: absolute;
     width: 20%;
   }
