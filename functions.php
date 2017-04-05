@@ -8,13 +8,11 @@
  */
 
 
-/*
- * Custom Fields Definitions. For now, its module names and field names
- */
-
-const COMPONENTS = array(
+/************* Modules & Components *****************/
+const COMPONENTS_TO_UNSET = array(
 	'CTA',
-	'Module Options'
+	'Module Options',
+	'Statistic'
 );
 
 const MODULE_OPTIONS = array(
@@ -23,27 +21,39 @@ const MODULE_OPTIONS = array(
 	'title' => 'module_title',
 	'use_cta' => 'module_use_cta',
 	'cta' => 'module_cta'
+);
 
+const CTA_COMPONENT = array (
+	'label' => 'cta_label',
+	'link'=> 'cta_link'
 );
 
 const CAROUSEL_MODULE = array(
 	'name' => 'Carousel',
 	'options' => 'carousel_options',
 	'images' => 'carousel_images',
-	'image' => 'image',
-	'link' => 'link'
+	'image' => 'carousel_image',
+	'link' => 'carousel_link',
+	'template' => 'template-parts/modules/carousel.php'
 );
 
 const HERO_MODULE = array(
 	'name' => 'Hero',
 	'options' => 'hero_options',
 	'header' => 'hero_header',
-	'text' => 'hero_text'
+	'text' => 'hero_text',
+	'template' => 'template-parts/modules/hero.php'
 );
 
 const STATISTICS_MODULE = array(
 	'name' => 'Statistics',
-	'options' => 'statistics_options'
+	'options' => 'statistics_options',
+	'figures' => 'statistics_figures',
+	'figure' => 'statistic_figure',
+	'number' => 'stat_number',
+	'text' => 'stat_text',
+	'cta' => 'statistics_cta',
+	'template' => 'template-parts/modules/statistics.php'
 );
 
 const MODULES = array(
@@ -52,7 +62,11 @@ const MODULES = array(
 	'Statistics' => STATISTICS_MODULE
 );
 
-
+/**
+ * Class PageModules
+ * This class consumes the Custom Fields data for a given page and renders
+ * the respective templates
+ */
 class PageModules {
 	public $modules;
 	public $keys;
@@ -67,7 +81,7 @@ class PageModules {
 	}
 
 	function prepare() {
-		foreach( COMPONENTS as $c ) {
+		foreach( COMPONENTS_TO_UNSET as $c ) {
 			unset( $this->modules[$c] );
 		}
 	}
@@ -116,19 +130,61 @@ class PageModules {
 
 	function render() {
 		foreach ($this->modules as $module) {
-			switch ($module['config']['name']) {
-
-				case HERO_MODULE['name']:
-					include( locate_template( 'template-parts/modules/hero.php', false, false ) );
-					break;
-
-				case CAROUSEL_MODULE['name']:
-					include( locate_template( 'template-parts/modules/carousel.php', false, false ) );
-					break;
-			}
+			$mn = $module['config']['name'];
+			$template = MODULES[$mn]['template'];
+			include( locate_template( $template, false, false ) );
 		}
 	}
 }
+
+
+function echo_theme_uri() {
+	echo esc_url( get_template_directory_uri() );
+}
+/**
+ * Hide the main editor on specific pages
+ */
+define('EDITOR_HIDE_PAGE_TITLES', json_encode(array()));
+define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('homepage.php')));
+
+/**
+ * Hide the main editor on defined pages
+ *
+ * You can choose between page titles or page templates. Just set them
+ * accordingly like this:
+ *
+ * define('EDITOR_HIDE_PAGE_TITLES', json_encode(array('Home', 'Some post archive', 'Some Listing')));
+ * define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('template-of-something.php', 'archive-customposttype.php')));
+ *
+ *
+ * @global string $pagenow
+ * @return void
+ */
+function prh_hide_editor() {
+	global $pagenow;
+	if(!('post.php' == $pagenow)){
+		return;
+	}
+
+	// Get the Post ID.
+	$post_id = filter_input(INPUT_GET, 'post') ? filter_input(INPUT_GET, 'post') : filter_input(INPUT_POST, 'post_ID');
+	if(!isset($post_id)) {
+		return;
+	}
+
+	// Hide the editor on the page titled 'Homepage'
+	if(in_array(get_the_title($post_id), json_decode(EDITOR_HIDE_PAGE_TITLES))) {
+		remove_post_type_support('page', 'editor');
+	}
+
+	// Hide the editor on a page with a specific page template
+	$template_filename = get_post_meta($post_id, '_wp_page_template', true);
+
+	if(in_array($template_filename, json_decode(EDITOR_HIDE_PAGE_TEMPLATES))) {
+		remove_post_type_support('page', 'editor');
+	}
+}
+add_action('admin_init', 'prh_hide_editor');
 
 if ( !function_exists('prh_wp_theme_setup') ):
 /**
@@ -181,12 +237,6 @@ function prh_wp_theme_setup() {
 		'gallery',
 		'caption',
 	));
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support('custom-background', apply_filters('prh_wp_theme_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	)));
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support('customize-selective-refresh-widgets');
@@ -261,11 +311,6 @@ function prh_wp_theme_scripts() {
 add_action('wp_enqueue_scripts', 'prh_wp_theme_scripts');
 
 /**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -285,18 +330,20 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-/************* Cleanups *****************/
-
 
 /************* WYSIWYG *****************/
-// Callback function to insert 'styleselect' into the $buttons array
+/**
+ * Callback function to insert 'styleselect' into the $buttons array
+ */
 function prh_mce_buttons($buttons) {
 	array_unshift($buttons, 'styleselect');
 	return $buttons;
 }
 add_filter('mce_buttons', 'prh_mce_buttons');
 
-// Callback function to filter the MCE settings
+/**
+ * Callback function to insert custom styles into the styleselect dropdown.
+ */
 function prh_mce_before_init_insert_formats($init_array) {
 	// Define the style_formats array
 	$style_formats = array(
@@ -314,6 +361,10 @@ function prh_mce_before_init_insert_formats($init_array) {
 }
 add_filter('tiny_mce_before_init', 'prh_mce_before_init_insert_formats');
 
+/**
+ * Callback function for adding the main CSS to the editor allowing to preview
+ * typography styles directly in the editor's visual mode.
+ */
 function prh_custom_editor_styles() {
 	add_editor_style('css/main.css');
 }
@@ -353,7 +404,6 @@ function home_page_features() {
 add_action('init', 'home_page_features');
 
 /************* Custom Post Type - Press Release *****************/
-
 function press_release_type() {
 	// creating (registering) the custom type
 	register_post_type('press_release', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -399,7 +449,6 @@ function press_release_type() {
 add_action('init', 'press_release_type');
 
 /************* Custom Post Type - phys_story *****************/
-
 function phys_story_type() {
 	// creating (registering) the custom type
 	register_post_type('phys_story', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -444,7 +493,6 @@ function phys_story_type() {
 add_action('init', 'phys_story_type');
 
 /************* Custom Post Type - prh_ipaper *****************/
-
 function prh_ipaper_type() {
 	// creating (registering) the custom type
 	register_post_type('prh_ipaper', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -489,7 +537,6 @@ function prh_ipaper_type() {
 add_action('init', 'prh_ipaper_type');
 
 /************* Custom Post Type - timeline *****************/
-
 function timeline_type() {
 
 	register_post_type('timeline',
