@@ -3,6 +3,7 @@
   @include lora();
   display: block;
   text-align: center;
+  margin: 0 auto;
 }
 
 .stat-number {
@@ -12,13 +13,14 @@
   .backgroundcliptext & {
     -webkit-background-clip: text;
     background-clip: text;
-    background-image: $gradient-linear-pink;
+    background-image: $gradient-linear-rose;
     color: transparent;
   }
 }
 
 .stat-category {
-  font-size: 28px;
+  font-size: em(28px);
   letter-spacing: -0.001em;
   line-height: 38px;
+  max-width: 13em;
 }

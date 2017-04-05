@@ -25,6 +25,9 @@ $gradient-radial-blue: radial-gradient(farthest-corner at 150px 150px , $prh-blu
 $gradient-linear-pink: linear-gradient(to bottom, $prh-pink-lt 0%, $prh-pink-dk 75%);
 $gradient-radial-pink: radial-gradient(farthest-corner at 50px 50px , $prh-pink-lt 0%, $prh-pink-dk 100%);
 
+$gradient-linear-rose: linear-gradient(to bottom, $prh-pink-lt 0%, $prh-rose 75%);
+
+
 //FONT COLORS
 $base-font-white: #fff;
 $base-font-blue: #02243d;
