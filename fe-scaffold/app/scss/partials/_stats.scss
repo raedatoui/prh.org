@@ -7,7 +7,7 @@
 
 .stat-number {
   color: #be3e50;
-  font-size: 150px;
+  font-size: em(150);
 
   .backgroundcliptext & {
     -webkit-background-clip: text;
