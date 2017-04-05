@@ -2,8 +2,8 @@
 .stat-category {
   @include lora();
   display: block;
-  text-align: center;
   margin: 0 auto;
+  text-align: center;
 }
 
 .stat-number {

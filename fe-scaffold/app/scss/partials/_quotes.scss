@@ -1,0 +1,15 @@
+.quote-component {
+  blockquote {
+    p {
+      font-size: em(54px);
+      line-height: 1;
+      @include lora();
+      font-style: italic;
+    }
+
+    cite {
+      font-size: em(18px);
+      line-height: lh(30, 18);
+    }
+  }
+}

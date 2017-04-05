@@ -1,13 +1,15 @@
 .text-component {
   p {
+    @include roboto();
     color: $prh-navy-lt;
     font-size: em(30px);
+    font-weight: $light;
     letter-spacing: -0.015em;
     line-height: lh(46, 30);
   }
 }
 
-@include responsive-mq('md') {
+@include responsive-mq("md") {
   .text-component {
     p {
       font-size: em(18px);

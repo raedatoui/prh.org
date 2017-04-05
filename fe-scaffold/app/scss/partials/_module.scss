@@ -19,20 +19,27 @@
   width: auto;
 
   h2 {
+    @include roboto-condensed;
     float: right;
-    font-size: 14px;
-    letter-spacing: 0.15em;
+    font-size: em(20px, 16px);
+    font-weight: $medium;
+    letter-spacing: 0.3em;
     line-height: 22px;
-    max-width: 8em;
+    max-width: none;
     text-align: left;
   }
 
   @include responsive-mq("sm") {
     display: block;
+    font-size: em(14px, 16px);
     margin-bottom: 0;
     padding-left: 0;
     position: absolute;
     width: 20%;
+
+    h2 {
+      max-width: 7em;
+    }
   }
 }
 
