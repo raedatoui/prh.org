@@ -1,5 +1,5 @@
 <?php $stats = $this->modules[STATISTICS_MODULE['name']]; ?>
-<section class="module statistics page-content">
+<section class="our-focus module page-content">
 	<?php if ( $stats['config'][MODULE_OPTIONS['title']] != '' ): ?>
 		<div class="module__title">
 			<h2><?php echo $stats['config'][MODULE_OPTIONS['title']] ?></h2>
@@ -18,10 +18,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="cta">
+	<div class="row">
 		<?php $cta = $stats['config'][MODULE_OPTIONS['cta']][0];  ?>
-		<a href="<? echo $cta[CTA_COMPONENT['link']];?>">
-			<span><? echo $cta[CTA_COMPONENT['label']]; ?></span>
+		<a class="cta" href="<? echo $cta[CTA_COMPONENT['link']];?>">
+			<? echo $cta[CTA_COMPONENT['label']]; ?>
 		</a>
 	</div>
 </section>
