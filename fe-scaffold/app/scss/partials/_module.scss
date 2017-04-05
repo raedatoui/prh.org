@@ -17,18 +17,18 @@
   width: 80%;
 
   h2 {
-    max-width: 8em;
     float: right;
-    text-align: left;
     font-size: 14px;
-    line-height: 22px;
     letter-spacing: 0.15em;
+    line-height: 22px;
+    max-width: 8em;
+    text-align: left;
   }
 
   @include responsive-mq("sm") {
+    margin-bottom: 0;
     position: absolute;
     width: 20%;
-    margin-bottom: 0;
   }
 }
 
