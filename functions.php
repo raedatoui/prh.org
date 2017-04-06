@@ -151,138 +151,61 @@ class PageModules {
 }
 
 
-function echo_theme_uri() {
-	echo esc_url( get_template_directory_uri() );
-}
-/**
- * Hide the main editor on specific pages
- */
-define('EDITOR_HIDE_PAGE_TITLES', json_encode(array()));
-define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('homepage.php')));
 
-/**
- * Hide the main editor on defined pages
- *
- * You can choose between page titles or page templates. Just set them
- * accordingly like this:
- *
- * define('EDITOR_HIDE_PAGE_TITLES', json_encode(array('Home', 'Some post archive', 'Some Listing')));
- * define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('template-of-something.php', 'archive-customposttype.php')));
- *
- *
- * @global string $pagenow
- * @return void
- */
-function prh_hide_editor() {
-	global $pagenow;
-	if(!('post.php' == $pagenow)){
-		return;
-	}
-
-	// Get the Post ID.
-	$post_id = filter_input(INPUT_GET, 'post') ? filter_input(INPUT_GET, 'post') : filter_input(INPUT_POST, 'post_ID');
-	if(!isset($post_id)) {
-		return;
-	}
-
-	// Hide the editor on the page titled 'Homepage'
-	if(in_array(get_the_title($post_id), json_decode(EDITOR_HIDE_PAGE_TITLES))) {
-		remove_post_type_support('page', 'editor');
-	}
-
-	// Hide the editor on a page with a specific page template
-	$template_filename = get_post_meta($post_id, '_wp_page_template', true);
-
-	if(in_array($template_filename, json_decode(EDITOR_HIDE_PAGE_TEMPLATES))) {
-		remove_post_type_support('page', 'editor');
-	}
-}
-add_action('admin_init', 'prh_hide_editor');
 
 if ( !function_exists('prh_wp_theme_setup') ):
-/**
-* Sets up theme defaults and registers support for various WordPress features.
-*
-* Note that this function is hooked into the after_setup_theme hook, which
-* runs before the init hook. The init hook is too late for some features, such
-* as indicating support for post thumbnails.
-*/
-function prh_wp_theme_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on prh-wp-theme, use a find and replace
-	 * to change 'prh-wp-theme' to the name of your theme in all the template files.
+	/**
+	* Sets up theme defaults and registers support for various WordPress features.
+	*
+	* Note that this function is hooked into the after_setup_theme hook, which
+	* runs before the init hook. The init hook is too late for some features, such
+	* as indicating support for post thumbnails.
 	*/
-	load_theme_textdomain('prh-wp-theme', get_template_directory() . '/languages');
+	function prh_wp_theme_setup() {
+		/*
+		 * Make theme available for translation.
+		*/
+		load_theme_textdomain('prh-wp-theme', get_template_directory() . '/languages');
+		add_theme_support('automatic-feed-links');
+		add_theme_support('title-tag');
+		add_theme_support('post-thumbnails');
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support('automatic-feed-links');
+		// This theme uses wp_nav_menu() in one location.
+		register_nav_menus(array(
+			'menu-1' => esc_html__('Primary', 'prh-wp-theme'),
+		));
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	*/
-	add_theme_support('title-tag');
+		add_theme_support('html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		));
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	*/
-	add_theme_support('post-thumbnails');
+		add_theme_support('customize-selective-refresh-widgets');
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus(array(
-		'menu-1' => esc_html__('Primary', 'prh-wp-theme'),
-	));
+		//http://cubiq.org/clean-up-and-optimize-wordpress-for-your-next-theme
+		remove_action('wp_head', 'wlwmanifest_link');
+		remove_action('wp_head', 'wp_generator');
+		remove_action('wp_head', 'rsd_link');
+		remove_action('wp_head', 'wp_shortlink_wp_head');
+		remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10);
+		add_filter('the_generator', '__return_false');
+		remove_action('wp_head', 'print_emoji_detection_script', 7);
+		remove_action('wp_print_styles', 'print_emoji_styles');
+		add_filter('emoji_svg_url', '__return_false');
+		remove_action('wp_head', 'rest_output_link_wp_head');
+		remove_action('wp_head', 'wp_oembed_add_discovery_links');
+		add_filter('user_can_richedit', '__return_true');
+	}
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	*/
-	add_theme_support('html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	));
-
-	// Add theme support for selective refresh for widgets.
-	add_theme_support('customize-selective-refresh-widgets');
-
-	//http://cubiq.org/clean-up-and-optimize-wordpress-for-your-next-theme
-	remove_action('wp_head', 'wlwmanifest_link');
-
-	remove_action('wp_head', 'wp_generator');
-	remove_action('wp_head', 'wlwmanifest_link');
-	remove_action('wp_head', 'rsd_link');
-	remove_action('wp_head', 'wp_shortlink_wp_head');
-
-	remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10);
-
-	add_filter('the_generator', '__return_false');
-	//add_filter('show_admin_bar','__return_false');
-
-	remove_action('wp_head', 'print_emoji_detection_script', 7);
-	remove_action('wp_print_styles', 'print_emoji_styles');
-	add_filter('emoji_svg_url', '__return_false');
-
-	remove_action('wp_head', 'rest_output_link_wp_head');
-	remove_action('wp_head', 'wp_oembed_add_discovery_links');
-	add_filter('user_can_richedit', '__return_true');
-}
 endif;
 add_action('after_setup_theme', 'prh_wp_theme_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
- *
  * Priority 0 to make it available to lower priority callbacks.
- *
  * @global int $content_width
  */
 function prh_wp_theme_content_width() {
@@ -292,8 +215,6 @@ add_action('after_setup_theme', 'prh_wp_theme_content_width', 0);
 
 /**
  * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function prh_wp_theme_widgets_init() {
 	register_sidebar(array(
