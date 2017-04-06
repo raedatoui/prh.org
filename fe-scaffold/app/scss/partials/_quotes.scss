@@ -10,38 +10,37 @@
       font-style: italic;
       line-height: 1;
 
-      &:before,
-      &:after {
-        font-size: em(54px);
+      &::before,
+      &::after {
         @include lora();
         color: $prh-pink-darkest;
-        width: 40px;
-        height: 40px;
         display: block;
+        font-size: em(54px);
+        height: 40px;
         position: absolute;
+        width: 40px;
         z-index: -1;
       }
 
-      &:before {
+      &::before {
         content: "\201C";
-        position: absolute;
-        top: -35px;
         left: -30px;
+        top: -35px;
       }
 
-      &:after {
-        content: "\201D";
+      &::after {
         bottom: 116px;
+        content: "\201D";
         right: 30px;
       }
     }
 
     cite {
+      display: inline-block;
       font-size: em(18px);
       font-style: normal;
       line-height: lh(30, 18);
       margin-top: 40px;
-      display: inline-block;
     }
 
     .cite-origin {
