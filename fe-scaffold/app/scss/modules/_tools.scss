@@ -1,18 +1,5 @@
 @import "font_mixins";
 
-@mixin border-radius($radius) {
-  -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
-  -webkit-border-radius: $radius;
-  border-radius: $radius;
-}
-
-.round-box {
-  @include border-radius(10px);
-}
-
-
-
 //Responsive Breakpoints - Hugo Giraudel
 @mixin responsive-mq($name) {
   @if map-has-key($breakpointmap, $name) {
@@ -25,20 +12,21 @@
   }
 }
 
-
-
-@mixin test-border($color) {
-  border: 1px solid $color;
-}
-
-@mixin test-fill($color) {
-  background-color: $color;
-}
-
 @mixin clearfix() {
   &::after {
     clear: both;
     content: " ";
     display: table;
   }
+}
+
+@function em($size, $base: 16px) {
+  @if unitless($size) {
+    $size: $size * 1px;
+  }
+  @return ($size / $base) * 1em;
+}
+
+@function lh($height, $size) {
+  @return ($height / $size);
 }

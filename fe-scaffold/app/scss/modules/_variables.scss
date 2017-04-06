@@ -9,12 +9,13 @@ $prh-pink-lt: #fed1c8;
 $prh-pink-dk: #fabbb5;
 $prh-cream-lt: #fee7d7;
 $prh-cream-dk: #f9dcc6;
-$prh-navy-lt: #28497e;
+$prh-navy-lt: #2e3563;
 $prh-navy-dk: #1f3e72;
 $prh-purple-lt: #a5aee7;
 $prh-purple-dk: #c0c6e9;
 $prh-gray: #777;
 $prh-red: #e5576c;
+$prh-rose: #be3e50;
 
 
 //GRADIENTS
@@ -23,6 +24,9 @@ $gradient-radial-blue: radial-gradient(farthest-corner at 150px 150px , $prh-blu
 
 $gradient-linear-pink: linear-gradient(to bottom, $prh-pink-lt 0%, $prh-pink-dk 75%);
 $gradient-radial-pink: radial-gradient(farthest-corner at 50px 50px , $prh-pink-lt 0%, $prh-pink-dk 100%);
+
+$gradient-linear-rose: linear-gradient(to bottom, $prh-pink-lt 0%, $prh-rose 75%);
+
 
 //FONT COLORS
 $base-font-white: #fff;
