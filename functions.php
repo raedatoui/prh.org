@@ -273,19 +273,3 @@ function get_post_excerpt( $post ) {
 function echo_theme_uri() {
 	echo esc_url( get_template_directory_uri() );
 }
-
-/**
- * Add a quick link to the homepage in the admin menu, because convenience.
- **/
-function prh_admin_menu() {
-		$front_id = get_option(page_on_front);
-		$front_slug = 'post.php?post=' . $front_id . '&action=edit';
-
-    add_pages_page(
-        'Home',
-        'Home',
-        'edit_pages',
-        $front_slug);
-}
-
-add_action('admin_menu', 'prh_admin_menu');
