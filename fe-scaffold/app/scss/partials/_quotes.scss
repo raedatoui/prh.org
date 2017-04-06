@@ -1,10 +1,10 @@
 .quote-component {
   blockquote {
     p {
-      font-size: em(54px);
-      line-height: 1;
       @include lora();
+      font-size: em(54px);
       font-style: italic;
+      line-height: 1;
     }
 
     cite {
