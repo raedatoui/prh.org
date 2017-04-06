@@ -24,6 +24,14 @@ get_header();?>
 			}
 		}
 		$page = new PageModules($modules);
+//		echo "<pre><code>";
+//		$posts = $query->posts;
+//		foreach($posts as $post) {
+//			echo $post->post_date . "<br>";
+//		}
+//		print_r($page->modules);
+//		echo "</code></pre>";
+
 		$page->render();
 	endwhile; // End of the loop. ?>
 
