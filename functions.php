@@ -12,7 +12,8 @@
 const COMPONENTS_TO_UNSET = array(
 	'CTA',
 	'Module Options',
-	'Statistic'
+	'Statistic',
+
 );
 
 const MODULE_OPTIONS = array(
@@ -56,10 +57,22 @@ const STATISTICS_MODULE = array(
 	'template' => 'template-parts/modules/statistics.php'
 );
 
+const AGGREGATE_BY_POST_TYPE = array(
+	'name' => 'Aggregate by Post Type',
+	'options' => 'aggregate_by_post_type_options',
+	'post_type' => 'aggregate_by_post_type',
+	'template' => 'template-parts/modules/aggregate.php'
+);
+
 const MODULES = array(
 	'Carousel' => CAROUSEL_MODULE,
 	'Hero' => HERO_MODULE,
-	'Statistics' => STATISTICS_MODULE
+	'Statistics' => STATISTICS_MODULE,
+	'Aggregate by Post Type' => AGGREGATE_BY_POST_TYPE
+);
+
+const CUSTOM_POST_TYPES = array (
+	'press_release' => 'Press Release'
 );
 
 /**
@@ -96,7 +109,7 @@ class PageModules {
 	function configure() {
 		$func = function ( $module ) {
 			if ( ! in_array( $module['module_name'], array_keys( MODULES ) ) ) {
-				throw new Exception('Module not found');
+				throw new Exception('Module ' . $module['module_name'] . ' not found');
 			}
 			$config = MODULES[$module['module_name']];
 			if (! in_array( 'options', array_keys( $config ) ) ) {
@@ -335,7 +348,7 @@ require get_template_directory() . '/inc/jetpack.php';
 /**
  * Callback function to insert 'styleselect' into the $buttons array
  */
-function prh_mce_buttons($buttons) {
+function prh_mce_buttons( $buttons ) {
 	array_unshift($buttons, 'styleselect');
 	return $buttons;
 }
@@ -344,7 +357,7 @@ add_filter('mce_buttons', 'prh_mce_buttons');
 /**
  * Callback function to insert custom styles into the styleselect dropdown.
  */
-function prh_mce_before_init_insert_formats($init_array) {
+function prh_mce_before_init_insert_formats( $init_array ) {
 	// Define the style_formats array
 	$style_formats = array(
 		// Each array child is a format with it's own settings
@@ -370,7 +383,19 @@ function prh_custom_editor_styles() {
 }
 add_action('init', 'prh_custom_editor_styles');
 
-
+/**
+ * Function that gets the excerpt from the excerpt field or
+ * chops the content to 100
+ * @param $post
+ * @return string
+ */
+function get_post_excerpt( $post ) {
+	if ( $post->post_excerpt != NULL && $post->post_excerpt != '' ) {
+		return get_the_excerpt( $post );
+	} else {
+		return   substr ( wp_strip_all_tags( $post->post_content ), 0, 100 );
+	}
+}
 /************* Custom Post Type - Homepage Features *****************/
 function home_page_features() {
 	$labels = array(
@@ -579,3 +604,18 @@ function timeline_type() {
 	register_taxonomy_for_object_type('post_tag', 'timeline');
 }
 add_action('init', 'timeline_type');
+
+
+
+
+function set_post_order_in_admin( $wp_query ) {
+
+global $pagenow;
+
+if ( is_admin() && 'edit.php' == $pagenow && !isset($_GET['orderby'])) {
+
+    $wp_query->set( 'orderby', 'date' );
+    $wp_query->set( 'order', 'DESC' );
+}
+}
+add_filter('pre_get_posts', 'set_post_order_in_admin', 5 );
