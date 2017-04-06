@@ -7,8 +7,8 @@
 		'orderby' => 'date',
 		'order'   => 'DESC',
 	);
-	$query = new WP_Query( $args );
-	$posts = $query->posts;
+	$aggregate_query = new WP_Query( $args );
+	$posts = $aggregate_query->posts;
 	$dateFormat =  get_option('date_format');
 ?>
 <section class="module module__aggregate-card page-content">
@@ -19,10 +19,12 @@
 	<?php endif; ?>
 	<div class="module__content">
 		<div class="row">
-		<?php foreach( $posts as $post ) : ?>
-			<?php
-				$link = get_permalink ( $post );
-				$postImage = get_the_post_thumbnail_url($post); ?>
+			<?php 
+			if ($aggregate_query->have_posts()):
+				while ($aggregate_query->have_posts()): 
+					$aggregate_query->the_post(); 
+					$link = get_permalink ( $post );
+					$postImage = get_the_post_thumbnail_url($post); ?>
 			<a class="aggregate-tile col-xs-12 col-md-4" href="<?php echo $link ?>">
 				<div class="tile__container">
 					<div class="tile__type--container">
@@ -34,11 +36,14 @@
 						<?php endif; ?>
 					</div>
 					<date class="tile__date"><?php echo get_the_date($dateFormat, $post); ?></date>
-					<h3 class="tile__title"><?php echo $post->post_title; ?></h3>
-					<span class="tile__summary"><?php echo get_post_excerpt ( $post ); ?></span>
+					<h3 class="tile__title"><?php the_title(); ?></h3>
+					<div class="tile__summary"><?php the_excerpt(); ?></div>
 				</div>
 			</a>
-		<?php endforeach; ?>
+		<?php 
+				endwhile; 
+			endif; 
+			wp_reset_postdata(); ?>
 		</div>
 		<div class="row">
 			<?php $cta = $aggregate['config'][MODULE_OPTIONS['cta']][0];  ?>

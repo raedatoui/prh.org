@@ -257,18 +257,12 @@ require get_template_directory() . '/inc/editor.php';
 
 
 /**
- * Function that gets the excerpt from the excerpt field or
- * chops the content to 100
- * @param $post
- * @return string
+ * Misc settings, excerpt rules
  */
-function get_post_excerpt( $post ) {
-	if ( $post->post_excerpt != NULL && $post->post_excerpt != '' ) {
-		return get_the_excerpt( $post );
-	} else {
-		return   substr ( wp_strip_all_tags( $post->post_content ), 0, 100 );
-	}
+function custom_excerpt_length( $length ) {
+	return 25; // how many words in the except?
 }
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 function echo_theme_uri() {
 	echo esc_url( get_template_directory_uri() );
