@@ -25,7 +25,7 @@
 					$aggregate_query->the_post(); 
 					$link = get_permalink ( $post );
 					$postImage = get_the_post_thumbnail_url($post); ?>
-			<a class="aggregate-tile col-xs-12 col-md-4" href="<?php echo $link ?>">
+			<a class="aggregate-tile col-xs-12 col-md-4" href="<?php echo $link ?>" aria-label="<?php the_title(); ?>">
 				<div class="tile__container">
 					<div class="tile__type--container">
 						<span class="tile__type"><?php echo CUSTOM_POST_TYPES[$post->post_type]; ?>	</span>
