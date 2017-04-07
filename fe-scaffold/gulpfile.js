@@ -62,7 +62,7 @@ gulp.task('cleanImage', function(){
 	console.log("CLEAN")
 	return del(
 		[
-			localImgDest,
+			'../images/optimized/**/*',
 			pubImgDest,
 			"!.gitignore"
 		],
