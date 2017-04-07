@@ -63,7 +63,8 @@ gulp.task('cleanImage', function(){
 	return del(
 		[
 			localImgDest,
-			pubImgDest
+			pubImgDest,
+			"!.gitignore"
 		],
 		{
 			force: true,
