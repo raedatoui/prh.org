@@ -1,0 +1,58 @@
+.quote-component {
+  margin: 36px 0;
+
+  blockquote {
+    position: relative;
+
+    p {
+      @include lora();
+      font-size: em(54px);
+      font-style: italic;
+      line-height: 1;
+
+      &::before,
+      &::after {
+        @include lora();
+        color: $prh-pink-darkest;
+        display: block;
+        font-size: em(54px);
+        height: 40px;
+        position: absolute;
+        width: 40px;
+        z-index: -1;
+      }
+
+      &::before {
+        content: "\201C";
+        left: -30px;
+        top: -35px;
+      }
+
+      &::after {
+        bottom: 116px;
+        content: "\201D";
+        right: 30px;
+      }
+    }
+
+    cite {
+      display: inline-block;
+      font-size: em(18px);
+      font-style: normal;
+      line-height: lh(30, 18);
+      margin-top: 40px;
+    }
+
+    .cite-origin {
+      font-style: italic;
+    }
+
+
+  }
+}
+
+@include responsive-mq("md") {
+  .quote-component {
+    margin: 0;
+  }
+}
