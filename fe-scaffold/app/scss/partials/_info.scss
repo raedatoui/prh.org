@@ -1,0 +1,32 @@
+.info-module {
+
+  .cta {
+    margin-top: 70px;
+  }
+}
+
+.info-module__info {
+
+}
+
+.info-module__title,
+.info-module__text {
+
+}
+
+.info-module__title {
+  @include lora();
+  color: $prh-navy-lt;
+  font-size: em(50px);
+  line-height: lh(60, 50);
+  letter-spacing: -0.015em;
+  margin-bottom: 35px;
+}
+
+.info-module__text {
+  @include roboto();
+  font-weight: $light;
+  font-size: em(36px);
+  line-height: lh(46, 30);
+}
+
