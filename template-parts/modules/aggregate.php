@@ -1,8 +1,8 @@
 <?php
-	$aggregate = $this->modules[AGGREGATE_BY_POST_TYPE['name']];
+	$module = $this->modules[AGGREGATE_BY_POST_TYPE['name']];
 	$args = array(
 		'post_status' => array( 'publish' ),
-		'post_type' => $aggregate[AGGREGATE_BY_POST_TYPE['post_type']],
+		'post_type' => $module[AGGREGATE_BY_POST_TYPE['post_type']],
 		'posts_per_page' => 3,
 		'orderby' => 'date',
 		'order'   => 'DESC',
@@ -12,11 +12,7 @@
 	$dateFormat =  get_option('date_format');
 ?>
 <section class="module module__aggregate-card page-content">
-		<?php if ( $aggregate['config'][MODULE_OPTIONS['title']] != '' ): ?>
-		<div class="module__title">
-			<h2><?php echo $aggregate['config'][MODULE_OPTIONS['title']] ?></h2>
-		</div>
-	<?php endif; ?>
+	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 	<div class="module__content">
 		<div class="row">
 			<?php 
@@ -45,11 +41,6 @@
 			endif; 
 			wp_reset_postdata(); ?>
 		</div>
-		<div class="row">
-			<?php $cta = $aggregate['config'][MODULE_OPTIONS['cta']][0];  ?>
-			<a class="cta" href="<? echo $cta[CTA_COMPONENT['link']];?>">
-				<? echo $cta[CTA_COMPONENT['label']]; ?>
-			</a>
-		</div>
+		<?php include( locate_template( 'template-parts/components/cta.php', false, false ) ); ?>
 	</div>
 </section>
