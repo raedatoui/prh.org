@@ -38,7 +38,7 @@ $base-font-gray: #322826;
 $base-bg-color: #fff;
 $base-color-blue: $prh-blue-lt;
 $base-page-max-width: 1320px;
-$base-gutter: 2%;
+$base-gutter: 4%;
 
 
 //------------------------------------------------
@@ -80,7 +80,7 @@ $module-padding-lg: 60px;
 // $grid-columns: 12 !default;
 
 // Set the gutter between columns.
-// $gutter-width: 1rem !default; //use rem
+$gutter-width: 2rem; //use rem
 
 // Set a margin for the container sides.
 $outer-margin: 0; //use rem

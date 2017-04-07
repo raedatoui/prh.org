@@ -29,9 +29,7 @@
 @include responsive-mq("md") {
   .cta {
     font-size: em(12px);
-    display: flex;
     display: inline-block;
-
   }
 
 }
