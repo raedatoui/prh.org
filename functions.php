@@ -53,8 +53,17 @@ const STATISTICS_MODULE = array(
 	'figure' => 'statistic_figure',
 	'number' => 'stat_number',
 	'text' => 'stat_text',
-	'cta' => 'statistics_cta',
 	'template' => 'template-parts/modules/statistics.php'
+);
+
+const QUOTE_MODULE = array(
+	'name' => 'Quote',
+	'options' => 'quote_options',
+	'quote' => 'quote',
+	'attribution_name' => 'quote_attribution_name',
+	'attribution_location' => 'quote_attribution_location',
+	'text' => 'quote_text',
+	'template' => 'template-parts/modules/quote.php'
 );
 
 const AGGREGATE_BY_POST_TYPE = array(
@@ -68,7 +77,8 @@ const MODULES = array(
 	'Carousel' => CAROUSEL_MODULE,
 	'Hero' => HERO_MODULE,
 	'Statistics' => STATISTICS_MODULE,
-	'Aggregate by Post Type' => AGGREGATE_BY_POST_TYPE
+	'Aggregate by Post Type' => AGGREGATE_BY_POST_TYPE,
+	'Quote' => QUOTE_MODULE
 );
 
 const CUSTOM_POST_TYPES = array (
