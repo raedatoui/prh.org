@@ -31,14 +31,23 @@
 }
 
 @include responsive-mq("md") {
+
+  .info-module {
+    .cta {
+      margin-top: 50px;
+    }
+  }
+
   .info-module__title {
     font-size: em(44px);
     line-height: lh(56, 44);
+    margin-top: 70px;
+    margin-bottom: 25px;
   }
 
   .info-module__text {
     font-size: em(18px);
-    line-height: lh(40, 18);
+    line-height: lh(30, 18);
     font-weight: $regular;
   }
 }
