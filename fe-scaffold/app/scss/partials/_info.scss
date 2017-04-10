@@ -5,13 +5,40 @@
   }
 }
 
-.info-module__info {
+.info-module__img {
+  align-self: center;
 
 }
 
-.info-module__title,
-.info-module__text {
+.columns-1 {
+  .info-module__img {
+    @extend .col-xs-12;
+    @extend .col-md-4;
+  }
 
+  .info-module__info {
+    @extend .col-xs-12;
+    @extend .col-md-6;
+  }
+}
+
+.columns-3 {
+  .info-module--component {
+    @extend .col-xs-12;
+    @extend .col-md-4;
+  }
+
+  .info-module__title {
+    text-align: center;
+  }
+
+  .info-module__img {
+
+  }
+
+  .info-module__info {
+
+  }
 }
 
 .info-module__title {
