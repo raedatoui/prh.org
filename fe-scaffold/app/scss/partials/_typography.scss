@@ -1,42 +1,44 @@
 //THIS IS WHERE TYPOGRAPHY STYLING SHOULD GO...
 
-@for $index from 1 through 6 {
-  h#{$index} {
-    -webkit-font-smoothing: antialiased;
-    color: #fff;
-    text-rendering: optimizeLegibility;
-    @include roboto();
-  }
+
+%headline {
+  -webkit-font-smoothing: antialiased;
+  font-size: 54px;
+  letter-spacing: em((-25/1000), 54px);
+  line-height: 1.25;
+  text-rendering: optimizeLegibility;
+  @include lora();
 }
 
-h1 {
-}
-
+h1,
 h2 {
-
+  @extend %headline;
 }
 
 h3 {
   font-size: 12px;
   font-weight: $medium;
-  // letter-spacing: 0.15em;
-}
-
-h4 {
-
-}
-
-h5 {
-
-}
-
-h6 {
-
 }
 
 .underline {
-  background-image: linear-gradient(to bottom, $base-font-white 33%, transparent 33%);
+  background-image: linear-gradient(to bottom, currentColor 33%, transparent 33%);
   background-position: 0 1.1em;
   background-repeat: repeat-x;
   background-size: 2px 6px;
+}
+
+%eyebrow {
+  @include roboto-condensed;
+  font-size: em(22px);
+  letter-spacing: 0.3em;
+  line-height: (22 / 20);
+  text-transform: uppercase;
+
+  @include responsive-mq("sm") {
+    font-size: em(14px);
+  }
+}
+
+.eyebrow {
+  @extend %eyebrow;
 }

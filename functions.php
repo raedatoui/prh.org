@@ -32,9 +32,13 @@ const CTA_COMPONENT = array (
 const CAROUSEL_MODULE = array(
 	'name' => 'Carousel',
 	'options' => 'carousel_options',
-	'images' => 'carousel_images',
-	'image' => 'carousel_image',
-	'link' => 'carousel_link',
+	'slides' => 'carousel_slides',
+	'image' => 'slide_image',
+	'eyebrow' => 'slide_eyebrow',
+	'title' => 'slide_title',
+	'text' => 'slide_text',
+	'cta' => 'slide_cta',
+	'link' => 'slide_link',
 	'template' => 'template-parts/modules/carousel.php'
 );
 
@@ -276,4 +280,17 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 function echo_theme_uri() {
 	echo esc_url( get_template_directory_uri() );
+}
+
+/**
+ * Helper function to prevent outputting empty elements
+ * for fields that haven't been filled in.
+ * $before and $after = html to surround the var, if set
+ */
+
+function echo_wrapped( $var, $before='', $after='' ) {
+	if ($var == null || $var == '') {
+		return;
+	}
+	echo $before . $var . $after;
 }
