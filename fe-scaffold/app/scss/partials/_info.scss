@@ -51,6 +51,7 @@
 
 .info-module__text {
   @include roboto();
+  display: block;
   font-size: em(30px);
   font-weight: $light;
   line-height: lh(46, 30);
