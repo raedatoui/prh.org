@@ -11,6 +11,10 @@
 }
 
 .columns-1 {
+  .info-module--component {
+    @extend .row;
+  }
+
   .info-module__img {
     @extend .col-xs-12;
     @extend .col-md-4;
@@ -29,15 +33,10 @@
   }
 
   .info-module__title {
+    font-size: em(60px);
+    letter-spacing: -0.02em;
+    line-height: lh(70, 60);
     text-align: center;
-  }
-
-  .info-module__img {
-
-  }
-
-  .info-module__info {
-
   }
 }
 
@@ -45,15 +44,15 @@
   @include lora();
   color: $prh-navy-lt;
   font-size: em(50px);
-  line-height: lh(60, 50);
   letter-spacing: -0.015em;
+  line-height: lh(60, 50);
   margin-bottom: 35px;
 }
 
 .info-module__text {
   @include roboto();
+  font-size: em(30px);
   font-weight: $light;
-  font-size: em(36px);
   line-height: lh(46, 30);
 }
 
@@ -65,16 +64,19 @@
     }
   }
 
-  .info-module__title {
-    font-size: em(44px);
-    line-height: lh(56, 44);
-    margin-top: 70px;
-    margin-bottom: 25px;
-  }
+  .columns-1,
+  .columns-3 {
+    .info-module__title {
+      font-size: em(44px);
+      line-height: lh(56, 44);
+      margin-bottom: 25px;
+      margin-top: 70px;
+    }
 
-  .info-module__text {
-    font-size: em(18px);
-    line-height: lh(30, 18);
-    font-weight: $regular;
+    .info-module__text {
+      font-size: em(18px);
+      font-weight: $regular;
+      line-height: lh(30, 18);
+    }
   }
 }
