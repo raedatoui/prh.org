@@ -14,6 +14,14 @@
   &:hover {
     cursor: pointer;
   }
+
+  &::after {
+    background: url("../images/optimized/button_arrow.svg") 0 5px no-repeat;
+    content: " ";
+    display: inline-block;
+    height: 17px;
+    width: 30px;
+  }
 }
 
 .cta--red {
