@@ -11,9 +11,9 @@
 	$posts = $aggregate_query->posts;
 	$dateFormat =  get_option('date_format');
 ?>
-<section class="module module__aggregate-card page-content">
+<section class="module module__aggregate-card">
+	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
-	<div class="module__content">
 		<div class="row">
 			<?php 
 			if ($aggregate_query->have_posts()):

@@ -7,16 +7,6 @@ $mob-header-height: 180px;
   padding-bottom: 200px;
   padding-top: $mob-header-height;
 
-  // @TODO: Is this reusable? Maybe move to _typography.scss later.
-  .hero__header {
-    -webkit-font-smoothing: antialiased;
-    font-size: 54px;
-    letter-spacing: 1.1px;
-    line-height: 1.25;
-    text-rendering: optimizeLegibility;
-    @include lora();
-  }
-
   .hero__subhead {
     font-size: 18px;
     font-weight: $thin;
