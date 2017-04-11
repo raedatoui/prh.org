@@ -5,7 +5,10 @@
 		<div class="module__content">
 			<div class="row">
 				<div class="col-xs-12">
-					<h3 class="hero__header"><?php echo $module[HERO_MODULE['header']] ?></h3>
+					<h1 class="hero__header"><?php 
+						// Strip auto-added paragraph tags since <h1><p> isn't valid, (but leave any other html intact)
+					  echo str_replace(array('<p>', '</p>'), '', $module[HERO_MODULE['header']]);
+					?></h1>
 				</div>
 				<div class="col-xs-12 hero__subhead"><?php echo $module[HERO_MODULE['text']] ?></div>
 			</div>
