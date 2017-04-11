@@ -3,11 +3,15 @@
 
 %headline {
   -webkit-font-smoothing: antialiased;
-  font-size: 54px;
+  font-size: 30px;
   letter-spacing: em((-25/1000), 54px);
   line-height: 1.25;
   text-rendering: optimizeLegibility;
   @include lora();
+
+  @include responsive-mq("sm") {
+    font-size: 54px;
+  }
 }
 
 h1,
@@ -29,7 +33,7 @@ h3 {
 
 %eyebrow {
   @include roboto-condensed;
-  font-size: em(22px);
+  font-size: em(12px);
   letter-spacing: 0.3em;
   line-height: (22 / 20);
   text-transform: uppercase;

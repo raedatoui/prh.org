@@ -6,9 +6,9 @@
 		$quoteClass = 'col-md-12';
 	}
 ?>
-<section class="module module__quote page-content">
+<section class="module module__quote">
+	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
-	<div class="module__content">
 		<div class="row">
 			<?php if ( $quoteText != '') : ?>
 				<div class="text-component col-xs-12 col-md-4">

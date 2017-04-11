@@ -1,5 +1,5 @@
 .module {
-  padding: $module-padding-xs 0;
+  padding: $module-padding-xs;
 
   @include responsive-mq(lg) {
     padding: $module-padding-lg 0;
@@ -10,31 +10,11 @@
   background-position: bottom right;
   background-repeat: repeat-x;
   display: inline-block;
-  margin-bottom: 10px;
-  min-height: 30px;
-  min-width: 100px;
-  padding-bottom: 0;
-  padding-left: 50px;
+  margin-bottom: 30px;
   text-transform: uppercase;
-  width: auto;
 
   h2 {
     @extend %eyebrow;
-    float: right;
-    max-width: none;
-    text-align: left;
-  }
-
-  @include responsive-mq("sm") {
-    display: block;
-    margin-bottom: 0;
-    padding-left: 0;
-    position: absolute;
-    width: 20%;
-
-    h2 {
-      max-width: 7em;
-    }
   }
 }
 
@@ -56,22 +36,5 @@
     h2 {
       color: #fff;
     }
-  }
-}
-
-.module__content {
-  margin-left: 0%;
-  max-width: 100%;
-  padding: 0 20px;
-
-  @include responsive-mq("sm") {
-    margin-left: 25%;
-    max-width: 75%;
-    padding: 0 20px 0 0;
-  }
-
-  @include responsive-mq("lg") {
-    max-width: 1280px;
-    padding: 0;
   }
 }

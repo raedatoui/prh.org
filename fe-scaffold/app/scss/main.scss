@@ -1,6 +1,9 @@
 //MODULES & VARS
 @import "modules/all";
 
+//3rd PARTY VENDORS
+@import "vendor/flexboxgrid";
+@import "vendor/flickity";
 
 //PARTIALS
 @import "partials/reset";
@@ -12,11 +15,6 @@
 @import "partials/stats";
 @import "partials/text";
 @import "partials/quotes";
-
-
-//3rd PARTY VENDORS
-@import "vendor/flexboxgrid";
-@import "vendor/flickity";
 
 //PAGES
 //@import "pages/site-base-styles";

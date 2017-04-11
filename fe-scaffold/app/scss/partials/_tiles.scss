@@ -29,8 +29,8 @@
 .tile__type {
   @extend %eyebrow;
   color: $base-font-gray;
-  font-size: em(12px);
   display: block;
+  font-size: em(12px);
   margin-bottom: 15px;
 }
 

@@ -11,14 +11,13 @@ body {
   width: 100%;
 }
 
-.page-content {
+.content {
   margin: 0 auto;
-  // max-width: $base-page-max-width;
+  max-width: $base-page-max-width;
 }
 
 .row {
-  margin-left: 0;
-  margin-right: 0;
+  margin: auto;
   padding: 0;
 }
 

@@ -1,20 +1,19 @@
 <?php $module = $this->modules[CAROUSEL_MODULE['name']]; ?>
-<section class="featured-carousel module page-content">
-	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
-	<div class="module__content">
-		<div class="row">
-			<div class="carousel col-xs-12">
+<section class="featured-carousel module">
+	<div class="content">
+		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
+		<div class="carousel">
 
-				<?php foreach ( $module[CAROUSEL_MODULE['slides']] as $index => $slide ): ?>
+			<?php foreach ( $module[CAROUSEL_MODULE['slides']] as $index => $slide ): ?>
 
 				<div class="slide slide-<?php echo $index ?>">
 					<a class="slide-link" href="http://<?php echo $slide[CAROUSEL_MODULE['link']]; ?>">
 						<div class="slide-half">
 							<img src="<?php echo $slide[CAROUSEL_MODULE['image']]['url'] ?>"
-									 alt=""/>
+							alt=""/>
 						</div>
 						<div class="slide-half">
-						<?php 
+							<?php 
 							echo_wrapped($slide[CAROUSEL_MODULE['eyebrow']], '<span class="eyebrow slide-eyebrow">', '</span>');
 							echo '<div class="slide-content">';
 							echo_wrapped($slide[CAROUSEL_MODULE['title']], '<h2 class="slide-title">', '</h2>'); 
@@ -26,10 +25,10 @@
 					</a>
 				</div>
 
-				<?php endforeach; ?>
+			<?php endforeach; ?>
 
-			</div>
 		</div>
-		<?php include( locate_template( 'template-parts/components/cta.php', false, false ) ); ?>
 	</div>
+	<?php include( locate_template( 'template-parts/components/cta.php', false, false ) ); ?>
+</div>
 </section>
