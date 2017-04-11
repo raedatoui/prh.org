@@ -28,8 +28,8 @@
 
 @include responsive-mq("md") {
   .cta {
-    font-size: em(12px);
     display: inline-block;
+    font-size: em(12px);
   }
 
 }
