@@ -19,19 +19,14 @@
   width: auto;
 
   h2 {
-    @include roboto-condensed;
+    @extend %eyebrow;
     float: right;
-    font-size: em(20px, 16px);
-    font-weight: $medium;
-    letter-spacing: 0.3em;
-    line-height: 22px;
     max-width: none;
     text-align: left;
   }
 
   @include responsive-mq("sm") {
     display: block;
-    font-size: em(14px, 16px);
     margin-bottom: 0;
     padding-left: 0;
     position: absolute;
