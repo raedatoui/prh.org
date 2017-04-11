@@ -27,13 +27,11 @@
 }
 
 .tile__type {
-  @include roboto-condensed();
-
-  font-size: 12px;
-  font-weight: $medium;
-  letter-spacing: 0.125em;
-  line-height: 26px;
-  text-transform: uppercase;
+  @extend %eyebrow;
+  color: $base-font-gray;
+  display: block;
+  font-size: em(12px);
+  margin-bottom: 15px;
 }
 
 .tile__source {

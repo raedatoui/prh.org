@@ -12,26 +12,25 @@
 
       &::before,
       &::after {
-        @include lora();
-        color: $prh-pink-darkest;
+        content: " ";
         display: block;
-        font-size: em(54px);
-        height: 40px;
+        height: 90px;
         position: absolute;
-        width: 40px;
+        width: 90px;
         z-index: -1;
       }
 
       &::before {
-        content: "\201C";
+        background: url("../images/optimized/quote_start.svg") 0 0 no-repeat;
         left: -30px;
-        top: -35px;
+        top: -55px;
       }
 
       &::after {
+        background: url("../images/optimized/quote_end.svg") 0 0 no-repeat;
         bottom: 116px;
-        content: "\201D";
         right: 30px;
+        transform: rotate(23deg);
       }
     }
 

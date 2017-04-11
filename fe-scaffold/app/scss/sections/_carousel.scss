@@ -1,22 +1,81 @@
-$carousel-side-padding: 50px;
-
-.hero-grid {
-  margin-left: calc(25% - #{$carousel-side-padding});
-}
-
 .carousel {
-  margin-right: 10px;
-  padding: 0 $carousel-side-padding;
-  width: 75%;
+  font-size: 1rem;
+  margin: auto;
 }
 
 .slide {
+  display: block;
   width: 100%;
 }
 
-.flickity-prev-next-button {
-  background: transparent;
+.slide-link {
+  align-items: center;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  width: auto;
 
+  @include responsive-mq("sm") {
+    align-items: stretch;
+    flex-direction: row;
+    padding: 0 60px;
+  }
+}
+
+.slide-content {
+  margin: 20px 0 30px;
+
+  @include responsive-mq("sm") {
+    margin: 60px 0;
+  }
+}
+
+.slide-title {
+  color: $prh-blue-lt;
+  margin-bottom: 10px;
+}
+
+.slide-cta {
+  @extend %eyebrow;
+
+  color: $prh-blue-lt;
+  text-decoration: underline;
+}
+
+.slide-half {
+
+  padding: 20px;
+
+  img {
+    max-width: 100%;
+    width: auto;
+  }
+
+  @include responsive-mq("sm") {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+
+    &:nth-child(2) {
+      flex: 1 0 50%;
+    }
+  }
+}
+
+.flickity-prev-next-button {
+
+  &.next {
+    right: -20px;
+  }
+
+  &.previous {
+    left: -20px;
+  }
+
+  &,
   &:hover {
     background: transparent;
   }
@@ -27,6 +86,8 @@ $carousel-side-padding: 50px;
 }
 
 .flickity-page-dots {
+  margin: 40px auto;
+  position: static;
   width: calc(100% - 100px);
 
   .dot {

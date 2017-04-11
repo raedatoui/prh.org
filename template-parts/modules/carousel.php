@@ -1,16 +1,34 @@
 <?php $module = $this->modules[CAROUSEL_MODULE['name']]; ?>
-<section class="featured-carousel module page-content">
-	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
-	<div class="module__content">
-		<div class="row">
-			<div class="carousel">
-				<?php foreach ( $module[CAROUSEL_MODULE['images']] as $index => $image ): ?>
-				<div class="slide slide-<?php echo $image ?>">
-				  <a href="<?php echo $image[CAROUSEL_MODULE['link']] ?>"><img src="<?php echo $image[CAROUSEL_MODULE['image']]['url'] ?>" alt="" /></a>
+<section class="featured-carousel module">
+	<div class="content">
+		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
+		<div class="carousel">
+
+			<?php foreach ( $module[CAROUSEL_MODULE['slides']] as $index => $slide ): ?>
+
+				<div class="slide slide-<?php echo $index ?>">
+					<a class="slide-link" href="http://<?php echo $slide[CAROUSEL_MODULE['link']]; ?>">
+						<div class="slide-half">
+							<img src="<?php echo $slide[CAROUSEL_MODULE['image']]['url'] ?>"
+							alt=""/>
+						</div>
+						<div class="slide-half">
+							<?php 
+							echo_wrapped($slide[CAROUSEL_MODULE['eyebrow']], '<span class="eyebrow slide-eyebrow">', '</span>');
+							echo '<div class="slide-content">';
+							echo_wrapped($slide[CAROUSEL_MODULE['title']], '<h2 class="slide-title">', '</h2>'); 
+							echo_wrapped($slide[CAROUSEL_MODULE['text']], '<p class="slide-text">', '</p>'); 
+							echo '</div>';
+							echo_wrapped($slide[CAROUSEL_MODULE['cta']], '<span class="slide-cta">', '</span>');
+							?>
+						</div>
+					</a>
 				</div>
-				<?php endforeach; ?>
-			</div>
+
+			<?php endforeach; ?>
+
 		</div>
-		<?php include( locate_template( 'template-parts/components/cta.php', false, false ) ); ?>
 	</div>
+	<?php include( locate_template( 'template-parts/components/cta.php', false, false ) ); ?>
+</div>
 </section>

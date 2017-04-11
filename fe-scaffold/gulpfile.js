@@ -114,7 +114,8 @@ gulp.task('sass', function(){
 gulp.task('sass-lint', function() {
 	gulp.src([
 		projSassSrc,
-		'!./app/scss/partials/_reset.scss'])
+		'!./app/scss/partials/_reset.scss',
+		'!./app/scss/vendor/*.scss'])
 			.pipe( sassLint({
 				options: {
 					configFile: '.sass-lint.yml'

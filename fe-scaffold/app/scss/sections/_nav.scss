@@ -4,7 +4,7 @@ nav {
 
   border-bottom: 1px solid rgba(25, 25, 25, 0.2);
   color: #fff;
-  font-size: 1em;
+  font-size: em(16px);
   font-weight: $light;
   left: 50%;
   letter-spacing: 0.05em;
@@ -13,29 +13,26 @@ nav {
   position: fixed;
   transform: translateX(-50%);
   width: ( 100% - ( $base-gutter * 2 ) );
+}
 
-  .main-nav-list { //ul
-    li {
-      .secondary-nav-list { //ul
-        max-width: 510px;
-        width: 100%;
+.secondary-nav-list { //ul
+  max-width: 510px;
+  width: 100%;
 
-        li {
-          text-align: center;
+  li {
+    text-align: center;
+  }
 
-          a {
-            color: #fff;
-            text-decoration: none;
+  a {
+    color: #fff;
+    text-decoration: none;
 
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-        }
-      }
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
+
 
 img {
   width: 100%;

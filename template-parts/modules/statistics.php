@@ -1,7 +1,7 @@
 <?php $module = $this->modules[STATISTICS_MODULE['name']]; ?>
-<section class="stats module page-content">
+<section class="stats module">
+	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
-	<div class="module__content">
 		<div class="row">
 			<?php foreach ( $module[STATISTICS_MODULE['figures']] as $index => $figure ): ?>
 				<? $figure = $figure[STATISTICS_MODULE['figure']][0]; ?>
