@@ -34,6 +34,10 @@
   margin-bottom: 15px;
 }
 
+.tile__title {
+  @extend %h3;
+}
+
 .tile__source {
   background: $prh-navy-dk;
   border-radius: 50%;
@@ -52,16 +56,6 @@
   font-size: 14px;
   line-height: em(14/26);
   margin-bottom: 15px;
-}
-
-.tile__title {
-  @include lora();
-
-  color: $prh-navy-lt;
-  font-size: 26px;
-  font-weight: $bold;
-  line-height: 34px;
-  margin-bottom: 20px;
 }
 
 .tile__summary {
