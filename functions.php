@@ -294,3 +294,29 @@ function echo_wrapped( $var, $before='', $after='' ) {
 	}
 	echo $before . $var . $after;
 }
+
+define('DESIGNED_PAGE_TEMPLATES', json_encode(array('homepage.php')));
+function customize_admin($post_type) {
+	global $pagenow;
+
+	if( !('post.php' == $pagenow ) ) {
+		return;
+  }
+	// Get the Post ID.
+	$post_id = filter_input(INPUT_GET, 'post') ? filter_input(INPUT_GET, 'post') : filter_input(INPUT_POST, 'post_ID');
+	if( !isset( $post_id ) ) {
+		return;
+	}
+	$template_filename = get_post_meta($post_id, '_wp_page_template', true);
+
+	if(in_array($template_filename, json_decode(DESIGNED_PAGE_TEMPLATES))) {
+		remove_post_type_support('page', 'editor'); // Remove Text Editor
+		remove_meta_box( 'slugdiv','page','normal' ); // Slug Metabox
+		remove_meta_box( 'authordiv','page','normal' ); // Author Metabox
+		remove_meta_box( 'postexcerpt','page','normal' ); // Excerpt Metabox
+		remove_meta_box( 'postcustom','page','normal' ); // Custom Fields Metabox
+		remove_meta_box( 'edit-box-ppr','page','normal' ); // Quick Redirect Metabox
+		remove_meta_box( 'postimagediv','page','side' ); // Featured Image Metabox
+	}
+}
+add_action('do_meta_boxes', 'customize_admin');

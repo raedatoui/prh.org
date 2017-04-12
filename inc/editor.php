@@ -22,8 +22,8 @@ define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('homepage.php')));
  * @return void
  */
 function prh_hide_editor() {
-  global $pagenow;
-  if(!('post.php' == $pagenow)){
+	global $pagenow;
+	if(!('post.php' == $pagenow)){
     return;
   }
 
