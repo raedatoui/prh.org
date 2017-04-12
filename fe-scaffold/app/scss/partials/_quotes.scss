@@ -10,6 +10,7 @@ blockquote {
     font-size: em(54px);
     font-style: italic;
     line-height: 1;
+    margin-bottom: 0;
 
     &::before,
     &::after {
