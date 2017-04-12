@@ -2,12 +2,13 @@
   @include roboto();
   background: $prh-navy-lt;
   color: #fff;
-  display: inline-block;
-  font-size: 12px;
+  display: block;
+  font-size: em(20px);
   font-weight: $medium;
   letter-spacing: 0.2em;
   margin: 20px auto;
   padding: 22px 35px;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 
@@ -30,4 +31,13 @@
 
 .cta-row {
   margin-top: 40px;
+}
+
+
+@include responsive-mq("md") {
+  .cta {
+    display: inline-block;
+    font-size: em(12px);
+  }
+
 }
