@@ -26,7 +26,8 @@ get_header();?>
 		$page->render();
 	endwhile; // End of the loop. ?>
 
-	<section class="support-us module page-content info-module">
+	<section class="support-us module info-module">
+		<div class="content">
 		<div class="module__title">
 			<h2>One-Up Us</h2>
 		</div>
@@ -40,9 +41,11 @@ get_header();?>
 				</div>
 			</div>
 		</div>
+		</div>
 	</section>
 
-	<section class="take-action module page-content info-module">
+	<section class="take-action module info-module">
+		<div class="content">
 		<div class="module__title">
 			<h2>Support Us</h2>
 		</div>
@@ -74,8 +77,8 @@ get_header();?>
 				</div>
 			</div>
 		</div>
+		</div>
 	</section>
-
 </div><!-- .page-container-->
 
 <?php
