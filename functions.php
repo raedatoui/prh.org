@@ -13,7 +13,7 @@ const COMPONENTS_TO_UNSET = array(
 	'CTA',
 	'Module Options',
 	'Statistic',
-
+	'Spotlight card'
 );
 
 const MODULE_OPTIONS = array(
@@ -77,12 +77,28 @@ const AGGREGATE_BY_POST_TYPE = array(
 	'template' => 'template-parts/modules/aggregate.php'
 );
 
+const SPOTLIGHT_1_MODULE = array(
+	'name' => 'Spotlight 1 Module',
+	'options' => 'spotlight_1_options',
+	'card' => 'spotlight_1_card',
+	'template' => 'template-parts/modules/spotlightone.php'
+);
+
+const SPOTLIGHT_CARD = array(
+	'name' => 'Spotlight card',
+	'image' => 'spotlight_image',
+	'headline' => 'spotlight_headline',
+	'text' => 'spotlight_text',
+	'cta' => 'spotlight_cta'
+);
+
 const MODULES = array(
 	'Carousel' => CAROUSEL_MODULE,
 	'Hero' => HERO_MODULE,
 	'Statistics' => STATISTICS_MODULE,
 	'Aggregate by Post Type' => AGGREGATE_BY_POST_TYPE,
-	'Quote' => QUOTE_MODULE
+	'Quote' => QUOTE_MODULE,
+	'Spotlight 1 Module' => SPOTLIGHT_1_MODULE
 );
 
 const CUSTOM_POST_TYPES = array (
