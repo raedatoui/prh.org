@@ -84,6 +84,14 @@ const SPOTLIGHT_1_MODULE = array(
 	'template' => 'template-parts/modules/spotlightone.php'
 );
 
+const SPOTLIGHT_3_MODULE = array(
+	'name' => 'Spotlight 3 Module',
+	'options' => 'spotlight_3_options',
+	'repeater' => 'spotlight_3_repeater',
+	'card' => 'spotlight_3_card',
+	'template' => 'template-parts/modules/spotlightthree.php'
+);
+
 const SPOTLIGHT_CARD = array(
 	'name' => 'Spotlight card',
 	'image' => 'spotlight_image',
@@ -98,7 +106,8 @@ const MODULES = array(
 	'Statistics' => STATISTICS_MODULE,
 	'Aggregate by Post Type' => AGGREGATE_BY_POST_TYPE,
 	'Quote' => QUOTE_MODULE,
-	'Spotlight 1 Module' => SPOTLIGHT_1_MODULE
+	'Spotlight 1 Module' => SPOTLIGHT_1_MODULE,
+	'Spotlight 3 Module' => SPOTLIGHT_3_MODULE
 );
 
 const CUSTOM_POST_TYPES = array (
