@@ -97,6 +97,7 @@ const SPOTLIGHT_CARD = array(
 	'image' => 'spotlight_image',
 	'headline' => 'spotlight_headline',
 	'text' => 'spotlight_text',
+	'use_cta' => 'spotlight_use_cta',
 	'cta' => 'spotlight_cta'
 );
 
@@ -131,8 +132,8 @@ class PageModules {
 			$key = $group['title'];
 			$modules[$key] = array('module_name' => $group['title']);
 			foreach($module as $field_name => $field ) {
-			  $f = $field['name'];
-			  $modules[$key][$f] = get_field($f);
+				$f = $field['name'];
+				$modules[$key][$f] = get_field($f);
 			}
 		}
 		$this->modules = $modules;
