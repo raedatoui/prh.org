@@ -14,7 +14,7 @@
         <?php endif; ?>
         <?php if ( $module['config'][MODULE_OPTIONS['use_cta']] ):  ?>
           <?php $cta = $module['config'][MODULE_OPTIONS['cta']][0];  ?>
-          <a class="cta" href="<? echo $cta[CTA_COMPONENT['link']];?>">
+          <a class="cta cta--red" href="<? echo $cta[CTA_COMPONENT['link']];?>">
             <? echo $cta[CTA_COMPONENT['label']]; ?>
           </a>
         <?php endif; ?>
