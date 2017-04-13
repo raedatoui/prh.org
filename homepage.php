@@ -11,8 +11,8 @@ get_header();?>
 
 <?php
 	while (have_posts()): the_post();
-	$page = new PageModules( get_the_ID() );
-	$page->render();
+		$page = new PageModules( get_the_ID() );
+		$page->render();
 	endwhile; // End of the loop. ?>
 
 	<section class="support-us module info-module">
