@@ -65,11 +65,16 @@ function prh_mce_before_init_insert_formats( $init_array ) {
 	$style_formats = array(
 		// Each array child is a format with it's own settings
 		array(
-			'title' => 'hero-link',
+			'title' => 'Hero link',
 			'inline' => 'a',
 			'classes' => 'hero__link underline',
 			'wrapper' => false,
 		),
+		array(
+			'title' => 'Lead copy',
+			'classes' => 'lead-copy',
+			'block' => 'p'
+			)
 	);
 	// Insert the array, JSON ENCODED, into 'style_formats'
 	$init_array['style_formats'] = json_encode($style_formats);
