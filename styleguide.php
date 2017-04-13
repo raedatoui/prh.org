@@ -98,19 +98,7 @@ while ( have_posts() ) : the_post(); ?>
 </section>
 
 <?php
-	$groups = acf_get_field_groups( get_the_ID() );
-	$modules = array();
-	foreach( $groups as $group_key => $group ) {
-		$module = acf_get_fields($group);
-		$key = $group['title'];
-		$modules[$key] = array('module_name' => $group['title']);
-		foreach($module as $field_name => $field ) {
-			$f = $field['name'];
-			$modules[$key][$f] = get_field($f);
-		}
-	}
-
-	$page = new PageModules($modules);
+	$page = new PageModules( get_the_ID() );
 	$page->render();
 endwhile; ?>
 
