@@ -1,27 +1,36 @@
 //THIS IS WHERE TYPOGRAPHY STYLING SHOULD GO...
 
-
 %headline {
   -webkit-font-smoothing: antialiased;
-  font-size: 30px;
   letter-spacing: em((-25/1000), 54px);
   line-height: 1.25;
   text-rendering: optimizeLegibility;
   @include lora();
+}
+
+%h1 {
+  @extend %headline;
+  font-size: 30px;
 
   @include responsive-mq("sm") {
     font-size: 54px;
   }
 }
 
-h1,
-h2 {
-  @extend %headline;
+h1 { @extend %h1; }
+
+%h3 {
+  @include lora();
+  color: $prh-navy-lt;
+  font-weight: $bold;
+  line-height: (34/26);
+  margin-bottom: em(20px, 26px);
 }
 
 h3 {
-  font-size: 12px;
-  font-weight: $medium;
+  @extend %h3;
+  
+  font-size: 26px;
 }
 
 .underline {
@@ -45,4 +54,17 @@ h3 {
 
 .eyebrow {
   @extend %eyebrow;
+}
+
+p {
+  font-size: 18px;
+  letter-spacing: em((25px / 1000px), 18px);
+  line-height: (30 / 18);
+  margin-bottom: em(20px, 18px);
+  max-width: 50em;
+}
+
+.lead-copy {
+  @extend %headline;
+  font-size: em(22px);
 }

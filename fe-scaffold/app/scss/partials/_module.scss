@@ -2,7 +2,7 @@
   padding: $module-padding-xs;
 
   @include responsive-mq(lg) {
-    padding: $module-padding-lg 0;
+    padding: $module-padding-lg $module-padding-xs;
   }
 }
 
