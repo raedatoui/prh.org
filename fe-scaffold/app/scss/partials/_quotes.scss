@@ -1,0 +1,59 @@
+.quote-component {
+  margin: 36px 0;
+}
+
+blockquote {
+  position: relative;
+
+  p {
+    @include lora();
+    font-size: em(54px);
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 0;
+
+    &::before,
+    &::after {
+      content: " ";
+      display: block;
+      height: 90px;
+      position: absolute;
+      width: 90px;
+      z-index: -1;
+    }
+
+    &::before {
+      background: url("../images/optimized/quote_start.svg") 0 0 no-repeat;
+      left: -30px;
+      top: -55px;
+    }
+
+    &::after {
+      background: url("../images/optimized/quote_end.svg") 0 0 no-repeat;
+      bottom: 116px;
+      right: 30px;
+      transform: rotate(23deg);
+    }
+  }
+
+  cite {
+    display: inline-block;
+    font-size: em(18px);
+    font-style: normal;
+    line-height: lh(30, 18);
+    margin-top: em(40px, 18px);
+  }
+
+  .cite-origin {
+    font-style: italic;
+  }
+
+
+}
+
+
+@include responsive-mq("md") {
+  .quote-component {
+    margin: 0;
+  }
+}

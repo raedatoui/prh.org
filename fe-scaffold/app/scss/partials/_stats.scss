@@ -1,0 +1,26 @@
+.stat-number,
+.stat-category {
+  @include lora();
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stat-number {
+  color: #be3e50;
+  font-size: em(150px);
+
+  .backgroundcliptext & {
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: $gradient-linear-rose;
+    color: transparent;
+  }
+}
+
+.stat-category {
+  font-size: em(28px);
+  letter-spacing: -0.001em;
+  line-height: 38px;
+  max-width: 13em;
+}

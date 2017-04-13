@@ -1,20 +1,49 @@
 //------------------------------------------------
-//
 //  BASE SITE VARS
-//
 //------------------------------------------------
-$base-bg-color: #fff;
-$base-color-blue: #286eaf;
-$base-page-max-width: 1320px !default;
+
+//COLORS DEFINITIONS
+$prh-blue-lt: #2b83c6;
+$prh-blue-dk: #14456a;
+$prh-pink-lt: #fed1c8;
+$prh-pink-dk: #fabbb5;
+$prh-pink-darkest: #f1c1b3;
+$prh-cream-lt: #fee7d7;
+$prh-cream-dk: #f9dcc6;
+$prh-navy-lt: #2e3563;
+$prh-navy-dk: #1f3e72;
+$prh-purple-lt: #a5aee7;
+$prh-purple-dk: #c0c6e9;
+$prh-gray: #777;
+$prh-red: #e5576c;
+$prh-rose: #be3e50;
+
+
+//GRADIENTS
+$gradient-linear-blue: linear-gradient(to right, $prh-blue-lt 0%, $prh-blue-dk 100%);
+$gradient-radial-blue: radial-gradient(farthest-corner at 150px 150px , $prh-blue-lt 0%, $prh-blue-dk 100%);
+
+$gradient-linear-pink: linear-gradient(to bottom, $prh-pink-lt 0%, $prh-pink-dk 75%);
+$gradient-radial-pink: radial-gradient(farthest-corner at 50px 50px , $prh-pink-lt 0%, $prh-pink-dk 100%);
+
+$gradient-linear-rose: linear-gradient(to bottom, $prh-pink-lt 0%, $prh-rose 75%);
+
+
+//FONT COLORS
+$base-font-white: #fff;
+$base-font-blue: #02243d;
+$base-font-gray: #322826;
+
+//GENERAL PAGE LAYOUT/CHAR
+$base-bg-color: $prh-cream-lt;
+$base-color-blue: $prh-blue-lt;
+$base-page-max-width: 1320px;
 $base-gutter: 2%;
 
 
 //------------------------------------------------
-//
 //  FONTS VARS
-//
 //------------------------------------------------
-
 //Font Weight
 $thin: 100;
 $light: 300;
@@ -23,43 +52,52 @@ $medium: 500;
 $bold: 700;
 $black: 900;
 
-// Base Font
-$base-font-family: 'Roboto', sans-serif;
+// Base Fonts
+$lora: "Lora", serif;
+$lora-italic: "Lora Italic", serif;
+$roboto: "Roboto", sans-serif;
+$roboto-slab: "Roboto Slab", sans-serif;
+$roboto-condensed: "Roboto Condensed", sans-serif;
+
+$base-font-family: $roboto;
 $base-font-weight: $regular;
-$base-font-color: #02243d;
+$base-font-color: $base-font-blue;
 $base-font-kerning: 0;
 $base-font-size: 16px;
 $base-line-height: 1;
 
+//------------------------------------------------
+//  MODULE SPACINGS
+//------------------------------------------------
+$module-padding-xs: 30px;
+$module-padding-lg: 60px;
 
 //------------------------------------------------
-//
 //  FLEXBOX GRID BREAKPOINTS
-//
 //------------------------------------------------
 
 // Set the number of columns you want to use on your layout.
-$grid-columns: 12 !default;
+// $grid-columns: 12 !default;
 
 // Set the gutter between columns.
-$gutter-width: 0rem !default;
+// $gutter-width: 1rem !default; //use rem
 
 // Set a margin for the container sides.
-$outer-margin: 0rem !default;
+$outer-margin: 0; //use rem
 
 // Create or remove breakpoints for your project
 // Syntax: name SIZErem,
 $breakpoints:
-  xs 40em 38rem,
-  sm 48em 46rem,
-  md 62em 61rem,
-  lg 75em 71rem !default;
+xs 40em 38rem,
+sm 48em 46rem,
+md 62em 61rem,
+lg 75em 71rem !default;
 
-$flexboxgrid-max-width: $base-page-max-width !default;
+$flexboxgrid-max-width: $base-page-max-width;
 
 $breakpointmap: (
-  'xs'  : ( min-width:  40em ),
-  'sm' : ( min-width:  48em ),
-  'md'  : ( min-width: 62em ),
-  'lg'  : ( min-width: 75em )
+  "xs": ( min-width:  40em ),
+  "sm": ( min-width:  48em ),
+  "md": ( min-width: 62em ),
+  "lg": ( min-width: 75em )
 );

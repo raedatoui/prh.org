@@ -1,8 +1,25 @@
+$mob-header-height: 180px;
+
 //HERO SECTION
-section#hero{
-  padding-top: 150px;
-  background-color: $base-color-blue;
-  min-height: 300px;
+.hero {
+  background-image: $gradient-radial-blue;
+  color: $base-font-white;
+  padding-bottom: 200px;
+  padding-top: $mob-header-height;
+
+  .hero__subhead {
+    font-size: 18px;
+    font-weight: $thin;
+    letter-spacing: 0.09em;
+    margin-top: 15px;
+    padding: 20px 0;
+  }
+
+  .hero__link {
+    color: #fff;
+    text-decoration: none;
+  }
+
 }
 
 
@@ -13,13 +30,14 @@ section#hero{
 
 @include responsive-mq("sm") {
 
-  section#hero{
-    padding-top: 100px;
+  .hero {
+    padding-top: 150px;
   }
 
 }
 
 @include responsive-mq("md") {
+
 
 }
 

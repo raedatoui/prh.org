@@ -1,0 +1,40 @@
+.module {
+  padding: $module-padding-xs;
+
+  @include responsive-mq(lg) {
+    padding: $module-padding-lg 0;
+  }
+}
+
+%module-title {
+  background-position: bottom right;
+  background-repeat: repeat-x;
+  display: inline-block;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+
+  h2 {
+    @extend %eyebrow;
+  }
+}
+
+.module__title {
+  @extend %module-title;
+
+  @include clearfix();
+
+  background-image: url("../images/optimized/asset_detail_wave_dk.png");
+
+  h2 {
+    color: $base-font-blue;
+    margin-bottom: 15px;
+  }
+
+  .hero & {
+    background-image: url("../images/optimized/asset_detail_wave.png");
+
+    h2 {
+      color: #fff;
+    }
+  }
+}

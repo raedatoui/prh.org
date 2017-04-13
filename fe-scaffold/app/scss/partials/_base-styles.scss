@@ -1,48 +1,26 @@
-body{
+body {
   background-color: $base-bg-color;
   color: $base-font-color;
   font-size: $base-font-size;
-  line-height: $base-line-height;
   letter-spacing: $base-font-kerning;
+  line-height: $base-line-height;
   @include roboto();
 }
 
-#test{
-  position: fixed;
-  bottom: 0px; left: 0px;
-  width: 150px;
-  height: 8px;
-  z-index: 10;
-  @include test-fill(#ccc);
-}
-
-//MEDIA QUERY HANDLERS
-@include responsive-mq("xs") {
-  #test{
-    @include test-fill(#f00);
-  }
-}
-
-@include responsive-mq("sm") {
-  #test{
-    @include test-fill(#0f0);
-  }
-}
-
-@include responsive-mq("md") {
-  #test{
-    @include test-fill(#00f);
-  }
-}
-
-@include responsive-mq("lg") {
-  #test{
-    @include test-fill(#0ff);
-  }
-}
-
-
-#page-container{
+.page-container {
   width: 100%;
-  background-color: #ccc;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: $base-page-max-width;
+}
+
+.row {
+  margin: auto;
+  padding: 0;
+}
+
+section {
+  min-height: 150px;
 }

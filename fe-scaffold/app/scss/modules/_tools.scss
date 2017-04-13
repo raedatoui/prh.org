@@ -1,0 +1,32 @@
+@import "font_mixins";
+
+//Responsive Breakpoints - Hugo Giraudel
+@mixin responsive-mq($name) {
+  @if map-has-key($breakpointmap, $name) {
+    @media #{inspect(map-get($breakpointmap, $name))} {
+      @content;
+    }
+  } @else {
+    @warn "No value available from `#{$breakpointmap}`. "
+    + "Make sure it is defined in `$breakpointmap` map.";
+  }
+}
+
+@mixin clearfix() {
+  &::after {
+    clear: both;
+    content: " ";
+    display: table;
+  }
+}
+
+@function em($size, $base: 16px) {
+  @if unitless($size) {
+    $size: $size * 1px;
+  }
+  @return ($size / $base) * 1em;
+}
+
+@function lh($height, $size) {
+  @return ($height / $size);
+}

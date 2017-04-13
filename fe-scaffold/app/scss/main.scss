@@ -1,21 +1,20 @@
-//PRH STATIC SCAFFOLDING SITE FOR WORDPRESS
-
-
 //MODULES & VARS
 @import "modules/all";
 
+//3rd PARTY VENDORS
+@import "vendor/flexboxgrid";
+@import "vendor/flickity";
 
 //PARTIALS
 @import "partials/reset";
-@import "partials/fonts";
-@import "partials/buttons";
-@import "partials/grids";
 @import "partials/base-styles"; //set base site
-
-
-//3rd PARTY VENDORS
-@import "vendor/flexboxgrid";
-
+@import "partials/typography";
+@import "partials/module";
+@import "partials/buttons";
+@import "partials/tiles";
+@import "partials/stats";
+@import "partials/text";
+@import "partials/quotes";
 
 //PAGES
 //@import "pages/site-base-styles";
@@ -26,3 +25,9 @@
 //@import "sections/site-base-styles";
 @import "sections/nav";
 @import "sections/hero";
+@import "sections/featured";
+@import "sections/our-focus";
+@import "sections/carousel";
+
+//styles for the Wordpress editor
+@import "editor";

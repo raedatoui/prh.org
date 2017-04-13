@@ -1,0 +1,33 @@
+// sass-lint:disable class-name-format no-important
+.mceContentBody.wp-editor * {
+  color: #000 !important;
+
+  .underline {
+    background-image: linear-gradient(to bottom, #000 33%, transparent 33%) !important;
+  }
+}
+
+
+pre,
+code {
+  direction: ltr;
+  text-align: left;
+}
+
+pre {
+  background: #ffffb3;
+  border: solid 1px #00f;
+  color: #00f;
+  font-size: 1.3em;
+  margin: 10px;
+  padding: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+code {
+  color: #008099;
+  font-size: 1.2em;
+}
+
+// sass-lint:enable class-name-format no-important
