@@ -110,7 +110,18 @@ class PageModules {
 	public $modules;
 	public $keys;
 
-	function __construct( $modules ) {
+	function __construct( $post_id ) {
+		$groups = acf_get_field_groups( array( 'post_id' => $post_id ) );
+		$modules = array();
+		foreach( $groups as $group_key => $group ) {
+			$module = acf_get_fields($group);
+			$key = $group['title'];
+			$modules[$key] = array('module_name' => $group['title']);
+			foreach($module as $field_name => $field ) {
+			  $f = $field['name'];
+			  $modules[$key][$f] = get_field($f);
+			}
+		}
 		$this->modules = $modules;
 		$this->prepare();
 		$this->configure();
