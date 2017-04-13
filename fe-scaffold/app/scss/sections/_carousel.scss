@@ -32,6 +32,7 @@
 }
 
 .slide-title {
+  @extend %h1;
   color: $prh-blue-lt;
   margin-bottom: 10px;
 }
