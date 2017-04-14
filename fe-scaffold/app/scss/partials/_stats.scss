@@ -1,14 +1,16 @@
 .stat-number,
 .stat-category {
-  @include lora();
   display: block;
   margin: 0 auto;
   text-align: center;
 }
 
 .stat-number {
+  @include lora();
+  font-weight: 600;
+  font-style: italic;
   color: #be3e50;
-  font-size: em(150px);
+  font-size: em(100px);
 
   .backgroundcliptext & {
     -webkit-background-clip: text;
@@ -19,8 +21,33 @@
 }
 
 .stat-category {
-  font-size: em(28px);
+  @include lora();
+  font-size: em(20px);
+  line-height: lh(25, 20);
   letter-spacing: -0.001em;
-  line-height: 38px;
   max-width: 13em;
+  margin-bottom: 42px;
+}
+
+.stats {
+  .cta-row {
+    margin-top: 0;
+  }
+}
+
+@include responsive-mq("md") {
+  .stats {
+    .cta-row {
+      margin-top: 40px;
+    }
+  }
+
+  .stat-number {
+    font-size: em(150px);
+  }
+
+  .stat-category {
+    font-size: em(28px);
+    line-height: lh(38, 28);
+  }
 }
