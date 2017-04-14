@@ -324,7 +324,7 @@ require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/custom-types.php';
 require get_template_directory() . '/inc/editor.php';
 require get_template_directory() . '/inc/acf.php';
-require get_template_directory() . '/inc/dashboard.php';
+require get_template_directory() . '/inc/metaboxes.php';
 
 
 /**
@@ -352,77 +352,4 @@ function echo_wrapped( $var, $before='', $after='' ) {
 	echo $before . $var . $after;
 }
 
-define( 'DESIGNED_PAGE_TEMPLATES', json_encode( array( 'homepage.php' ) ) );
 
-function customize_admin( $post_type ) {
-	global $pagenow;
-
-	if( 'post.php' != $pagenow ) {
-		return;
-	}
-	// Get the Post ID.
-	$post_id = filter_input(INPUT_GET, 'post') ? filter_input(INPUT_GET, 'post' ) : filter_input(INPUT_POST, 'post_ID' );
-	if( !isset( $post_id ) ) {
-		return;
-	}
-
-	if ( $post_type == 'page' ) {
-		remove_meta_box( 'postimagediv','page','side' ); // Featured Image Metabox
-		remove_meta_box( 'slugdiv','page','normal' ); // Slug Metabox
-		remove_meta_box( 'authordiv','page','normal' ); // Author Metabox
-		remove_meta_box( 'postcustom','page','normal' ); // Custom Fields Metabox
-	}
-	$template_filename = get_post_meta( $post_id, '_wp_page_template', true );
-
-	if( in_array( $template_filename, json_decode( DESIGNED_PAGE_TEMPLATES ) ) ) {
-		remove_post_type_support( 'page', 'editor' ); // Remove Text Editor
-		remove_meta_box( 'postexcerpt','page','normal' ); // Excerpt Metabox
-		remove_meta_box( 'edit-box-ppr','page','normal' ); // Quick Redirect Metabox
-	}
-}
-add_action( 'do_meta_boxes', 'customize_admin' );
-
-
-/*
- * This filter specifies default orderings for meta boxes on article screens.
- *
- * If a user-specific setting exists for the hidden/order list then that is used
- *
- * The get_<objecttype>_metadata filter is odd. It's always passed "null" as a value. If
- * we return a non-null value then that value is used. If we return null, it will fetch the
- * real value.  Watch out for that!
- */
-
-add_filter('get_user_metadata', 'prefix_default_meta_order', 10, 3);
-function prefix_default_meta_order($value, $user_id, $key) {
-	$new_value = $value;
-	if ($key == 'meta-box-order_page') {
-		// We don't want this to recurse - remove the filter
-		remove_filter('get_user_metadata', 'prefix_default_meta_order', 10);
-		if ( !metadata_exists( 'user', $user_id, $key ) ) {
-			$new_order = array(
-				'acf_after_title' => 'acf-group_58e09c9cccca0,acf-group_58df4475cd03f,acf-group_58e09c1932f56,acf-group_58e7afe873313',
-				'side' => 'submitdiv,pageparentdiv',
-				'normal' => 'acf-group_58e65cdac3cf2,acf-group_58ed5596d5e35,acf-group_58ef93f1a4be2,acf-group_58ed545698fa4,wpseo_meta,acf-group_58e1c120cf8fa,acf-group_58e1c055118d9,acf-group_58e33c7be8a81,revisionsdiv',
-				'advanced' => ''
-			);
-			echo json_encode($new_order);
-			// Return value needs to be wrapped in an array as it's expecing a single result.
-			$new_value = array($new_order);
-		}
-		add_filter('get_user_metadata', 'prefix_default_meta_order', 10, 3);
-	}
-	return $new_value;
-}
-
-// Close all the Modules on load
-add_action('acf/input/admin_head', 'my_acf_input_admin_head');
-function my_acf_input_admin_head() {
-?>
-<script type="text/javascript">
-jQuery(function(){
-  jQuery('.acf-postbox').addClass('closed');
-});
-</script>
-<?php
-}
