@@ -1,10 +1,8 @@
 //THIS IS WHERE TYPOGRAPHY STYLING SHOULD GO...
 
 %headline {
-  -webkit-font-smoothing: antialiased;
   letter-spacing: em((-25/1000), 54px);
   line-height: 1.25;
-  text-rendering: optimizeLegibility;
   @include lora();
 }
 
@@ -67,5 +65,5 @@ p {
 .lead-copy {
   @extend %headline;
   font-size: em(22px);
-  line-height: (30 / 18);
+  line-height: (42 / 22);
 }
