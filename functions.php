@@ -82,7 +82,7 @@ const OVERVIEW_MODULE = array(
 );
 
 const AGGREGATE_BY_POST_TYPE = array(
-	'name' => 'Aggregate by Post Type',
+	'name' => 'Aggregate by Content Type',
 	'options' => 'aggregate_by_post_type_options',
 	'post_type' => 'aggregate_by_post_type',
 	'template' => 'template-parts/modules/aggregate.php'
@@ -116,7 +116,7 @@ const MODULES = array(
 	'Carousel' => CAROUSEL_MODULE,
 	'Hero' => HERO_MODULE,
 	'Statistics' => STATISTICS_MODULE,
-	'Aggregate by Post Type' => AGGREGATE_BY_POST_TYPE,
+	'Aggregate by Content Type' => AGGREGATE_BY_POST_TYPE,
 	'Quote' => QUOTE_MODULE,
 	'Overview' => OVERVIEW_MODULE,
 	'Spotlight 1 Module' => SPOTLIGHT_1_MODULE,
