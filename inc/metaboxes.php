@@ -11,7 +11,7 @@ add_action('wp_dashboard_setup', 'prh_custom_dashboard_widgets');
 
 define( 'DESIGNED_PAGE_TEMPLATES', json_encode( array( 'homepage.php', 'issue.php' ) ) );
 
-function customize_admin( $post_type ) {
+function prh_customize_meta_boxes( $post_type ) {
 	global $pagenow;
 
 	if( 'post.php' != $pagenow ) {
@@ -37,4 +37,4 @@ function customize_admin( $post_type ) {
 		remove_meta_box( 'edit-box-ppr','page','normal' ); // Quick Redirect Metabox
 	}
 }
-add_action( 'do_meta_boxes', 'customize_admin' );
+add_action( 'do_meta_boxes', 'prh_customize_meta_boxes' );
