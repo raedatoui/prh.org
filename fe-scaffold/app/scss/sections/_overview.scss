@@ -56,3 +56,19 @@
     }
   }
 }
+
+.collapsible {
+  height: auto;
+  max-height: 600vmax;
+  overflow: hidden;
+  transition: all 0.75s ease;
+
+  &.is-collapsed {
+    max-height: 0;
+  }
+
+  .no-js &:target {
+    max-height: none;
+    overflow: visible;
+  }
+}

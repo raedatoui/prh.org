@@ -11,16 +11,16 @@ import collapsible from './collapsible.js';
 function init(){
 
 	let carousel = document.querySelector('.carousel');
-  if (carousel) {
-    let flickity = new Flickity(carousel, {
-        cellAlign: 'left',
-        imagesLoaded: true,
-        adaptiveHeight: true,
-        wrapAround: 'true'
-      });
-  }
+	if (carousel) {
+		let flickity = new Flickity(carousel, {
+				cellAlign: 'left',
+				imagesLoaded: true,
+				adaptiveHeight: true,
+				wrapAround: 'true'
+			});
+	}
 
-  collapsible.init();
+	collapsible.init();
 }
 
 export default function () {
