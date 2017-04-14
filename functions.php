@@ -324,6 +324,7 @@ require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/custom-types.php';
 require get_template_directory() . '/inc/editor.php';
 require get_template_directory() . '/inc/acf.php';
+require get_template_directory() . '/inc/dashboard.php';
 
 
 /**
