@@ -1,16 +1,16 @@
 .stat-number,
 .stat-category {
+  @include lora();
   display: block;
   margin: 0 auto;
   text-align: center;
 }
 
 .stat-number {
-  @include lora();
-  font-weight: 600;
-  font-style: italic;
   color: #be3e50;
   font-size: em(100px);
+  font-style: italic;
+  font-weight: 600;
 
   .backgroundcliptext & {
     -webkit-background-clip: text;
@@ -21,12 +21,11 @@
 }
 
 .stat-category {
-  @include lora();
   font-size: em(20px);
-  line-height: lh(25, 20);
   letter-spacing: -0.001em;
-  max-width: 13em;
+  line-height: lh(25, 20);
   margin-bottom: 42px;
+  max-width: 13em;
 }
 
 .stats {
