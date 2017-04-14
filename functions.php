@@ -13,7 +13,7 @@ const COMPONENTS_TO_UNSET = array(
 	'CTA',
 	'Module Options',
 	'Statistic',
-
+	'Spotlight card'
 );
 
 const MODULE_OPTIONS = array(
@@ -88,13 +88,39 @@ const AGGREGATE_BY_POST_TYPE = array(
 	'template' => 'template-parts/modules/aggregate.php'
 );
 
+const SPOTLIGHT_1_MODULE = array(
+	'name' => 'Spotlight 1 Module',
+	'options' => 'spotlight_1_options',
+	'card' => 'spotlight_1_card',
+	'template' => 'template-parts/modules/spotlightone.php'
+);
+
+const SPOTLIGHT_3_MODULE = array(
+	'name' => 'Spotlight 3 Module',
+	'options' => 'spotlight_3_options',
+	'repeater' => 'spotlight_3_repeater',
+	'card' => 'spotlight_3_card',
+	'template' => 'template-parts/modules/spotlightthree.php'
+);
+
+const SPOTLIGHT_CARD = array(
+	'name' => 'Spotlight card',
+	'image' => 'spotlight_image',
+	'headline' => 'spotlight_headline',
+	'text' => 'spotlight_text',
+	'use_cta' => 'spotlight_use_cta',
+	'cta' => 'spotlight_cta'
+);
+
 const MODULES = array(
 	'Carousel' => CAROUSEL_MODULE,
 	'Hero' => HERO_MODULE,
 	'Statistics' => STATISTICS_MODULE,
 	'Aggregate by Post Type' => AGGREGATE_BY_POST_TYPE,
 	'Quote' => QUOTE_MODULE,
-	'Overview' => OVERVIEW_MODULE
+	'Overview' => OVERVIEW_MODULE,
+	'Spotlight 1 Module' => SPOTLIGHT_1_MODULE,
+	'Spotlight 3 Module' => SPOTLIGHT_3_MODULE
 );
 
 const CUSTOM_POST_TYPES = array (
@@ -116,10 +142,11 @@ class PageModules {
 		foreach( $groups as $group_key => $group ) {
 			$module = acf_get_fields($group);
 			$key = $group['title'];
+
 			$modules[$key] = array('module_name' => $group['title']);
 			foreach($module as $field_name => $field ) {
-			  $f = $field['name'];
-			  $modules[$key][$f] = get_field($f);
+				$f = $field['name'];
+				$modules[$key][$f] = get_field($f);
 			}
 		}
 		$this->modules = $modules;
@@ -134,6 +161,11 @@ class PageModules {
 		foreach( COMPONENTS_TO_UNSET as $c ) {
 			unset( $this->modules[$c] );
 		}
+		$filter = function ( $module ) {
+			$config = MODULES[$module['module_name']];
+			return $module[$config['options']] !== null;
+		};
+		$this->modules = array_filter( $this->modules, $filter );
 	}
 
 	function filter() {
@@ -291,6 +323,7 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/custom-types.php';
 require get_template_directory() . '/inc/editor.php';
+require get_template_directory() . '/inc/acf.php';
 
 
 /**
