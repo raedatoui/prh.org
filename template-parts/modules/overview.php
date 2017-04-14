@@ -11,19 +11,17 @@
 				$split_content = explode('<p><!--more--></p>', $full_content);
 				?>
 
-				<?php //echo $split_content[0]; ?>
-				<?php echo $full_content; ?>
+				<?php echo $split_content[0]; ?>
 				
 				<?php if (count($split_content) >= 1): ?>
 
-					<!-- Here's basic logic for the "Read more" behavior, when that's up. -->
-					<!--<a href="#collapsible-1" class="collapse-link">Read more</a>
+					<p><a id="collapse-link-1" href="#collapsible-1" class="collapse-link">Read more</a></p>
 
 					<div id="collapsible-1" class="collapsible overview-collapsible is-collapsed">
 						<div class="collapsible-content">
-							<?php //echo $split_content[1]; ?>
+							<?php echo $split_content[1]; ?>
 						</div>
-					</div> -->
+					</div> 
 				<?php endif; ?>
 			</section>
 
