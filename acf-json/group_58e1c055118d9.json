@@ -1,7 +1,177 @@
 {
     "key": "group_58e1c055118d9",
     "title": "Module Options",
-    "fields": [],
+    "fields": [
+        {
+            "key": "field_58e1e28198454",
+            "label": "Enabled",
+            "name": "module_enabled",
+            "type": "true_false",
+            "instructions": "Determines if module should be displayed",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0
+        },
+        {
+            "key": "field_58e1c06164889",
+            "label": "Title",
+            "name": "module_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_58e1c0696488a",
+            "label": "Order",
+            "name": "module_order",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_58e1c09e6488b",
+            "label": "Use CTA",
+            "name": "module_use_cta",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0
+        },
+        {
+            "key": "field_58e1c16d818a3",
+            "label": "CTA",
+            "name": "module_cta",
+            "type": "component_field",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58e1c09e6488b",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "field_group_id": "group_58e1c120cf8fa",
+            "min": 1,
+            "max": 1,
+            "layout": "block",
+            "button_label": "Add Row",
+            "appearances": "",
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "ID": 13216,
+                    "key": "field_58e1c124a8dfe",
+                    "label": "Label",
+                    "name": "cta_label",
+                    "prefix": "",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 0,
+                    "instructions": "",
+                    "required": 1,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 13215,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "cta_label",
+                    "_input": "",
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "ID": 13217,
+                    "key": "field_58e1c136a8dff",
+                    "label": "Link",
+                    "name": "cta_link",
+                    "prefix": "",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 1,
+                    "instructions": "",
+                    "required": 1,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 13215,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "cta_link",
+                    "_input": "",
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+            ]
+        }
+    ],
     "location": [
         [
             {
@@ -20,5 +190,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1492150238
+    "modified": 1492153242
 }
