@@ -3,11 +3,11 @@
     "title": "CTA",
     "fields": [
         {
-            "key": "field_58e1c124a8dfe__trashed",
+            "key": "field_58e1c124a8dfe",
             "label": "Label",
             "name": "cta_label",
             "type": "text",
-            "instructions": "",
+            "instructions": "The CTA Label",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -24,11 +24,11 @@
             "disabled": 0
         },
         {
-            "key": "field_58e1c136a8dff__trashed",
+            "key": "field_58e1c136a8dff",
             "label": "Link",
             "name": "cta_link",
             "type": "text",
-            "instructions": "",
+            "instructions": "CTA Link",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -63,5 +63,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1492184779
+    "modified": 1492153536
 }
