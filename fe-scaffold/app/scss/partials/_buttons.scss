@@ -17,9 +17,8 @@
   }
 
   &::after {
-    background: url("../images/optimized/button_arrow.svg") 0 0 no-repeat;
+    background: url("../images/optimized/button_arrow.svg") 0 -6px no-repeat;
     content: " ";
-    display: inline-block;
     height: 30px;
     width: 50px;
     position: absolute;
