@@ -8,7 +8,9 @@
 
 .stat-number {
   color: #be3e50;
-  font-size: em(150px);
+  font-size: em(100px);
+  font-style: italic;
+  font-weight: 600;
 
   .backgroundcliptext & {
     -webkit-background-clip: text;
@@ -19,8 +21,32 @@
 }
 
 .stat-category {
-  font-size: em(28px);
+  font-size: em(20px);
   letter-spacing: -0.001em;
-  line-height: 38px;
+  line-height: lh(25, 20);
+  margin-bottom: 42px;
   max-width: 13em;
+}
+
+.stats {
+  .cta-row {
+    margin-top: 0;
+  }
+}
+
+@include responsive-mq("md") {
+  .stats {
+    .cta-row {
+      margin-top: 40px;
+    }
+  }
+
+  .stat-number {
+    font-size: em(150px);
+  }
+
+  .stat-category {
+    font-size: em(28px);
+    line-height: lh(38, 28);
+  }
 }
