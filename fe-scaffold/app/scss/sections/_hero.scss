@@ -8,6 +8,7 @@ $mob-header-height: 180px;
   padding-top: $mob-header-height;
 
   .hero__subhead {
+    @extend %thin-text;
     font-size: 18px;
     font-weight: $thin;
     letter-spacing: 0.09em;

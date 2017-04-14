@@ -17,9 +17,11 @@ get_header(); ?>
 
 <section class="module">
 	<div class="content">
-		<div class="module__title">
-			<h2>Copy</h2>
-		</div>
+		<header class="row center-xs">
+			<div class="module__title">
+				<h2>Copy</h2>
+			</div>
+		</header>
 		<p class="lead-copy">This paragraph text is larger than normal. It’s generally used at the beginning of a page or section, to introduce the content. Blocks of text in this style shouldn’t be too long.</p>
 		<p>This is normal paragraph text. These styles apply to most of the body copy throughout the site. They support styles like <strong>bold</strong> and <em>italic</em> and can contain <a href="#">links</a> to other pages.</p>
 		<p>The level-one heading generally just happens once on a page, up in the hero or header area. It’s usually the page’s title. On this page, it's "Style Guide". And here's some filler copy from the PRH site, to show what a larger block of text looks like.</p>
@@ -29,9 +31,11 @@ get_header(); ?>
 
 <section class="module">
 	<div class="content">
+	<header class="row center-xs">
 		<div class="module__title">
 			<h2>Headers</h2>
 		</div>
+		</header>
 		<p class="lead-copy">Headers show content hierarchy.</p>
 		<p>The second-level heading, or module title, is used for naming the big subsections within a page. The word 'Headers' above this block of text is an example.</p>
 		<h3>Heading level three (h3)</h3>
@@ -44,9 +48,11 @@ get_header(); ?>
 
 <section class="module">
 	<div class="content">
+	<header class="row center-xs">
 		<div class="module__title">
 			<h2>Buttons & links</h2>
 		</div>
+		</header>
 		<div class="cta-row">
 			<a href="#" class="cta">Call To Action</a>
 			<a href="#" class="cta cta--red">Call to Action</a>
@@ -57,9 +63,11 @@ get_header(); ?>
 
 <section class="module">
 	<div class="content">
+	<header class="row center-xs">
 		<div class="module__title">
 			<h2>Blockquotes</h2>
 		</div>
+		</header>
 		<blockquote>
 			<p>This is what the default styling for a blockquote looks like, including a citation with a secondary detail.</p>
 			<footer><cite>—Joel Hodgson, <span class="cite-origin">Minnesota</span></cite></footer>
@@ -69,18 +77,22 @@ get_header(); ?>
 
 <section class="module">
 	<div class="content">
+	<header class="row center-xs">
 		<div class="module__title">
 			<h2>Misc text elements</h2>
 		</div>
+		</header>
 		<p><span class="eyebrow">Eyebrow text | Also used for dates</span></p>
 	</div>
 </section>
 
 <section class="module">
 	<div class="content">
+	<header class="row center-xs">
 		<div class="module__title">
 			<h2>Test your markup</h2>
 		</div>
+		</header>
 		<p class="lead-copy">Below this, the page pulls from the wordpress admin area.</p>
 		<p>You can edit the page called 'Styleguide' and the contents will show up here. Any modules added that way will show below that.</p>
   </div>
@@ -90,9 +102,11 @@ get_header(); ?>
 while ( have_posts() ) : the_post(); ?>
 <section class="module">
 	<div class="content">
+	<header class="row center-xs">
 		<div class="module__title">
 			<h2><?php the_title(); ?></h2>
 		</div>
+		</header>
 		<?php the_content(); ?>
 	</div>
 </section>

@@ -70,6 +70,17 @@ const QUOTE_MODULE = array(
 	'template' => 'template-parts/modules/quote.php'
 );
 
+const OVERVIEW_MODULE = array(
+	'name' => 'Overview',
+	'options' => 'overview_options',
+	'content' => 'overview_content',
+	'resources_title' => 'overview_resources_title',
+	'resources_links' => 'overview_resource_links',
+	'resources_link_text' => 'overview_resource_link_text',
+	'resources_link_url' => 'overview_resource_link_url',
+	'template' => 'template-parts/modules/overview.php'
+);
+
 const AGGREGATE_BY_POST_TYPE = array(
 	'name' => 'Aggregate by Post Type',
 	'options' => 'aggregate_by_post_type_options',
@@ -107,6 +118,7 @@ const MODULES = array(
 	'Statistics' => STATISTICS_MODULE,
 	'Aggregate by Post Type' => AGGREGATE_BY_POST_TYPE,
 	'Quote' => QUOTE_MODULE,
+	'Overview' => OVERVIEW_MODULE,
 	'Spotlight 1 Module' => SPOTLIGHT_1_MODULE,
 	'Spotlight 3 Module' => SPOTLIGHT_3_MODULE
 );

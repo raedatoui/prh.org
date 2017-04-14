@@ -1,10 +1,12 @@
 //THIS IS WHERE TYPOGRAPHY STYLING SHOULD GO...
 
+%thin-text {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
 %headline {
-  -webkit-font-smoothing: antialiased;
   letter-spacing: em((-25/1000), 54px);
   line-height: 1.25;
-  text-rendering: optimizeLegibility;
   @include lora();
 }
 
@@ -23,13 +25,13 @@ h1 { @extend %h1; }
   @include lora();
   color: $prh-navy-lt;
   font-weight: $bold;
-  line-height: (34/26);
+  line-height: (34 / 26);
   margin-bottom: em(20px, 26px);
 }
 
 h3 {
   @extend %h3;
-  
+
   font-size: 26px;
 }
 
@@ -67,4 +69,5 @@ p {
 .lead-copy {
   @extend %headline;
   font-size: em(22px);
+  line-height: (42 / 22);
 }
