@@ -4,7 +4,7 @@ import TweenMax from 'gsap/TweenMax';
 import EasePack from 'gsap/EasePack';
 import Flickity from 'flickity-imagesloaded';
 import modernizr from './modernizr.js';
-import testObj from './test.js';
+import TabAccordion from 'storm-tab-accordion';
 
 
 function init(){
@@ -16,10 +16,8 @@ function init(){
 				adaptiveHeight: true,
 				wrapAround: 'true'
 			});
-}
 
-export default function () {
-	testObj.test();
+  TabAccordion.init('.tab-component');
 }
 
 init();

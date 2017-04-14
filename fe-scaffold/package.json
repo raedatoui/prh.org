@@ -4,8 +4,9 @@
   "description": "Static HTML for PRH Wordpress Site",
   "main": "gulpfile.js",
   "dependencies": {
+    "flickity-imagesloaded": "^2.0.0",
     "gsap": "^1.19.1",
-    "flickity-imagesloaded": "^2.0.0"
+    "storm-tab-accordion": "^1.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
