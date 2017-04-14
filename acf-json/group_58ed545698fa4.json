@@ -114,20 +114,20 @@
             "collapsed": "",
             "sub_fields": [
                 {
-                    "ID": 0,
-                    "key": "field_58e1c124a8dfe__trashed",
+                    "ID": 13216,
+                    "key": "field_58e1c124a8dfe",
                     "label": "Label",
                     "name": "cta_label",
                     "prefix": "",
                     "type": "text",
                     "value": null,
                     "menu_order": 0,
-                    "instructions": "",
+                    "instructions": "The CTA Label",
                     "required": 1,
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": "group_58e1c120cf8fa",
+                    "parent": 13215,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -145,20 +145,20 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 0,
-                    "key": "field_58e1c136a8dff__trashed",
+                    "ID": 13217,
+                    "key": "field_58e1c136a8dff",
                     "label": "Link",
                     "name": "cta_link",
                     "prefix": "",
                     "type": "text",
                     "value": null,
                     "menu_order": 1,
-                    "instructions": "",
+                    "instructions": "CTA Link",
                     "required": 1,
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": "group_58e1c120cf8fa",
+                    "parent": 13215,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -196,6 +196,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1492184905,
-    "local": "json"
+    "modified": 1492153604
 }

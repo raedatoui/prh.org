@@ -3,7 +3,7 @@
     "title": "Quote",
     "fields": [
         {
-            "key": "field_58e7b1a204bcc__trashed",
+            "key": "field_58e7b1a204bcc",
             "label": "Quote",
             "name": "quote",
             "type": "text",
@@ -24,11 +24,11 @@
             "disabled": 0
         },
         {
-            "key": "field_58e7b1b504bcd__trashed",
+            "key": "field_58e7b1b504bcd",
             "label": "Attribution Name",
             "name": "quote_attribution_name",
             "type": "text",
-            "instructions": "",
+            "instructions": "Include full name.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -45,11 +45,11 @@
             "disabled": 0
         },
         {
-            "key": "field_58e7b1c504bce__trashed",
+            "key": "field_58e7b1c504bce",
             "label": "Attribution Location",
             "name": "quote_attribution_location",
             "type": "text",
-            "instructions": "",
+            "instructions": "Include a location where possible.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -66,11 +66,11 @@
             "disabled": 0
         },
         {
-            "key": "field_58e7b1d204bcf__trashed",
+            "key": "field_58e7b1d204bcf",
             "label": "Text",
             "name": "quote_text",
             "type": "text",
-            "instructions": "",
+            "instructions": "Accompanying optional text that may provide additional context to the quote. ",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -87,7 +87,7 @@
             "disabled": 0
         },
         {
-            "key": "field_58e7b18604bcb__trashed",
+            "key": "field_58e7b18604bcb",
             "label": "Options",
             "name": "quote_options",
             "type": "component_field",
@@ -106,7 +106,227 @@
             "button_label": "Add Row",
             "appearances": "",
             "collapsed": "",
-            "sub_fields": []
+            "sub_fields": [
+                {
+                    "ID": 13223,
+                    "key": "field_58e1e28198454",
+                    "label": "Enabled",
+                    "name": "module_enabled",
+                    "prefix": "",
+                    "type": "true_false",
+                    "value": null,
+                    "menu_order": 0,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 13222,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_enabled",
+                    "_input": "",
+                    "_valid": 1,
+                    "message": "",
+                    "default_value": 0
+                },
+                {
+                    "ID": 13224,
+                    "key": "field_58e1c06164889",
+                    "label": "Title",
+                    "name": "module_title",
+                    "prefix": "",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 1,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 13222,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_title",
+                    "_input": "",
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "ID": 13225,
+                    "key": "field_58e1c0696488a",
+                    "label": "Order",
+                    "name": "module_order",
+                    "prefix": "",
+                    "type": "number",
+                    "value": null,
+                    "menu_order": 2,
+                    "instructions": "",
+                    "required": 1,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 13222,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_order",
+                    "_input": "",
+                    "_valid": 1,
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "ID": 13226,
+                    "key": "field_58e1c09e6488b",
+                    "label": "Use CTA",
+                    "name": "module_use_cta",
+                    "prefix": "",
+                    "type": "true_false",
+                    "value": null,
+                    "menu_order": 3,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 13222,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_use_cta",
+                    "_input": "",
+                    "_valid": 1,
+                    "message": "",
+                    "default_value": 0
+                },
+                {
+                    "ID": 13227,
+                    "key": "field_58e1c16d818a3",
+                    "label": "CTA",
+                    "name": "module_cta",
+                    "prefix": "",
+                    "type": "component_field",
+                    "value": null,
+                    "menu_order": 4,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_58e1c09e6488b",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "parent": 13222,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_cta",
+                    "_input": "",
+                    "_valid": 1,
+                    "field_group_id": "group_58e1c120cf8fa",
+                    "min": 1,
+                    "max": 1,
+                    "layout": "block",
+                    "button_label": "Add Row",
+                    "appearances": "",
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "ID": 13216,
+                            "key": "field_58e1c124a8dfe",
+                            "label": "Label",
+                            "name": "cta_label",
+                            "prefix": "",
+                            "type": "text",
+                            "value": null,
+                            "menu_order": 0,
+                            "instructions": "",
+                            "required": 1,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": 0,
+                            "parent": 13215,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "_name": "cta_label",
+                            "_input": "",
+                            "_valid": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "ID": 13217,
+                            "key": "field_58e1c136a8dff",
+                            "label": "Link",
+                            "name": "cta_link",
+                            "prefix": "",
+                            "type": "text",
+                            "value": null,
+                            "menu_order": 1,
+                            "instructions": "",
+                            "required": 1,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": 0,
+                            "parent": 13215,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "_name": "cta_link",
+                            "_input": "",
+                            "_valid": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "location": [
@@ -127,5 +347,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492184779
+    "modified": 1492153186
 }
