@@ -16,7 +16,7 @@
 							<?php endif; ?>
 							<?php if ( $card[SPOTLIGHT_CARD['use_cta']] ):  ?>
 								<?php $cta = $card[SPOTLIGHT_CARD['cta']][0];  ?>
-								<a class="cta cta--red" href="<? echo $cta[CTA_COMPONENT['link']];?>">
+								<a class="cta" href="<? echo $cta[CTA_COMPONENT['link']];?>">
 									<? echo $cta[CTA_COMPONENT['label']]; ?>
 								</a>
 							<?php endif; ?>
