@@ -1,5 +1,9 @@
 //THIS IS WHERE TYPOGRAPHY STYLING SHOULD GO...
 
+%thin-text {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
 %headline {
   letter-spacing: em((-25/1000), 54px);
   line-height: 1.25;
