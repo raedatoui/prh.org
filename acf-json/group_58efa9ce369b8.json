@@ -3,7 +3,7 @@
     "title": "Overview",
     "fields": [
         {
-            "key": "field_58efaeb63e427__trashed",
+            "key": "field_58efaeb63e427",
             "label": "Options",
             "name": "overview_options",
             "type": "component_field",
@@ -25,7 +25,7 @@
             "sub_fields": []
         },
         {
-            "key": "field_58efaa0e737de__trashed",
+            "key": "field_58efaa0e737de",
             "label": "Content",
             "name": "overview_content",
             "type": "wysiwyg",
@@ -43,7 +43,7 @@
             "media_upload": 0
         },
         {
-            "key": "field_58efaaa4737e0__trashed",
+            "key": "field_58efaaa4737e0",
             "label": "Resources block",
             "name": "",
             "type": "message",
@@ -59,7 +59,7 @@
             "esc_html": 0
         },
         {
-            "key": "field_58efaaaf737e1__trashed",
+            "key": "field_58efaaaf737e1",
             "label": "Title",
             "name": "overview_resources_title",
             "type": "text",
@@ -80,7 +80,7 @@
             "disabled": 0
         },
         {
-            "key": "field_58efaaf0737e2__trashed",
+            "key": "field_58efaaf0737e2",
             "label": "Links",
             "name": "overview_resource_links",
             "type": "repeater",
