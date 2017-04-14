@@ -10,7 +10,7 @@
   background-position: bottom right;
   background-repeat: repeat-x;
   display: inline-block;
-  margin: 30px auto;
+  margin: 30px auto 45px;
   text-transform: uppercase;
 
   h2 {
@@ -26,6 +26,7 @@
 
   h2 {
     margin-bottom: 15px;
+    padding: 0 2em;
   }
 
   .hero & {
