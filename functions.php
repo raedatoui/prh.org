@@ -130,6 +130,7 @@ class PageModules {
 		foreach( $groups as $group_key => $group ) {
 			$module = acf_get_fields($group);
 			$key = $group['title'];
+
 			$modules[$key] = array('module_name' => $group['title']);
 			foreach($module as $field_name => $field ) {
 				$f = $field['name'];
@@ -148,6 +149,11 @@ class PageModules {
 		foreach( COMPONENTS_TO_UNSET as $c ) {
 			unset( $this->modules[$c] );
 		}
+		$filter = function ( $module ) {
+			$config = MODULES[$module['module_name']];
+			return $module[$config['options']] !== null;
+		};
+		$this->modules = array_filter( $this->modules, $filter );
 	}
 
 	function filter() {
