@@ -28,21 +28,24 @@
 			</section>
 
 
-			<aside class="sidebar resources-sidebar col-md-3 col-md-offset-1">
-				<h2 class="sidebar-header resources-header">
-					<?php echo $module[OVERVIEW_MODULE['resources_title']]; ?>
-				</h2>
+			<aside class="sidebar resources-sidebar col-xs-12 col-md-3 col-md-offset-1">
+				<div class="sidebar-content resources-content">
 
-				<ul class="sidebar-links resources-links">
-					<?php foreach ( $module[OVERVIEW_MODULE['resources_links']] as $index => $link ): ?>
-						<li>
-							<a href="<?php echo $link[OVERVIEW_MODULE['resources_link_url']]; ?>" class="resource-link">
-								<?php echo $link[OVERVIEW_MODULE['resources_link_text']]; ?>
-							</a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+					<h2 class="sidebar-header resources-header">
+						<?php echo $module[OVERVIEW_MODULE['resources_title']]; ?>
+					</h2>
 
+					<ul class="sidebar-links resources-links">
+						<?php foreach ( $module[OVERVIEW_MODULE['resources_links']] as $index => $link ): ?>
+							<li>
+								<a href="<?php echo $link[OVERVIEW_MODULE['resources_link_url']]; ?>" class="resource-link">
+									<?php echo $link[OVERVIEW_MODULE['resources_link_text']]; ?>
+								</a>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+
+				</div>
 			</aside>
 		</div>
 	</div>
