@@ -5,15 +5,14 @@
 <section class="module module__aggregate-card">
 	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
+		<div class="row">
 			<?php
 				$count = 0;
 				while ($query->have_posts()):
 					$query->the_post();
 					$link = get_permalink ( $post );
-					$postImage = get_the_post_thumbnail_url($post);
-					if ( $count == 0) : ?>
-						<div class="row">
-					<?php endif; ?>
+					$postImage = get_the_post_thumbnail_url($post); ?>
+
 					<a class="aggregate-tile col-xs-12 col-md-4" href="<?php echo $link ?>" aria-label="<?php the_title(); ?>">
 						<div class="tile__container">
 							<div class="tile__type--container">
@@ -29,18 +28,10 @@
 							<div class="tile__summary"><?php the_excerpt(); ?></div>
 						</div>
 					</a>
-					<?php if ( $count == 2) : ?>
-						</div>
-					<?php endif; ?>
 			<?php
-				$count = $count + 1;
-				if ( $count == 3) {
-					$count = 0;
-				}
 				endwhile;
-
 				wp_reset_postdata(); ?>
-
+		</div>
 		<?php include( locate_template( 'template-parts/components/cta.php', false, false ) ); ?>
 	</div>
 </section>

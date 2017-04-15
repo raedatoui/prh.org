@@ -3,30 +3,33 @@
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 
 		<div class="row top-xs">
+
 			<!-- Text component -->
 			<section class="overview-text col-md-8">
 				<?php
 				$full_content = $module[OVERVIEW_MODULE['content']]; 
-				$split_content = explode('<p><!--more--></p>', $full_content);
+				$contents = get_extended($full_content);
+				$moretext = (strlen($contents['more_text']) > 1) ? $contents['more_text'] : 'Read more'; 
 				?>
 
-				<?php //echo $split_content[0]; ?>
-				<?php echo $full_content; ?>
-				
-				<?php if (count($split_content) >= 1): ?>
+				<?php echo $contents['main']; ?>
 
-					<!-- Here's basic logic for the "Read more" behavior, when that's up. -->
-					<!--<a href="#collapsible-1" class="collapse-link">Read more</a>
+				<?php if (strlen($contents['extended']) > 0):	?>
+					<p>
+						<a id="collapse-link-1" href="#collapsible-1" class="collapse-link">
+							<?php echo $moretext; ?>
+						</a>
+					</p>
 
 					<div id="collapsible-1" class="collapsible overview-collapsible is-collapsed">
 						<div class="collapsible-content">
-							<?php //echo $split_content[1]; ?>
+							<?php echo $contents['extended']; ?>
 						</div>
-					</div> -->
+					</div> 
 				<?php endif; ?>
 			</section>
 
-
+			<!-- Resource links component -->
 			<aside class="sidebar resources-sidebar col-xs-12 col-md-3 col-md-offset-1">
 				<div class="sidebar-content resources-content">
 
@@ -43,9 +46,9 @@
 							</li>
 						<?php endforeach; ?>
 					</ul>
-
 				</div>
 			</aside>
+
 		</div>
 	</div>
 </section>
