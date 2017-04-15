@@ -51,16 +51,6 @@ endif;
 add_action('after_setup_theme', 'prh_wp_theme_setup');
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- * Priority 0 to make it available to lower priority callbacks.
- * @global int $content_width
- */
-function prh_wp_theme_content_width() {
-	$GLOBALS['content_width'] = apply_filters('prh_wp_theme_content_width', 640);
-}
-add_action('after_setup_theme', 'prh_wp_theme_content_width', 0);
-
-/**
  * Register widget area.
  */
 function prh_wp_theme_widgets_init() {
@@ -100,8 +90,6 @@ require get_template_directory() . '/inc/constants.php';
 require get_template_directory() . '/inc/page-modules.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
-require get_template_directory() . '/inc/customizer.php';
-require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/custom-types.php';
 require get_template_directory() . '/inc/editor.php';
 require get_template_directory() . '/inc/acf.php';
