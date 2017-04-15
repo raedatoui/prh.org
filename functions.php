@@ -1,20 +1,14 @@
 <?php
 /**
- * Custom functions that act independently of the theme templates
- *
- * Eventually, some of the functionality here could be replaced by core features.
- *
+ * Custom functions 
  * @package prh-wp-theme
  */
 
-if ( !function_exists('prh_wp_theme_setup') ):
 	/**
 	* Sets up theme defaults and registers support for various WordPress features.
-	*
-	* Note that this function is hooked into the after_setup_theme hook, which
-	* runs before the init hook. The init hook is too late for some features, such
-	* as indicating support for post thumbnails.
 	*/
+
+if ( !function_exists('prh_wp_theme_setup') ):
 	function prh_wp_theme_setup() {
 		/*
 		 * Make theme available for translation.
@@ -24,7 +18,6 @@ if ( !function_exists('prh_wp_theme_setup') ):
 		add_theme_support('title-tag');
 		add_theme_support('post-thumbnails');
 
-		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(array(
 			'menu-1' => esc_html__('Primary', 'prh-wp-theme'),
 		));
@@ -139,5 +132,3 @@ function echo_wrapped( $var, $before='', $after='' ) {
 	}
 	echo $before . $var . $after;
 }
-
-
