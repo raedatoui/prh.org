@@ -1,6 +1,6 @@
 {
     "key": "group_58f0fe80edf4e",
-    "title": "Aggregate By Category",
+    "title": "Aggregate by Category",
     "fields": [
         {
             "key": "field_58f0fe893e444",
@@ -250,7 +250,7 @@
             "name": "category_aggregate",
             "type": "taxonomy",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -258,13 +258,36 @@
                 "id": ""
             },
             "taxonomy": "category",
-            "field_type": "select",
+            "field_type": "radio",
             "allow_null": 0,
             "add_term": 0,
-            "save_terms": 0,
+            "save_terms": 1,
             "load_terms": 1,
-            "return_format": "object",
+            "return_format": "id",
             "multiple": 0
+        },
+        {
+            "key": "field_58f1afa4c4e9c",
+            "label": "Count",
+            "name": "aggregate_by_category_count",
+            "type": "number",
+            "instructions": "multiple of 3",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "placeholder": 3,
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "readonly": 0,
+            "disabled": 0
         }
     ],
     "location": [
@@ -285,5 +308,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492189596
+    "modified": 1492239188
 }

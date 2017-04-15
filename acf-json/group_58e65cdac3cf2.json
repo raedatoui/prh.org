@@ -32,7 +32,7 @@
                     "type": "true_false",
                     "value": null,
                     "menu_order": 0,
-                    "instructions": "",
+                    "instructions": "Determines if module should be displayed",
                     "required": 0,
                     "id": "",
                     "class": "",
@@ -187,7 +187,7 @@
                             "type": "text",
                             "value": null,
                             "menu_order": 0,
-                            "instructions": "",
+                            "instructions": "The CTA Label",
                             "required": 1,
                             "id": "",
                             "class": "",
@@ -218,7 +218,7 @@
                             "type": "text",
                             "value": null,
                             "menu_order": 1,
-                            "instructions": "",
+                            "instructions": "CTA Link",
                             "required": 1,
                             "id": "",
                             "class": "",
@@ -263,6 +263,29 @@
             "placeholder": "",
             "disabled": 0,
             "readonly": 0
+        },
+        {
+            "key": "field_58f1af6e1cac7",
+            "label": "Count",
+            "name": "aggregate_by_post_type_count",
+            "type": "number",
+            "instructions": "Ideally a multiple of 3",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "placeholder": 3,
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "readonly": 0,
+            "disabled": 0
         }
     ],
     "location": [
@@ -283,5 +306,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492153186
+    "modified": 1492236276
 }
