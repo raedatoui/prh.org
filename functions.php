@@ -70,9 +70,8 @@ add_action('widgets_init', 'prh_wp_theme_widgets_init');
  * Enqueue scripts and styles.
  */
 function prh_wp_theme_scripts() {
-	// TODO: replace get_stylesheet_uri with path to css/main.min.css
 	wp_enqueue_style( 'prh-wp-theme-style', get_template_directory_uri() . '/css/main.css' );
-	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto+Condensed:300,300i,400,400i,700,700i|Roboto+Slab:100,300,400,700|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto+Condensed:700|Roboto:300,400,400i,700,700i');
 
 	// TODO: check if this is needed
 	wp_enqueue_script('prh-wp-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
