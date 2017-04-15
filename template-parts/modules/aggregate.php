@@ -7,7 +7,6 @@
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<div class="row">
 			<?php
-				$count = 0;
 				while ($query->have_posts()):
 					$query->the_post();
 					$link = get_permalink ( $post );
