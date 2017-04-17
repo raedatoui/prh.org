@@ -13,18 +13,18 @@ get_header(); ?>
 	<header class="col-md-12">
 		<h1><?php the_title(); ?></h1>
 
-		<footer class="post-meta eyebrow">
-			<span class="post-type"><?php echo $pt_label; ?>s</span>
-			<time class="post-date"><?php the_date('M j, Y \a\t g:i A'); ?></time>
+		<footer class="post-meta">
+			<span class="post-type eyebrow"><?php echo $pt_label; ?> | </span>
+			<time class="post-date eyebrow"><?php the_date('M j, Y \a\t g:i A'); ?></time>
 		</footer>
 
 		<?php
 			$intro = get_the_excerpt();
 			if (!is_generated($intro)) {
-				echo '<p class="post-intro">' . $intro . '</p>';
+				echo '<p class="post-intro lead-copy">' . $intro . '</p>';
 			} ?>
 	</header>
-	<article class="main-content post-content col-md-8">
+	<article class="main-content post-content col-md-9">
 			
 			<div class="post-body">
 				<?php the_content(); ?>
@@ -37,7 +37,7 @@ get_header(); ?>
 			</footer>
 	</article>
 
-	<div class="sidebar post-sidebar col-md-3 col-md-offset-1">
+	<div class="sidebar post-sidebar col-md-3">
 
 		<?php 
 		$tags = get_the_tags($post->ID);
