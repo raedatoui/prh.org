@@ -1,3 +1,7 @@
+svg path {
+  fill: inherit;
+}
+
 .cta {
   @include roboto();
   background: $prh-navy-lt;
@@ -17,8 +21,9 @@
   }
 
   &::after {
-    background: url("../images/optimized/button_arrow.svg") 0 -5px no-repeat;
+    background: url("../images/optimized/button_arrow-lilac.svg") 0 -5px no-repeat;
     content: " ";
+    fill: #fff;
     height: 30px;
     position: absolute;
     width: 50px;
@@ -27,6 +32,10 @@
 
 .cta--red {
   background: $prh-red;
+
+  &::after {
+    background: url("../images/optimized/button_arrow-white.svg") 0 -5px no-repeat;
+  }
 }
 
 .cta-row {
