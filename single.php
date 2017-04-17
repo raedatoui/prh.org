@@ -20,7 +20,7 @@ get_header(); ?>
 			<time class="post-date"><?php the_date('M j, Y \a\t g:i A'); ?></time>
 		</footer>
 
-		<?phps
+		<?php
 			$intro = get_the_excerpt();
 			if (!is_generated($intro)) {
 				echo '<p class="post-intro">' . $intro . '</p>';
