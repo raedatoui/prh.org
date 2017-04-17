@@ -21,13 +21,6 @@ function init(){
 	}
 
 	collapsible.init();
-  // TabAccordion.init('.tab-component', {
-  //   tabClass: '.tab-component__tab',
-  //   titleClass: '.tab-component__title',
-  //   currentClass: 'active',
-  //   active: 0
-  // });
-
   TabAccordion.init('.js-tab-accordion');
 }
 

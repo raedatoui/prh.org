@@ -21,7 +21,6 @@
     position: relative;
     clip: auto;
     padding: 2rem;
-    background-color: #eee;
     visibility: visible;
 }
 
@@ -50,12 +49,11 @@
         position: relative;
         clip: auto;
         padding: 2rem;
-        background: #eee;
         visibility: visible;
     }
 
     .tab-accordion-target.active .tab-accordion__inner {
-        background: #eee;
+
     }
 }
 
