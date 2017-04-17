@@ -82,9 +82,18 @@ const OVERVIEW_MODULE = array(
 );
 
 const AGGREGATE_BY_POST_TYPE = array(
-	'name' => 'Aggregate by Post Type',
+	'name' => 'Aggregate by Content Type',
 	'options' => 'aggregate_by_post_type_options',
-	'post_type' => 'aggregate_by_post_type',
+	'post_type' => 'content_type_aggregate',
+	'count' => 'aggregate_by_post_type_count',
+	'template' => 'template-parts/modules/aggregate.php'
+);
+
+const AGGREGATE_BY_CATEGORY = array(
+	'name' => 'Aggregate by Category',
+	'options' => 'aggregate_by_category_options',
+	'category' => 'category_aggregate',
+	'count' => 'aggregate_by_category_count',
 	'template' => 'template-parts/modules/aggregate.php'
 );
 
@@ -113,14 +122,20 @@ const SPOTLIGHT_CARD = array(
 );
 
 const MODULES = array(
-	'Carousel' => CAROUSEL_MODULE,
-	'Hero' => HERO_MODULE,
-	'Statistics' => STATISTICS_MODULE,
-	'Aggregate by Post Type' => AGGREGATE_BY_POST_TYPE,
-	'Quote' => QUOTE_MODULE,
-	'Overview' => OVERVIEW_MODULE,
-	'Spotlight 1 Module' => SPOTLIGHT_1_MODULE,
-	'Spotlight 3 Module' => SPOTLIGHT_3_MODULE
+	CAROUSEL_MODULE['name'] => CAROUSEL_MODULE,
+	HERO_MODULE['name'] => HERO_MODULE,
+	STATISTICS_MODULE['name'] => STATISTICS_MODULE,
+	AGGREGATE_BY_POST_TYPE['name'] => AGGREGATE_BY_POST_TYPE,
+	AGGREGATE_BY_CATEGORY['name'] => AGGREGATE_BY_CATEGORY,
+	QUOTE_MODULE['name'] => QUOTE_MODULE,
+	OVERVIEW_MODULE['name'] => OVERVIEW_MODULE,
+	SPOTLIGHT_1_MODULE['name'] => SPOTLIGHT_1_MODULE,
+	SPOTLIGHT_3_MODULE['name'] => SPOTLIGHT_3_MODULE
+);
+
+const AGGREGATES = array(
+	AGGREGATE_BY_CATEGORY['name'],
+	AGGREGATE_BY_POST_TYPE['name']
 );
 
 const CUSTOM_POST_TYPES = array (
@@ -193,6 +208,11 @@ class PageModules {
 			// remove old options key from const
 			unset( $config ['options'] );
 			$module['config'] = $config;
+			if ( in_array( $module['config']['name'], AGGREGATES ) ) {
+				$module['is_aggregate'] = true;
+			} else {
+				$module['is_aggregate'] = false;
+			}
 			return $module;
 		};
 		$this->modules = array_map( $func, $this->modules );
@@ -214,13 +234,32 @@ class PageModules {
 		foreach ($this->modules as $module) {
 			$mn = $module['config']['name'];
 			$template = MODULES[$mn]['template'];
-			include( locate_template( $template, false, false ) );
+			if ( $module['is_aggregate']) {
+				$module['query'] = $this->build_query( $module );
+			}
+			include( locate_template( $template, false, true ) );
 		}
 	}
+
+	function build_query( $module ) {
+		$args = array(
+			'post_status' => array( 'publish' ),
+			'orderby' => 'date',
+			'order'   => 'DESC',
+		);
+		switch ( $module['config']['name'] ) {
+			case AGGREGATE_BY_CATEGORY['name']:
+				$args['cat'] = $module[AGGREGATE_BY_CATEGORY['category']];
+				$args['posts_per_page'] = $module[AGGREGATE_BY_CATEGORY['count']];
+				break;
+			case AGGREGATE_BY_POST_TYPE['name']:
+				$args['post_type'] = $module[AGGREGATE_BY_POST_TYPE['post_type']];
+				$args['posts_per_page'] = $module[AGGREGATE_BY_POST_TYPE['count']];
+				break;
+		}
+		return new WP_Query( $args );
+	}
 }
-
-
-
 
 if ( !function_exists('prh_wp_theme_setup') ):
 	/**
@@ -324,6 +363,7 @@ require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/custom-types.php';
 require get_template_directory() . '/inc/editor.php';
 require get_template_directory() . '/inc/acf.php';
+require get_template_directory() . '/inc/metaboxes.php';
 
 
 /**
@@ -350,3 +390,5 @@ function echo_wrapped( $var, $before='', $after='' ) {
 	}
 	echo $before . $var . $after;
 }
+
+

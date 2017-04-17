@@ -7,7 +7,7 @@
   font-weight: $medium;
   letter-spacing: 0.2em;
   margin: 20px auto;
-  padding: 22px 35px;
+  padding: 22px 75px 22px 35px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -17,11 +17,11 @@
   }
 
   &::after {
-    background: url("../images/optimized/button_arrow.svg") 0 5px no-repeat;
+    background: url("../images/optimized/button_arrow.svg") 0 -5px no-repeat;
     content: " ";
-    display: inline-block;
-    height: 17px;
-    width: 30px;
+    height: 30px;
+    position: absolute;
+    width: 50px;
   }
 }
 
@@ -38,6 +38,14 @@
   .cta {
     display: inline-block;
     font-size: em(12px);
+    position: relative;
+
+    &::after {
+      right: 26px;
+      top: 50%;
+      background-position: 0 0;
+      transform: translateY(-14px);
+    }
   }
 
 }

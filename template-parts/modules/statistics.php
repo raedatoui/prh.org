@@ -1,4 +1,3 @@
-<?php $module = $this->modules[STATISTICS_MODULE['name']]; ?>
 <section class="stats module">
 	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
