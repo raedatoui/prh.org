@@ -9,12 +9,20 @@ $tab-color: #fff;
   display: none;
 }
 
+.js-tab-accordion {
+  background: $tab-color;
+  padding-bottom: 32px;
+  padding-top: 32px;
+}
+
 .js-tab-accordion-title {
   cursor: pointer;
   margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.tab-accordion-tab__ordinal {
+.tab-accordion__nav-ordinal {
   @include lora();
   color: $prh-blue-lt;
   font-size: em(64px);
@@ -23,9 +31,10 @@ $tab-color: #fff;
   margin-right: 25px;
 }
 
-.tab-accordion-tab__title {
+.tab-accordion__nav-title {
   @extend %eyebrow;
   align-content: flex-start;
+  color: $prh-navy-lt;
   display: flex;
   flex-direction: row;
   margin-top: 4px;
@@ -40,14 +49,16 @@ $tab-color: #fff;
   visibility: hidden;
 }
 
-.tab-accordion-target {
-  background: $tab-color;
+.tab-accordion__section {
   min-height: 0;
-  padding-bottom: 85px;
-  padding-top: 85px;
+
+  &.active {
+    padding-bottom: 32px;
+    padding-top: 32px;
+  }
 }
 
-.tab-accordion-target.active .tab-accordion__inner {
+.tab-accordion__section.active .tab-accordion__inner {
   clip: auto;
   max-height: 10000px;
   position: relative;
@@ -55,15 +66,36 @@ $tab-color: #fff;
 }
 
 @include responsive-mq("md") {
+  .js-tab-accordion {
+    background: transparent;
+    padding: 0;
+  }
+
   .js-tab-accordion-title {
     display: none;
   }
 
-  .tab-accordion__tabs {
+  .tab-accordion__section {
+    background: $tab-color;
+    clip: rect(0, 0, 0, 0);
+    margin-bottom: 32px;
+    position: absolute;
+    visibility: hidden;
+
+    &.active {
+      clip: auto;
+      position: relative;
+      visibility: visible;
+    }
+  }
+
+  .tab-accordion__nav {
     border-bottom: none;
     display: flex;
     left: 0;
     max-width: none;
+    overflow: hidden;
+    padding: 0 1rem;
     position: relative;
     transform: none;
     width: 100%;
@@ -74,7 +106,7 @@ $tab-color: #fff;
     display: flex;
     margin-right: 30px;
     max-width: 25%;
-    padding: 35px 0;
+    padding: 0 0 65px;
     position: relative;
     text-decoration: none;
 
@@ -84,32 +116,14 @@ $tab-color: #fff;
         border-left: 35px solid transparent;
         border-right: 35px solid transparent;
         border-top: 35px solid transparent;
-        bottom: -25px;
+        bottom: 0;
         content: " ";
         display: block;
         height: 0;
+        left: -18px;
         position: absolute;
         width: 0;
       }
     }
-
-  }
-
-  .tab-accordion__nav {
-    display: block;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .tab-accordion-target {
-    clip: rect(0, 0, 0, 0);
-    position: absolute;
-    visibility: hidden;
-  }
-
-  .tab-accordion-target.active {
-    clip: auto;
-    position: relative;
-    visibility: visible;
   }
 }
