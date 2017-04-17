@@ -1,67 +1,115 @@
+$tab-color: #fff;
+
+.module__tabs {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .tab-accordion__nav {
-    display: none;
-    position: relative;
+  display: none;
+}
+
+.js-tab-accordion-title {
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.tab-accordion-tab__ordinal {
+  @include lora();
+  color: $prh-blue-lt;
+  font-size: em(64px);
+  font-style: italic;
+  line-height: lh(60, 64);
+  margin-right: 25px;
+}
+
+.tab-accordion-tab__title {
+  @extend %eyebrow;
+  align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  margin-top: 4px;
 }
 
 .tab-accordion__inner {
-    position: absolute;
-    clip: rect(0, 0, 0, 0);
-    visibility: hidden;
+  clear: both;
+  clip: rect(0, 0, 0, 0);
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  visibility: hidden;
 }
 
 .tab-accordion-target {
-    min-height: 0;
-}
-
-.tab-accordion-target.active  .tab-accordion__title {
-
+  background: $tab-color;
+  min-height: 0;
+  padding-bottom: 85px;
+  padding-top: 85px;
 }
 
 .tab-accordion-target.active .tab-accordion__inner {
+  clip: auto;
+  max-height: 10000px;
+  position: relative;
+  visibility: visible;
+}
+
+@include responsive-mq("md") {
+  .js-tab-accordion-title {
+    display: none;
+  }
+
+  .tab-accordion__tabs {
+    border-bottom: none;
+    display: flex;
+    left: 0;
+    max-width: none;
     position: relative;
-    clip: auto;
-    padding: 2rem;
-    visibility: visible;
-}
+    transform: none;
+    width: 100%;
+  }
 
-@media(min-width:768px){
-    .tab-accordion__title {
-        display: none;
-    }
+  .js-tab-accordion-tab {
+    align-items: flex-start;
+    display: flex;
+    margin-right: 30px;
+    max-width: 25%;
+    padding: 35px 0;
+    position: relative;
+    text-decoration: none;
 
-    .tab-accordion__tabs {
-        position: relative;
-    }
-
-    .tab-accordion__nav {
+    &.active {
+      &::after {
+        border-bottom: 35px solid $tab-color;
+        border-left: 35px solid transparent;
+        border-right: 35px solid transparent;
+        border-top: 35px solid transparent;
+        bottom: -25px;
+        content: " ";
         display: block;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .tab-accordion-target {
+        height: 0;
         position: absolute;
-        clip: rect(0, 0, 0, 0);
-        visibility: hidden;
+        width: 0;
+      }
     }
 
-    .tab-accordion-target.active {
-        position: relative;
-        clip: auto;
-        padding: 2rem;
-        visibility: visible;
-    }
+  }
 
-    .tab-accordion-target.active .tab-accordion__inner {
-
-    }
-}
-
-.tab-accordion__inner {
-    max-height: 0;
+  .tab-accordion__nav {
+    display: block;
     overflow: hidden;
-    clear: both;
-}
-.tab-accordion-target.active .tab-accordion__inner {
-    max-height: 10000px;
+    position: relative;
+  }
+
+  .tab-accordion-target {
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .tab-accordion-target.active {
+    clip: auto;
+    position: relative;
+    visibility: visible;
+  }
 }
