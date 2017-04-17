@@ -169,8 +169,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1492463316
+    "modified": 1492466834
 }

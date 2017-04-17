@@ -4,7 +4,8 @@ const COMPONENTS_TO_UNSET = array(
 	'CTA',
 	'Module Options',
 	'Statistic',
-	'Spotlight card'
+	'Spotlight Card',
+	'Tab Card'
 );
 
 const MODULE_OPTIONS = array(
@@ -104,12 +105,28 @@ const SPOTLIGHT_3_MODULE = array(
 );
 
 const SPOTLIGHT_CARD = array(
-	'name' => 'Spotlight card',
+	'name' => 'Spotlight Card',
 	'image' => 'spotlight_image',
 	'headline' => 'spotlight_headline',
 	'text' => 'spotlight_text',
 	'use_cta' => 'spotlight_use_cta',
 	'cta' => 'spotlight_cta'
+);
+
+const TAB_CARD = array(
+	'name' => 'Tab Card',
+	'image' => 'tab_card_image',
+	'title' => 'tab_card_title',
+	'text' => 'tab_card_text',
+	'cta' => 'tab_card_cta'
+);
+
+const TAB_MODULE = array(
+	'name' => 'Tab Module',
+	'options' => 'tab_module_options',
+	'headline' => 'tab_module_headline',
+	'repeater' => 'tab_module_repeater',
+	'template' => 'template-parts/modules/tabs.php'
 );
 
 const MODULES = array(
@@ -121,7 +138,8 @@ const MODULES = array(
 	QUOTE_MODULE['name'] => QUOTE_MODULE,
 	OVERVIEW_MODULE['name'] => OVERVIEW_MODULE,
 	SPOTLIGHT_1_MODULE['name'] => SPOTLIGHT_1_MODULE,
-	SPOTLIGHT_3_MODULE['name'] => SPOTLIGHT_3_MODULE
+	SPOTLIGHT_3_MODULE['name'] => SPOTLIGHT_3_MODULE,
+	TAB_MODULE['name'] => TAB_MODULE
 );
 
 const AGGREGATES = array(
