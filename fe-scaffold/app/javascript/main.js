@@ -21,7 +21,7 @@ function init(){
 	}
 
 	collapsible.init();
-  TabAccordion.init('.js-tab-accordion');
+	TabAccordion.init('.js-tab-accordion');
 }
 
 
