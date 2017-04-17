@@ -1,35 +1,41 @@
 <?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package prh-wp-theme
- */
-
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<?php $post_type = get_post_type();
+			$pt_object = get_post_type_object($post_type);
+			$pt_label = $pt_object->labels->singular_name;
+?>
+<!-- placeholder hero so the content doesn't hit the nav -->
+<section class="hero module">
+</section>
 
-		<?php
-		while ( have_posts() ) : the_post();
+<main class="main-content post-content module">
+	<div class="content">
 
-			get_template_part( 'template-parts/content', get_post_format() );
+	<header>
+	<h1><?php the_title(); ?></h1>
 
-			the_post_navigation();
+	<footer class="post-meta eyebrow">
+		<span class="post-type"><?php echo $pt_label; ?>s</span>
+		<time class="post-date"><?php the_date('M j, Y \a\t g:i A'); ?></time>
+	</footer>
+	</header>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+	<?php
+		$intro = get_the_excerpt();
+		if (!is_generated($intro)) {
+			echo '<p class="post-intro">' . $intro . '</p>';
+		} ?>
 
-		endwhile; // End of the loop.
-		?>
+		<article class="post-body">
+			<?php the_content(); ?>
+		</article>
+	</div>
+</main>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+	<?php
+		$page = new PageModules( get_the_ID() );
+		$page->render();
+	?>
 <?php
-get_sidebar();
 get_footer();

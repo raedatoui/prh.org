@@ -90,8 +90,7 @@ function prh_mce_before_init_insert_formats( $init_array ) {
 		array(
 			'title' => 'Citation',
 			'classes' => 'article-cite',
-			'block' => 'cite',
-			'wrapper' => true
+			'block' => 'cite'
 		)
 	);
 	// Insert the array, JSON ENCODED, into 'style_formats'
@@ -106,9 +105,11 @@ add_filter('tiny_mce_before_init', 'prh_mce_before_init_insert_formats');
  * typography styles directly in the editor's visual mode.
  */
 function prh_custom_editor_styles() {
-	add_editor_style('css/main.css');
+	if (is_admin()) {
+		add_editor_style('css/editor.css');
+	}
 }
-add_action('init', 'prh_custom_editor_styles');
+add_action('admin_init', 'prh_custom_editor_styles');
 
 
 function set_post_order_in_admin( $wp_query ) {

@@ -1,5 +1,7 @@
 .article-quote {
 
+  margin: 3em 1em;
+
   p {
     @extend h3;
 
@@ -16,13 +18,19 @@
   cite {
     @extend p;
     @include roboto();
-    margin-top: 0;
+
+    display: block;
+    margin: 0;
+  }
+
+  cite + cite {
+    font-style: italic;
   }
 }
 
-@include responsive-mq(lg) {
+@include responsive-mq(md) {
   .article-quote {
-    width: 24em;
+    width: 30em;
   }
 
   .article-quote--left {
@@ -33,5 +41,33 @@
   .article-quote--right {
     float: right;
     padding: 20px 0 20px 40px;
+  }
+}
+
+
+// Inline media handling
+.wp-caption {
+  margin: 2em auto;
+}
+
+@include responsive-mq(md) {
+  .alignright {
+    float: right;
+    margin: 1em 0 1em 1em;
+  }
+
+  .alignleft {
+    float: left;
+    margin: 1em 1em 1em 0;
+  }
+
+  .aligncenter {
+    margin: 1em auto;
+  }
+}
+
+.main-content {
+  figure {
+    margin-bottom: 1em;
   }
 }

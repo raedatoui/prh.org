@@ -41,9 +41,9 @@
     position: relative;
 
     &::after {
+      background-position: 0 0;
       right: 26px;
       top: 50%;
-      background-position: 0 0;
       transform: translateY(-14px);
     }
   }

@@ -320,6 +320,7 @@ add_action('wp_enqueue_scripts', 'prh_wp_theme_scripts');
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
+
 require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/custom-types.php';
 require get_template_directory() . '/inc/editor.php';
@@ -337,6 +338,18 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 function echo_theme_uri() {
 	echo esc_url( get_template_directory_uri() );
+}
+
+/**
+ * Helper for checking whether an excerpt is a "real" one
+ * or an auto-generated one. For things using the article template - 
+ * they're supposed to fill out the excerpt field,
+ * but if they don't, we shouldn't output the automatic one. 
+ * If we change the [...] used in auto-excerpts, this needs to be updated.
+ */
+
+function is_generated($excerpt) {
+	return (substr($excerpt, -1) == ']');
 }
 
 /**
