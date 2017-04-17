@@ -1,56 +1,44 @@
 <section class="module module__tabs">
   <div class="content">
-    <header class="row center-xs">
-      <div class="module__title">
-        <h2>Issues We Address</h2>
-      </div>
-    </header>
+  <?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
     <div class="row">
       <div class="col-xs-12">
-        <p class="focus-lead-copy">We protect abortion access by fighting against the current threats.</p>
+        <p class="focus-lead-copy"><?php echo $module[TAB_MODULE['headline']]?></p>
       </div>
     </div>
   </div>
   <div class="js-tab-accordion">
     <div class="content">
       <nav role="tablist" class="tab-accordion__nav">
-          <a class="js-tab-accordion-tab" href="#target-1">
-            <span class="tab-accordion__nav-ordinal">1</span>
-            <span class="tab-accordion__nav-title">Stigma</span>
+        <?php foreach ( $module[TAB_MODULE['repeater']] as $key => $tabContainer ): ?>
+          <?php $card = $tabContainer[TAB_MODULE['card']][0] ?>
+          <a class="js-tab-accordion-tab" href="#target-<?php echo $key + 1 ?>">
+            <span class="tab-accordion__nav-ordinal"><?php echo $key + 1 ?></span>
+            <span class="tab-accordion__nav-title"><?php echo $card[TAB_CARD['title']] ?></span>
           </a>
-          <a class="js-tab-accordion-tab" href="#target-2">
-            <span class="tab-accordion__nav-ordinal">2</span>
-            <span class="tab-accordion__nav-title">Legislative Restrictions</span>
-          </a>
+        <? endforeach; ?>
       </nav>
     </div>
-    <section id="target-1" class="tab-accordion__section">
-      <div class="content">
-        <h1 class="js-tab-accordion-title">Stigma</h1>
-        <div class="tab-accordion__inner row">
-          <div class="col-xs-12 col-md-4">
-            <p>American and state governments have enacted laws and policies that interfere with abortion providers’ ability to care for their patients. We challenge anti-choice laws in the court by illustrating why abortion care is crucial through personal patient &amp; physcian stories &amp; amicus briefs.</p>
-            <a class="cta" href="http://www.google.com">See Amicus Briefs</a>
-          </div>
-          <div class="col-xs-12 col-md-8">
-            <img src="../images/optimized/img_04.jpg" alt=""/>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="target-2" class="tab-accordion__section">
-      <div class="content">
-        <h1 class="js-tab-accordion-title">Legislative Restrictions</h1>
-        <div class="tab-accordion__inner row">
-          <div class="col-xs-12 col-md-4">
-            <p>Copy copy copy LR</p>
-            <a class="cta" href="http://www.google.com">See Something</a>
-          </div>
-          <div class="col-xs-12 col-md-8">
-            <img src="../images/optimized/img_04.jpg" alt=""/>
+    <?php foreach ( $module[TAB_MODULE['repeater']] as $key => $tabContainer ): ?>
+      <?php $card = $tabContainer[TAB_MODULE['card']][0] ?>
+
+      <section id="target-<?php echo $key + 1 ?>" class="tab-accordion__section">
+        <div class="content">
+          <h1 class="js-tab-accordion-title"><?php echo $card[TAB_CARD['title']] ?></h1>
+          <div class="tab-accordion__inner row">
+            <div class="col-xs-12 col-md-4">
+              <p><?php echo $card[TAB_CARD['text']] ?></p>
+              <?php $cta = $card[TAB_CARD['cta']][0];  ?>
+              <a class="cta" href="<? echo $cta[CTA_COMPONENT['link']];?>">
+                <? echo $cta[CTA_COMPONENT['label']]; ?>
+              </a>
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <img src="<?php echo $card[TAB_CARD['image']]['url'] ?>" />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    <?php endforeach; ?>
   </div>
 </section>

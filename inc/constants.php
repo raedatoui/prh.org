@@ -126,6 +126,7 @@ const TAB_MODULE = array(
 	'options' => 'tab_module_options',
 	'headline' => 'tab_module_headline',
 	'repeater' => 'tab_module_repeater',
+	'card' => 'tab_card',
 	'template' => 'template-parts/modules/tabs.php'
 );
 

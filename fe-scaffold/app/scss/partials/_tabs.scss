@@ -92,6 +92,7 @@ $tab-color: #fff;
   .tab-accordion__nav {
     border-bottom: none;
     display: flex;
+    justify-content: space-between;
     left: 0;
     max-width: none;
     overflow: hidden;
