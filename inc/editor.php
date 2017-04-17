@@ -74,13 +74,32 @@ function prh_mce_before_init_insert_formats( $init_array ) {
 			'title' => 'Lead copy',
 			'classes' => 'lead-copy',
 			'block' => 'p'
-			)
+		),
+		array(
+			'title' => 'Quote (left)',
+			'classes' => 'article-quote article-quote--left',
+			'wrapper' => true,
+			'block' => 'blockquote'
+		),
+		array(
+			'title' => 'Quote (right)',
+			'classes' => 'article-quote article-quote--right',
+			'wrapper' => true,
+			'block' => 'blockquote'
+		),
+		array(
+			'title' => 'Citation',
+			'classes' => 'article-cite',
+			'block' => 'cite',
+			'wrapper' => true
+		)
 	);
 	// Insert the array, JSON ENCODED, into 'style_formats'
 	$init_array['style_formats'] = json_encode($style_formats);
 	return $init_array;
 }
 add_filter('tiny_mce_before_init', 'prh_mce_before_init_insert_formats');
+
 
 /**
  * Callback function for adding the main CSS to the editor allowing to preview

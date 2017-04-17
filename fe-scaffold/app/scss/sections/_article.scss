@@ -1,0 +1,37 @@
+.article-quote {
+
+  p {
+    @extend h3;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  cite {
+    @extend p;
+    @include roboto();
+    margin-top: 0;
+  }
+}
+
+@include responsive-mq(lg) {
+  .article-quote {
+    width: 24em;
+  }
+
+  .article-quote--left {
+    float: left;
+    padding: 20px 40px 20px 0;
+  }
+
+  .article-quote--right {
+    float: right;
+    padding: 20px 0 20px 40px;
+  }
+}
