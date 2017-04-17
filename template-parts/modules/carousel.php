@@ -1,4 +1,3 @@
-<?php $module = $this->modules[CAROUSEL_MODULE['name']]; ?>
 <section class="featured-carousel module">
 	<div class="content">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>

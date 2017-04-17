@@ -1,4 +1,3 @@
-<?php $module = $this->modules[SPOTLIGHT_1_MODULE['name']]; ?>
 <section class="info-module module">
 	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ) ?>
