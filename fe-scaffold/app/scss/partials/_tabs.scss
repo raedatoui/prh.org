@@ -1,0 +1,69 @@
+.tab-accordion__nav {
+    display: none;
+    position: relative;
+}
+
+.tab-accordion__inner {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    visibility: hidden;
+}
+
+.tab-accordion-target {
+    min-height: 0;
+}
+
+.tab-accordion-target.active  .tab-accordion__title {
+
+}
+
+.tab-accordion-target.active .tab-accordion__inner {
+    position: relative;
+    clip: auto;
+    padding: 2rem;
+    background-color: #eee;
+    visibility: visible;
+}
+
+@media(min-width:768px){
+    .tab-accordion__title {
+        display: none;
+    }
+
+    .tab-accordion__tabs {
+        position: relative;
+    }
+
+    .tab-accordion__nav {
+        display: block;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .tab-accordion-target {
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+        visibility: hidden;
+    }
+
+    .tab-accordion-target.active {
+        position: relative;
+        clip: auto;
+        padding: 2rem;
+        background: #eee;
+        visibility: visible;
+    }
+
+    .tab-accordion-target.active .tab-accordion__inner {
+        background: #eee;
+    }
+}
+
+.tab-accordion__inner {
+    max-height: 0;
+    overflow: hidden;
+    clear: both;
+}
+.tab-accordion-target.active .tab-accordion__inner {
+    max-height: 10000px;
+}

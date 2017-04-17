@@ -3,8 +3,8 @@
 import TweenMax from 'gsap/TweenMax';
 import EasePack from 'gsap/EasePack';
 import Flickity from 'flickity-imagesloaded';
-import modernizr from './modernizr.js';
 import TabAccordion from 'storm-tab-accordion';
+import modernizr from './modernizr.js';
 import collapsible from './collapsible.js';
 
 
@@ -21,9 +21,15 @@ function init(){
 	}
 
 	collapsible.init();
+  // TabAccordion.init('.tab-component', {
+  //   tabClass: '.tab-component__tab',
+  //   titleClass: '.tab-component__title',
+  //   currentClass: 'active',
+  //   active: 0
+  // });
+
+  TabAccordion.init('.js-tab-accordion');
 }
 
-  TabAccordion.init('.tab-component');
-}
 
 init();
