@@ -30,17 +30,17 @@
 
 @include responsive-mq(md) {
   .article-quote {
-    width: 30em;
+    width: 24em;
   }
 
   .article-quote--left {
     float: left;
-    padding: 20px 40px 20px 0;
+    padding: 20px 20px 20px 0;
   }
 
   .article-quote--right {
     float: right;
-    padding: 20px 0 20px 40px;
+    padding: 20px 0 20px 20px;
   }
 }
 
@@ -69,5 +69,32 @@
 .main-content {
   figure {
     margin-bottom: 1em;
+  }
+}
+
+
+
+// Tags & other metadata
+
+.tags-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+  }
+}
+
+.tag {
+  background: $prh-navy-dk;
+  color: #fff;
+  display: inline-block;
+  line-height: 1.4;
+  padding: 5px 10px;
+  text-decoration: none;
+
+  &:hover {
+    background: $prh-blue-lt;
   }
 }
