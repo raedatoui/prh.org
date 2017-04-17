@@ -1,14 +1,14 @@
 {
-    "key": "group_58e65cdac3cf2",
-    "title": "Aggregate by Content Type",
+    "key": "group_58f0fe80edf4e",
+    "title": "Aggregate by Category",
     "fields": [
         {
-            "key": "field_58e65ce040bd3",
+            "key": "field_58f0fe893e444",
             "label": "Options",
-            "name": "aggregate_by_post_type_options",
+            "name": "aggregate_by_category_options",
             "type": "component_field",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -18,7 +18,7 @@
             "field_group_id": "group_58e1c055118d9",
             "min": 1,
             "max": 1,
-            "layout": "row",
+            "layout": "block",
             "button_label": "Add Row",
             "appearances": "",
             "collapsed": "",
@@ -245,11 +245,11 @@
             ]
         },
         {
-            "key": "field_58e65cef40bd4",
+            "key": "field_58f101473e445",
             "label": "Aggregate",
-            "name": "content_type_aggregate",
-            "type": "posttype_select",
-            "instructions": "By selecting a term from the list, this section will auto-populate with the three most recently published items of content within that categorization.",
+            "name": "category_aggregate",
+            "type": "taxonomy",
+            "instructions": "",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -257,19 +257,21 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "taxonomy": "category",
+            "field_type": "radio",
             "allow_null": 0,
-            "multiple": 0,
-            "placeholder": "",
-            "disabled": 0,
-            "readonly": 0
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "id",
+            "multiple": 0
         },
         {
-            "key": "field_58f1af6e1cac7",
+            "key": "field_58f1afa4c4e9c",
             "label": "Count",
-            "name": "aggregate_by_post_type_count",
+            "name": "aggregate_by_category_count",
             "type": "number",
-            "instructions": "Ideally a multiple of 3",
+            "instructions": "multiple of 3",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -293,12 +295,12 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "homepage.php"
+                "value": "issue.php"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "acf_after_title",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -306,5 +308,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492236276
+    "modified": 1492268596
 }

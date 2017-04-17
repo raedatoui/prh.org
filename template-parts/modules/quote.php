@@ -1,5 +1,4 @@
 <?php
-	$module = $this->modules[QUOTE_MODULE['name']];
 	$quoteText = $module[QUOTE_MODULE['text']];
 	$quoteClass = 'col-md-8';
 	if ( $quoteText == '') {
