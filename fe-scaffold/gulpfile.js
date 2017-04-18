@@ -38,7 +38,7 @@ const projJsSrc =  projJsSrcDir + '/**/*.js';
 const pubJsDest = projDestDir + '/javascript';
 const localJsDest = '../js';
 
-const projSassEntry = projSrcDir + '/scss/main.scss';
+const projSassEntry = projSrcDir + '/scss/*.scss';
 const projSassSrc = projSrcDir + '/scss/**/*.scss';
 const pubSassDest = projDestDir + '/stylesheets';
 const localSassDest = '../css';

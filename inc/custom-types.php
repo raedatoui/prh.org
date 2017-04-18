@@ -13,7 +13,7 @@ function press_release_type() {
 				'add_new' => __('Add New', 'prh-wp-theme'), /* The add new menu item */
 				'add_new_item' => __('Add New Press Release', 'prh-wp-theme'), /* Add New Display Title */
 				'edit' => __('Edit', 'prh-wp-theme'), /* Edit Dialog */
-				'edit_item' => __('Edit Press Releases', 'prh-wp-theme'), /* Edit Display Title */
+				'edit_item' => __('Edit Press Release', 'prh-wp-theme'), /* Edit Display Title */
 				'new_item' => __('New Press Release', 'prh-wp-theme'), /* New Display Title */
 				'view_item' => __('View Press Release', 'prh-wp-theme'), /* View Display Title */
 				'search_items' => __('Search Press Release', 'prh-wp-theme'), /* Search Custom Type Title */

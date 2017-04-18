@@ -2,7 +2,8 @@
   margin-bottom: 40px;
 }
 
-.resources-sidebar {
+.resources-sidebar,
+.sidebar-block {
   padding: 0;
 
   &::before,
@@ -16,7 +17,8 @@
   }
 }
 
-.resources-content {
+.resources-content,
+.sidebar-content {
   padding: 30px 15px;
 }
 

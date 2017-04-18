@@ -1,38 +1,52 @@
 <?php
-/**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package prh-wp-theme
- */
-
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<?php $post_type = get_post_type();
+			$pt_object = get_post_type_object($post_type);
+			$pt_label = $pt_object->labels->singular_name;
+?>
+<!-- placeholder hero so the content doesn't hit the nav -->
+<section class="hero module">
+</section>
 
-			<?php
-			while ( have_posts() ) : the_post();
+<main class="content module row row-top">
+	<header class="col-md-12">
+		<h1><?php the_title(); ?></h1>
 
-				get_template_part( 'template-parts/content', 'page' );
+		<footer class="post-meta">
+			<span class="post-type eyebrow"><?php echo $pt_label; ?> | </span>
+			<time class="post-date eyebrow"><?php the_date('M j, Y \a\t g:i A'); ?></time>
+		</footer>
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+		<?php
+			$intro = get_the_excerpt();
+			if (!is_generated($intro)) {
+				echo '<p class="post-intro lead-copy">' . $intro . '</p>';
+			} ?>
+	</header>
+	<article class="main-content post-content col-md-9">
+			
+			<div class="post-body">
+				<?php the_content(); ?>
+			</div>
 
-			endwhile; // End of the loop.
-			?>
+			<hr>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+			<footer class="post-byline">
+				<?php the_field('post_byline'); ?>
+			</footer>
+	</article>
 
+	<div class="sidebar post-sidebar col-md-3">
+	</div>
+
+</main>
+
+
+
+	<?php
+		// $page = new PageModules( get_the_ID() );
+		// $page->render();
+	?>
 <?php
-get_sidebar();
 get_footer();
