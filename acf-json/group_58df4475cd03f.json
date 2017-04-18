@@ -217,7 +217,7 @@
                             "label": "Link",
                             "name": "cta_link",
                             "prefix": "",
-                            "type": "text",
+                            "type": "url",
                             "value": null,
                             "menu_order": 1,
                             "instructions": "",
