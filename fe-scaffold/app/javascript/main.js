@@ -20,8 +20,13 @@ function init(){
 			});
 	}
 
-	collapsible.init();
-	TabAccordion.init('.js-tab-accordion');
+  collapsible.init();
+	
+	let tabs = document.querySelector('.js-tab-accordion');
+	if (tabs) {
+	  TabAccordion.init('.js-tab-accordion');
+  }
+
 }
 
 
