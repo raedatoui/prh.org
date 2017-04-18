@@ -1,13 +1,13 @@
 {
     "key": "group_58e33c7be8a81",
-    "title": "Statistic",
+    "title": "Statistic Card",
     "fields": [
         {
             "key": "field_58e33c8224087",
             "label": "Number",
             "name": "stat_number",
             "type": "number",
-            "instructions": "The stat number",
+            "instructions": "",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -65,5 +65,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1492153565
+    "modified": 1492545179
 }
