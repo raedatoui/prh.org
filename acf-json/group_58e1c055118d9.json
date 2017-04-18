@@ -7,7 +7,7 @@
             "label": "Enabled",
             "name": "module_enabled",
             "type": "true_false",
-            "instructions": "Determines if module should be displayed",
+            "instructions": "Determines if the module should be displayed",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -144,7 +144,7 @@
                     "label": "Link",
                     "name": "cta_link",
                     "prefix": "",
-                    "type": "text",
+                    "type": "url",
                     "value": null,
                     "menu_order": 1,
                     "instructions": "",
@@ -162,12 +162,7 @@
                     "_input": "",
                     "_valid": 1,
                     "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "placeholder": ""
                 }
             ]
         }
@@ -190,5 +185,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1492153242
+    "modified": 1492545147
 }

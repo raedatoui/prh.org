@@ -7,7 +7,7 @@
             "label": "Label",
             "name": "cta_label",
             "type": "text",
-            "instructions": "The CTA Label",
+            "instructions": "",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -27,8 +27,8 @@
             "key": "field_58e1c136a8dff",
             "label": "Link",
             "name": "cta_link",
-            "type": "text",
-            "instructions": "CTA Link",
+            "type": "url",
+            "instructions": "",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -37,12 +37,7 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "placeholder": ""
         }
     ],
     "location": [
@@ -63,5 +58,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1492153536
+    "modified": 1492545103
 }

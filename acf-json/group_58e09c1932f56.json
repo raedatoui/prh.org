@@ -32,7 +32,7 @@
                     "type": "true_false",
                     "value": null,
                     "menu_order": 0,
-                    "instructions": "",
+                    "instructions": "Determines if module should be displayed",
                     "required": 0,
                     "id": "",
                     "class": "",
@@ -187,7 +187,7 @@
                             "type": "text",
                             "value": null,
                             "menu_order": 0,
-                            "instructions": "",
+                            "instructions": "The CTA Label",
                             "required": 1,
                             "id": "",
                             "class": "",
@@ -215,10 +215,10 @@
                             "label": "Link",
                             "name": "cta_link",
                             "prefix": "",
-                            "type": "text",
+                            "type": "url",
                             "value": null,
                             "menu_order": 1,
-                            "instructions": "",
+                            "instructions": "CTA Link",
                             "required": 1,
                             "id": "",
                             "class": "",
@@ -233,12 +233,7 @@
                             "_input": "",
                             "_valid": 1,
                             "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "readonly": 0,
-                            "disabled": 0
+                            "placeholder": ""
                         }
                     ]
                 }
@@ -246,8 +241,8 @@
         },
         {
             "key": "field_58e33dddae4c1",
-            "label": "Figures",
-            "name": "statistics_figures",
+            "label": "Statistics Cards",
+            "name": "statistics_cards",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -264,8 +259,8 @@
             "sub_fields": [
                 {
                     "key": "field_58e33e04ae4c2",
-                    "label": "Figure",
-                    "name": "statistic_figure",
+                    "label": "Statistic Card",
+                    "name": "statistic_card",
                     "type": "component_field",
                     "instructions": "",
                     "required": 0,
@@ -292,7 +287,7 @@
                             "type": "number",
                             "value": null,
                             "menu_order": 0,
-                            "instructions": "",
+                            "instructions": "The stat number",
                             "required": 1,
                             "id": "",
                             "class": "",
@@ -370,5 +365,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492153185
+    "modified": 1492544864
 }
