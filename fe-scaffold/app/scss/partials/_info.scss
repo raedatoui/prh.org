@@ -27,16 +27,13 @@
 }
 
 .columns-3 {
-  .info-module--component {
-    @extend .col-xs-12;
-    @extend .col-md-3;
-  }
-
   .info-module__title {
     font-size: em(60px);
     letter-spacing: -0.02em;
     line-height: lh(70, 60);
     text-align: center;
+    margin-bottom: 25px;
+    margin-top: 70px;
   }
 }
 
@@ -70,14 +67,32 @@
     .info-module__title {
       font-size: em(44px);
       line-height: lh(56, 44);
-      margin-bottom: 25px;
-      margin-top: 70px;
     }
 
     .info-module__text {
       font-size: em(18px);
       font-weight: $regular;
       line-height: lh(30, 18);
+    }
+  }
+
+  .columns-3 {
+    .info-module--component {
+      flex-basis: 33.3333%;
+      padding: 0 1rem;
+    }
+
+    .info-module__info {
+      text-align: center;
+    }
+
+    .info-module__title,
+    .info-module__img,
+    .info-module__text {
+      display: flex;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 75%;
     }
   }
 }
