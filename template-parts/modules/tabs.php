@@ -11,7 +11,6 @@
 		<div class="content">
 			<nav role="tablist" class="tab-accordion__nav">
 				<?php foreach ( $module[TAB_PANEL['repeater']] as $key => $tabContainer ): ?>
-					<?php echo count($module[TAB_PANEL['repeater']]) ?>
 					<?php $card = $tabContainer[TAB_PANEL['card']][0] ?>
 					<a class="js-tab-accordion-tab" href="#target-<?php echo $key + 1 ?>">
 						<span class="tab-accordion__nav-ordinal"><?php echo $key + 1 ?></span>
