@@ -32,7 +32,7 @@
                     "type": "true_false",
                     "value": null,
                     "menu_order": 0,
-                    "instructions": "Determines if module should be displayed",
+                    "instructions": "Determines if the module should be displayed",
                     "required": 0,
                     "id": "",
                     "class": "",
