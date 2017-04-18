@@ -24,7 +24,7 @@
             "collapsed": "",
             "sub_fields": [
                 {
-                    "ID": 0,
+                    "ID": 12997,
                     "key": "field_58e1e28198454",
                     "label": "Enabled",
                     "name": "module_enabled",
@@ -32,12 +32,12 @@
                     "type": "true_false",
                     "value": null,
                     "menu_order": 0,
-                    "instructions": "Determines if module should be displayed",
+                    "instructions": "",
                     "required": 0,
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": "group_58e1c055118d9",
+                    "parent": 12984,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -47,10 +47,10 @@
                     "_input": "",
                     "_valid": 1,
                     "message": "",
-                    "default_value": 0
+                    "default_value": 1
                 },
                 {
-                    "ID": 0,
+                    "ID": 12985,
                     "key": "field_58e1c06164889",
                     "label": "Title",
                     "name": "module_title",
@@ -63,7 +63,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": "group_58e1c055118d9",
+                    "parent": 12984,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -81,7 +81,7 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 0,
+                    "ID": 12986,
                     "key": "field_58e1c0696488a",
                     "label": "Order",
                     "name": "module_order",
@@ -94,7 +94,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": "group_58e1c055118d9",
+                    "parent": 12984,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -114,7 +114,7 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 0,
+                    "ID": 12987,
                     "key": "field_58e1c09e6488b",
                     "label": "Use CTA",
                     "name": "module_use_cta",
@@ -127,7 +127,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": "group_58e1c055118d9",
+                    "parent": 12984,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -140,7 +140,7 @@
                     "default_value": 0
                 },
                 {
-                    "ID": 0,
+                    "ID": 12993,
                     "key": "field_58e1c16d818a3",
                     "label": "CTA",
                     "name": "module_cta",
@@ -161,7 +161,7 @@
                             }
                         ]
                     ],
-                    "parent": "group_58e1c055118d9",
+                    "parent": 12984,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -179,7 +179,7 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
-                            "ID": 0,
+                            "ID": 12991,
                             "key": "field_58e1c124a8dfe",
                             "label": "Label",
                             "name": "cta_label",
@@ -187,12 +187,12 @@
                             "type": "text",
                             "value": null,
                             "menu_order": 0,
-                            "instructions": "The CTA Label",
+                            "instructions": "",
                             "required": 1,
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": "group_58e1c120cf8fa",
+                            "parent": 12990,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -210,7 +210,7 @@
                             "disabled": 0
                         },
                         {
-                            "ID": 0,
+                            "ID": 12992,
                             "key": "field_58e1c136a8dff",
                             "label": "Link",
                             "name": "cta_link",
@@ -218,12 +218,12 @@
                             "type": "text",
                             "value": null,
                             "menu_order": 1,
-                            "instructions": "CTA Link",
+                            "instructions": "",
                             "required": 1,
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": "group_58e1c120cf8fa",
+                            "parent": 12990,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -313,7 +313,7 @@
                 "id": ""
             },
             "min": 1,
-            "max": 5,
+            "max": 4,
             "layout": "row",
             "button_label": "Add another link",
             "sub_fields": [
@@ -323,7 +323,7 @@
                     "name": "overview_resource_link_text",
                     "type": "text",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -344,7 +344,7 @@
                     "name": "overview_resource_link_url",
                     "type": "url",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -378,6 +378,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492185418,
-    "local": "json"
+    "modified": 1492542039
 }
