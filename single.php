@@ -10,7 +10,7 @@ get_header(); ?>
 </section>
 
 <main class="content module row row-top">
-	<header class="col-md-12">
+	<header class="col-xs-12">
 		<h1><?php the_title(); ?></h1>
 
 		<footer class="post-meta">
@@ -24,7 +24,7 @@ get_header(); ?>
 				echo '<p class="post-intro lead-copy">' . $intro . '</p>';
 			} ?>
 	</header>
-	<article class="main-content post-content col-md-9">
+	<article class="main-content post-content col-xs-12 col-md-9">
 			
 			<div class="post-body">
 				<?php the_content(); ?>
@@ -37,10 +37,12 @@ get_header(); ?>
 			</footer>
 	</article>
 
-	<div class="sidebar post-sidebar col-md-3">
+	<div class="sidebar post-sidebar col-xs-12 col-md-3">
 
 		<?php 
-		$tags = get_the_tags($post->ID);
+		$tags = false;
+		// temporarily removed to avoid any QA confusion; uncomment to re-enable.
+		// $tags = get_the_tags($post->ID);
 		if ($tags):  ?>
 
 			<aside class="sidebar-block tags-block">
