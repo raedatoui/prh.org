@@ -287,7 +287,7 @@
                             "type": "number",
                             "value": null,
                             "menu_order": 0,
-                            "instructions": "The stat number",
+                            "instructions": "",
                             "required": 1,
                             "id": "",
                             "class": "",

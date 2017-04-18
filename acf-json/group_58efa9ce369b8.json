@@ -24,7 +24,7 @@
             "collapsed": "",
             "sub_fields": [
                 {
-                    "ID": 12997,
+                    "ID": 0,
                     "key": "field_58e1e28198454",
                     "label": "Enabled",
                     "name": "module_enabled",
@@ -32,12 +32,12 @@
                     "type": "true_false",
                     "value": null,
                     "menu_order": 0,
-                    "instructions": "",
+                    "instructions": "Determines if the module should be displayed",
                     "required": 0,
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 12984,
+                    "parent": "group_58e1c055118d9",
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -47,10 +47,10 @@
                     "_input": "",
                     "_valid": 1,
                     "message": "",
-                    "default_value": 1
+                    "default_value": 0
                 },
                 {
-                    "ID": 12985,
+                    "ID": 0,
                     "key": "field_58e1c06164889",
                     "label": "Title",
                     "name": "module_title",
@@ -63,7 +63,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 12984,
+                    "parent": "group_58e1c055118d9",
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -81,7 +81,7 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 12986,
+                    "ID": 0,
                     "key": "field_58e1c0696488a",
                     "label": "Order",
                     "name": "module_order",
@@ -94,7 +94,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 12984,
+                    "parent": "group_58e1c055118d9",
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -114,7 +114,7 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 12987,
+                    "ID": 0,
                     "key": "field_58e1c09e6488b",
                     "label": "Use CTA",
                     "name": "module_use_cta",
@@ -127,7 +127,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 12984,
+                    "parent": "group_58e1c055118d9",
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -140,7 +140,7 @@
                     "default_value": 0
                 },
                 {
-                    "ID": 12993,
+                    "ID": 0,
                     "key": "field_58e1c16d818a3",
                     "label": "CTA",
                     "name": "module_cta",
@@ -161,7 +161,7 @@
                             }
                         ]
                     ],
-                    "parent": 12984,
+                    "parent": "group_58e1c055118d9",
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -179,7 +179,7 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
-                            "ID": 12991,
+                            "ID": 0,
                             "key": "field_58e1c124a8dfe",
                             "label": "Label",
                             "name": "cta_label",
@@ -192,7 +192,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 12990,
+                            "parent": "group_58e1c120cf8fa",
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -210,12 +210,12 @@
                             "disabled": 0
                         },
                         {
-                            "ID": 12992,
+                            "ID": 0,
                             "key": "field_58e1c136a8dff",
                             "label": "Link",
                             "name": "cta_link",
                             "prefix": "",
-                            "type": "text",
+                            "type": "url",
                             "value": null,
                             "menu_order": 1,
                             "instructions": "",
@@ -223,7 +223,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 12990,
+                            "parent": "group_58e1c120cf8fa",
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -233,12 +233,7 @@
                             "_input": "",
                             "_valid": 1,
                             "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "readonly": 0,
-                            "disabled": 0
+                            "placeholder": ""
                         }
                     ]
                 }
@@ -378,5 +373,6 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492542039
+    "modified": 1492545430,
+    "local": "json"
 }
