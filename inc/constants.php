@@ -121,11 +121,11 @@ const TAB_CARD = array(
 	'cta' => 'tab_card_cta'
 );
 
-const TAB_MODULE = array(
-	'name' => 'Tab Module',
-	'options' => 'tab_module_options',
-	'headline' => 'tab_module_headline',
-	'repeater' => 'tab_module_repeater',
+const TAB_PANEL = array(
+	'name' => 'Tab Panel',
+	'options' => 'tab_panel_options',
+	'headline' => 'tab_panel_headline',
+	'repeater' => 'tab_panel_tabs',
 	'card' => 'tab_card',
 	'template' => 'template-parts/modules/tabs.php'
 );
@@ -140,7 +140,7 @@ const MODULES = array(
 	OVERVIEW_MODULE['name'] => OVERVIEW_MODULE,
 	SPOTLIGHT_1_MODULE['name'] => SPOTLIGHT_1_MODULE,
 	SPOTLIGHT_3_MODULE['name'] => SPOTLIGHT_3_MODULE,
-	TAB_MODULE['name'] => TAB_MODULE
+	TAB_PANEL['name'] => TAB_PANEL
 );
 
 const AGGREGATES = array(

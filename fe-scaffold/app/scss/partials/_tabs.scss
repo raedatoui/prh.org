@@ -1,4 +1,4 @@
-$tab-color: #fff;
+$tab-color: $prh-cream-lightest;
 
 .module__tabs {
   padding-left: 0;
@@ -92,7 +92,6 @@ $tab-color: #fff;
   .tab-accordion__nav {
     border-bottom: none;
     display: flex;
-    justify-content: space-between;
     left: 0;
     max-width: none;
     overflow: hidden;
@@ -110,6 +109,7 @@ $tab-color: #fff;
     padding: 0 0 65px;
     position: relative;
     text-decoration: none;
+    width: 25%;
 
     &.active {
       &::after {

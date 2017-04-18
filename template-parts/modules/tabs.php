@@ -3,15 +3,16 @@
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<div class="row">
 			<div class="col-xs-12">
-				<p class="focus-lead-copy"><?php echo $module[TAB_MODULE['headline']]?></p>
+				<p class="focus-lead-copy"><?php echo $module[TAB_PANEL['headline']]?></p>
 			</div>
 		</div>
 	</div>
 	<div class="js-tab-accordion">
 		<div class="content">
 			<nav role="tablist" class="tab-accordion__nav">
-				<?php foreach ( $module[TAB_MODULE['repeater']] as $key => $tabContainer ): ?>
-					<?php $card = $tabContainer[TAB_MODULE['card']][0] ?>
+				<?php foreach ( $module[TAB_PANEL['repeater']] as $key => $tabContainer ): ?>
+					<?php echo count($module[TAB_PANEL['repeater']]) ?>
+					<?php $card = $tabContainer[TAB_PANEL['card']][0] ?>
 					<a class="js-tab-accordion-tab" href="#target-<?php echo $key + 1 ?>">
 						<span class="tab-accordion__nav-ordinal"><?php echo $key + 1 ?></span>
 						<span class="tab-accordion__nav-title"><?php echo $card[TAB_CARD['title']] ?></span>
@@ -19,8 +20,8 @@
 				<? endforeach; ?>
 			</nav>
 		</div>
-		<?php foreach ( $module[TAB_MODULE['repeater']] as $key => $tabContainer ): ?>
-			<?php $card = $tabContainer[TAB_MODULE['card']][0] ?>
+		<?php foreach ( $module[TAB_PANEL['repeater']] as $key => $tabContainer ): ?>
+			<?php $card = $tabContainer[TAB_PANEL['card']][0] ?>
 
 			<section id="target-<?php echo $key + 1 ?>" class="tab-accordion__section">
 				<div class="content">
