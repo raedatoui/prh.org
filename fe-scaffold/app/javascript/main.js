@@ -6,6 +6,7 @@ import Flickity from 'flickity-imagesloaded';
 import modernizr from './modernizr.js';
 import testObj from './test.js';
 import collapsible from './collapsible.js';
+import accordion from './accordion.js';
 
 
 function init(){
@@ -21,6 +22,7 @@ function init(){
 	}
 
 	collapsible.init();
+	accordion.init();
 }
 
 export default function () {
