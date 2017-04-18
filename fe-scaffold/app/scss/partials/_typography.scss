@@ -71,3 +71,9 @@ p {
   font-size: em(22px);
   line-height: (42 / 22);
 }
+
+.focus-lead-copy {
+  @extend %headline;
+  font-size: em(28px);
+  line-height: (42 / 28);
+}

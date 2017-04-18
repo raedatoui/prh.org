@@ -1,0 +1,130 @@
+$tab-color: $prh-cream-lightest;
+
+.module__tabs {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.tab-accordion__nav {
+  display: none;
+}
+
+.js-tab-accordion {
+  background: $tab-color;
+  padding-bottom: 32px;
+  padding-top: 32px;
+}
+
+.js-tab-accordion-title {
+  cursor: pointer;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.tab-accordion__nav-ordinal {
+  @include lora();
+  color: $prh-blue-lt;
+  font-size: em(64px);
+  font-style: italic;
+  line-height: lh(60, 64);
+  margin-right: 25px;
+}
+
+.tab-accordion__nav-title {
+  @extend %eyebrow;
+  align-content: flex-start;
+  color: $prh-navy-lt;
+  display: flex;
+  flex-direction: row;
+  margin-top: 4px;
+}
+
+.tab-accordion__inner {
+  clear: both;
+  clip: rect(0, 0, 0, 0);
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  visibility: hidden;
+}
+
+.tab-accordion__section {
+  min-height: 0;
+
+  &.active {
+    padding-bottom: 32px;
+    padding-top: 32px;
+  }
+}
+
+.tab-accordion__section.active .tab-accordion__inner {
+  clip: auto;
+  max-height: 10000px;
+  position: relative;
+  visibility: visible;
+}
+
+@include responsive-mq("md") {
+  .js-tab-accordion {
+    background: transparent;
+    padding: 0;
+  }
+
+  .js-tab-accordion-title {
+    display: none;
+  }
+
+  .tab-accordion__section {
+    background: $tab-color;
+    clip: rect(0, 0, 0, 0);
+    margin-bottom: 32px;
+    position: absolute;
+    visibility: hidden;
+
+    &.active {
+      clip: auto;
+      position: relative;
+      visibility: visible;
+    }
+  }
+
+  .tab-accordion__nav {
+    border-bottom: none;
+    display: flex;
+    left: 0;
+    max-width: none;
+    overflow: hidden;
+    padding: 0 1rem;
+    position: relative;
+    transform: none;
+    width: 100%;
+  }
+
+  .js-tab-accordion-tab {
+    align-items: flex-start;
+    display: flex;
+    margin-right: 30px;
+    max-width: 25%;
+    padding: 0 0 65px;
+    position: relative;
+    text-decoration: none;
+    width: 25%;
+
+    &.active {
+      &::after {
+        border-bottom: 35px solid $tab-color;
+        border-left: 35px solid transparent;
+        border-right: 35px solid transparent;
+        border-top: 35px solid transparent;
+        bottom: 0;
+        content: " ";
+        display: block;
+        height: 0;
+        left: -18px;
+        position: absolute;
+        width: 0;
+      }
+    }
+  }
+}
