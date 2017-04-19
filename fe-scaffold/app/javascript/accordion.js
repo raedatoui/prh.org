@@ -5,27 +5,13 @@ var accordion = {
 		this.triggers = document.querySelectorAll('.accordion-title');
 		this.targets = document.querySelectorAll('.accordion-content');
 
-		var closeAll = function() {
-			for (var i = 0; i < this.triggers.length; i++) { 
-				let button = this.triggers[i].firstElementChild,
-						target = this.targets[i];
-
-				target.classList.remove('is-active');
-				button.setAttribute('aria-expanded', 'false');
-			}
-		};
-
 		var toggle = function(ev) {
-
-
 			let button = ev.target,
 					target = document.querySelector('[aria-labelledby=accordion-label-' + button.getAttribute('aria-controls') + ']'),
 					state = (button.getAttribute('aria-expanded') == 'false' || false)? true : false;
 
-			// closeAll(button);
 			target.classList.toggle('is-active');
 			button.setAttribute('aria-expanded', state);
-
 		};
 
 		for (var i = 0; i < this.triggers.length; i++) {

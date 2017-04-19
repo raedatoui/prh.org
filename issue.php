@@ -20,16 +20,16 @@ get_header(); ?>
 	<div class="content">
 
 
-	<section class="accordion-group">
+	<section class="accordion-group" id="accordion-group-0" aria-labelledby="accordion-group-0-header" role="group">
 
 	<header class="row center-xs">
 		<div class="module__title">
-			<h2>Concertinas</h2>
+			<h2 id="accordion-group-0-header">Concertinas</h2>
 		</div>
 	</header>
 
 		<h3 class="accordion-title">English</h3>
-		<div class="accordion-content">
+		<div class="accordion-content collapsible">
 			<p>The English concertina is a member of the concertina family of free-reed musical instruments. Invented in England in 1829, it was the first instrument of what would become the concertina family.</p>
 
 			<p>It is a fully chromatic instrument, having buttons in a rectangular arrangement of four staggered rows; its buttons are unisonoric, producing the same note on both the push and pull of the bellows. It differs from other concertinas in that the scale is divided evenly between the two hands, such that playing a scale involves both hands alternately playing each note in sequence.</p>
@@ -44,7 +44,7 @@ get_header(); ?>
 
 		<h3 class="accordion-title">German</h3>
 		<div class="accordion-content">
-			<p>The German concertinas, developed within Germany itself for its local market and diaspora, tend to be larger than the English or Anglo concertinas. They are generally bisonoric, use a different style of "long plate" reeds, and tend to be square rather than hexagonal.[3] Unlike the English and Anglo, they sometimes have more than one reed per note, creating a vibrato effect.</p>
+			<p>The German concertinas, developed within Germany itself for its local market and diaspora, tend to be larger than the English or Anglo concertinas. They are generally bisonoric, use a different style of "long plate" reeds, and tend to be square rather than hexagonal. Unlike the English and Anglo, they sometimes have more than one reed per note, creating a vibrato effect.</p>
 		</div>
 	</section>
 
@@ -56,7 +56,7 @@ get_header(); ?>
 		</div>
 	</header>
 
-	
+
 		<h3 class="accordion-title">History</h3>
 		<div class="accordion-content">
 			<p>The accordion is a free reed instrument and is in the same family as other instruments such as the sheng and khaen. The sheng and khaen are both much older than the accordion and this type of reed did inspire the kind of free reeds in use in the accordion as we know it today.</p>

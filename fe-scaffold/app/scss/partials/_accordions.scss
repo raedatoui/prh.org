@@ -3,12 +3,8 @@
 }
 
 .accordion-title {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid transparentize($prh-navy-lt, 0.75);
   margin-bottom: 0;
-
-  &:first-of-type {
-    border-top: 1px solid;
-  }
 
   button {
     -webkit-appearance: none;
@@ -26,6 +22,26 @@
 
 .accordion-content {
   padding: 1em 20px;
+}
+
+[id*="accordion-label"] {
+
+  position: relative;
+
+  &::after {
+    content: "+";
+    line-height: 1;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &[aria-expanded="true"] {
+    &::after {
+      content: "-";
+    }
+  }
 }
 
 [aria-labelledby^="accordion-label"] {
