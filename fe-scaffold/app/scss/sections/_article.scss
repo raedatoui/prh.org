@@ -1,0 +1,110 @@
+.article-quote {
+
+  margin: 3em 1em;
+
+  p {
+    @extend h3;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  cite {
+    @extend p;
+    @include roboto();
+
+    display: block;
+    margin: 0;
+  }
+
+  cite + cite {
+    font-style: italic;
+  }
+}
+
+@include responsive-mq(md) {
+  .article-quote {
+    width: 24em;
+  }
+
+  .article-quote--left {
+    float: left;
+    padding: 20px 20px 20px 0;
+  }
+
+  .article-quote--right {
+    float: right;
+    padding: 20px 0 20px 20px;
+  }
+}
+
+
+// Inline media handling
+.wp-caption {
+  margin: 2em auto;
+}
+
+@include responsive-mq(md) {
+  .alignright {
+    float: right;
+    margin: 1em 0 1em 1em;
+  }
+
+  .alignleft {
+    float: left;
+    margin: 1em 1em 1em 0;
+  }
+
+  .aligncenter {
+    margin: 1em auto;
+  }
+}
+
+.main-content {
+  figure {
+    margin-bottom: 1em;
+  }
+}
+
+
+
+// Tags & other metadata
+
+.tags-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+  }
+}
+
+.tag {
+  background: $prh-navy-dk;
+  color: #fff;
+  display: inline-block;
+  line-height: 1.4;
+  padding: 5px 10px;
+  text-decoration: none;
+
+  &:hover {
+    background: $prh-blue-lt;
+  }
+}
+
+// Header meta
+
+.post-meta {
+  margin: 2em 0;
+}
+
+.post-byline {
+  font-style: italic;
+}

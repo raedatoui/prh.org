@@ -108,6 +108,18 @@ function echo_theme_uri() {
 }
 
 /**
+ * Helper for checking whether an excerpt is a "real" one
+ * or an auto-generated one. For things using the article template - 
+ * they're supposed to fill out the excerpt field,
+ * but if they don't, we shouldn't output the automatic one. 
+ * If we change the [...] used in auto-excerpts, this needs to be updated.
+ */
+
+function is_generated($excerpt) {
+	return (substr($excerpt, -1) == ']');
+}
+
+/**
  * Helper function to prevent outputting empty elements
  * for fields that haven't been filled in.
  * $before and $after = html to surround the var, if set

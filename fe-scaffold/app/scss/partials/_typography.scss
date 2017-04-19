@@ -63,11 +63,16 @@ p {
   letter-spacing: em((25px / 1000px), 18px);
   line-height: (30 / 18);
   margin-bottom: em(20px, 18px);
-  max-width: 50em;
 }
 
 .lead-copy {
   @extend %headline;
   font-size: em(22px);
   line-height: (42 / 22);
+}
+
+.focus-lead-copy {
+  @extend %headline;
+  font-size: em(28px);
+  line-height: (42 / 28);
 }

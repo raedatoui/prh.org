@@ -2,7 +2,7 @@
 	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ) ?>
 	<div class="module__content columns-3">
-		<div class="row between-md">
+		<div class="row">
 
 				<?php foreach ( $module[SPOTLIGHT_3_MODULE['repeater']] as $cardContainer ): ?>
 					<?php $card = $cardContainer[SPOTLIGHT_3_MODULE['card']][0] ?>

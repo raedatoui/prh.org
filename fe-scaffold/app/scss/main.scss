@@ -1,11 +1,11 @@
-//MODULES & VARS
+// Settings & tools
 @import "modules/all";
 
-//3rd PARTY VENDORS
+// 3rd party
 @import "vendor/flexboxgrid";
 @import "vendor/flickity";
 
-//PARTIALS
+// Partials
 @import "partials/reset";
 @import "partials/base-styles"; //set base site
 @import "partials/typography";
@@ -17,20 +17,13 @@
 @import "partials/quotes";
 @import "partials/info";
 @import "partials/accordions";
+@import "partials/tabs";
 
-//PAGES
-//@import "pages/site-base-styles";
-//@import "pages/home_template_page"
-
-
-//SECTIONS
-//@import "sections/site-base-styles";
+// Sections
 @import "sections/nav";
 @import "sections/hero";
 @import "sections/featured";
 @import "sections/our-focus";
 @import "sections/carousel";
 @import "sections/overview";
-
-//styles for the Wordpress editor
-@import "editor";
+@import "sections/article";

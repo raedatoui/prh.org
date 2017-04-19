@@ -1,35 +1,76 @@
 <?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package prh-wp-theme
- */
-
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<?php $post_type = get_post_type();
+			$pt_object = get_post_type_object($post_type);
+			$pt_label = $pt_object->labels->singular_name;
+?>
+<!-- placeholder hero so the content doesn't hit the nav -->
+<section class="hero module">
+</section>
+
+<main class="content module row row-top">
+	<header class="col-xs-12">
+		<h1><?php the_title(); ?></h1>
+
+		<footer class="post-meta">
+			<span class="post-type eyebrow"><?php echo $pt_label; ?> | </span>
+			<time class="post-date eyebrow"><?php the_date('M j, Y \a\t g:i A'); ?></time>
+		</footer>
 
 		<?php
-		while ( have_posts() ) : the_post();
+			$intro = get_the_excerpt();
+			if (!is_generated($intro)) {
+				echo '<p class="post-intro lead-copy">' . $intro . '</p>';
+			} ?>
+	</header>
+	<article class="main-content post-content col-xs-12 col-md-9">
+			
+			<div class="post-body">
+				<?php the_content(); ?>
+			</div>
 
-			get_template_part( 'template-parts/content', get_post_format() );
+			<hr>
 
-			the_post_navigation();
+			<footer class="post-byline">
+				<?php the_field('post_byline'); ?>
+			</footer>
+	</article>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+	<div class="sidebar post-sidebar col-xs-12 col-md-3">
 
-		endwhile; // End of the loop.
-		?>
+		<?php 
+		$tags = false;
+		// temporarily removed to avoid any QA confusion; uncomment to re-enable.
+		// $tags = get_the_tags($post->ID);
+		if ($tags):  ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+			<aside class="sidebar-block tags-block">
+				<div class="sidebar-content">
+					<h2 class="sidebar-header">Tagged</h2>
+					 <ul class="tags-list"> 
+		      <?php foreach($tags as $tag):  ?>
+						<li>
+			        <a class="tag"
+			            href="<?php bloginfo('url');?>/tag/<?php print_r($tag->slug);?>">
+			                  <?php print_r($tag->name); ?>
+			         </a>   
+			      </li>
+		      <?php endforeach; ?>
+					</ul>
+				</div>
+			</aside>
 
+		<?php endif; ?>
+	</div>
+
+</main>
+
+
+
+	<?php
+		// $page = new PageModules( get_the_ID() );
+		// $page->render();
+	?>
 <?php
-get_sidebar();
 get_footer();

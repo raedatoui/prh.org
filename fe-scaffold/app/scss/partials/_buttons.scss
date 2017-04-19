@@ -17,7 +17,7 @@
   }
 
   &::after {
-    background: url("../images/optimized/button_arrow.svg") 0 -5px no-repeat;
+    background: url("../images/optimized/button_arrow-lilac.svg") 0 -5px no-repeat;
     content: " ";
     height: 30px;
     position: absolute;
@@ -27,6 +27,10 @@
 
 .cta--red {
   background: $prh-red;
+
+  &::after {
+    background: url("../images/optimized/button_arrow-white.svg") 0 -5px no-repeat;
+  }
 }
 
 .cta-row {
@@ -41,9 +45,9 @@
     position: relative;
 
     &::after {
+      background-position: 0 0;
       right: 26px;
       top: 50%;
-      background-position: 0 0;
       transform: translateY(-14px);
     }
   }

@@ -13,7 +13,7 @@ function press_release_type() {
 				'add_new' => __('Add New', 'prh-wp-theme'), /* The add new menu item */
 				'add_new_item' => __('Add New Press Release', 'prh-wp-theme'), /* Add New Display Title */
 				'edit' => __('Edit', 'prh-wp-theme'), /* Edit Dialog */
-				'edit_item' => __('Edit Press Releases', 'prh-wp-theme'), /* Edit Display Title */
+				'edit_item' => __('Edit Press Release', 'prh-wp-theme'), /* Edit Display Title */
 				'new_item' => __('New Press Release', 'prh-wp-theme'), /* New Display Title */
 				'view_item' => __('View Press Release', 'prh-wp-theme'), /* View Display Title */
 				'search_items' => __('Search Press Release', 'prh-wp-theme'), /* Search Custom Type Title */
@@ -34,7 +34,7 @@ function press_release_type() {
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky'),
+			'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'revisions', 'sticky'),
 		) /* end of options */
 	); /* end of register post type */
 
@@ -79,7 +79,7 @@ function phys_story_type() {
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky'),
+			'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'revisions', 'sticky'),
 		) /* end of options */
 	); /* end of register post type */
 	/* this adds your post categories to your custom post type */
@@ -123,7 +123,7 @@ function prh_ipaper_type() {
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array('title', 'editor', 'author', 'sticky'),
+			'supports' => array('title', 'editor', 'author', 'sticky', 'thumbnail', 'excerpt', 'revisions'),
 		) /* end of options */
 	); /* end of register post type */
 	/* this adds your post categories to your custom post type */

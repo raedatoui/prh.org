@@ -3,8 +3,8 @@
 import TweenMax from 'gsap/TweenMax';
 import EasePack from 'gsap/EasePack';
 import Flickity from 'flickity-imagesloaded';
+import TabAccordion from 'storm-tab-accordion';
 import modernizr from './modernizr.js';
-import testObj from './test.js';
 import collapsible from './collapsible.js';
 import accordion from './accordion.js';
 
@@ -21,12 +21,15 @@ function init(){
 			});
 	}
 
-	collapsible.init();
 	accordion.init();
+  collapsible.init();
+	
+	let tabs = document.querySelector('.js-tab-accordion');
+	if (tabs) {
+	  TabAccordion.init('.js-tab-accordion');
+  }
+
 }
 
-export default function () {
-	testObj.test();
-}
 
 init();
