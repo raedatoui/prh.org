@@ -1,12 +1,31 @@
+.accordion-group {
+  margin-bottom: 60px;
+}
+
 .accordion-title {
+  border-bottom: 1px solid;
+  margin-bottom: 0;
+
+  &:first-of-type {
+    border-top: 1px solid;
+  }
+
   button {
     -webkit-appearance: none;
     background: none;
     border: 0;
+    color: inherit;
+    display: block;
     font: inherit;
     margin: 0;
-    padding: 0;
+    padding: 0.75em 20px;
+    text-align: left;
+    width: 100%;
   }
+}
+
+.accordion-content {
+  padding: 1em 20px;
 }
 
 [aria-labelledby^="accordion-label"] {

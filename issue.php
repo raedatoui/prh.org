@@ -19,12 +19,16 @@ get_header(); ?>
 <section class="module">
 	<div class="content">
 
-	<div class="module-title">
-		<h2>Concertinas</h2>
-	</div>
 
 	<section class="accordion-group">
-		<h3 class="accordion-title" data-state="open">English</h3>
+
+	<header class="row center-xs">
+		<div class="module__title">
+			<h2>Concertinas</h2>
+		</div>
+	</header>
+
+		<h3 class="accordion-title">English</h3>
 		<div class="accordion-content">
 			<p>The English concertina is a member of the concertina family of free-reed musical instruments. Invented in England in 1829, it was the first instrument of what would become the concertina family.</p>
 
@@ -44,11 +48,15 @@ get_header(); ?>
 		</div>
 	</section>
 
-	<div class="module-title">
-		<h2>Accordions</h2>
-	</div>
-
 	<section class="accordion-group">
+
+	<header class="row center-xs">
+		<div class="module__title">
+			<h2>Accordions</h2>
+		</div>
+	</header>
+
+	
 		<h3 class="accordion-title">History</h3>
 		<div class="accordion-content">
 			<p>The accordion is a free reed instrument and is in the same family as other instruments such as the sheng and khaen. The sheng and khaen are both much older than the accordion and this type of reed did inspire the kind of free reeds in use in the accordion as we know it today.</p>
