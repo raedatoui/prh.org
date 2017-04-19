@@ -12,6 +12,7 @@ var accordion = {
 
 			target.classList.toggle('is-active');
 			button.setAttribute('aria-expanded', state);
+			target.setAttribute('aria-hidden', !state);
 		};
 
 		for (var i = 0; i < this.triggers.length; i++) {
@@ -35,7 +36,8 @@ var accordion = {
 			}
 
 			target.id = index;
-			target.setAttribute('aria-labelledby', 'accordion-label-' + index);    
+			target.setAttribute('aria-labelledby', 'accordion-label-' + index);
+			target.setAttribute('aria-hidden', 'true');
 		};
 	}
 };
