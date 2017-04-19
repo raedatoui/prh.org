@@ -16,10 +16,14 @@ $tab-color: $prh-cream-lightest;
 }
 
 .js-tab-accordion-title {
+  border-bottom: 1px solid $base-font-blue;
   cursor: pointer;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1rem;
+
+  .active &,
+  .tab-accordion__section:last-child & {
+    border-bottom: none;
+  }
 }
 
 .tab-accordion__nav-ordinal {
@@ -54,7 +58,10 @@ $tab-color: $prh-cream-lightest;
 
   &.active {
     padding-bottom: 32px;
-    padding-top: 32px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $base-font-blue;
+    }
   }
 }
 
@@ -79,10 +86,12 @@ $tab-color: $prh-cream-lightest;
     background: $tab-color;
     clip: rect(0, 0, 0, 0);
     margin-bottom: 32px;
+    padding: 32px 0;
     position: absolute;
     visibility: hidden;
 
     &.active {
+      border-bottom: none;
       clip: auto;
       position: relative;
       visibility: visible;
