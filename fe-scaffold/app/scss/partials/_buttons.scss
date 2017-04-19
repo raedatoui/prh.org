@@ -8,6 +8,7 @@
   letter-spacing: 0.2em;
   margin: 20px auto;
   padding: 22px 75px 22px 35px;
+  position: relative;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -17,10 +18,13 @@
   }
 
   &::after {
-    background: url("../images/optimized/button_arrow-lilac.svg") 0 -5px no-repeat;
+    background: url("../images/optimized/button_arrow-lilac.svg") 0 0 no-repeat;
     content: " ";
     height: 30px;
     position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-14px);
     width: 50px;
   }
 }
@@ -29,7 +33,7 @@
   background: $prh-red;
 
   &::after {
-    background: url("../images/optimized/button_arrow-white.svg") 0 -5px no-repeat;
+    background: url("../images/optimized/button_arrow-white.svg") 0 0 no-repeat;
   }
 }
 
@@ -41,15 +45,7 @@
 @include responsive-mq("md") {
   .cta {
     display: inline-block;
-    font-size: em(12px);
-    position: relative;
-
-    &::after {
-      background-position: 0 0;
-      right: 26px;
-      top: 50%;
-      transform: translateY(-14px);
-    }
+    font-size: em(13px);
   }
 
 }
