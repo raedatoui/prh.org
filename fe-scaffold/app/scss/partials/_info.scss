@@ -29,11 +29,12 @@
 .columns-3 {
   .info-module__title {
     font-size: em(60px);
+    justify-content: center;
     letter-spacing: -0.02em;
     line-height: lh(70, 60);
-    text-align: center;
     margin-bottom: 25px;
     margin-top: 70px;
+    text-align: center;
   }
 }
 
