@@ -24,7 +24,12 @@
 
 			<section id="target-<?php echo $key + 1 ?>" class="tab-accordion__section">
 				<div class="content">
-					<h1 class="js-tab-accordion-title"><?php echo $card[TAB_CARD['title']] ?></h1>
+					<h1 class="js-tab-accordion-title">
+						<svg class="mobile-tab-accordion-icon" role="presentation">
+							<use xlink:href="#carat-forward" />
+						</svg>
+						<?php echo $card[TAB_CARD['title']] ?>
+					</h1>
 					<div class="tab-accordion__inner row">
 						<div class="col-xs-12 col-md-4">
 							<p><?php echo $card[TAB_CARD['text']] ?></p>
