@@ -39,10 +39,6 @@
   width: auto;
 }
 
-.visually-hidden {
-  @include element-invisible();
-}
-
 @function em($size, $base: 16px) {
   @if unitless($size) {
     $size: $size * 1px;

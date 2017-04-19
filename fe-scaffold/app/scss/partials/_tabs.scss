@@ -44,6 +44,14 @@ $tab-color: $prh-cream-lightest;
   margin-top: 4px;
 }
 
+.mob-tab-accordion-icon {
+  height: 50px;
+  stroke: $base-font-blue;
+  transform-origin: 50% 50%;
+  vertical-align: middle;
+  width: 40px;
+}
+
 .tab-accordion__inner {
   clear: both;
   clip: rect(0, 0, 0, 0);
