@@ -5,17 +5,31 @@ var accordion = {
 		this.triggers = document.querySelectorAll('.accordion-title');
 		this.targets = document.querySelectorAll('.accordion-content');
 
-		var toggleAccordion = function(ev) {
-			var button = ev.target,
-					target = d.querySelector('[aria-labelledby=accordion-label-' + button.getAttribute('aria-controls') + ']'),
+		var closeAll = function() {
+			for (var i = 0; i < this.triggers.length; i++) { 
+				let button = this.triggers[i].firstElementChild,
+						target = this.targets[i];
+
+				target.classList.remove('is-active');
+				button.setAttribute('aria-expanded', 'false');
+			}
+		};
+
+		var toggle = function(ev) {
+
+
+			let button = ev.target,
+					target = document.querySelector('[aria-labelledby=accordion-label-' + button.getAttribute('aria-controls') + ']'),
 					state = (button.getAttribute('aria-expanded') == 'false' || false)? true : false;
 
+			// closeAll(button);
 			target.classList.toggle('is-active');
 			button.setAttribute('aria-expanded', state);
-		}
 
-		for (var i = 0; i < triggers.length; i++) {
-			let trigger = triggers[i],
+		};
+
+		for (var i = 0; i < this.triggers.length; i++) {
+			let trigger = this.triggers[i],
 					index = 'collapsible--'+i,
 					button = document.createElement('button'),
 					target = trigger.nextElementSibling,
@@ -25,7 +39,7 @@ var accordion = {
 			button.setAttribute('aria-controls', index);
 			button.setAttribute('aria-expanded', state);
 			button.innerHTML = trigger.innerHTML;
-			button.addEventListener('click', toggleAccordion, false);
+			button.addEventListener('click', toggle, false);
 
 			trigger.innerHTML = '';
 			trigger.appendChild(button);
