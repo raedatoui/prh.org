@@ -25,8 +25,8 @@
 			<section id="target-<?php echo $key + 1 ?>" class="tab-accordion__section">
 				<div class="content">
 					<h1 class="js-tab-accordion-title">
-						<svg class="mob-tab-accordion-icon" role="presentation">
-							<use xlink:href="#carat-forward" />
+						<svg class="icon--carat" role="presentation">
+							<use xlink:href="#icon--carat" />
 						</svg>
 						<?php echo $card[TAB_CARD['title']] ?>
 					</h1>

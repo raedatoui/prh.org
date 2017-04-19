@@ -98,6 +98,38 @@ get_header(); ?>
   </div>
 </section>
 
+<section class="module">
+	<div class="content">
+	<header class="row center-xs">
+		<div class="module__title">
+			<h2>SVG Assets</h2>
+		</div>
+		</header>
+		<p class="lead-copy">Our SVG assets, as defined in svg.php.</p>
+		<div>
+			<svg class="icon--carat" role="presentation">
+				<use xlink:href="#icon--carat" />
+			</svg>
+
+			<svg class="icon--close" role="presentation">
+				<use xlink:href="#icon--close" />
+			</svg>
+
+			<svg class="icon--search" role="presentation">
+				<use xlink:href="#icon--search" />
+			</svg>
+
+			<svg class="icon--person" role="presentation">
+				<use xlink:href="#icon--person" />
+			</svg>
+
+			<svg class="icon--squiggle" role="presentation">
+				<use xlink:href="#icon--squiggle" />
+			</svg>
+		</div>
+  </div>
+</section>
+
 <?php
 while ( have_posts() ) : the_post(); ?>
 <section class="module">
