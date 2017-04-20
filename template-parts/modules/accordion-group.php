@@ -3,7 +3,7 @@
   <div class="content">
 
 
-  <section class="accordion-group" id="accordion-group-0" aria-labelledby="accordion-group-0-header" role="group">
+  <section class="accordion-group">
 
   <header class="row center-xs">
     <div class="module__title">
