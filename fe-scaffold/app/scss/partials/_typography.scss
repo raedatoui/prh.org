@@ -24,7 +24,7 @@ h1 { @extend %h1; }
 %h3 {
   @include lora();
   color: $prh-navy-lt;
-  font-weight: $bold;
+  font-weight: 700;
   line-height: (34 / 26);
   margin-bottom: em(20px, 26px);
 }
@@ -32,7 +32,7 @@ h1 { @extend %h1; }
 h3 {
   @extend %h3;
 
-  font-size: 26px;
+  font-size: 28px;
 }
 
 .underline {

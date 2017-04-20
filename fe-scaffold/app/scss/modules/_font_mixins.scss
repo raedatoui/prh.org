@@ -12,16 +12,8 @@
   font-weight: $bold;
 }
 
-// ROBOTO SLAB
-@mixin roboto-slab {
-  font-family: $roboto-slab;
-  font-style: normal;
-  font-weight: $regular;
-}
-
 // LORA
 @mixin lora {
   font-family: $lora;
   font-style: normal;
-  font-weight: $regular;
 }
