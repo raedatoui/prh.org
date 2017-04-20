@@ -5,28 +5,18 @@ $tab-color: $prh-cream-lightest;
   padding-right: 0;
 }
 
-.tab-accordion__nav {
-  display: none;
-}
 
-.js-tab-accordion {
+.tab-accordion {
   background: $tab-color;
   padding-bottom: 32px;
   padding-top: 32px;
 }
 
-.js-tab-accordion-title {
-  border-bottom: 1px solid $base-font-blue;
-  cursor: pointer;
-  padding: 1rem;
-
-  .active &,
-  .tab-accordion__section:last-child & {
-    border-bottom: none;
-  }
+.tab-nav {
+  display: none;
 }
 
-.tab-accordion__nav-ordinal {
+.tab-nav-ordinal {
   @include lora();
   color: $prh-blue-lt;
   font-size: em(64px);
@@ -35,7 +25,7 @@ $tab-color: $prh-cream-lightest;
   margin-right: 25px;
 }
 
-.tab-accordion__nav-title {
+.tab-nav-title {
   @extend %eyebrow;
   align-content: flex-start;
   color: $prh-navy-lt;
@@ -44,7 +34,7 @@ $tab-color: $prh-cream-lightest;
   margin-top: 4px;
 }
 
-.tab-accordion__inner {
+.tab-inner {
   clear: both;
   clip: rect(0, 0, 0, 0);
   max-height: 0;
@@ -53,7 +43,7 @@ $tab-color: $prh-cream-lightest;
   visibility: hidden;
 }
 
-.tab-accordion__section {
+.tab-section {
   min-height: 0;
 
   &.active {
@@ -65,24 +55,35 @@ $tab-color: $prh-cream-lightest;
   }
 }
 
-.tab-accordion__section.active .tab-accordion__inner {
+.tab-section.active .tab-inner {
   clip: auto;
   max-height: 10000px;
   position: relative;
   visibility: visible;
 }
 
+.tab-section-title {
+  border-bottom: 1px solid $base-font-blue;
+  cursor: pointer;
+  padding: 1rem;
+
+  .active &,
+  .tab-section:last-child & {
+    border-bottom: none;
+  }
+}
+
 @include responsive-mq("md") {
-  .js-tab-accordion {
+  .tab-accordion {
     background: transparent;
     padding: 0;
   }
 
-  .js-tab-accordion-title {
+  .tab-section-title {
     display: none;
   }
 
-  .tab-accordion__section {
+  .tab-section {
     background: $tab-color;
     clip: rect(0, 0, 0, 0);
     margin-bottom: 32px;
@@ -98,7 +99,7 @@ $tab-color: $prh-cream-lightest;
     }
   }
 
-  .tab-accordion__nav {
+  .tab-nav {
     border-bottom: none;
     display: flex;
     left: 0;
@@ -110,7 +111,7 @@ $tab-color: $prh-cream-lightest;
     width: 100%;
   }
 
-  .js-tab-accordion-tab {
+  .tab-nav-title {
     align-items: flex-start;
     display: flex;
     margin-right: 30px;
