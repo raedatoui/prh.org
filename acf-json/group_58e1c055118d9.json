@@ -3,22 +3,6 @@
     "title": "Module Options",
     "fields": [
         {
-            "key": "field_58e1e28198454",
-            "label": "Enabled",
-            "name": "module_enabled",
-            "type": "true_false",
-            "instructions": "Determines if the module should be displayed",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0
-        },
-        {
             "key": "field_58e1c06164889",
             "label": "Title",
             "name": "module_title",
@@ -76,7 +60,10 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 0
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_58e1c16d818a3",
@@ -112,7 +99,7 @@
                     "key": "field_58e1c124a8dfe",
                     "label": "Label",
                     "name": "cta_label",
-                    "prefix": "",
+                    "prefix": "acf",
                     "type": "text",
                     "value": null,
                     "menu_order": 0,
@@ -128,7 +115,7 @@
                         "id": ""
                     },
                     "_name": "cta_label",
-                    "_input": "",
+                    "_prepare": 0,
                     "_valid": 1,
                     "default_value": "",
                     "placeholder": "",
@@ -143,7 +130,7 @@
                     "key": "field_58e1c136a8dff",
                     "label": "Link",
                     "name": "cta_link",
-                    "prefix": "",
+                    "prefix": "acf",
                     "type": "url",
                     "value": null,
                     "menu_order": 1,
@@ -159,7 +146,7 @@
                         "id": ""
                     },
                     "_name": "cta_link",
-                    "_input": "",
+                    "_prepare": 0,
                     "_valid": 1,
                     "default_value": "",
                     "placeholder": ""
@@ -185,5 +172,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1492545147
+    "modified": 1492700331
 }

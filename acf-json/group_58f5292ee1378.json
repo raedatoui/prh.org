@@ -3,6 +3,25 @@
     "title": "Article Details",
     "fields": [
         {
+            "key": "field_58f8ccb29f7b1",
+            "label": "Enabled",
+            "name": "article_details_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_58f529aa95e99",
             "label": "Byline",
             "name": "post_byline",
@@ -18,7 +37,8 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "basic",
-            "media_upload": 0
+            "media_upload": 0,
+            "delay": 0
         }
     ],
     "location": [
@@ -59,5 +79,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492462230
+    "modified": 1492700785
 }

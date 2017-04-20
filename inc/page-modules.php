@@ -43,7 +43,8 @@ class PageModules {
 
 	function filter() {
 		$filter = function ( $module ) {
-			return $module['config'][MODULE_OPTIONS['enabled']] == 1;
+			$enabled_field = $module['config']['enabled'];
+			return $module[$enabled_field] == 1;
 		};
 		$this->modules = array_filter( $this->modules, $filter );
 	}
