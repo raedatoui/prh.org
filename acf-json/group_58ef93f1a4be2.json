@@ -245,7 +245,7 @@
         },
         {
             "key": "field_58ef9594c8488",
-            "label": "Spotlight_3_repeater",
+            "label": "Spotlights",
             "name": "spotlight_3_repeater",
             "type": "repeater",
             "instructions": "",
@@ -265,8 +265,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": 0,
-            "max": 0,
+            "min": 2,
+            "max": 3,
             "layout": "row",
             "button_label": "Add Row",
             "sub_fields": [
@@ -537,5 +537,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492701619
+    "modified": 1492706734
 }
