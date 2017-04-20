@@ -1,15 +1,7 @@
 <?php
-/************* Modules & Components *****************/
-const COMPONENTS_TO_UNSET = array(
-	'CTA',
-	'Module Options',
-	'Statistic',
-	'Spotlight Card',
-	'Tab Card'
-);
 
+/************* Components *****************/
 const MODULE_OPTIONS = array(
-	'enabled' => 'module_enabled',
 	'order' => 'module_order',
 	'title' => 'module_title',
 	'use_cta' => 'module_use_cta',
@@ -19,89 +11,6 @@ const MODULE_OPTIONS = array(
 const CTA_COMPONENT = array (
 	'label' => 'cta_label',
 	'link'=> 'cta_link'
-);
-
-const CAROUSEL_MODULE = array(
-	'name' => 'Carousel',
-	'options' => 'carousel_options',
-	'slides' => 'carousel_slides',
-	'image' => 'slide_image',
-	'eyebrow' => 'slide_eyebrow',
-	'title' => 'slide_title',
-	'text' => 'slide_text',
-	'cta' => 'slide_cta',
-	'link' => 'slide_link',
-	'template' => 'template-parts/modules/carousel.php'
-);
-
-const HERO_MODULE = array(
-	'name' => 'Hero',
-	'options' => 'hero_options',
-	'header' => 'hero_header',
-	'text' => 'hero_text',
-	'template' => 'template-parts/modules/hero.php'
-);
-
-const STATISTICS_MODULE = array(
-	'name' => 'Statistics',
-	'options' => 'statistics_options',
-	'cards' => 'statistics_cards',
-	'card' => 'statistic_card',
-	'number' => 'stat_number',
-	'text' => 'stat_text',
-	'template' => 'template-parts/modules/statistics.php'
-);
-
-const QUOTE_MODULE = array(
-	'name' => 'Quote',
-	'options' => 'quote_options',
-	'quote' => 'quote',
-	'attribution_name' => 'quote_attribution_name',
-	'attribution_location' => 'quote_attribution_location',
-	'text' => 'quote_text',
-	'template' => 'template-parts/modules/quote.php'
-);
-
-const OVERVIEW_MODULE = array(
-	'name' => 'Overview',
-	'options' => 'overview_options',
-	'content' => 'overview_content',
-	'resources_title' => 'overview_resources_title',
-	'resources_links' => 'overview_resource_links',
-	'resources_link_text' => 'overview_resource_link_text',
-	'resources_link_url' => 'overview_resource_link_url',
-	'template' => 'template-parts/modules/overview.php'
-);
-
-const AGGREGATE_BY_POST_TYPE = array(
-	'name' => 'Aggregate by Content Type',
-	'options' => 'aggregate_by_post_type_options',
-	'post_type' => 'content_type_aggregate',
-	'count' => 'aggregate_by_post_type_count',
-	'template' => 'template-parts/modules/aggregate.php'
-);
-
-const AGGREGATE_BY_CATEGORY = array(
-	'name' => 'Aggregate by Category',
-	'options' => 'aggregate_by_category_options',
-	'category' => 'category_aggregate',
-	'count' => 'aggregate_by_category_count',
-	'template' => 'template-parts/modules/aggregate.php'
-);
-
-const SPOTLIGHT_1_MODULE = array(
-	'name' => 'Spotlight 1 Module',
-	'options' => 'spotlight_1_options',
-	'card' => 'spotlight_1_card',
-	'template' => 'template-parts/modules/spotlightone.php'
-);
-
-const SPOTLIGHT_3_MODULE = array(
-	'name' => 'Spotlight 3 Module',
-	'options' => 'spotlight_3_options',
-	'repeater' => 'spotlight_3_repeater',
-	'card' => 'spotlight_3_card',
-	'template' => 'template-parts/modules/spotlightthree.php'
 );
 
 const SPOTLIGHT_CARD = array(
@@ -121,7 +30,105 @@ const TAB_CARD = array(
 	'cta' => 'tab_card_cta'
 );
 
+const STATISTIC_CARD = array(
+	'number' => 'stat_number',
+	'text' => 'stat_text',
+);
+
+
+/************* Modules *****************/
+const CAROUSEL_MODULE = array(
+	'enabled' => 'carousel_enabled',
+	'name' => 'Carousel',
+	'options' => 'carousel_options',
+	'slides' => 'carousel_slides',
+	'image' => 'slide_image',
+	'eyebrow' => 'slide_eyebrow',
+	'title' => 'slide_title',
+	'text' => 'slide_text',
+	'cta' => 'slide_cta',
+	'link' => 'slide_link',
+	'template' => 'template-parts/modules/carousel.php'
+);
+
+const HERO_MODULE = array(
+	'enabled' => 'hero_enabled',
+	'name' => 'Hero',
+	'options' => 'hero_options',
+	'header' => 'hero_header',
+	'text' => 'hero_text',
+	'template' => 'template-parts/modules/hero.php'
+);
+
+const STATISTICS_MODULE = array(
+	'enabled' => 'statistics_enabled',
+	'name' => 'Statistics',
+	'options' => 'statistics_options',
+	'repeater' => 'statistics_cards',
+	'card' => 'statistic_card',
+	'template' => 'template-parts/modules/statistics.php'
+);
+
+const QUOTE_MODULE = array(
+	'enabled' => 'quote_enabled',
+	'name' => 'Quote',
+	'options' => 'quote_options',
+	'quote' => 'quote',
+	'attribution_name' => 'quote_attribution_name',
+	'attribution_location' => 'quote_attribution_location',
+	'text' => 'quote_text',
+	'template' => 'template-parts/modules/quote.php'
+);
+
+const OVERVIEW_MODULE = array(
+	'enabled' => 'overview_enabled',
+	'name' => 'Overview',
+	'options' => 'overview_options',
+	'content' => 'overview_content',
+	'resources_title' => 'overview_resources_title',
+	'resources_links' => 'overview_resource_links',
+	'resources_link_text' => 'overview_resource_link_text',
+	'resources_link_url' => 'overview_resource_link_url',
+	'template' => 'template-parts/modules/overview.php'
+);
+
+const AGGREGATE_BY_POST_TYPE = array(
+	'enabled' => 'aggregate_by_post_type_enabled',
+	'name' => 'Aggregate by Content Type',
+	'options' => 'aggregate_by_post_type_options',
+	'post_type' => 'content_type_aggregate',
+	'count' => 'aggregate_by_post_type_count',
+	'template' => 'template-parts/modules/aggregate.php'
+);
+
+const AGGREGATE_BY_CATEGORY = array(
+	'enabled' => 'aggregate_by_category_enabled',
+	'name' => 'Aggregate by Category',
+	'options' => 'aggregate_by_category_options',
+	'category' => 'category_aggregate',
+	'count' => 'aggregate_by_category_count',
+	'template' => 'template-parts/modules/aggregate.php'
+);
+
+const SPOTLIGHT_1_MODULE = array(
+	'enabled' => 'spotlight_1_enabled',
+	'name' => 'Spotlight 1 Module',
+	'options' => 'spotlight_1_options',
+	'card' => 'spotlight_1_card',
+	'template' => 'template-parts/modules/spotlightone.php'
+);
+
+const SPOTLIGHT_3_MODULE = array(
+	'enabled' => 'spotlight_3_enabled',
+	'name' => 'Spotlight 3 Module',
+	'options' => 'spotlight_3_options',
+	'repeater' => 'spotlight_3_repeater',
+	'card' => 'spotlight_3_card',
+	'template' => 'template-parts/modules/spotlightthree.php'
+);
+
 const TAB_PANEL = array(
+	'enabled' => 'tab_panel_enabled',
 	'name' => 'Tab Panel',
 	'options' => 'tab_panel_options',
 	'headline' => 'tab_panel_headline',
@@ -130,6 +137,8 @@ const TAB_PANEL = array(
 	'template' => 'template-parts/modules/tabs.php'
 );
 
+
+/************* Mappings *****************/
 const MODULES = array(
 	CAROUSEL_MODULE['name'] => CAROUSEL_MODULE,
 	HERO_MODULE['name'] => HERO_MODULE,
@@ -151,3 +160,14 @@ const AGGREGATES = array(
 const CUSTOM_POST_TYPES = array (
 	'press_release' => 'Press Release'
 );
+
+
+/************* Housekeeping *****************/
+const COMPONENTS_TO_UNSET = array(
+	'CTA',
+	'Module Options',
+	'Statistic',
+	'Spotlight Card',
+	'Tab Card'
+);
+

@@ -3,13 +3,40 @@
     "title": "Statistics",
     "fields": [
         {
+            "key": "field_58f8cf1faf26e",
+            "label": "Enabled",
+            "name": "statistics_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_58e1c18fb852d",
             "label": "Options",
             "name": "statistics_options",
             "type": "component_field",
             "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f8cf1faf26e",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -24,40 +51,14 @@
             "collapsed": "",
             "sub_fields": [
                 {
-                    "ID": 13223,
-                    "key": "field_58e1e28198454",
-                    "label": "Enabled",
-                    "name": "module_enabled",
-                    "prefix": "",
-                    "type": "true_false",
-                    "value": null,
-                    "menu_order": 0,
-                    "instructions": "Determines if the module should be displayed",
-                    "required": 0,
-                    "id": "",
-                    "class": "",
-                    "conditional_logic": 0,
-                    "parent": 13222,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "_name": "module_enabled",
-                    "_input": "",
-                    "_valid": 1,
-                    "message": "",
-                    "default_value": 0
-                },
-                {
                     "ID": 13224,
                     "key": "field_58e1c06164889",
                     "label": "Title",
                     "name": "module_title",
-                    "prefix": "",
+                    "prefix": "acf",
                     "type": "text",
                     "value": null,
-                    "menu_order": 1,
+                    "menu_order": 0,
                     "instructions": "",
                     "required": 0,
                     "id": "",
@@ -70,7 +71,7 @@
                         "id": ""
                     },
                     "_name": "module_title",
-                    "_input": "",
+                    "_prepare": 0,
                     "_valid": 1,
                     "default_value": "",
                     "placeholder": "",
@@ -85,10 +86,10 @@
                     "key": "field_58e1c0696488a",
                     "label": "Order",
                     "name": "module_order",
-                    "prefix": "",
+                    "prefix": "acf",
                     "type": "number",
                     "value": null,
-                    "menu_order": 2,
+                    "menu_order": 1,
                     "instructions": "",
                     "required": 1,
                     "id": "",
@@ -101,7 +102,7 @@
                         "id": ""
                     },
                     "_name": "module_order",
-                    "_input": "",
+                    "_prepare": 0,
                     "_valid": 1,
                     "default_value": 0,
                     "placeholder": "",
@@ -118,10 +119,10 @@
                     "key": "field_58e1c09e6488b",
                     "label": "Use CTA",
                     "name": "module_use_cta",
-                    "prefix": "",
+                    "prefix": "acf",
                     "type": "true_false",
                     "value": null,
-                    "menu_order": 3,
+                    "menu_order": 2,
                     "instructions": "",
                     "required": 0,
                     "id": "",
@@ -134,20 +135,23 @@
                         "id": ""
                     },
                     "_name": "module_use_cta",
-                    "_input": "",
+                    "_prepare": 0,
                     "_valid": 1,
                     "message": "",
-                    "default_value": 0
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 },
                 {
                     "ID": 13227,
                     "key": "field_58e1c16d818a3",
                     "label": "CTA",
                     "name": "module_cta",
-                    "prefix": "",
+                    "prefix": "acf",
                     "type": "component_field",
                     "value": null,
-                    "menu_order": 4,
+                    "menu_order": 3,
                     "instructions": "",
                     "required": 0,
                     "id": "",
@@ -168,7 +172,7 @@
                         "id": ""
                     },
                     "_name": "module_cta",
-                    "_input": "",
+                    "_prepare": 0,
                     "_valid": 1,
                     "field_group_id": "group_58e1c120cf8fa",
                     "min": 1,
@@ -183,7 +187,7 @@
                             "key": "field_58e1c124a8dfe",
                             "label": "Label",
                             "name": "cta_label",
-                            "prefix": "",
+                            "prefix": "acf",
                             "type": "text",
                             "value": null,
                             "menu_order": 0,
@@ -199,7 +203,7 @@
                                 "id": ""
                             },
                             "_name": "cta_label",
-                            "_input": "",
+                            "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
                             "placeholder": "",
@@ -214,7 +218,7 @@
                             "key": "field_58e1c136a8dff",
                             "label": "Link",
                             "name": "cta_link",
-                            "prefix": "",
+                            "prefix": "acf",
                             "type": "url",
                             "value": null,
                             "menu_order": 1,
@@ -230,7 +234,7 @@
                                 "id": ""
                             },
                             "_name": "cta_link",
-                            "_input": "",
+                            "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
                             "placeholder": ""
@@ -246,12 +250,21 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f8cf1faf26e",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
+            "collapsed": "",
             "min": 3,
             "max": 3,
             "layout": "row",
@@ -283,7 +296,7 @@
                             "key": "field_58e33c8224087",
                             "label": "Number",
                             "name": "stat_number",
-                            "prefix": "",
+                            "prefix": "acf",
                             "type": "number",
                             "value": null,
                             "menu_order": 0,
@@ -299,7 +312,7 @@
                                 "id": ""
                             },
                             "_name": "stat_number",
-                            "_input": "",
+                            "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
                             "placeholder": "",
@@ -316,7 +329,7 @@
                             "key": "field_58e33d9b24088",
                             "label": "Text",
                             "name": "stat_text",
-                            "prefix": "",
+                            "prefix": "acf",
                             "type": "text",
                             "value": null,
                             "menu_order": 1,
@@ -332,7 +345,7 @@
                                 "id": ""
                             },
                             "_name": "stat_text",
-                            "_input": "",
+                            "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
                             "placeholder": "",
@@ -365,5 +378,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492544864
+    "modified": 1492701816
 }
