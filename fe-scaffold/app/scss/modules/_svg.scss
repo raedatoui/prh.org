@@ -1,0 +1,34 @@
+%svg {
+  stroke: $base-font-blue;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.icon--carat {
+  @extend %svg;
+  height: 50px;
+  transform-origin: 50% 50%;
+  width: 40px;
+}
+
+.icon--close {
+  @extend %svg;
+  height: 34px;
+  width: 34px;
+}
+
+.icon--search {
+  @extend %svg;
+  height: 50px;
+  width: 50px;
+}
+
+.icon--person {
+  @extend %svg;
+  height: 50px;
+  width: 50px;
+}
+
+.icon--squiggle {
+  @extend %svg;
+}

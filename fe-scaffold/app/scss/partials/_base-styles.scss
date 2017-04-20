@@ -9,6 +9,12 @@ body {
   @include roboto();
 }
 
+svg {
+  display: inline-block;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
 .page-container {
   width: 100%;
 }
@@ -21,6 +27,10 @@ body {
 .row {
   margin: auto;
   padding: 0;
+}
+
+.visually-hidden {
+  @include element-invisible();
 }
 
 section {
