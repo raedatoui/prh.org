@@ -5,7 +5,7 @@
         {
             "key": "field_58f8cf3e42199",
             "label": "Enabled",
-            "name": "aggregate_by_post_type",
+            "name": "aggregate_by_post_type_enabled",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -323,5 +323,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492702773
+    "modified": 1492707787
 }
