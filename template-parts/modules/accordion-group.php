@@ -12,7 +12,7 @@
   </header>
 
     <h3 class="accordion-title">English</h3>
-    <div class="accordion-content collapsible">
+    <div class="accordion-content">
       <p>The English concertina is a member of the concertina family of free-reed musical instruments. Invented in England in 1829, it was the first instrument of what would become the concertina family.</p>
 
       <p>It is a fully chromatic instrument, having buttons in a rectangular arrangement of four staggered rows; its buttons are unisonoric, producing the same note on both the push and pull of the bellows. It differs from other concertinas in that the scale is divided evenly between the two hands, such that playing a scale involves both hands alternately playing each note in sequence.</p>
