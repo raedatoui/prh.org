@@ -35,6 +35,16 @@ const STATISTIC_CARD = array(
 	'text' => 'stat_text',
 );
 
+const ACCORDION_ITEM = array(
+	'title' => 'accordion_title',
+	'content' => 'accordion_content'
+);
+
+const ACCORDION_GROUP = array(
+	'title' => 'accordion_group_title',
+	'items' => 'accordion_group_items'
+);
+
 
 /************* Modules *****************/
 const CAROUSEL_MODULE = array(
@@ -137,6 +147,14 @@ const TAB_PANEL = array(
 	'template' => 'template-parts/modules/tabs.php'
 );
 
+const ACCORDION_SECTION = array(
+	'enabled' => 'accordion_section_enabled',
+	'name' => 'Accordion Section',
+	'options' => 'accordion_section_options',
+	'repeater' => 'accordion_groups',
+	'template' => 'template-parts/modules/accordion-section.php'
+);
+
 
 /************* Mappings *****************/
 const MODULES = array(
@@ -149,7 +167,8 @@ const MODULES = array(
 	OVERVIEW_MODULE['name'] => OVERVIEW_MODULE,
 	SPOTLIGHT_1_MODULE['name'] => SPOTLIGHT_1_MODULE,
 	SPOTLIGHT_3_MODULE['name'] => SPOTLIGHT_3_MODULE,
-	TAB_PANEL['name'] => TAB_PANEL
+	TAB_PANEL['name'] => TAB_PANEL,
+	ACCORDION_SECTION['name'] => ACCORDION_SECTION
 );
 
 const AGGREGATES = array(
