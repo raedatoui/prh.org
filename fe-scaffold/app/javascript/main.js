@@ -6,6 +6,7 @@ import Flickity from 'flickity-imagesloaded';
 import TabAccordion from 'storm-tab-accordion';
 import modernizr from './modernizr.js';
 import collapsible from './collapsible.js';
+import accordion from './accordion.js';
 
 
 function init(){
@@ -20,6 +21,7 @@ function init(){
 			});
 	}
 
+	accordion.init();
   collapsible.init();
 	
 	let tabs = document.querySelector('.js-tab-accordion');

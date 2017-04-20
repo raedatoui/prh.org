@@ -1,0 +1,67 @@
+.accordion-group {
+  margin-bottom: 60px;
+}
+
+.accordion-title {
+  border-bottom: 1px solid transparentize($prh-navy-lt, 0.75);
+  margin-bottom: 0;
+
+  button {
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    color: inherit;
+    display: block;
+    font: inherit;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+  }
+}
+
+.accordion-content,
+.accordion-title button {
+  padding: 30px 30px 30px 50px;
+
+  @include responsive-mq(md) {
+    padding-left: 170px;
+  }
+}
+
+[id*="accordion-label"] {
+
+  position: relative;
+
+  &::before {
+    content: "+";
+    font-family: $roboto;
+    font-size: 50px;
+    font-weight: 100;
+    left: 0;
+    position: absolute;
+    speak: none;
+    top: calc(50% - 3px);
+    transform: translateY(-50%);
+  }
+
+  &[aria-expanded="true"] {
+    &::before {
+      content: "–";
+    }
+  }
+
+  @include responsive-mq(md) {
+    &::before {
+      font-size: 65px;
+      left: 60px;
+    }
+  }
+}
+
+[aria-labelledby^="accordion-label"] {
+  display: none;
+}
+
+[aria-labelledby^="accordion-label"].is-active {
+  display: block;
+}

@@ -71,7 +71,8 @@ add_action('widgets_init', 'prh_wp_theme_widgets_init');
  */
 function prh_wp_theme_scripts() {
 	wp_enqueue_style( 'prh-wp-theme-style', get_template_directory_uri() . '/css/main.css' );
-	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto+Condensed:700|Roboto:300,400,400i,700,700i');
+	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto+Condensed:700|Roboto:400,400i,700,700i,100&text=–+');
+
 
 	// TODO: check if this is needed
 	wp_enqueue_script('prh-wp-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
