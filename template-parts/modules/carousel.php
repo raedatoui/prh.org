@@ -27,7 +27,6 @@
 			<?php endforeach; ?>
 
 		</div>
+		<?php include( locate_template( 'template-parts/components/cta.php', false, false ) ); ?>
 	</div>
-	<?php include( locate_template( 'template-parts/components/cta.php', false, false ) ); ?>
-</div>
 </section>

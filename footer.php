@@ -9,6 +9,7 @@
  * @package prh-wp-theme
  */
 ?>
+	</div><!-- .page-container-->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 	</footer><!-- #colophon -->
