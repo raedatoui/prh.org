@@ -5,6 +5,7 @@
 }
 
 %headline {
+  font-weight: 400;
   letter-spacing: em((-25/1000), 54px);
   line-height: 1.25;
   @include lora();
