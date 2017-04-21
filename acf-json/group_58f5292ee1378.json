@@ -76,6 +76,27 @@
                 "operator": "==",
                 "value": "prh_update"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "prh_report"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "prh_news"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "prh_events"
+            }
         ]
     ],
     "menu_order": 0,
@@ -93,5 +114,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492721272
+    "modified": 1492783244
 }

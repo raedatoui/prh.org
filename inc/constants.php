@@ -9,7 +9,8 @@ const CONTENT_TYPES = array(
 	array('prh_ipaper', 'prh_ipapers'),
 	array('prh_update', 'prh_updates'),
 	array('prh_report', 'prh_reports'),
-	array('prh_news', 'prh_news')
+	array('prh_news', 'prh_news'),
+	array('prh_events', 'prh_events')
 );
 
 /************* Components *****************/
