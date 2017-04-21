@@ -9,56 +9,69 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<!-- placeholder hero so the content doesn't hit the nav -->
+<section class="hero module">
+</section>
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'prh-wp-theme' ); ?></h1>
-				</header><!-- .page-header -->
+<main class="content module row row-top">
+	<header class="col-xs-12">
+		<h1><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'prh-wp-theme' ); ?></h1>
+	</header>
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'prh-wp-theme' ); ?></p>
+	<article class="main-content post-content col-xs-12 col-md-9">
+		<div class="post-body">
+			<p>
+				<?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'prh-wp-theme' ); ?>
+			</p>
+		</div>
+	</article>
 
+	<div class="sidebar post-sidebar col-xs-12 col-md-3">
+
+		<?php
+		$tags = false;
+		// temporarily removed to avoid any QA confusion; uncomment to re-enable.
+		// $tags = get_the_tags($post->ID);
+		if ($tags):  ?>
+			<aside class="sidebar-block tags-block">
+				<div class="sidebar-content">
+					<h2 class="sidebar-header">Tagged</h2>
+					<ul class="tags-list">
+						<?php foreach($tags as $tag):  ?>
+							<li>
+								<a class="tag" href="<?php bloginfo('url');?>/tag/<?php print_r($tag->slug);?>">
+									<?php print_r($tag->name); ?>
+								</a>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			</aside>
+		<?php endif; ?>
+
+		<aside class="sidebar-block categories-block">
+			<div class="sidebar-content">
+				<h2 class="sidebar-header">
+					<?php esc_html_e( 'Most Used Categories', 'prh-wp-theme' ); ?>
+				</h2>
+				<ul class="tags-list">
 					<?php
-						get_search_form();
-
-						the_widget( 'WP_Widget_Recent_Posts' );
-
-						// Only show the widget if site has multiple categories.
-						if ( prh_wp_theme_categorized_blog() ) :
+					wp_list_categories( array(
+						'orderby'    => 'count',
+						'order'      => 'DESC',
+						'show_count' => 1,
+						'title_li'   => '',
+						'number'     => 10,
+						)
+					);
 					?>
+				</ul>
+			</div>
+		</aside>
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'prh-wp-theme' ); ?></h2>
-						<ul>
-						<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
-						?>
-						</ul>
-					</div><!-- .widget -->
+	</div>
+</main>
 
-					<?php
-						endif;
-						//TEST!
-						/* translators: %1$s: smiley */
-						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'prh-wp-theme' ), convert_smilies( ':)' ) ) . '</p>';
-						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
-
-						the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
 
 <?php
 get_footer();

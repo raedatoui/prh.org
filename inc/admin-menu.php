@@ -94,6 +94,7 @@ function prh_custom_menu_order($menu_ord) {
 		'edit.php?post_type=prh_events', // Events
 		'separator2', // Second separator
 
+		'nav-menus.php',
 		'edit.php?post_type=acf-field-group', // Custom Fields
 		'upload.php', // Media
 		'users.php', // Users
@@ -108,3 +109,18 @@ function prh_custom_menu_order($menu_ord) {
 }
 add_filter('custom_menu_order', 'prh_custom_menu_order');
 add_filter('menu_order', 'prh_custom_menu_order');
+
+
+function remove_submenus() {
+	global $submenu;
+	unset($submenu['themes.php'][10]); // Removes Menu
+}
+add_action('admin_menu', 'remove_submenus');
+
+
+function new_nav_menu () {
+	global $menu;
+	$menu[99] = array('', 'read', 'separator', '', 'menu-top menu-nav');
+	add_menu_page(__('Navigation', 'nav-menus'), __('Navigation', 'nav-menus'), 'edit_themes', 'nav-menus.php', '', 'dashicons-menu', 15 );
+}
+add_action('admin_menu', 'new_nav_menu');

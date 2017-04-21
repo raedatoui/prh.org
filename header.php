@@ -31,7 +31,9 @@
 			<header>
 				<nav>
 					<ul class="main-nav-list row bottom-xs">
-						<li class="col-xs-12 col-sm-3 col-md-3 logo-item"><img class="logo" alt="" src="<?php echo_theme_uri(); ?>/images/optimized/prh_nav_logo.svg" /></li>
+						<li class="col-xs-12 col-sm-3 col-md-3 logo-item">
+							<a href="/"><img class="logo" alt="" src="<?php echo_theme_uri(); ?>/images/optimized/prh_nav_logo.svg" /></a>
+						</li>
 						<li class="col-xs-12 col-sm-8 col-md-7">
 							<ul class="secondary-nav-list row">
 								<?php
@@ -46,5 +48,7 @@
 						</li>
 						<li class="col-xs-12 col-sm-1 col-md-2" style="text-align: right;">Donate</li>
 					</ul>
+					<?php //get_search_form(); ?>
 				</nav>
+
 			</header>

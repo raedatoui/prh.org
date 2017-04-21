@@ -31,9 +31,6 @@ class PageModules {
 	}
 
 	function prepare() {
-		foreach( COMPONENTS_TO_UNSET as $c ) {
-			unset( $this->modules[$c] );
-		}
 		$filter = function ( $module ) {
 			$config = MODULES[$module['module_name']];
 			return $module[$config['options']] !== null;

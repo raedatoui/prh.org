@@ -4,11 +4,10 @@
  * @package prh-wp-theme
  */
 
+if ( !function_exists('prh_wp_theme_setup') ):
 	/**
 	* Sets up theme defaults and registers support for various WordPress features.
 	*/
-
-if ( !function_exists('prh_wp_theme_setup') ):
 	function prh_wp_theme_setup() {
 		/*
 		 * Make theme available for translation.
@@ -73,7 +72,6 @@ function prh_wp_theme_scripts() {
 	wp_enqueue_style( 'prh-wp-theme-style', get_template_directory_uri() . '/css/main.css' );
 	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto+Condensed:700|Roboto:400,400i,700,700i');
 
-
 	// TODO: check if this is needed
 	wp_enqueue_script('prh-wp-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 
@@ -85,7 +83,6 @@ add_action('wp_enqueue_scripts', 'prh_wp_theme_scripts');
 /**
  * Custom functions & features from the theme.
  */
-
 require get_template_directory() . '/inc/constants.php';
 require get_template_directory() . '/inc/page-modules.php';
 require get_template_directory() . '/inc/template-tags.php';
@@ -115,7 +112,6 @@ function echo_theme_uri() {
  * but if they don't, we shouldn't output the automatic one. 
  * If we change the [...] used in auto-excerpts, this needs to be updated.
  */
-
 function is_generated($excerpt) {
 	return (substr($excerpt, -1) == ']');
 }
@@ -125,7 +121,6 @@ function is_generated($excerpt) {
  * for fields that haven't been filled in.
  * $before and $after = html to surround the var, if set
  */
-
 function echo_wrapped( $var, $before='', $after='' ) {
 	if ($var == null || $var == '') {
 		return;
