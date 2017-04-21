@@ -20,28 +20,29 @@ $accordion-border: 1px solid $border-color-blue;
     text-align: left;
     width: 100%;
 
-    &::before {
-      content: "+";
-      font-family: $roboto;
-      font-size: 50px;
-      font-weight: 100;
+    .icon--plus,
+    .icon--minus {
       left: 0;
       position: absolute;
-      speak: none;
-      top: calc(50% - 3px);
-      transform: translateY(-50%);
+      top: 50%;
+      transform: translateY(-16px);
+    }
+
+    .icon--plus {
+      display: inline-block;
+    }
+
+    .icon--minus {
+      display: none;
     }
 
     &[aria-expanded="true"] {
-      &::before {
-        content: "–";
+      .icon--plus {
+        display: none;
       }
-    }
 
-    @include responsive-mq(md) {
-      &::before {
-        font-size: 65px;
-        left: 60px;
+      .icon--minus {
+        display: inline-block;
       }
     }
   }

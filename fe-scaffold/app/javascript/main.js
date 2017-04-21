@@ -23,10 +23,15 @@ function init(){
 
 	accordion.init();
   collapsible.init();
-	
-	let tabs = document.querySelector('.js-tab-accordion');
+
+	let tabs = document.querySelector('.tab-accordion');
 	if (tabs) {
-	  TabAccordion.init('.js-tab-accordion');
+	  TabAccordion.init('.tab-accordion', {
+	  	tabClass: '.tab-nav-title',
+	  	titleClass: '.tab-section-title',
+	  	currentClass: 'active',
+	  	active: 0
+	  });
   }
 
 }

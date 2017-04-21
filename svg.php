@@ -12,6 +12,20 @@
     <line class="cls-1" x1="0.71" y1="0.71" x2="33.21" y2="33.21"/>
   </symbol>
 
+  <symbol id="icon--minus" xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 40 37.4">
+     <def>
+      <style type="text/css">
+        .st0{fill:none;stroke-width:2;stroke-miterlimit:10;}
+      </style>
+    </def>
+    <line class="st0" x1="0" y1="18.6" x2="40" y2="18.6"/>
+  </symbol>
+
+  <symbol id="icon--plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 36.8">
+    <path d="M20.6,0h-1.9v17.5H0v1.8h18.7v17.4h1.9V19.3H40v-1.8H20.6V0z"/>
+  </symbol>
+
   <symbol id="icon--search" xmlns="http://www.w3.org/2000/svg"
      viewBox="0 0 50 50">
     <style type="text/css">
