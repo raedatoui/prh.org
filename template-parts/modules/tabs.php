@@ -25,10 +25,12 @@
 			<section id="tab-target-<?php echo $key + 1 ?>" class="tab-section">
 				<div class="content">
 					<h3 class="tab-section-title">
-						<svg class="icon--carat" role="presentation">
-							<use xlink:href="#icon--carat" />
-						</svg>
-						<?php echo $card[TAB_CARD['title']] ?>
+						<button class="">
+							<svg class="icon--carat" role="presentation">
+								<use xlink:href="#icon--carat" />
+							</svg>
+							<?php echo $card[TAB_CARD['title']] ?>
+						</button>
 					</h3>
 					<div class="tab-inner row">
 						<div class="col-xs-12 col-md-4">

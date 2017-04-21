@@ -1,13 +1,6 @@
 $tab-color: $prh-cream-lightest;
 
-.module__tabs {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-
 .tab-accordion {
-  background: $tab-color;
   padding-bottom: 32px;
   padding-top: 32px;
 }
@@ -50,7 +43,7 @@ $tab-color: $prh-cream-lightest;
     padding-bottom: 32px;
 
     &:not(:last-child) {
-      border-bottom: 1px solid $base-font-blue;
+      border-bottom: $accordion-border;
     }
   }
 }
@@ -60,12 +53,26 @@ $tab-color: $prh-cream-lightest;
   max-height: 10000px;
   position: relative;
   visibility: visible;
+  padding-top: 30px;
 }
 
 .tab-section-title {
-  border-bottom: 1px solid $base-font-blue;
-  cursor: pointer;
-  padding: 1rem;
+  -webkit-appearance: none;
+  border-bottom: $accordion-border;
+  margin: 0;
+  position: relative;
+
+  button {
+    background: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    font: inherit;
+    padding: 30px 30px 30px 0px;
+    text-align: left;
+    width: 100%;
+  }
 
   .active &,
   .tab-section:last-child & {
@@ -74,6 +81,11 @@ $tab-color: $prh-cream-lightest;
 }
 
 @include responsive-mq("md") {
+  .module__tabs {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .tab-accordion {
     background: transparent;
     padding: 0;
