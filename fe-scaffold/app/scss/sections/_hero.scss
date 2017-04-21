@@ -4,7 +4,10 @@ $mob-header-height: 180px;
 .hero {
   background-image: $gradient-radial-blue;
   color: $base-font-white;
-  padding-bottom: 200px;
+
+  // tweak this once the top curve is defined
+  // padding-bottom: 200px;
+  padding-bottom: 15vw;
   padding-top: $mob-header-height;
   text-align: center;
 
