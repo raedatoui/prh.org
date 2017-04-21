@@ -94,7 +94,7 @@ require get_template_directory() . '/inc/custom-types.php';
 require get_template_directory() . '/inc/editor.php';
 require get_template_directory() . '/inc/acf.php';
 require get_template_directory() . '/inc/metaboxes.php';
-
+require get_template_directory() . '/inc/admin-menu.php';
 
 /**
  * Misc settings, excerpt rules
