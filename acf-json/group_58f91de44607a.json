@@ -1,0 +1,451 @@
+{
+    "key": "group_58f91de44607a",
+    "title": "Accordion Section",
+    "fields": [
+        {
+            "key": "field_58f91e9a6f712",
+            "label": "Enabled",
+            "name": "accordion_section_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_58f92341a4263",
+            "label": "Options",
+            "name": "accordion_section_options",
+            "type": "component_field",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f91e9a6f712",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "field_group_id": "group_58e1c055118d9",
+            "min": 1,
+            "max": 1,
+            "layout": "row",
+            "button_label": "Add Row",
+            "appearances": "",
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "ID": 12997,
+                    "key": "field_58e1e28198454",
+                    "label": "Enabled",
+                    "name": "module_enabled",
+                    "prefix": "acf",
+                    "type": "true_false",
+                    "value": null,
+                    "menu_order": 0,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 12984,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_enabled",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "ID": 12985,
+                    "key": "field_58e1c06164889",
+                    "label": "Title",
+                    "name": "module_title",
+                    "prefix": "acf",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 1,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 12984,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_title",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "ID": 12986,
+                    "key": "field_58e1c0696488a",
+                    "label": "Order",
+                    "name": "module_order",
+                    "prefix": "acf",
+                    "type": "number",
+                    "value": null,
+                    "menu_order": 2,
+                    "instructions": "",
+                    "required": 1,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 12984,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_order",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "ID": 12987,
+                    "key": "field_58e1c09e6488b",
+                    "label": "Use CTA",
+                    "name": "module_use_cta",
+                    "prefix": "acf",
+                    "type": "true_false",
+                    "value": null,
+                    "menu_order": 3,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 12984,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_use_cta",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "ID": 12993,
+                    "key": "field_58e1c16d818a3",
+                    "label": "CTA",
+                    "name": "module_cta",
+                    "prefix": "acf",
+                    "type": "component_field",
+                    "value": null,
+                    "menu_order": 4,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_58e1c09e6488b",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "parent": 12984,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_cta",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "field_group_id": "group_58e1c120cf8fa",
+                    "min": 1,
+                    "max": 1,
+                    "layout": "block",
+                    "button_label": "Add Row",
+                    "appearances": "",
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "ID": 12991,
+                            "key": "field_58e1c124a8dfe",
+                            "label": "Label",
+                            "name": "cta_label",
+                            "prefix": "acf",
+                            "type": "text",
+                            "value": null,
+                            "menu_order": 0,
+                            "instructions": "",
+                            "required": 1,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": 0,
+                            "parent": 12990,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "_name": "cta_label",
+                            "_prepare": 0,
+                            "_valid": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "ID": 12992,
+                            "key": "field_58e1c136a8dff",
+                            "label": "Link",
+                            "name": "cta_link",
+                            "prefix": "acf",
+                            "type": "text",
+                            "value": null,
+                            "menu_order": 1,
+                            "instructions": "",
+                            "required": 1,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": 0,
+                            "parent": 12990,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "_name": "cta_link",
+                            "_prepare": 0,
+                            "_valid": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_58f91df26f711",
+            "label": "Accordion Section",
+            "name": "accordion_groups",
+            "type": "component_field",
+            "instructions": "Use groups of \"accordion\" content (named for the way they visually open and close) when you want to squeeze a lot of information onto the page without overwhelming your visitors. First, add a group to define one section of content. Once you've done that, you can add as many individual Accordion blocks as you need. To create a new accordion section, with a unique header, just add another Accordion Group and repeat the process.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f91e9a6f712",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "field_group_id": "group_58f9195c42641",
+            "min": 1,
+            "max": "",
+            "layout": "block",
+            "button_label": "Add another group",
+            "appearances": "",
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "ID": 13194,
+                    "key": "field_58f9196efe98c",
+                    "label": "Group title",
+                    "name": "accordion_group_title",
+                    "prefix": "acf",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 0,
+                    "instructions": "What's the common theme of this group of accordions? Shorter is better. This title appears above the group.",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 13193,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "accordion_group_title",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "ID": 13195,
+                    "key": "field_58f91a0dfe98e",
+                    "label": "Accordion items",
+                    "name": "accordion_group_items",
+                    "prefix": "acf",
+                    "type": "component_field",
+                    "value": null,
+                    "menu_order": 1,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 13193,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "accordion_group_items",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "field_group_id": "group_58f900523b648",
+                    "min": 1,
+                    "max": "",
+                    "layout": "block",
+                    "button_label": "Add another block",
+                    "appearances": "",
+                    "collapsed": "",
+                    "sub_fields": [
+                        {
+                            "ID": 13191,
+                            "key": "field_58f9188ab504c",
+                            "label": "Title",
+                            "name": "accordion_title",
+                            "prefix": "acf",
+                            "type": "text",
+                            "value": null,
+                            "menu_order": 0,
+                            "instructions": "This is the title users click on to expand the content. Shorter is better!",
+                            "required": 1,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": 0,
+                            "parent": 13190,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "_name": "accordion_title",
+                            "_prepare": 0,
+                            "_valid": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "ID": 13192,
+                            "key": "field_58f918c1b504d",
+                            "label": "Content",
+                            "name": "accordion_content",
+                            "prefix": "acf",
+                            "type": "wysiwyg",
+                            "value": null,
+                            "menu_order": 1,
+                            "instructions": "This content will start out collapsed, then appear when its title is clicked.",
+                            "required": 1,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": 0,
+                            "parent": 13190,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "_name": "accordion_content",
+                            "_prepare": 0,
+                            "_valid": 1,
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "issue.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "is_acf_component": 0,
+    "modified": 1492722599
+}
