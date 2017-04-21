@@ -42,8 +42,8 @@ $tab-accordion-padding: 50px;
 
   .icon--plus,
   .icon--minus {
-    position: absolute;
     left: 0;
+    position: absolute;
     top: 50%;
     transform: translateY(-16px);
   }
@@ -57,6 +57,7 @@ $tab-accordion-padding: 50px;
   }
 
   &.active {
+    border-bottom: $accordion-border;
     padding-bottom: 32px;
 
     .icon--plus {
@@ -66,10 +67,10 @@ $tab-accordion-padding: 50px;
     .icon--minus {
       display: inline-block;
     }
+  }
 
-    &:not(:last-child) {
-      border-bottom: $accordion-border;
-    }
+  &:first-of-type {
+    border-top: $accordion-border;
   }
 }
 
@@ -77,8 +78,8 @@ $tab-accordion-padding: 50px;
   clip: auto;
   max-height: 10000px;
   padding-bottom: 30px;
-  padding-top: 30px;
   padding-left: calc(#{$tab-accordion-padding} - 1rem);
+  padding-top: 30px;
   position: relative;
   visibility: visible;
 }
@@ -102,8 +103,7 @@ $tab-accordion-padding: 50px;
     width: 100%;
   }
 
-  .active &,
-  .tab-section:last-child & {
+  .active & {
     border-bottom: none;
   }
 }
@@ -131,8 +131,9 @@ $tab-accordion-padding: 50px;
     position: absolute;
     visibility: hidden;
 
-    &.active {
-      border-bottom: none;
+    &.active,
+    &.active:not(:last-of-type) {
+      border: 0;
       clip: auto;
       position: relative;
       visibility: visible;
