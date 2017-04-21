@@ -1,6 +1,6 @@
 <?php
 
-// Content Types
+/************* Content Types *****************/
 const CONTENT_TYPES = array(
 	array('post', 'posts'),
 	array('page', 'pages'),
