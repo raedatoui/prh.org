@@ -7,14 +7,14 @@
 			</div>
 		</div>
 	</div>
-	<div class="js-tab-accordion">
+	<div class="tab-accordion">
 		<div class="content">
-			<nav role="tablist" class="tab-accordion__nav">
+			<nav role="tablist" class="tab-nav">
 				<?php foreach ( $module[TAB_PANEL['repeater']] as $key => $tabContainer ): ?>
 					<?php $card = $tabContainer[TAB_PANEL['card']][0] ?>
-					<a class="js-tab-accordion-tab" href="#target-<?php echo $key + 1 ?>">
-						<span class="tab-accordion__nav-ordinal"><?php echo $key + 1 ?></span>
-						<span class="tab-accordion__nav-title"><?php echo $card[TAB_CARD['title']] ?></span>
+					<a class="tab-nav-title" href="#tab-target-<?php echo $key + 1 ?>">
+						<span class="tab-nav-ordinal"><?php echo $key + 1 ?></span>
+						<span class="tab-nav-copy"><?php echo $card[TAB_CARD['title']] ?></span>
 					</a>
 				<? endforeach; ?>
 			</nav>
@@ -22,15 +22,21 @@
 		<?php foreach ( $module[TAB_PANEL['repeater']] as $key => $tabContainer ): ?>
 			<?php $card = $tabContainer[TAB_PANEL['card']][0] ?>
 
-			<section id="target-<?php echo $key + 1 ?>" class="tab-accordion__section">
+			<section class="tab-section" id="tab-target-<?php echo $key + 1 ?>" >
 				<div class="content">
-					<h1 class="js-tab-accordion-title">
-						<svg class="icon--carat" role="presentation">
-							<use xlink:href="#icon--carat" />
-						</svg>
-						<?php echo $card[TAB_CARD['title']] ?>
-					</h1>
-					<div class="tab-accordion__inner row">
+					<h3 class="tab-section-title">
+						<button class="">
+							<svg class="icon--minus" role="presentation">
+								<use xlink:href="#icon--minus" />
+							</svg>
+
+							<svg class="icon--plus" role="presentation">
+								<use xlink:href="#icon--plus" />
+							</svg>
+							<?php echo $card[TAB_CARD['title']] ?>
+						</button>
+					</h3>
+					<div class="tab-inner row">
 						<div class="col-xs-12 col-md-4">
 							<p><?php echo $card[TAB_CARD['text']] ?></p>
 							<?php $cta = $card[TAB_CARD['cta']][0];  ?>

@@ -1,32 +1,16 @@
 $tab-color: $prh-cream-lightest;
+$tab-accordion-padding: 50px;
 
-.module__tabs {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.tab-accordion__nav {
-  display: none;
-}
-
-.js-tab-accordion {
-  background: $tab-color;
+.tab-accordion {
   padding-bottom: 32px;
   padding-top: 32px;
 }
 
-.js-tab-accordion-title {
-  border-bottom: 1px solid $base-font-blue;
-  cursor: pointer;
-  padding: 1rem;
-
-  .active &,
-  .tab-accordion__section:last-child & {
-    border-bottom: none;
-  }
+.tab-nav {
+  display: none;
 }
 
-.tab-accordion__nav-ordinal {
+.tab-nav-ordinal {
   @include lora();
   color: $prh-blue-lt;
   font-size: em(64px);
@@ -35,7 +19,7 @@ $tab-color: $prh-cream-lightest;
   margin-right: 25px;
 }
 
-.tab-accordion__nav-title {
+.tab-nav-title {
   @extend %eyebrow;
   align-content: flex-start;
   color: $prh-navy-lt;
@@ -44,7 +28,7 @@ $tab-color: $prh-cream-lightest;
   margin-top: 4px;
 }
 
-.tab-accordion__inner {
+.tab-inner {
   clear: both;
   clip: rect(0, 0, 0, 0);
   max-height: 0;
@@ -53,36 +37,93 @@ $tab-color: $prh-cream-lightest;
   visibility: hidden;
 }
 
-.tab-accordion__section {
+.tab-section {
   min-height: 0;
 
+  .icon--plus,
+  .icon--minus {
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-16px);
+  }
+
+  .icon--plus {
+    display: inline-block;
+  }
+
+  .icon--minus {
+    display: none;
+  }
+
   &.active {
+    border-bottom: $accordion-border;
     padding-bottom: 32px;
 
-    &:not(:last-child) {
-      border-bottom: 1px solid $base-font-blue;
+    .icon--plus {
+      display: none;
     }
+
+    .icon--minus {
+      display: inline-block;
+    }
+  }
+
+  &:first-of-type {
+    border-top: $accordion-border;
   }
 }
 
-.tab-accordion__section.active .tab-accordion__inner {
+.tab-section.active .tab-inner {
   clip: auto;
   max-height: 10000px;
+  padding-bottom: 30px;
+  padding-left: calc(#{$tab-accordion-padding} - 1rem);
+  padding-top: 30px;
   position: relative;
   visibility: visible;
 }
 
+.tab-section-title {
+  -webkit-appearance: none;
+  border-bottom: $accordion-border;
+  margin: 0;
+  position: relative;
+
+  button {
+    background: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    font: inherit;
+    padding: 30px 30px 30px $tab-accordion-padding;
+    position: relative;
+    text-align: left;
+    width: 100%;
+  }
+
+  .active & {
+    border-bottom: none;
+  }
+}
+
 @include responsive-mq("md") {
-  .js-tab-accordion {
+  .module__tabs {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .tab-accordion {
     background: transparent;
     padding: 0;
   }
 
-  .js-tab-accordion-title {
+  .tab-section-title {
     display: none;
   }
 
-  .tab-accordion__section {
+  .tab-section {
     background: $tab-color;
     clip: rect(0, 0, 0, 0);
     margin-bottom: 32px;
@@ -90,15 +131,16 @@ $tab-color: $prh-cream-lightest;
     position: absolute;
     visibility: hidden;
 
-    &.active {
-      border-bottom: none;
+    &.active,
+    &.active:not(:last-of-type) {
+      border: 0;
       clip: auto;
       position: relative;
       visibility: visible;
     }
   }
 
-  .tab-accordion__nav {
+  .tab-nav {
     border-bottom: none;
     display: flex;
     left: 0;
@@ -110,7 +152,7 @@ $tab-color: $prh-cream-lightest;
     width: 100%;
   }
 
-  .js-tab-accordion-tab {
+  .tab-nav-title {
     align-items: flex-start;
     display: flex;
     margin-right: 30px;

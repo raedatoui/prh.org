@@ -36,6 +36,13 @@ h3 {
   font-size: 28px;
 }
 
+.accordion-title,
+.tab-section-title {
+  @extend %h3;
+
+  font-size: 25px;
+}
+
 .underline {
   background-image: linear-gradient(to bottom, currentColor 33%, transparent 33%);
   background-position: 0 1.1em;
