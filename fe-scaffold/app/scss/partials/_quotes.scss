@@ -12,6 +12,8 @@ blockquote {
     font-style: italic;
     line-height: 1;
     margin-bottom: 0;
+    position: relative;
+    z-index: 1;
 
     &::before,
     &::after {
@@ -31,7 +33,7 @@ blockquote {
 
     &::after {
       background: url("../images/optimized/quote_end.svg") 0 0 no-repeat;
-      bottom: 116px;
+      bottom: 0;
       right: 30px;
       transform: rotate(23deg);
     }
