@@ -34,3 +34,52 @@
     color: #fff;
   }
 }
+
+
+// Curves in the bg! Currently scoped to certain templates to avoid any weird interactions,
+// but it'll be more global eventually.
+.hero ~ .module {
+
+  .page-template & {
+    padding-bottom: 9vw;
+    padding-top: 0;
+    position: relative;
+
+    &::before {
+      background: url("../images/optimized/beige-curve--wave.svg") repeat-x;
+      background-position: bottom center;
+      background-size: 100vw auto;
+      content: "";
+      display: block;
+      height: 10vw;
+      left: 0;
+      margin-top: 1px; // safer than using calc() to set the top offset
+      padding: 0;
+      position: absolute;
+      right: 0;
+      top: -10vw;
+    }
+  }
+
+  .page-template-issue & {
+    &:nth-child(even) {
+      background-color: $prh-pink-lt;
+
+      &::before {
+        background-image: url("../images/optimized/pink-curve--arc.svg");
+      }
+    }
+  }
+
+
+  .home & {
+    &:nth-child(odd) {
+      background-color: $prh-pink-lt;
+
+      &::before {
+        background-image: url("../images/optimized/pink-curve--arc.svg");
+      }
+    }
+  }
+}
+
