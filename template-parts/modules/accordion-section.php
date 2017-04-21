@@ -10,7 +10,15 @@
 			</header>
 
 			<?php foreach ( $group[ACCORDION_GROUP['items']] as $item ): ?>
-				<h3 class="accordion-title"><?php echo $item[ACCORDION_ITEM['title']]; ?></h3>
+				<h3 class="accordion-title">
+					<svg class="icon--minus" role="presentation">
+						<use xlink:href="#icon--minus" />
+					</svg>
+
+					<svg class="icon--plus" role="presentation">
+						<use xlink:href="#icon--plus" />
+					</svg>
+					<?php echo $item[ACCORDION_ITEM['title']]; ?></h3>
 				<div class="accordion-content">
 					<?php echo $item[ACCORDION_ITEM['content']]; ?>
 				</div>
