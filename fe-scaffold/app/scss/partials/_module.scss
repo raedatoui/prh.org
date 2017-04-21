@@ -53,10 +53,11 @@
       display: block;
       height: 10vw;
       left: 0;
+      margin-top: 1px; // safer than using calc() to set the top offset
       padding: 0;
       position: absolute;
       right: 0;
-      top: -9vw;
+      top: -10vw;
     }
   }
 
