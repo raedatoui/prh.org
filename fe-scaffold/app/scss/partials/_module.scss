@@ -38,8 +38,9 @@
 
 // Curves in the bg! Currently scoped to the homepage to avoid any weird interactions,
 // but it'll be more global eventually.
-.home {
-  .hero ~ .module {
+.hero ~ .module {
+  
+  .page-template & {
     padding-bottom: 9vw;
     padding-top: 0;
     position: relative;
@@ -57,7 +58,20 @@
       right: 0;
       top: -9vw;
     }
+  }
 
+  .page-template-issue & {
+    &:nth-child(even) {
+      background-color: $prh-pink-lt;
+
+      &::before {
+        background-image: url("../images/optimized/pink-curve--arc.svg");
+      }
+    }
+  }
+
+
+  .home & {
     &:nth-child(odd) {
       background-color: $prh-pink-lt;
 
@@ -67,3 +81,4 @@
     }
   }
 }
+
