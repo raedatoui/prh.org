@@ -16,6 +16,4 @@ get_header(); ?>
 	$page = new PageModules( get_the_ID() );
 	$page->render(); ?>
 
-<?php include( locate_template( 'template-parts/modules/accordion-group.php', false, false ) ); ?>
-
 <?php	get_footer();

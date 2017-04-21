@@ -1,9 +1,11 @@
+$accordion-border: 1px solid $border-color-blue;
+
 .accordion-group {
   margin-bottom: 60px;
 }
 
 .accordion-title {
-  border-bottom: 1px solid transparentize($prh-navy-lt, 0.75);
+  border-top: $accordion-border;
   margin-bottom: 0;
 
   button {
@@ -14,8 +16,50 @@
     display: block;
     font: inherit;
     margin: 0;
+    position: relative;
     text-align: left;
-    width: 100%;
+    width: 100%;   
+
+    &::before {
+      content: "+";
+      font-family: $roboto;
+      font-size: 50px;
+      font-weight: 100;
+      left: 0;
+      position: absolute;
+      speak: none;
+      top: calc(50% - 3px);
+      transform: translateY(-50%);
+    }
+
+    &[aria-expanded="true"] {
+      &::before {
+        content: "–";
+      }
+    }
+
+    @include responsive-mq(md) {
+      &::before {
+        font-size: 65px;
+        left: 60px;
+      }
+    }
+  }
+
+  // We have to get a little tricky to put a bottom border here
+  section > &:last-of-type {
+    + div {
+      border-bottom: $accordion-border;
+    }
+
+    button {
+      border-bottom: $accordion-border;
+      margin-bottom: -1px;
+
+      &[aria-expanded="true"] {
+        border-bottom: 0;
+      }
+    }
   }
 }
 
@@ -25,36 +69,6 @@
 
   @include responsive-mq(md) {
     padding-left: 170px;
-  }
-}
-
-[id*="accordion-label"] {
-
-  position: relative;
-
-  &::before {
-    content: "+";
-    font-family: $roboto;
-    font-size: 50px;
-    font-weight: 100;
-    left: 0;
-    position: absolute;
-    speak: none;
-    top: calc(50% - 3px);
-    transform: translateY(-50%);
-  }
-
-  &[aria-expanded="true"] {
-    &::before {
-      content: "–";
-    }
-  }
-
-  @include responsive-mq(md) {
-    &::before {
-      font-size: 65px;
-      left: 60px;
-    }
   }
 }
 
