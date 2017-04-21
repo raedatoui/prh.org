@@ -10,6 +10,7 @@ get_header(); ?>
 </section>
 
 <main class="content module row row-top">
+
 	<header class="col-md-12">
 		<h1><?php the_title(); ?></h1>
 
@@ -24,6 +25,7 @@ get_header(); ?>
 				echo '<p class="post-intro lead-copy">' . $intro . '</p>';
 			} ?>
 	</header>
+
 	<article class="main-content post-content col-md-9">
 			
 			<div class="post-body">
@@ -37,16 +39,10 @@ get_header(); ?>
 			</footer>
 	</article>
 
-	<div class="sidebar post-sidebar col-md-3">
-	</div>
+	<div class="sidebar post-sidebar col-md-3"></div>
 
 </main>
 
 
-
-	<?php
-		// $page = new PageModules( get_the_ID() );
-		// $page->render();
-	?>
 <?php
 get_footer();

@@ -2,15 +2,27 @@
 
 /************* Content Types *****************/
 const CONTENT_TYPES = array(
-	array('post', 'posts'),
-	array('page', 'pages'),
-	array('press_release', 'press_releases'),
-	array('phys_story', 'phys_stories'),
-	array('prh_ipaper', 'prh_ipapers'),
-	array('prh_update', 'prh_updates'),
-	array('prh_report', 'prh_reports'),
-	array('prh_news', 'prh_news'),
-	array('prh_events', 'prh_events')
+	array( 'post', 'posts' ),
+	array( 'page', 'pages'),
+	array( 'press_release', 'press_releases' ),
+	array( 'phys_story', 'phys_stories' ),
+	array( 'prh_ipaper', 'prh_ipapers' ),
+	array( 'prh_update', 'prh_updates' ),
+	array( 'prh_report', 'prh_reports' ),
+	array( 'prh_news', 'prh_news' ),
+	array( 'prh_events', 'prh_events' )
+);
+
+const CONTENT_TYPES_LABELS = array(
+	'post' => 'Articles',
+	'page' => 'Pages',
+	'press_release' => 'Press Release',
+	'phys_story' => 'Stories',
+	'prh_ipaper' => 'Legal Publications',
+	'prh_update' => 'Updates',
+	'prh_report' => 'Reports',
+	'prh_news' => 'In the News',
+	'prh_events' => 'Events'
 );
 
 /************* Components *****************/
@@ -188,18 +200,3 @@ const AGGREGATES = array(
 	AGGREGATE_BY_CATEGORY['name'],
 	AGGREGATE_BY_POST_TYPE['name']
 );
-
-const CUSTOM_POST_TYPES = array (
-	'press_release' => 'Press Release'
-);
-
-
-/************* Housekeeping *****************/
-const COMPONENTS_TO_UNSET = array(
-	'CTA',
-	'Module Options',
-	'Statistic',
-	'Spotlight Card',
-	'Tab Card'
-);
-

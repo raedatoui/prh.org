@@ -5,11 +5,13 @@ get_header(); ?>
 			$pt_object = get_post_type_object($post_type);
 			$pt_label = $pt_object->labels->singular_name;
 ?>
+
 <!-- placeholder hero so the content doesn't hit the nav -->
 <section class="hero module">
 </section>
 
 <main class="content module row row-top">
+
 	<header class="col-xs-12">
 		<h1><?php the_title(); ?></h1>
 
@@ -24,17 +26,18 @@ get_header(); ?>
 				echo '<p class="post-intro lead-copy">' . $intro . '</p>';
 			} ?>
 	</header>
+
 	<article class="main-content post-content col-xs-12 col-md-9">
-			
-			<div class="post-body">
-				<?php the_content(); ?>
-			</div>
 
-			<hr>
+		<div class="post-body">
+			<?php the_content(); ?>
+		</div>
 
-			<footer class="post-byline">
-				<?php the_field('post_byline'); ?>
-			</footer>
+		<hr>
+
+		<footer class="post-byline">
+			<?php the_field('post_byline'); ?>
+		</footer>
 	</article>
 
 	<div class="sidebar post-sidebar col-xs-12 col-md-3">
@@ -44,33 +47,25 @@ get_header(); ?>
 		// temporarily removed to avoid any QA confusion; uncomment to re-enable.
 		// $tags = get_the_tags($post->ID);
 		if ($tags):  ?>
-
 			<aside class="sidebar-block tags-block">
 				<div class="sidebar-content">
 					<h2 class="sidebar-header">Tagged</h2>
-					 <ul class="tags-list"> 
-		      <?php foreach($tags as $tag):  ?>
-						<li>
-			        <a class="tag"
-			            href="<?php bloginfo('url');?>/tag/<?php print_r($tag->slug);?>">
-			                  <?php print_r($tag->name); ?>
-			         </a>   
-			      </li>
-		      <?php endforeach; ?>
+					<ul class="tags-list">
+						<?php foreach($tags as $tag):  ?>
+							<li>
+								<a class="tag" href="<?php bloginfo('url');?>/tag/<?php print_r($tag->slug);?>">
+									<?php print_r($tag->name); ?>
+								</a>
+							</li>
+						<?php endforeach; ?>
 					</ul>
 				</div>
 			</aside>
-
 		<?php endif; ?>
 	</div>
 
 </main>
 
 
-
-	<?php
-		// $page = new PageModules( get_the_ID() );
-		// $page->render();
-	?>
 <?php
 get_footer();
