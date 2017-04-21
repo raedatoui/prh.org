@@ -32,3 +32,16 @@
 .icon--squiggle {
   @extend %svg;
 }
+
+.icon--plus {
+  @extend %svg;
+  height: 32px;
+  width: 32px;
+  fill: $base-font-blue;
+}
+
+.icon--minus {
+  @extend %svg;
+  height: 32px;
+  width: 32px;
+}

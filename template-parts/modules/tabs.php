@@ -22,12 +22,16 @@
 		<?php foreach ( $module[TAB_PANEL['repeater']] as $key => $tabContainer ): ?>
 			<?php $card = $tabContainer[TAB_PANEL['card']][0] ?>
 
-			<section id="tab-target-<?php echo $key + 1 ?>" class="tab-section">
+			<section class="tab-section" id="tab-target-<?php echo $key + 1 ?>" >
 				<div class="content">
 					<h3 class="tab-section-title">
 						<button class="">
-							<svg class="icon--carat" role="presentation">
-								<use xlink:href="#icon--carat" />
+							<svg class="icon--minus" role="presentation">
+								<use xlink:href="#icon--minus" />
+							</svg>
+
+							<svg class="icon--plus" role="presentation">
+								<use xlink:href="#icon--plus" />
 							</svg>
 							<?php echo $card[TAB_CARD['title']] ?>
 						</button>
