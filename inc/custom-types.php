@@ -1,17 +1,8 @@
 <?php
 
-const CONTENT_TYPES = array(
-	array('post', 'posts'),
-	array('page', 'pages'),
-	array('press_release', 'press_releases'),
-	array('phys_story', 'phys_stories'),
-	array('prh_ipaper', 'prh_ipapers'),
-	array('prh_update', 'prh_updates'),
-	array('prh_report', 'prh_reports'),
-	array('prh_news', 'prh_news')
-);
-
-/************* Custom Post Type - Press Release *****************/
+/**
+ * Press Release
+ */
 function press_release_type() {
 	// creating (registering) the custom type
 	register_post_type('press_release', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -38,8 +29,7 @@ function press_release_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon' => get_stylesheet_directory_uri() . '/images/admin/icons/custom-post-icon.png', /* the icon for the custom post type menu */
+			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
 			'rewrite' => array('slug' => 'press-release', 'with_front' => false), /* you can specify its url slug */
 			'has_archive' => 'press-release', /* you can rename the slug here */
 			'capability_type' => 'post',
@@ -55,7 +45,9 @@ function press_release_type() {
 }
 add_action('init', 'press_release_type');
 
-/************* Custom Post Type - Story *****************/
+/**
+ * Story
+ */
 function story_type() {
 	// creating (registering) the custom type
 	register_post_type('phys_story', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -82,8 +74,7 @@ function story_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon' => get_template_directory_uri() . '/images/admin/icons/phy_story_icon.png', /* the icon for the custom post type menu */
+			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
 			'rewrite' => array('slug' => 'stories', 'with_front' => false), /* you can specify its url slug */
 			'has_archive' => 'story', /* you can rename the slug here */
 			'capability_type' => 'post',
@@ -99,7 +90,9 @@ function story_type() {
 }
 add_action('init', 'story_type');
 
-/************* Custom Post Type - Legal publication *****************/
+/**
+ * Legal publication
+ */
 function publication_type() {
 	// creating (registering) the custom type
 	register_post_type('prh_ipaper', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -126,8 +119,7 @@ function publication_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon' => get_template_directory_uri() . '/images/admin/icons/scribd_documents_icon.png', /* the icon for the custom post type menu */
+			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
 			'rewrite' => array('slug' => 'legal-publications', 'with_front' => false), /* you can specify its url slug */
 			'has_archive' => 'legal-publication', /* you can rename the slug here */
 			'capability_type' => 'post',
@@ -143,8 +135,9 @@ function publication_type() {
 }
 add_action('init', 'publication_type');
 
-
-/************* Custom Post Type - Update *****************/
+/**
+ * Update
+ */
 function update_type() {
 	// creating (registering) the custom type
 	register_post_type('prh_update', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -171,8 +164,7 @@ function update_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon' => get_template_directory_uri() . '/images/admin/icons/scribd_documents_icon.png', /* the icon for the custom post type menu */
+			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
 			'rewrite' => array('slug' => 'updates', 'with_front' => false), /* you can specify its url slug */
 			'has_archive' => 'update', /* you can rename the slug here */
 			'capability_type' => 'post',
@@ -188,7 +180,9 @@ function update_type() {
 }
 add_action('init', 'update_type');
 
-/************* Custom Post Type - Report *****************/
+/**
+ * Report
+ */
 function report_type() {
 	// creating (registering) the custom type
 	register_post_type('prh_report', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -215,8 +209,7 @@ function report_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon' => get_template_directory_uri() . '/images/admin/icons/scribd_documents_icon.png', /* the icon for the custom post type menu */
+			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
 			'rewrite' => array('slug' => 'reports', 'with_front' => false), /* you can specify its url slug */
 			'has_archive' => 'report', /* you can rename the slug here */
 			'capability_type' => 'post',
@@ -232,7 +225,9 @@ function report_type() {
 }
 add_action('init', 'report_type');
 
-/************* Custom Post Type - PRH in The News *****************/
+/**
+ * PRH in The News
+ */
 function news_type() {
 	// creating (registering) the custom type
 	register_post_type('prh_news', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
@@ -259,8 +254,7 @@ function news_type() {
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon' => get_template_directory_uri() . '/images/admin/icons/scribd_documents_icon.png', /* the icon for the custom post type menu */
+			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
 			'rewrite' => array('slug' => 'news', 'with_front' => false), /* you can specify its url slug */
 			'has_archive' => 'news', /* you can rename the slug here */
 			'capability_type' => 'post',
@@ -275,40 +269,3 @@ function news_type() {
 	register_taxonomy_for_object_type('post_tag', 'prh_news');
 }
 add_action('init', 'news_type');
-
-// Register the column for modified date
-function prh_post_modified_column_register( $columns ) {
-	$columns['post_modified'] = __( 'Modified Date', 'mytextdomain' );
-	return $columns;
-}
-foreach( CONTENT_TYPES as $content_type) {
-	$manage = 'manage_edit-' . $content_type[0] . '_columns';
-	add_filter( $manage, 'prh_post_modified_column_register' );
-}
-
-// Display the modified date column content
-function prh_post_modified_column_display( $column_name, $post_id ) {
-	if ( 'post_modified' != $column_name ){
-		return;
-	}
-	$post_modified = get_post_field('post_modified', $post_id);
-	if ( !$post_modified ){
-		$post_modified = '' . __( 'undefined', 'mytextdomain' ) . '';
-	}
-	echo $post_modified;
-}
-foreach( CONTENT_TYPES as $content_type) {
-	$manage = 'manage_' . $content_type[1] . '_custom_column';
-	add_action( $manage, 'prh_post_modified_column_display', 10, 2 );
-}
-
-
-// Register the modified date column as sortable
-function prh_post_modified_column_register_sortable( $columns ) {
-	$columns['post_modified'] = 'post_modified';
-	return $columns;
-}
-foreach( CONTENT_TYPES as $content_type) {
-	$manage = 'manage_edit-' . $content_type[0] . '_sortable_columns';
-	add_filter( $manage, 'prh_post_modified_column_register_sortable' );
-}
