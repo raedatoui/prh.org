@@ -1,5 +1,18 @@
 <?php
 
+/************* Content Types *****************/
+const CONTENT_TYPES = array(
+	array('post', 'posts'),
+	array('page', 'pages'),
+	array('press_release', 'press_releases'),
+	array('phys_story', 'phys_stories'),
+	array('prh_ipaper', 'prh_ipapers'),
+	array('prh_update', 'prh_updates'),
+	array('prh_report', 'prh_reports'),
+	array('prh_news', 'prh_news'),
+	array('prh_events', 'prh_events')
+);
+
 /************* Components *****************/
 const MODULE_OPTIONS = array(
 	'order' => 'module_order',
