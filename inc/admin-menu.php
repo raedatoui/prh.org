@@ -81,8 +81,6 @@ function prh_custom_menu_order($menu_ord) {
 
 	return array(
 		'index.php',
-		'separator1', // First separator
-
 		'edit.php?post_type=page', // Pages
 		'edit.php', // Posts
 		'edit.php?post_type=press_release', // Press Release
@@ -92,35 +90,46 @@ function prh_custom_menu_order($menu_ord) {
 		'edit.php?post_type=prh_report', // Reports
 		'edit.php?post_type=prh_news', // News
 		'edit.php?post_type=prh_events', // Events
-		'separator2', // Second separator
+		'separator1', // First separator
 
 		'nav-menus.php',
 		'edit.php?post_type=acf-field-group', // Custom Fields
 		'upload.php', // Media
 		'users.php', // Users
-		'separator-last', // Last separator
+		'separator2', // Second separator
 
 		'themes.php', // Appearance
 		'plugins.php', // Plugins
-		'tools.php', // Tools
 		'options-general.php', // Settings
-
+		'tools.php', // Tools
+		'separator-last', // Last separator
     );
 }
-add_filter('custom_menu_order', 'prh_custom_menu_order');
-add_filter('menu_order', 'prh_custom_menu_order');
+add_filter( 'custom_menu_order', 'prh_custom_menu_order' );
+add_filter( 'menu_order', 'prh_custom_menu_order' );
 
-
+/**
+ * Remove the Menus submenu under Appearance
+ */
 function remove_submenus() {
 	global $submenu;
 	unset($submenu['themes.php'][10]); // Removes Menu
 }
-add_action('admin_menu', 'remove_submenus');
+add_action( 'admin_menu', 'remove_submenus' );
 
-
+/**
+ * Add the Menus to the top level and rename it to "Navigation".
+ */
 function new_nav_menu () {
 	global $menu;
-	$menu[99] = array('', 'read', 'separator', '', 'menu-top menu-nav');
-	add_menu_page(__('Navigation', 'nav-menus'), __('Navigation', 'nav-menus'), 'edit_themes', 'nav-menus.php', '', 'dashicons-menu', 15 );
+	$menu[99] = array( '', 'read', 'separator', '', 'menu-top menu-nav' );
+	add_menu_page(
+			__( 'Navigation', 'nav-menus' ),
+			__( 'Navigation', 'nav-menus' ),
+			'edit_themes',
+			'nav-menus.php',
+			'',
+			'dashicons-menu',
+			15 );
 }
-add_action('admin_menu', 'new_nav_menu');
+add_action( 'admin_menu', 'new_nav_menu' );
