@@ -12,7 +12,7 @@ get_header(); ?>
 
 		<footer class="post-meta">
 			<span class="post-type eyebrow"><?php echo $pt_label; ?> | </span>
-			<time class="post-date utility-copy"><?php the_date('M j, Y \a\t g:i A'); ?></time>
+			<time class="post-date utility-copy"><?php the_date('M j, Y'); ?></time>
 		</footer>
 
 		<h1><?php the_title(); ?></h1>
@@ -35,7 +35,7 @@ get_header(); ?>
 		<div class="post-body">
 			<?php the_content(); ?>
 		</div>
-		
+
 		<footer class="post-byline">
 			<?php the_field('post_byline'); ?>
 		</footer>
@@ -44,13 +44,11 @@ get_header(); ?>
 	<div class="sidebar post-sidebar col-xs-12 col-md-3">
 
 		<?php 
-		$tags = false;
-		// temporarily removed to avoid any QA confusion; uncomment to re-enable.
-		// $tags = get_the_tags($post->ID);
+		$tags = get_the_tags($post->ID);
 		if ($tags):  ?>
 			<aside class="sidebar-block tags-block">
 				<div class="sidebar-content">
-					<h2 class="sidebar-header">Tagged</h2>
+					<h2 class="sidebar-header">Tagged under</h2>
 					<ul class="tags-list">
 						<?php foreach($tags as $tag):  ?>
 							<li>
