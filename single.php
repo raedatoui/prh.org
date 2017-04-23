@@ -6,35 +6,36 @@ get_header(); ?>
 			$pt_label = $pt_object->labels->singular_name;
 ?>
 
-<!-- placeholder hero so the content doesn't hit the nav -->
-<section class="hero module">
-</section>
+<section class="hero article-hero module">
 
-<main class="content module row row-top">
-
-	<header class="col-xs-12">
-		<h1><?php the_title(); ?></h1>
+	<header class="col-xs-12 col-md-8">
 
 		<footer class="post-meta">
 			<span class="post-type eyebrow"><?php echo $pt_label; ?> | </span>
-			<time class="post-date eyebrow"><?php the_date('M j, Y \a\t g:i A'); ?></time>
+			<time class="post-date utility-copy"><?php the_date('M j, Y \a\t g:i A'); ?></time>
 		</footer>
+
+		<h1><?php the_title(); ?></h1>
 
 		<?php
 			$intro = get_the_excerpt();
 			if (!is_generated($intro)) {
-				echo '<p class="post-intro lead-copy">' . $intro . '</p>';
+				echo '<p>' . $intro . '</p>';
 			} ?>
 	</header>
+
+</section>
+
+<main class="content module row row-top">
+
+
 
 	<article class="main-content post-content col-xs-12 col-md-9">
 
 		<div class="post-body">
 			<?php the_content(); ?>
 		</div>
-
-		<hr>
-
+		
 		<footer class="post-byline">
 			<?php the_field('post_byline'); ?>
 		</footer>

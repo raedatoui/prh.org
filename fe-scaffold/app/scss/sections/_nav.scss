@@ -1,6 +1,5 @@
 // nav SECTION
 nav {
-  @extend %thin-text;
   @include roboto();
 
   border-bottom: 1px solid rgba(25, 25, 25, 0.2);
