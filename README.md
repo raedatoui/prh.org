@@ -11,11 +11,11 @@ This is the repository for the Wordpress theme for https://prh.org
 1. Download MAMP Pro: https://www.mamp.info/en/downloads/
 2. Download MySQL Client: https://sequelpro.com/
 3. Download Site content from MediaTemple:
-   1. Locate the SFTP password on Lynx: Departments > Technology > Brooklyn George > PRH
+   1. Locate the SFTP password on Lynx: Departments > Technology > Brooklyn George > PRH > PRH Dev SFTP
    2. Using an FTP client (Cyberduck, FileZilla, Transmit), login with with credentials obtained in step 1.
-   3. Navigate to `/var/www/vhosts/prh.org`
-   4. Drag and drop the `httpdocs` to your local project directory
-4. Export a current snapshot of the wordpress database
+   3. Navigate to `/home/k44d3969443140/html/wp-content/uploads`
+   4. Drag and drop the `uploads` to your local wordpress uploads directory and replace it
+4. Export a current snapshot of the wordpress database (or grab it from Raed)
    1. Locate the Plesk panel login in Lynx. Notice you will get an SSL warning
    2. Click on _Databases_ in the left sidebar
    3. Under _wordpress_8, click on the _Export Dump_ link and keep the directory as the _Root directory_. Also check the _Automatically download dump after creation_
