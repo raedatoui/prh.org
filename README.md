@@ -28,17 +28,12 @@ This is the repository for the Wordpress theme for https://prh.org
 #### Setup Host
 
 1. Launch MAMP Pro
-2. Create a new host and name is `prh.org`
-3. In the right panel, click on the _SSL_ tab, enable SSL
-4. Generate SSL certificates:
-   1. Click on the _Create self-signed certificate_ button
-   2. Fill out form and use: `US` for the country code, and fill out the rest of the form
-   3. Save the certificates in a directory next to the `httpdocs` directory you previously downloaded.
+2. Create a new host and name is `154.0d0.mwp.accessdomain.com`
 
-#### Donwload PHP 5.3.5
+#### Donwload PHP 5.6.27
 
 1. Click on _PHP_ under the _Languages_ section in the left menu
-2. Click on the _+_ icon, find _PHP 5.3.5_ and install it.
+2. Click on the _+_ icon, find _PHP 5.6.27_ and install it.
 
 #### Configure Ports
 
