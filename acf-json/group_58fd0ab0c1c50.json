@@ -1,0 +1,131 @@
+{
+    "key": "group_58fd0ab0c1c50",
+    "title": "Media Contact",
+    "fields": [
+        {
+            "key": "field_58fd0ab7ac2c0",
+            "label": "Enabled",
+            "name": "media_contact_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_58fd0ad7ac2c1",
+            "label": "Name",
+            "name": "media_contact_name",
+            "type": "text",
+            "instructions": "Who is the media contact for this piece?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58fd0ab7ac2c0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Jane Doe",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_58fd0b41ac2c2",
+            "label": "Email",
+            "name": "media_contact_email",
+            "type": "email",
+            "instructions": "If this contact has an email address, enter it here.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58fd0ab7ac2c0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "jane.doe@prh.org",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_58fd0b73ac2c3",
+            "label": "Phone",
+            "name": "media_contact_phone",
+            "type": "text",
+            "instructions": "If this media contact has a phone number, enter it here.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58fd0ab7ac2c0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "(555) 867-5309",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "default"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "is_acf_component": 0,
+    "modified": 1492978667
+}
