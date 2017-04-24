@@ -12,16 +12,16 @@ if ( !function_exists('prh_wp_theme_setup') ):
 		/*
 		 * Make theme available for translation.
 		*/
-		load_theme_textdomain('prh-wp-theme', get_template_directory() . '/languages');
-		add_theme_support('automatic-feed-links');
-		add_theme_support('title-tag');
-		add_theme_support('post-thumbnails');
+		load_theme_textdomain('prh-wp-theme', get_template_directory() . '/languages' );
+		add_theme_support('automatic-feed-links' );
+		add_theme_support('title-tag' );
+		add_theme_support('post-thumbnails' );
 
 		register_nav_menus(array(
-			'menu-1' => esc_html__('Primary', 'prh-wp-theme'),
+			'menu-1' => esc_html__('Primary', 'prh-wp-theme' ),
 		));
 
-		add_theme_support('html5', array(
+		add_theme_support( 'html5', array(
 			'search-form',
 			'comment-form',
 			'comment-list',
@@ -29,56 +29,56 @@ if ( !function_exists('prh_wp_theme_setup') ):
 			'caption',
 		));
 
-		add_theme_support('customize-selective-refresh-widgets');
+		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		//http://cubiq.org/clean-up-and-optimize-wordpress-for-your-next-theme
-		remove_action('wp_head', 'wlwmanifest_link');
-		remove_action('wp_head', 'wp_generator');
-		remove_action('wp_head', 'rsd_link');
-		remove_action('wp_head', 'wp_shortlink_wp_head');
-		remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10);
-		add_filter('the_generator', '__return_false');
+		remove_action( 'wp_head', 'wlwmanifest_link' );
+		remove_action( 'wp_head', 'wp_generator' );
+		remove_action( 'wp_head', 'rsd_link' );
+		remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10);
+		add_filter('the_generator', '__return_false' );
 		remove_action('wp_head', 'print_emoji_detection_script', 7);
-		remove_action('wp_print_styles', 'print_emoji_styles');
-		add_filter('emoji_svg_url', '__return_false');
-		remove_action('wp_head', 'rest_output_link_wp_head');
-		remove_action('wp_head', 'wp_oembed_add_discovery_links');
-		add_filter('user_can_richedit', '__return_true');
+		remove_action('wp_print_styles', 'print_emoji_styles' );
+		add_filter('emoji_svg_url', '__return_false' );
+		remove_action('wp_head', 'rest_output_link_wp_head' );
+		remove_action('wp_head', 'wp_oembed_add_discovery_links' );
+		add_filter( 'user_can_richedit', '__return_true' );
 	}
 
 endif;
-add_action('after_setup_theme', 'prh_wp_theme_setup');
+add_action( 'after_setup_theme', 'prh_wp_theme_setup' );
 
 /**
  * Register widget area.
  */
 function prh_wp_theme_widgets_init() {
 	register_sidebar(array(
-		'name' => esc_html__('Sidebar', 'prh-wp-theme'),
+		'name' => esc_html__( 'Sidebar', 'prh-wp-theme' ),
 		'id' => 'sidebar-1',
-		'description' => esc_html__('Add widgets here.', 'prh-wp-theme'),
+		'description' => esc_html__('Add widgets here.', 'prh-wp-theme' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget' => '</section>',
 		'before_title' => '<h2 class="widget-title">',
 		'after_title' => '</h2>',
 	));
 }
-add_action('widgets_init', 'prh_wp_theme_widgets_init');
+add_action( 'widgets_init', 'prh_wp_theme_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
 function prh_wp_theme_scripts() {
 	wp_enqueue_style( 'prh-wp-theme-style', get_template_directory_uri() . '/css/main.css' );
-	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto+Condensed:700|Roboto:400,400i,700,700i');
+	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto+Condensed:700|Roboto:400,400i,700,700i' );
 
 	// TODO: check if this is needed
 	wp_enqueue_script('prh-wp-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
 
-	wp_deregister_script('jquery');
-	wp_deregister_script('wp-embed');
+	wp_deregister_script( 'jquery' );
+	wp_deregister_script( 'wp-embed' );
 }
-add_action('wp_enqueue_scripts', 'prh_wp_theme_scripts');
+add_action( 'wp_enqueue_scripts', 'prh_wp_theme_scripts' );
 
 /**
  * Custom functions & features from the theme.
@@ -112,8 +112,8 @@ function echo_theme_uri() {
  * but if they don't, we shouldn't output the automatic one. 
  * If we change the [...] used in auto-excerpts, this needs to be updated.
  */
-function is_generated($excerpt) {
-	return (substr($excerpt, -1) == ']');
+function is_generated( $excerpt ) {
+	return( substr( $excerpt, -1 ) == ']' );
 }
 
 /**
@@ -122,7 +122,7 @@ function is_generated($excerpt) {
  * $before and $after = html to surround the var, if set
  */
 function echo_wrapped( $var, $before='', $after='' ) {
-	if ($var == null || $var == '') {
+	if ( $var == null || $var == '' ) {
 		return;
 	}
 	echo $before . $var . $after;
