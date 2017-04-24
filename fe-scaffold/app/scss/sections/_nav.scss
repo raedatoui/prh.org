@@ -1,19 +1,37 @@
 // nav SECTION
-nav {
-  @extend %thin-text;
-  @include roboto();
+.site-header {
+  background-color: $prh-blue-lt;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  .admin-bar & {
+    top: 32px;
+  }
+}
 
-  border-bottom: 1px solid rgba(25, 25, 25, 0.2);
+.site-nav {
+  // border-bottom: 1px solid rgba(25, 25, 25, 0.2);
+  border-bottom: 1px solid transparentize(#fff, 0.75);
   color: #fff;
   font-size: em(16px);
   font-weight: $light;
-  left: 50%;
   letter-spacing: 0.05em;
+  margin: auto;
   max-width: $base-page-max-width;
   padding: 25px 0;
-  position: fixed;
-  transform: translateX(-50%);
-  width: ( 100% - ( $base-gutter * 2 ) );
+
+  a {
+    color: #fff;
+    padding: 0 1em;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
 }
 
 .secondary-nav-list { //ul
@@ -22,15 +40,6 @@ nav {
 
   li {
     text-align: center;
-  }
-
-  a {
-    color: #fff;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 
@@ -41,24 +50,4 @@ img {
 
 .logo {
   max-width: 236px;
-}
-
-
-//MEDIA QUERY HANDLER
-@include responsive-mq("xs") {
-
-}
-
-@include responsive-mq("sm") {
-  .secondary-nav-list {
-    width: 90%;
-  }
-}
-
-@include responsive-mq("md") {
-
-}
-
-@include responsive-mq("lg") {
-
 }

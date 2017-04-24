@@ -2,33 +2,33 @@ $mob-header-height: 180px;
 
 //HERO SECTION
 .hero {
-  background-image: $gradient-radial-blue;
+  background-image: $gradient-linear-blue;
   color: $base-font-white;
-
-  // tweak this once the top curve is defined
-  // padding-bottom: 200px;
-  padding-bottom: 15vw;
   padding-top: $mob-header-height;
   text-align: center;
 
   .hero__subhead {
-    @extend %thin-text;
-    font-size: 18px;
-    font-weight: $thin;
-    letter-spacing: 0.09em;
     margin-top: 15px;
     padding: 20px 0;
   }
 
   .hero__link {
-    color: #fff;
+    color: inherit;
     text-decoration: none;
   }
-
 }
 
 @include responsive-mq("sm") {
   .hero {
     padding-top: 150px;
+  }
+}
+
+
+.article-hero {
+  text-align: left;
+
+  h1 {
+    margin-bottom: 20px;
   }
 }

@@ -23,7 +23,7 @@ $prh-periwinkle: #6877ba;
 
 
 //GRADIENTS
-$gradient-linear-blue: linear-gradient(to right, $prh-blue-lt 0%, $prh-blue-dk 100%);
+$gradient-linear-blue: linear-gradient(to bottom, $prh-blue-lt 25%, $prh-blue-dk 100%);
 $gradient-radial-blue: radial-gradient(farthest-corner at 150px 150px , $prh-blue-lt 0%, $prh-blue-dk 100%);
 
 $gradient-linear-pink: linear-gradient(to bottom, $prh-pink-lt 0%, $prh-pink-dk 75%);

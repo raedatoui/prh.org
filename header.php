@@ -28,26 +28,22 @@
 		<![endif]-->
 
 		<div class="page-container">
-			<header>
-				<nav>
-					<ul class="main-nav-list row bottom-xs">
-						<li class="col-xs-12 col-sm-3 col-md-3 logo-item">
-							<a href="/"><img class="logo" alt="" src="<?php echo_theme_uri(); ?>/images/optimized/prh_nav_logo.svg" /></a>
-						</li>
-						<li class="col-xs-12 col-sm-8 col-md-7">
-							<ul class="secondary-nav-list row">
+			<header role="banner" class="site-header">
+				<nav role="navigation" class="site-nav row middle-xs">
+						<a href="/" class="col-sm-3 col-md-3">
+							<img class="logo" alt="" src="<?php echo_theme_uri(); ?>/images/optimized/prh_nav_logo.svg" />
+						</a>
+						<ul class="col-xs-12 col-sm-8 col-md-7 row middle-xs">
 								<?php
 									$menu_items = wp_get_nav_menu_items("main-menu");
 									foreach ( (array) $menu_items as $key => $menu_item ) {
 										$title = $menu_item->title;
 										$url = $menu_item->url;
-										_e('<li class="col-xs-12 col-sm-3"><a href="' . $url . '">' . $title . '</a></li>');
+										_e('<li><a href="' . $url . '">' . $title . '</a></li>');
 									}
 								?>
-							</ul>
-						</li>
-						<li class="col-xs-12 col-sm-1 col-md-2" style="text-align: right;">Donate</li>
-					</ul>
+						</ul>
+						<div class="col-xs-12 col-sm-1 col-md-2" style="text-align: right;">Donate</div>
 					<?php //get_search_form(); ?>
 				</nav>
 

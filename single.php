@@ -6,34 +6,35 @@ get_header(); ?>
 			$pt_label = $pt_object->labels->singular_name;
 ?>
 
-<!-- placeholder hero so the content doesn't hit the nav -->
-<section class="hero module">
-</section>
+<section class="hero article-hero module">
 
-<main class="content module row row-top">
-
-	<header class="col-xs-12">
-		<h1><?php the_title(); ?></h1>
+	<header class="col-xs-12 col-md-8">
 
 		<footer class="post-meta">
 			<span class="post-type eyebrow"><?php echo $pt_label; ?> | </span>
-			<time class="post-date eyebrow"><?php the_date('M j, Y \a\t g:i A'); ?></time>
+			<time class="post-date utility-copy"><?php the_date('M j, Y'); ?></time>
 		</footer>
+
+		<h1><?php the_title(); ?></h1>
 
 		<?php
 			$intro = get_the_excerpt();
 			if (!is_generated($intro)) {
-				echo '<p class="post-intro lead-copy">' . $intro . '</p>';
+				echo '<p>' . $intro . '</p>';
 			} ?>
 	</header>
+
+</section>
+
+<main class="content module row row-top">
+
+
 
 	<article class="main-content post-content col-xs-12 col-md-9">
 
 		<div class="post-body">
 			<?php the_content(); ?>
 		</div>
-
-		<hr>
 
 		<footer class="post-byline">
 			<?php the_field('post_byline'); ?>
@@ -42,14 +43,33 @@ get_header(); ?>
 
 	<div class="sidebar post-sidebar col-xs-12 col-md-3">
 
-		<?php 
-		$tags = false;
-		// temporarily removed to avoid any QA confusion; uncomment to re-enable.
-		// $tags = get_the_tags($post->ID);
+	<!-- Media contact -->
+	<?php
+		$show_media_contact = get_field('media_contact_enabled');
+		if ($show_media_contact): 
+			$email_link = get_field('media_contact_email');
+			$phone_link = get_field('media_contact_phone');
+			$email_url = '<a class="contact-link" href="mailto:' . $email_link . '" rel="author">';
+			$phone_url = '<a class="contact-link" href="tel:' . $phone_link . '" rel="author">';
+		?>
+
+		<aside class="sidebar-block media-contact-block">
+			<div class="sidebar-content">
+				<h2 class="sidebar-header">Media contact</h2>
+				<?php echo_wrapped($email_link, $email_url, '</a>' ); ?>
+				<?php echo_wrapped($phone_link, $phone_url, '</a>' ); ?>
+			</div>
+		</aside>
+	<?php endif; ?>
+
+
+	<!-- Tags -->
+	<?php 
+		$tags = get_the_tags($post->ID);
 		if ($tags):  ?>
 			<aside class="sidebar-block tags-block">
 				<div class="sidebar-content">
-					<h2 class="sidebar-header">Tagged</h2>
+					<h2 class="sidebar-header">Tagged under</h2>
 					<ul class="tags-list">
 						<?php foreach($tags as $tag):  ?>
 							<li>
@@ -62,10 +82,9 @@ get_header(); ?>
 				</div>
 			</aside>
 		<?php endif; ?>
+
 	</div>
-
 </main>
-
 
 <?php
 get_footer();
