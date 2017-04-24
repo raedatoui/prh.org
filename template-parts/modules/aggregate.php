@@ -1,6 +1,6 @@
 <?php
 	$query = $module['query'];
-	$dateFormat =  get_option( 'date_format' );
+	$date_format =  get_option( 'date_format' );
 ?>
 <section class="module module__aggregate-card">
 	<div class="content">
