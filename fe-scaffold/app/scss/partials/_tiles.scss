@@ -2,13 +2,13 @@
   margin-bottom: 1rem;
   text-decoration: none;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  @include responsive-mq("md") {
-    margin-bottom: 0;
-  }
+  //&:last-child {
+  //  margin-bottom: 0;
+  //}
+  //
+  //@include responsive-mq("md") {
+  //  margin-bottom: 0;
+  //}
 }
 
 .tile__container {
