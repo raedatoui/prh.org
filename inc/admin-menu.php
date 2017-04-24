@@ -64,22 +64,25 @@ function prh_replace_admin_menu_icons_css() {
 add_action( 'admin_head', 'prh_replace_admin_menu_icons_css' );
 
 /**
- * Action that renames Posts to Articles
+ * Action that renames Posts to Articles in the admin sidebar.
  */
 function prh_admin_menu_rename_posts() {
 	global $menu; // Global to get menu array
 	global $submenu;
 	$menu[5][0] = 'Articles'; // Change name of posts to articles
-    $submenu['edit.php'][5][0] = 'Articles';
-    $submenu['edit.php'][10][0] = 'Add Articles';
-    $submenu['edit.php'][16][0] = 'Articles Tags';
+    $submenu['edit.php'][5][0] = 'All Articles';
+    $submenu['edit.php'][10][0] = 'Add New';
+    $submenu['edit.php'][16][0] = 'Tags';
 }
 add_action( 'admin_menu', 'prh_admin_menu_rename_posts' );
 
-
+/**
+ * Action that renames all admin labels for Posts to display "Articles" instead.
+ */
 function prh_change_post_object() {
 	global $wp_post_types;
 	$labels = &$wp_post_types['post']->labels;
+
 	$labels->name = 'Articles';
 	$labels->singular_name = 'Article';
 	$labels->add_new = 'Add New';
@@ -87,10 +90,18 @@ function prh_change_post_object() {
 	$labels->edit_item = 'Edit Article';
 	$labels->new_item = 'Article';
 	$labels->view_item = 'View Article';
+	$labels->view_items = 'View Articles';
 	$labels->search_items = 'Search Articles';
 	$labels->not_found = 'No Articles found';
 	$labels->not_found_in_trash = 'No Articles found in Trash';
 	$labels->all_items = 'All Articles';
+	$labels->archives = 'Article Archives';
+	$labels->attributes = 'Article Attributes';
+	$labels->insert_into_item = 'Insert into article';
+	$labels->uploaded_to_this_item = 'Uploaded to this article';
+	$labels->filter_items_list = 'Filter articles list';
+	$labels->items_list_navigation = 'Articles list navigation';
+	$labels->items_list = 'Articles list';
 	$labels->menu_name = 'Articles';
 	$labels->name_admin_bar = 'Articles';
 }
