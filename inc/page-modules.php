@@ -106,6 +106,7 @@ class PageModules {
 		switch ( $module['config']['name'] ) {
 			case AGGREGATE_BY_CATEGORY['name']:
 				$args['cat'] = $module[AGGREGATE_BY_CATEGORY['category']];
+				$args['post_type'] = CONTENT_TYPES_FOR_AGGREGATION;
 				$args['posts_per_page'] = $module[AGGREGATE_BY_CATEGORY['count']];
 				break;
 			case AGGREGATE_BY_POST_TYPE['name']:
