@@ -29,8 +29,6 @@ get_header(); ?>
 
 <main class="content module row row-top">
 
-
-
 	<article class="main-content post-content col-xs-12 col-md-9">
 
 		<div class="post-body">

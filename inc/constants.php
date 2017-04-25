@@ -25,6 +25,17 @@ const CONTENT_TYPES_LABELS = array(
 	'prh_events' => 'Events'
 );
 
+const CONTENT_TYPES_FOR_AGGREGATION = array(
+	'post',
+	'press_release',
+	'phys_story',
+	'prh_ipaper',
+	'prh_update',
+	'prh_report',
+	'prh_news',
+	'prh_events'
+);
+
 /************* Components *****************/
 const MODULE_OPTIONS = array(
 	'order' => 'module_order',
