@@ -6,10 +6,9 @@ var accordion = {
 		this.targets = document.querySelectorAll('.accordion-content');
 
 		var toggle = function(ev) {
-			let button = ev.target,
+			let button = ev.currentTarget,
 					target = document.querySelector('[aria-labelledby=accordion-label-' + button.getAttribute('aria-controls') + ']'),
 					state = (button.getAttribute('aria-expanded') == 'false' || false)? true : false;
-
 			target.classList.toggle('is-active');
 			button.setAttribute('aria-expanded', state);
 			target.setAttribute('aria-hidden', !state);
