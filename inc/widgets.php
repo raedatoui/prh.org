@@ -17,15 +17,25 @@ class prh_media_contact_widget extends WP_Widget {
 	// Creating widget front-end
 	// This is where the action happens
 	public function widget( $args, $instance ) {
-		$title = apply_filters( 'widget_title', $instance['title'] );
+		$name = apply_filters( 'widget_name', $instance['name'] );
+		$email = apply_filters( 'widget_email', $instance['email'] );
+		$phone = apply_filters( 'widget_phone', $instance['phone'] );
+
 		// before and after widget arguments are defined by themes
-		echo $args['before_widget'];
-		if ( ! empty( $title ) )
-			echo $args['before_title'] . $title . $args['after_title'];
+//		echo $args['before_widget'];
+
+		if ( ! empty( $name ) )
+			echo "<p>" . $name . "</p>";
+
+		if ( ! empty( $email ) )
+			echo '<a class="contact-link" href="mailto:' . $email . '" rel="author">' . $email . '</a>';
+
+		if ( ! empty( $phone ) )
+			echo '<a class="contact-link" href="tel:'  . $phone . '" rel="author">' . $phone . '</a>';
 
 		// This is where you run the code and display the output
-		echo __( 'Hello, World!', 'prh_media_contact_widget_domain' );
-		echo $args['after_widget'];
+		echo __( '', 'prh_media_contact_widget_domain' );
+//		echo $args['after_widget'];
 	}
 
 	// Widget Backend
@@ -82,7 +92,9 @@ class prh_media_contact_widget extends WP_Widget {
 	// Updating widget replacing old instances with new
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['name'] = ( ! empty( $new_instance['name'] ) ) ? strip_tags( $new_instance['name'] ) : '';
+		$instance['email'] = ( ! empty( $new_instance['email'] ) ) ? strip_tags( $new_instance['email'] ) : '';
+		$instance['phone'] = ( ! empty( $new_instance['phone'] ) ) ? strip_tags( $new_instance['phone'] ) : '';
 		return $instance;
 	}
 } // Class prh_media_contact_widget ends here
@@ -92,3 +104,45 @@ function prh_load_widgets() {
 	register_widget( 'prh_media_contact_widget' );
 }
 add_action( 'widgets_init', 'prh_load_widgets' );
+
+
+function prh_get_widget_data_for( $index = 1 ) {
+	global $wp_registered_sidebars, $wp_registered_widgets;
+
+	// Holds the final data to return
+	$output = array();
+
+	if ( is_int( $index ) ) {
+		$index = "sidebar-$index";
+	} else {
+		$index = sanitize_title( $index );
+		foreach ( (array) $wp_registered_sidebars as $key => $value ) {
+			if ( sanitize_title( $value['name'] ) == $index ) {
+				$index = $key;
+				break;
+			}
+		}
+	}
+
+	// A nested array in the format $sidebar_id => array( 'widget_id-1', 'widget_id-2' ... );
+	$sidebars_widgets = wp_get_sidebars_widgets();
+
+	if ( empty( $sidebars_widgets[ $index ] ) || empty( $sidebars_widgets[ $index ] ) || ! is_array( $sidebars_widgets[ $index ] ) ) {
+		return array();
+	} else {
+		// Loop over each widget_id so we can fetch the data out of the wp_options table.
+		foreach( $sidebars_widgets[ $index ] as $id ) {
+			// The name of the option in the database is the name of the widget class.
+			$option_name = $wp_registered_widgets[$id]['callback'][0]->option_name;
+
+			// Widget data is stored as an associative array. To get the right data we need to get the right key which is stored in $wp_registered_widgets
+			$key = $wp_registered_widgets[$id]['params'][0]['number'];
+
+			$widget_data = get_option($option_name);
+
+			// Add the widget data on to the end of the output array.
+			$output[] = (object) $widget_data[$key];
+		}
+		return $output;
+	}
+}
