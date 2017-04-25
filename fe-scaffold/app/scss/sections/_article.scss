@@ -55,6 +55,10 @@
 .main-content {
   figure {
     margin: 40px auto;
+    max-width: 100% !important;
+    img {
+      width: 100%;
+    }
   }
 
   @include responsive-mq(sm) {
