@@ -1,7 +1,7 @@
 <svg class="svg-assets visually-hidden" xmlns="http://www.w3.org/2000/svg">
   <symbol id="icon--carat" viewBox="0 0 40 50">
     <style>.st0{fill:none;stroke-width:2;stroke-miterlimit:10}</style>
-    <path class="st0" d="M10.9 6.5l18.3 18-18.3 18"/><
+    <path class="st0" d="M10.9 6.5l18.3 18-18.3 18"/>
   </symbol>
 
   <symbol id="icon--close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.91 33.91">
