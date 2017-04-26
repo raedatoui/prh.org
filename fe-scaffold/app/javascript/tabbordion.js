@@ -24,8 +24,8 @@ const KEY_CODES = {
 		init() {
 			this.breakPoint = 977;
 			let hash = location.hash.slice(1) || null;
-			this.tabs = [].slice.call(this.DOMElement.querySelectorAll(this.settings.tabClass));
-			this.titles = [].slice.call(this.DOMElement.querySelectorAll(this.settings.titleClass));
+			this.tabs = Array.prototype.slice.call(this.DOMElement.querySelectorAll(this.settings.tabClass));
+			this.titles = Array.prototype.slice.call(this.DOMElement.querySelectorAll(this.settings.titleClass));
 
 			this.targets = this.tabs.map(el => {
 				return document.getElementById(el.getAttribute('href').substr(1)) || console.error('Tab target not found');
