@@ -1,6 +1,6 @@
 'use strict';
 
-import 'polyfills';
+import './polyfills';
 import TweenMax from 'gsap/TweenMax';
 import EasePack from 'gsap/EasePack';
 import Flickity from 'flickity-imagesloaded';
