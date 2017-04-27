@@ -1,0 +1,27 @@
+.routing-block {
+  background: $prh-cream-lightest;
+  margin-bottom: 40px;
+
+  @include responsive-mq(md) {
+    margin-bottom: 0;
+  }
+}
+
+.routing-content,
+.routing-title {
+  padding: 1rem 1rem 0;
+}
+
+.routing-title {
+  color: $prh-blue-lt;
+}
+
+.routing-ctas {
+  border-top: 1px solid #ccc;
+  padding: 1rem;
+
+  a {
+    display: block;
+    padding: .5em 0;
+  }
+}
