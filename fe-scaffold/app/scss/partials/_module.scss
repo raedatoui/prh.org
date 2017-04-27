@@ -1,13 +1,13 @@
 .module {
   padding: $module-padding-xs;
 
-  @include responsive-mq(lg) {
-    padding: $module-padding-lg $module-padding-xs;
-  }
-
   img {
     height: auto;
     max-width: 100%;
+  }
+
+  @include responsive-mq(lg) {
+    padding: $module-padding-lg $module-padding-xs;
   }
 }
 
@@ -87,12 +87,3 @@
     }
   }
 }
-
-@include responsive-mq("sm") {
-  .module {
-    img {
-      width: auto;
-    }
-  }
-}
-
