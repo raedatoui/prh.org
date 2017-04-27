@@ -263,21 +263,21 @@ const KEY_CODES = {
 		toggle(i) {
 			if(this.current === i) {
 				if (window.innerWidth < this.breakPoint) {
-					let stateChange = this.tabs[i].getAttribute('aria-selected') === 'true' ? 'close' : 'open';
+					let stateChange = this.tabs[i].classList.contains('active')  ? 'close' : 'open';
 					this.change(stateChange, i);
 					return;
 				}
 				return;
 			}
 
-			// !!window.history.pushState && window.history.pushState({ URL: this.tabs[i].getAttribute('href') }, '', this.tabs[i].getAttribute('href'));
+			//!!window.history.pushState && window.history.pushState({ URL: this.tabs[i].getAttribute('href') }, '', this.tabs[i].getAttribute('href'));
 			if(this.current === null) {
 				this.open(i);
 				return this;
 			}
 
 			if (window.innerWidth < this.breakPoint) {
-				let stateChange = this.tabs[i].getAttribute('aria-selected') === 'true' ? 'close' : 'open';
+				let stateChange = this.tabs[i].classList.contains('active') ? 'close' : 'open';
 				this.change(stateChange, i);
 				this.current = i;
 			}
