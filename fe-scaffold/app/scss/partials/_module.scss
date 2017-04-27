@@ -48,7 +48,7 @@
     &::before {
       background: url("../images/optimized/beige-curve--wave.svg") repeat-x;
       background-position: bottom center;
-      background-size: 100vw auto;
+      background-size: 105vw auto; // slightly over-wide to avoid gaps at the edges
       content: "";
       display: block;
       height: 10vw;
