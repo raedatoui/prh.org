@@ -5,6 +5,7 @@ $mob-header-height: 180px;
   background-image: $gradient-linear-blue;
   color: $base-font-white;
   padding-top: $mob-header-height;
+  padding-bottom: 11vw; // creates space for curves
   text-align: center;
 
   .hero__subhead {
