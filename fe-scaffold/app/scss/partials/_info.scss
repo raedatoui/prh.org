@@ -11,18 +11,8 @@
 }
 
 .columns-1 {
-  .info-module--component {
-    @extend .row;
-  }
-
-  .info-module__img {
-    @extend .col-xs-12;
-    @extend .col-md-5;
-  }
-
-  .info-module__info {
-    @extend .col-xs-12;
-    @extend .col-md-7;
+  img {
+    margin: auto;
   }
 }
 
