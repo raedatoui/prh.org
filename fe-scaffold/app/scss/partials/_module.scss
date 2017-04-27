@@ -4,6 +4,11 @@
   @include responsive-mq(lg) {
     padding: $module-padding-lg $module-padding-xs;
   }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
 }
 
 %module-title {
@@ -79,6 +84,14 @@
       &::before {
         background-image: url("../images/optimized/pink-curve--arc.svg");
       }
+    }
+  }
+}
+
+@include responsive-mq("sm") {
+  .module {
+    img {
+      width: auto;
     }
   }
 }

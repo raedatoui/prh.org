@@ -44,20 +44,7 @@
   }
 }
 
-section.module {
-  img {
-    width: auto;
-  }
-}
-
 .logo {
   max-width: 236px;
 }
 
-@include responsive-mq("sm") {
-  section.module {
-    img {
-      width: 100%;
-    }
-  }
-}
