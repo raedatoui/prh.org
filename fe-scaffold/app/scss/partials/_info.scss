@@ -7,7 +7,12 @@
 
 .info-module__img {
   align-self: center;
+  text-align: center;
+  margin-bottom: 40px;
 
+  @include responsive-mq(md) {
+    margin-bottom: 0;
+  }
 }
 
 .columns-1 {
