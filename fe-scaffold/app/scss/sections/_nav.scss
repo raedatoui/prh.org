@@ -1,11 +1,12 @@
 // nav SECTION
 .site-header {
   background-color: $prh-blue-lt;
-  position: fixed;
-  top: 0;
   left: 0;
+  position: fixed;
   right: 0;
+  top: 0;
   z-index: 1;
+
   .admin-bar & {
     top: 32px;
   }
@@ -43,13 +44,7 @@
   }
 }
 
-
-section.module {
-  img {
-    width: 100%;
-  }
-}
-
 .logo {
   max-width: 236px;
 }
+

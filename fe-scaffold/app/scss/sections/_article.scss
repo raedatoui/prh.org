@@ -6,8 +6,8 @@
     @extend h3;
 
     color: $prh-blue-lt;
-    font-weight: normal;
     font-style: italic;
+    font-weight: normal;
 
     &:last-child {
       margin-bottom: 0;
@@ -20,8 +20,8 @@
 
     &::before,
     &::after {
-      background-size: 50%;
       background-position: center;
+      background-size: 50%;
     }
   }
 
@@ -56,6 +56,7 @@
   figure {
     margin: 40px auto;
     max-width: 100%;
+
     img {
       width: 100%;
     }
@@ -116,7 +117,7 @@
   margin-top: 80px;
   padding-top: 20px;
 
-  p { 
-    font-size: em(14px); 
+  p {
+    font-size: em(14px);
   }
 }
