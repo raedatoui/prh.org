@@ -78,7 +78,7 @@ get_header(); ?>
 						<?php foreach( $tags as $tag ):  ?>
 							<li>
 								<a class="tag" href="<?php bloginfo('url' );?>/tag/<?php print_r( $tag->slug );?>">
-									<?php print_r( $tag->name . ' ' . $tag->count ); ?>
+									<?php print_r( $tag->name . ' (' . $tag->count . ')' ); ?>
 								</a>
 							</li>
 						<?php endforeach; ?>
