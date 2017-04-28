@@ -1,4 +1,4 @@
-<section class="overview module">
+<section class="overview module" id="<?php echo $module_title; ?>">
 	<div class="content">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 
@@ -30,7 +30,7 @@
 			</section>
 
 			<!-- Resource links component -->
-			<aside class="sidebar resources-sidebar col-xs-12 col-md-3 col-md-offset-1">
+			<aside class="sidebar 	resources-sidebar col-xs-12 col-md-3 col-md-offset-1">
 				<div class="sidebar-content resources-content">
 
 					<h2 class="sidebar-header resources-header">

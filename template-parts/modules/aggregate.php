@@ -2,7 +2,7 @@
 	$query = $module['query'];
 	$date_format =  get_option( 'date_format' );
 ?>
-<section class="module module__aggregate-card">
+<section class="module module__aggregate-card" id="<?php echo $module_title; ?>">
 	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<div class="row">

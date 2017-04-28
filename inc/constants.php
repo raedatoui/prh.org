@@ -97,13 +97,21 @@ const CAROUSEL_MODULE = array(
 	'template' => 'template-parts/modules/carousel.php'
 );
 
-const HERO_MODULE = array(
-	'enabled' => 'hero_enabled',
-	'name' => 'Hero',
-	'options' => 'hero_options',
+const HOMEPAGE_HERO_MODULE = array(
+	'name' => 'Homepage Hero',
+	'title' => 'hero_title',
 	'header' => 'hero_header',
 	'text' => 'hero_text',
-	'template' => 'template-parts/modules/hero.php'
+	'template' => 'template-parts/modules/homepage-hero.php'
+);
+
+const PAGE_HERO_MODULE = array(
+	'name' => 'Page Hero',
+	'header' => 'hero_header',
+	'jump_links' => 'hero_jump_links',
+	'jump_link_title' => 'hero_jump_link_title',
+	'jump_link_ref' => 'hero_jump_link_ref',
+	'template' => 'template-parts/modules/page-hero.php'
 );
 
 const STATISTICS_MODULE = array(
@@ -195,7 +203,8 @@ const ACCORDION_SECTION = array(
 /************* Mappings *****************/
 const MODULES = array(
 	CAROUSEL_MODULE['name'] => CAROUSEL_MODULE,
-	HERO_MODULE['name'] => HERO_MODULE,
+	HOMEPAGE_HERO_MODULE['name'] => HOMEPAGE_HERO_MODULE,
+	PAGE_HERO_MODULE['name'] => PAGE_HERO_MODULE,
 	STATISTICS_MODULE['name'] => STATISTICS_MODULE,
 	AGGREGATE_BY_POST_TYPE['name'] => AGGREGATE_BY_POST_TYPE,
 	AGGREGATE_BY_CATEGORY['name'] => AGGREGATE_BY_CATEGORY,
@@ -210,4 +219,9 @@ const MODULES = array(
 const AGGREGATES = array(
 	AGGREGATE_BY_CATEGORY['name'],
 	AGGREGATE_BY_POST_TYPE['name']
+);
+
+const HEROS = array(
+	HOMEPAGE_HERO_MODULE['name'],
+	PAGE_HERO_MODULE['name']
 );
