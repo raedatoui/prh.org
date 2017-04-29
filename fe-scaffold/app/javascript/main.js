@@ -8,7 +8,7 @@ import TabAccordion from './tabbordion';
 import modernizr from './modernizr.js';
 import collapsible from './collapsible.js';
 import accordion from './accordion.js';
-
+import macy from 'macy';
 
 function init(){
 
@@ -32,6 +32,22 @@ function init(){
 			titleClass: '.tab-section-title',
 			currentClass: 'active',
 			active: 0
+		});
+	}
+	
+	let cards = document.querySelector('.module__aggregate-card');
+	if (cards) {
+		macy.init({
+			container: '.macy-grid',
+			trueOrder: false,
+			waitForImages: false,
+			margin: 0,
+			columns: 3,
+			breakAt: {
+				1200: 3,
+				978: 2,
+				760: 1,
+			}
 		});
 	}
 
