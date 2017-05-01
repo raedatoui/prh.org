@@ -28,7 +28,7 @@
 		<![endif]-->
 
 		<div class="page-container">
-			<header role="banner" class="site-header">
+			<header role="banner" class="site-header" id="site-header">
 				<nav role="navigation" class="site-nav row middle-xs">
 						<a href="/" class="col-sm-3 col-md-3">
 							<img class="logo" alt="" src="<?php echo_theme_uri(); ?>/images/optimized/prh_nav_logo.svg" />
@@ -39,3 +39,4 @@
 				</nav>
 
 			</header>
+			<div class="nav-mask" id="nav-mask"></div>

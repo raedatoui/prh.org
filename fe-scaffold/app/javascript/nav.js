@@ -20,12 +20,11 @@ var nav = {
           for (var i = 0; i < $menuItems.length; i++) {
             if($target !== $menuItems[i]) {
               $menuItems[i].classList.remove('is-expanded');
-              }
+            }
           }
 
           $target.classList.toggle('is-expanded');
         };
-
 
     for (var i = 0; i < $triggers.length; i++) {
       let trigger = $triggers[i];
