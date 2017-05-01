@@ -61,6 +61,14 @@
   width: 50px;
 }
 
+.cta--link:hover {
+  outline: none;
+}
+
+.cta--link:focus {
+  outline: 1px dotted;
+}
+
 .cta--link:hover,
 .cta--link:focus {
   color: $prh-red;
