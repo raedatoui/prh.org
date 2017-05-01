@@ -8,6 +8,7 @@ import TabAccordion from './tabbordion';
 import modernizr from './modernizr.js';
 import collapsible from './collapsible.js';
 import accordion from './accordion.js';
+import nav from './nav.js';
 
 
 function init(){
@@ -22,6 +23,7 @@ function init(){
 		});
 	}
 
+	nav.init();
 	accordion.init();
 	collapsible.init();
 

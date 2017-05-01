@@ -21,11 +21,15 @@
   letter-spacing: 0.05em;
   margin: auto;
   max-width: $base-page-max-width;
-  padding: 25px 0;
+
+  .menu {
+    display: flex;
+  }
 
   a {
     color: #fff;
-    padding: 0 1em;
+    display: block;
+    padding: 25px 1em;
     text-decoration: none;
 
     &:hover {
@@ -33,14 +37,27 @@
     }
   }
 
+  .sub-menu {
+    background: $prh-blue-lt;
+    display: none;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
+
+  .is-expanded .sub-menu {
+    display: block;
+  }
 }
 
-.secondary-nav-list { //ul
-  max-width: 510px;
-  width: 100%;
+.sub-menu li {
+  border-bottom: 1px solid transparentize(#fff, 0.85);
+  max-width: $base-page-max-width;
+  margin: auto;
 
-  li {
-    text-align: center;
+  &:last-child {
+    border-bottom: 0;
   }
 }
 
