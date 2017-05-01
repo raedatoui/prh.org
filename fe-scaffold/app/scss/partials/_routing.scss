@@ -68,9 +68,6 @@
 .routing-block {
   background: $prh-cream-lightest;
   margin-bottom: 40px;
-  @include responsive-mq(md) {
-    margin-bottom: 0;
-  }
 }
 
 .routing-content {
