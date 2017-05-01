@@ -1,27 +1,108 @@
+.routing-row {
+
+  > div {
+    position: relative;
+  }
+
+  > div::before,
+  > div::after {
+    content: "";
+    display: none;
+    position: absolute;
+
+    @include responsive-mq(md) {
+      display: block;
+    }
+  }
+
+  > :first-child {
+    &::before {
+      background-image: url("../images/optimized/blue-donut.png");
+      height: 92px;
+      left: -45px;
+      top: 100px;
+      width: 92px;
+    }
+  }
+
+  > :nth-child(3n + 2) {
+    z-index: 2;
+
+    &::before {
+      background-image: url("../images/optimized/tan-disc.png");
+      height: 74px;
+      left: -40px;
+      top: 50%;
+      transform: rotateZ(0deg);
+      width: 74px;
+      z-index: -1;
+    }
+
+    &::after {
+      background-image: url("../images/optimized/red-disc.png");
+      height: 109px;
+      right: -40px;
+      top: -45px;
+      transform: rotateZ(0deg);
+      width: 109px;
+      z-index: -1;
+    }
+  }
+
+  > :last-child {
+    z-index: 1;
+
+    &::before {
+      background-image: url("../images/optimized/blue-donut.png");
+      bottom: 10px;
+      height: 92px;
+      right: -40px;
+      transform: rotateZ(0deg);
+      width: 92px;
+      z-index: -1;
+    }
+  }
+
+
+//   background: url("../images/optimized/blue-donut.png") left 50%,
+//              url("../images/optimized/tan-disc.png") 40% 55%,
+//              url("../images/optimized/red-disc.png") 70% 5%,
+//               url("../images/optimized/blue-donut.png") right 90%;
+  // background: url("../images/optimized/blue-donut.png") 100% 90%;
+  // background-repeat: no-repeat;
+//   background-size: auto;
+}
+
+
 .routing-block {
   background: $prh-cream-lightest;
   margin-bottom: 40px;
-
   @include responsive-mq(md) {
     margin-bottom: 0;
   }
 }
 
-.routing-content,
-.routing-title {
-  padding: 1rem 1rem 0;
+.routing-content {
+  padding: 50px;
 }
 
 .routing-title {
   color: $prh-blue-lt;
+  font-weight: 400;
+
+  @include responsive-mq(md) {
+    font-size: 44px;
+  }
 }
 
 .routing-ctas {
   border-top: 1px solid #ccc;
-  padding: 1rem;
+  font-size: em(18px);
+  padding: 30px 50px;
 
   a {
-    display: block;
-    padding: .5em 0;
+    // just to make focus outlines a little nicer
+    left: -20px;
+    padding-left: 20px;
   }
 }
