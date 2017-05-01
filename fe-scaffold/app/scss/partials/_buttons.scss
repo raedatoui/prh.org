@@ -13,19 +13,21 @@
   text-decoration: none;
   text-transform: uppercase;
 
-  &:hover {
-    cursor: pointer;
+  &:hover,
+  &:focus {
+    color: #fff;
   }
 
-  &::after {
-    background: url("../images/optimized/button_arrow-lilac.svg") 0 0 no-repeat;
-    content: " ";
-    height: 30px;
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-14px);
-    width: 50px;
+  &:hover {
+    background: $prh-navy-dk;
+  }
+
+  &:focus {
+    background: $prh-red;
+
+    &::after {
+      background: url("../images/optimized/button_arrow-white.svg") 0 0 no-repeat;
+    }
   }
 }
 
@@ -41,11 +43,36 @@
   margin-top: 40px;
 }
 
+.cta--link {
+  display: block;
+  padding: 14px 70px 14px 0;
+  position: relative;
+}
+
+.cta--link::after,
+.cta::after {
+  background: url("../images/optimized/button_arrow-lilac.svg") 0 0 no-repeat;
+  content: " ";
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-14px);
+  width: 50px;
+}
+
+.cta--link:hover,
+.cta--link:focus {
+  color: $prh-red;
+
+  &::after {
+    background-image: url("../images/optimized/button_arrow-red.svg");
+  }
+}
 
 @include responsive-mq("md") {
   .cta {
     display: inline-block;
     font-size: em(13px);
   }
-
 }

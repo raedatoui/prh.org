@@ -2,17 +2,24 @@
   margin-bottom: 1rem;
   text-decoration: none;
 
-  //&:last-child {
-  //  margin-bottom: 0;
-  //}
-  //
-  //@include responsive-mq("md") {
-  //  margin-bottom: 0;
-  //}
+  &:focus,
+  &:hover {
+    outline: none;
+
+    .tile__container {
+      background: $prh-cream-lightest;
+    }
+  }
+
+  &:focus {
+    .tile__container {
+      outline: 1px dotted $prh-blue-lt;
+    }
+  }
 }
 
 .tile__container {
-  background: #fff5ed;
+  background: $prh-cream-lt;
   color: #999;
   padding: 25px 35px;
 }

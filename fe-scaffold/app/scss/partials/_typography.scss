@@ -69,6 +69,16 @@ p {
   margin-bottom: em(20px, 18px);
 }
 
+a {
+  color: $prh-blue-lt;
+
+  &:hover,
+  &:focus {
+    color: $prh-red;
+    outline: 1px dotted;
+  }
+}
+
 .lead-copy {
   @extend %headline;
   font-size: em(22px);

@@ -22,10 +22,15 @@ $accordion-border: 1px solid $border-color-blue;
 
     .icon--plus,
     .icon--minus {
-      left: 0;
+      left: 10px;
       position: absolute;
       top: 50%;
-      transform: translateY(-16px);
+      transform: translateY(-16px) scale(.8);
+
+      @include responsive-mq(md) {
+        left: 50px;
+        transform: translateY(-16px);
+      }
     }
 
     .icon--plus {
@@ -44,6 +49,11 @@ $accordion-border: 1px solid $border-color-blue;
       .icon--minus {
         display: inline-block;
       }
+    }
+
+    &:focus {
+      background: $prh-cream-lightest;
+      outline: 1px dotted $prh-blue-lt;
     }
   }
 
