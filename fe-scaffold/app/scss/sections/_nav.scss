@@ -31,9 +31,9 @@
   background: url("../images/optimized/logo-small.png") center no-repeat;
   background-size: contain;
   height: 22px;
-  width: 41px;
-  position: relative;
   left: $module-padding-xs;
+  position: relative;
+  width: 41px;
 
   @include responsive-mq(lg) {
     background-image: url("../images/optimized/logo-large.png");
@@ -201,7 +201,7 @@
   position: fixed;
 }
 
-#wp-admin-bar-site-name a.ab-item {
+#wp-admin-bar-site-name .ab-item {
   max-width: 100px;
 }
 
