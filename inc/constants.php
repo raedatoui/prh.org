@@ -14,15 +14,15 @@ const CONTENT_TYPES = array(
 );
 
 const CONTENT_TYPES_LABELS = array(
-	'post' => 'Articles',
-	'page' => 'Pages',
+	'post' => 'Article',
+	'page' => 'Page',
 	'press_release' => 'Press Release',
-	'phys_story' => 'Stories',
-	'prh_ipaper' => 'Legal Publications',
-	'prh_update' => 'Updates',
-	'prh_report' => 'Reports',
+	'phys_story' => 'Story',
+	'prh_ipaper' => 'Legal Publication',
+	'prh_update' => 'Update',
+	'prh_report' => 'Report',
 	'prh_news' => 'In the News',
-	'prh_events' => 'Events'
+	'prh_events' => 'Event'
 );
 
 const CONTENT_TYPES_FOR_AGGREGATION = array(
