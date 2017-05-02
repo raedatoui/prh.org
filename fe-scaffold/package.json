@@ -6,6 +6,7 @@
   "dependencies": {
     "flickity-imagesloaded": "^2.0.0",
     "gsap": "^1.19.1",
+    "macy": "^1.1.2",
     "storm-tab-accordion": "^1.0.1"
   },
   "devDependencies": {

@@ -5,7 +5,7 @@
 <section class="module module__aggregate-card">
 	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
-		<div class="row">
+		<div class="row macy-grid">
 			<?php
 				while ($query->have_posts()):
 					$query->the_post();
