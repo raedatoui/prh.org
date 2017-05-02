@@ -1,11 +1,12 @@
 <?php
 /**
- * Template name: Issue Page
+ * Template name: About Us Page
  */
 
 get_header(); ?>
 
 <?php
+
 	$page = new PageModules( get_the_ID() );
 	$page->init();
 	$page->hero = array(
@@ -14,6 +15,5 @@ get_header(); ?>
 		'hero_jump_links' => $page->module_titles()
 	);
 	$page->render();
-?>
 
-<?php	get_footer(); ?>
+	get_footer();
