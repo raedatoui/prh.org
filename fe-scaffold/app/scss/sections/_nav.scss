@@ -9,6 +9,7 @@
 
   svg {
     stroke: #fff;
+    width: 30px;
   }
 }
 
@@ -20,12 +21,7 @@
   justify-content: space-between;
   margin: auto;
   max-width: $base-page-max-width;
-
-  @include responsive-mq(md) {
-    flex-wrap: nowrap;
-  }
 }
-
 
 .logo {
   background: url("../images/optimized/logo-small.png") center no-repeat;
@@ -34,17 +30,10 @@
   left: $module-padding-xs;
   position: relative;
   width: 41px;
-
-  @include responsive-mq(lg) {
-    background-image: url("../images/optimized/logo-large.png");
-    height: 40px;
-    left: 0;
-    width: 220px;
-  }
 }
 
 .site-nav {
-  // border-bottom: 1px solid rgba(25, 25, 25, 0.2);
+  background-color: $prh-blue-dk;
   color: #fff;
   display: none;
   flex: 1 0 100%;
@@ -59,11 +48,6 @@
 
   .menu {
     display: block;
-
-    @include responsive-mq(md) {
-      display: flex;
-      flex-direction: row;
-    }
   }
 
   a:not(.cta) {
@@ -83,9 +67,6 @@
     left: 0;
     right: 0;
     top: 100%;
-    @include responsive-mq(md) {
-      position: absolute;
-    }
   }
 
   .is-expanded .sub-menu {
@@ -110,7 +91,14 @@
 
   a {
     @include lora;
-    font-size: 28px;
+    font-size: 22px;
+    text-indent: 1ch;
+
+    &:hover,
+    &:focus {
+      background: $prh-blue-highlight;
+      color: $prh-pink-darkest;
+    }
   }
 }
 
@@ -119,10 +107,36 @@
 }
 
 .nav-ui {
+  align-items: center;
+  display: inline-flex;
+  justify-content: space-between;
   position: relative;
   right: $module-padding-xs;
+
+  a,
+  button {
+    margin-right: 25px;
+  }
+
+  .menu-btn {
+    margin-right: 0;
+  }
 }
 
+
+
+// Nav mask, to allow clicks outside to close the menu
+
+.is-expanded + .nav-mask {
+  // background: transparentize($prh-cream-lt, 0.5);
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
 
 
 @include responsive-mq(md) {
@@ -134,7 +148,19 @@
     svg { height: 30px; }
   }
 
+  .logo {
+    background-image: url("../images/optimized/logo-large.png");
+    height: 40px;
+    left: 0;
+    width: 220px;
+  }
+
+  .site-nav-wrap {
+    flex-wrap: nowrap;
+  }
+
   .site-nav {
+    background-color: transparent;
     display: flex;
     flex: 1;
   }
@@ -148,12 +174,24 @@
     width: auto;
   }
 
-  .menu a {
-    border-bottom-width: 0;
+  .site-nav .menu {
+    display: flex;
+    flex-direction: row;
   }
 
-  .sub-menu a {
-    border-bottom-width: 1px;
+  .menu {
+    a {
+      border-bottom-width: 0;
+    }
+  }
+
+  .sub-menu {
+    position: absolute;
+
+    a {
+      border-bottom-width: 1px;
+      text-indent: 0;
+    }
   }
 
   .menu > li > a {
@@ -177,7 +215,6 @@
         background: #fff;
       }
     }
-
   }
 
   .menu > .is-expanded > a,
@@ -186,32 +223,4 @@
       background: $prh-red;
     }
   }
-
-  .sub-menu a:hover,
-  .sub-menu a:focus {
-    background: $prh-blue-highlight;
-    color: $prh-pink-darkest;
-  }
 }
-
-
-// Handle the wp-admin bar
-
-#wpadminbar {
-  position: fixed;
-}
-
-#wp-admin-bar-site-name .ab-item {
-  max-width: 100px;
-}
-
-.admin-bar .site-header {
-  padding-top: 45px;
-}
-
-@media (min-width: 780px) {
-  .admin-bar .site-header {
-    padding-top: 32px;
-  }
-}
-
