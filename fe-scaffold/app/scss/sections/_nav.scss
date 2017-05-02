@@ -23,7 +23,12 @@
   max-width: $base-page-max-width;
 
   .menu {
-    display: flex;
+    display: block;
+
+    @include responsive-mq(md) {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   a {
@@ -37,9 +42,11 @@
     background: $prh-blue-lt;
     display: none;
     left: 0;
-    position: absolute;
     right: 0;
     top: 100%;
+    @include responsive-mq(md) {
+      position: absolute;
+    }
   }
 
   .is-expanded .sub-menu {
@@ -47,9 +54,13 @@
   }
 }
 
+
+.menu-main-menu-container {
+  width: 100%;
+}
+
 .sub-menu {
   li {
-    border-bottom: 1px solid transparentize(#fff, 0.85);
     max-width: $base-page-max-width;
     margin: auto;
 
@@ -64,43 +75,65 @@
   }
 }
 
-.menu > li > a {
-  position: relative;
-  &::after {
-    width: 80%;
-    display: block;
-    content: "";
-    height: 2px;
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    margin-top: 1em;
+.menu a {
+  border-bottom: 1px solid transparentize(#fff, 0.85);
+}
+
+
+@include responsive-mq(md) {
+
+  .menu-main-menu-container {
+    width: auto;
   }
 
-   &:hover {
+  .menu a {
+    border-bottom-width: 0;
+  }
+
+  .sub-menu a {
+    border-bottom-width: 1px;
+  }
+
+  .menu > li > a {
+    position: relative;
     &::after {
-      background: #fff;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 0;
+      margin: auto;
+      margin-top: 1em;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 80%;
+    }
+
+     &:hover {
+      &::after {
+        background: #fff;
+      }
+    }
+
+  }
+
+  .menu > .is-expanded > a,
+  .menu > li > a:focus {
+    &::after {
+      background: $prh-red;
     }
   }
 
-}
-
-.menu > .is-expanded > a,
-.menu > li > a:focus {
-  &::after {
-    background: $prh-red;
+  .sub-menu a:hover,
+  .sub-menu a:focus {
+    background: $prh-blue-highlight;
+    color: $prh-pink-darkest;
   }
 }
 
-.sub-menu a:hover,
-.sub-menu a:focus {
-  background: $prh-blue-highlight;
-  color: $prh-pink-darkest;
-}
 
 .logo {
   max-width: 236px;
+  width: 100%;
 }
 
