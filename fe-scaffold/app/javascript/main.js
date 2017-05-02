@@ -8,8 +8,7 @@ import TabAccordion from './tabbordion';
 import modernizr from './modernizr.js';
 import collapsible from './collapsible.js';
 import accordion from './accordion.js';
-import nav from './nav.js';
-
+import macy from 'macy';
 
 function init(){
 
@@ -23,7 +22,6 @@ function init(){
 		});
 	}
 
-	nav.init();
 	accordion.init();
 	collapsible.init();
 
@@ -35,6 +33,24 @@ function init(){
 			currentClass: 'active',
 			active: 0
 		});
+	}
+	
+	let cards = document.querySelectorAll('.macy-grid');
+	if (cards.length > 0) {
+		for(let i = 0; i < cards.length; i++) {
+			macy.init({
+				container: '#'+cards[i].id,
+				trueOrder: false,
+				waitForImages: false,
+				margin: 0,
+				columns: 3,
+				breakAt: {
+					1200: 3,
+					978: 2,
+					760: 1,
+				}
+			});
+		}
 	}
 
 }

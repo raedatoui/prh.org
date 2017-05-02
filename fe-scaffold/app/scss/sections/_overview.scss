@@ -60,6 +60,11 @@
     &:hover {
       color: $prh-blue-lt;
     }
+
+    &:focus {
+      background: $prh-cream-lightest;
+      color: $prh-red;
+    }
   }
 }
 
