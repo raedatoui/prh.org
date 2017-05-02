@@ -1,5 +1,5 @@
 .module {
-  padding: $module-padding-xs;
+  padding: $module-padding-xs*2 $module-padding-xs;
 
   img {
     flex-basis: auto;
@@ -8,7 +8,7 @@
   }
 
   @include responsive-mq(lg) {
-    padding: $module-padding-lg $module-padding-xs;
+    padding: $module-padding-lg $module-padding-xs*2;
   }
 }
 
