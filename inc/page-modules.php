@@ -8,7 +8,7 @@
 class PageModules {
 	public $modules;
 	public $keys;
-	private $hero;
+	public $hero;
 
 	function __construct( $post_id ) {
 		$groups = acf_get_field_groups( array( 'post_id' => $post_id ) );
@@ -24,6 +24,9 @@ class PageModules {
 			}
 		}
 		$this->modules = $modules;
+	}
+
+	function init() {
 		$has_hero = array_intersect( array_keys( $this->modules ), HEROS );
 		if ( count( $has_hero )  > 0 ) {
 			$hero_key = $has_hero[key( $has_hero )];
@@ -93,6 +96,13 @@ class PageModules {
 			return ($x < $y) ? -1 : 1;
 		};
 		uasort( $this->modules, $cmp );
+	}
+
+	function module_titles() {
+		$func = function ( $module ) {
+			return $module['config'][MODULE_OPTIONS['title']];
+		};
+		return array_map( $func, $this->modules );
 	}
 
 	function render() {

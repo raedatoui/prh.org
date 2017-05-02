@@ -116,8 +116,6 @@ const PAGE_HERO_MODULE = array(
 	'name' => 'Page Hero',
 	'header' => 'hero_header',
 	'jump_links' => 'hero_jump_links',
-	'jump_link_title' => 'hero_jump_link_title',
-	'jump_link_ref' => 'hero_jump_link_ref',
 	'template' => 'template-parts/modules/page-hero.php'
 );
 
