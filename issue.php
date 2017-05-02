@@ -6,8 +6,8 @@
 get_header(); ?>
 
 <?php
-
 	$page = new PageModules( get_the_ID() );
 	$page->render();
+?>
 
-	get_footer();
+<?php	get_footer(); ?>

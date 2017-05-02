@@ -81,6 +81,13 @@ const ACCORDION_GROUP = array(
 	'items' => 'accordion_group_items'
 );
 
+const ROUTING_BLOCK = array(
+	'title' => 'routing_block_title',
+	'text' => 'routing_block_text',
+	'links' => 'routing_block_links',
+	'link_url' => 'routing_block_link_url',
+	'link_text' => 'routing_block_link_text'
+);
 
 /************* Modules *****************/
 const CAROUSEL_MODULE = array(
@@ -199,6 +206,14 @@ const ACCORDION_SECTION = array(
 	'template' => 'template-parts/modules/accordion-section.php'
 );
 
+const ROUTING_MODULE = array(
+	'enabled' => 'routing_module_enabled',
+	'name' => 'Routing Module',
+	'options' => 'routing_module_options',
+	'repeater' => 'routing_blocks',
+	'template' => 'template-parts/modules/routing-module.php'
+);
+
 
 /************* Mappings *****************/
 const MODULES = array(
@@ -213,7 +228,8 @@ const MODULES = array(
 	SPOTLIGHT_1_MODULE['name'] => SPOTLIGHT_1_MODULE,
 	SPOTLIGHT_3_MODULE['name'] => SPOTLIGHT_3_MODULE,
 	TAB_PANEL['name'] => TAB_PANEL,
-	ACCORDION_SECTION['name'] => ACCORDION_SECTION
+	ACCORDION_SECTION['name'] => ACCORDION_SECTION,
+	ROUTING_MODULE['name'] => ROUTING_MODULE
 );
 
 const AGGREGATES = array(

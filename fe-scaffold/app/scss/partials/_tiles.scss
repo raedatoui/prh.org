@@ -1,19 +1,27 @@
 .aggregate-tile {
-  margin-bottom: 1rem;
+  padding-bottom: 1.2rem;
   text-decoration: none;
 
-  //&:last-child {
-  //  margin-bottom: 0;
-  //}
-  //
-  //@include responsive-mq("md") {
-  //  margin-bottom: 0;
-  //}
+  &:focus,
+  &:hover {
+    outline: none;
+
+    .tile__container {
+      background-color: #fff;
+    }
+  }
+
+  &:focus {
+    .tile__container {
+      outline: 1px dotted $prh-blue-lt;
+    }
+  }
 }
 
 .tile__container {
-  background: #fff5ed;
+  background-color: $prh-cream-lightest;
   color: #999;
+  cursor: pointer;
   padding: 25px 35px;
 }
 
@@ -39,7 +47,7 @@
 }
 
 .tile__source {
-  background: $prh-navy-dk;
+  background-color: $prh-navy-dk;
   border-radius: 50%;
   height: 36px;
   overflow: hidden;

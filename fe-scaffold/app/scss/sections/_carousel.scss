@@ -16,10 +16,24 @@
   text-decoration: none;
   width: auto;
 
+  &:hover,
+  &:focus {
+    color: inherit;
+
+    .slide-cta {
+      color: $prh-red;
+    }
+  }
+
+  &:focus {
+    outline: 1px dotted $prh-blue-lt;
+    outline-offset: -8px;
+  }
+
   @include responsive-mq("sm") {
     align-items: stretch;
     flex-direction: row;
-    padding: 0 60px;
+    padding: 20px 60px;
   }
 }
 
