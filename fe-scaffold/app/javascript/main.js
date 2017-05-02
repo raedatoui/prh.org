@@ -8,7 +8,7 @@ import TabAccordion from './tabbordion';
 import modernizr from './modernizr.js';
 import collapsible from './collapsible.js';
 import accordion from './accordion.js';
-import macy from 'macy';
+import Macy from 'macy';
 
 function init(){
 
@@ -38,7 +38,7 @@ function init(){
 	let cards = document.querySelectorAll('.macy-grid');
 	if (cards.length > 0) {
 		for(let i = 0; i < cards.length; i++) {
-			macy.init({
+			var instance = Macy({
 				container: '#'+cards[i].id,
 				trueOrder: false,
 				waitForImages: false,
@@ -50,6 +50,7 @@ function init(){
 					760: 1,
 				}
 			});
+			instance.recalculate();
 		}
 	}
 
