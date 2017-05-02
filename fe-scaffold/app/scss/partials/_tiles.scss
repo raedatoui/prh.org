@@ -7,7 +7,7 @@
     outline: none;
 
     .tile__container {
-      background: $prh-cream-lightest;
+      background-color: #fff;
     }
   }
 
@@ -19,8 +19,9 @@
 }
 
 .tile__container {
-  background: $prh-cream-lt;
+  background-color: $prh-cream-lightest;
   color: #999;
+  cursor: pointer;
   padding: 25px 35px;
 }
 
@@ -46,7 +47,7 @@
 }
 
 .tile__source {
-  background: $prh-navy-dk;
+  background-color: $prh-navy-dk;
   border-radius: 50%;
   height: 36px;
   overflow: hidden;

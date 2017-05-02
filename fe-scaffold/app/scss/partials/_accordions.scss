@@ -25,7 +25,7 @@ $accordion-border: 1px solid $border-color-blue;
       left: 10px;
       position: absolute;
       top: 50%;
-      transform: translateY(-16px) scale(.8);
+      transform: translateY(-16px) scale(0.8);
 
       @include responsive-mq(md) {
         left: 50px;
