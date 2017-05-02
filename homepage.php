@@ -15,6 +15,5 @@ get_header();?>
 		$page->render();
 	endwhile; // End of the loop. ?>
 
-
 <?php
 get_footer();
