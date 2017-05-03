@@ -49,8 +49,8 @@ function init(){
 				columns: 3,
 				breakAt: {
 					1200: 3,
-					978: 2,
-					760: 1,
+					992: 2,
+					768: 1
 				}
 			});
 			instance.recalculate();
