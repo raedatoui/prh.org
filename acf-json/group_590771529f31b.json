@@ -100,9 +100,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "options_page",
                 "operator": "==",
-                "value": "post"
+                "value": ""
             }
         ]
     ],
@@ -112,8 +112,8 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1493660224
+    "modified": 1493844877
 }
