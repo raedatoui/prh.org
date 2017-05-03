@@ -18,7 +18,11 @@
 				<blockquote>
 					<p><?php echo $module[QUOTE_MODULE['quote']]; ?></p>
 					<footer>
-						<cite>&mdash;<?php echo $module[QUOTE_MODULE['attribution_name']]; ?>, <span class="cite-origin"><?php echo $module[QUOTE_MODULE['attribution_location']]; ?></span></cite>
+						<cite>&mdash;<?php echo $module[QUOTE_MODULE['attribution_name']]; ?><?php
+							$attr_loc = $module[QUOTE_MODULE['attribution_location']];
+							if ( $attr_loc !== '') {
+								echo_wrapped($attr_loc, ', <span class="cite-origin">', '</span>');
+							} ?></cite>
 					</footer>
 				</blockquote>
 			</div>
