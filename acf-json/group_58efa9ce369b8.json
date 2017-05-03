@@ -277,7 +277,15 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f8ce0cbee97",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -444,5 +452,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1493775225
+    "modified": 1493780001
 }
