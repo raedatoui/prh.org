@@ -53,7 +53,7 @@
 						</svg>
 					</button>
 
-					<a href="#" class="nav-btn donate-btn cta cta--red md-up">Donate</a>
+					<a href="https://secure2.convio.net/prch/site/Donation2?idb=1471799783&DONATION_LEVEL_ID_SELECTED=1&df_id=1542&mfc_pref=T&1542.donation=form1&idb=0" class="nav-btn donate-btn cta cta--red md-up">Donate</a>
 				</div>
 				<nav id="site-nav" class="site-nav">
 					<?php wp_nav_menu(); ?>
@@ -61,4 +61,4 @@
 				</nav>
 				</div>
 			</header>
-			<div class="nav-mask" id="nav-mask"></div> -->
+			<div class="nav-mask" id="nav-mask"></div>
