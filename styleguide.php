@@ -55,6 +55,22 @@ get_header(); ?>
 	outline: 2px solid #f3ebde;
 }
 
+.type-samples {
+	padding: 40px 0;
+}
+
+.type-samples h1,
+.type-samples h2,
+.type-samples h3,
+.type-samples p,
+.type-samples > * {
+	margin-bottom: 30px;
+}
+
+.type-block {
+	margin-bottom: 100px;
+}
+
 </style>
 
 <section class="hero module">
@@ -94,26 +110,111 @@ get_header(); ?>
 		</header>
 
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-xs-12 type-block">
 				<h3>Lora</h3>
-					<p>Accent/emphasis typeface. Mostly used for headers.</p>
+					<p>Accent/emphasis typeface. Mostly used for headers and lead-in copy, and some quotes.</p>
+
 					<dl class="style-details">
 						<dt>Letter-spacing</dt> <dd>-25</dd>
 						<dt>Default line-height</dt> <dd>1.25</dd>
 						<dt>Weights</dt> <dd>400, 700</dd>
+						<dt>Styles</dt> <dd>Normal, italic</dd>
 					</dl>
-				<h1>This is a level-one heading</h1>
-				<h3>This is a level-three heading</h3>
+
+					<hr>
+					<div class="type-samples">
+					<div class="row">
+
+						<div class="col-md-6">
+							<h1 style="font-size: 54px;">Lora Regular at 54px.</h1>
+							<h1 style="font-size: 44px;">Lora Regular at 44px.</h1>
+							<h1 style="font-size: 30px;">Lora Regular at 30px.</h1>
+							<h1 style="font-size: 28px;">Lora Regular at 28px.</h1>
+							<h1 style="font-size: 25px;">Lora Regular at 25px.</h1>
+							<h1 style="font-size: 22px;">Lora Regular at 22px.</h1>
+						</div>
+
+						<div class="col-md-6">
+							<h1 style="font-size: 54px; font-style: italic;">Lora Italic at 54px.</h1>
+							<h1 style="font-size: 44px; font-style: italic;">Lora Italic at 44px.</h1>
+							<h1 style="font-size: 30px; font-style: italic;">Lora Italic at 30px.</h1>
+							<h1 style="font-size: 28px; font-style: italic;">Lora Italic at 28px.</h1>
+							<h1 style="font-size: 25px; font-style: italic;">Lora Italic at 25px.</h1>
+							<h1 style="font-size: 22px; font-style: italic;">Lora Italic at 22px.</h1>
+						</div>
+ 						
+ 						</div><hr><div class="row">
+
+						<div class="col-md-6">
+							<h1 style="font-size: 54px; font-weight: 700;">Lora Bold at 54px.</h1>
+							<h1 style="font-size: 44px; font-weight: 700;">Lora Bold at 44px.</h1>
+							<h1 style="font-size: 30px; font-weight: 700;">Lora Bold at 30px.</h1>
+							<h1 style="font-size: 28px; font-weight: 700;">Lora Bold at 28px.</h1>
+							<h1 style="font-size: 25px; font-weight: 700;">Lora Bold at 25px.</h1>
+							<h1 style="font-size: 22px; font-weight: 700;">Lora Bold at 22px.</h1>
+						</div>						
+
+						<div class="col-md-6">
+							<h1 style="font-size: 54px; font-weight: 700; font-style: italic;">Lora Bold Italic at 54px.</h1>
+							<h1 style="font-size: 44px; font-weight: 700; font-style: italic;">Lora Bold Italic at 44px.</h1>
+							<h1 style="font-size: 30px; font-weight: 700; font-style: italic;">Lora Bold Italic at 30px.</h1>
+							<h1 style="font-size: 28px; font-weight: 700; font-style: italic;">Lora Bold Italic at 28px.</h1>
+							<h1 style="font-size: 25px; font-weight: 700; font-style: italic;">Lora Bold Italic at 25px.</h1>
+							<h1 style="font-size: 22px; font-weight: 700; font-style: italic;">Lora Bold Italic at 22px.</h1>
+						</div>
+
+
+					</div>
+			
+					<hr>
+						<h1>This is a level-one heading (h1)</h1>
+						<h3>This is a level-three heading (h3)</h3>
+						<p class="lead-copy">This style can be used for the first paragraph of some text content. In CSS, the class to apply is "lead-copy".</p>
+						<blockquote><p>The italic version is used for standalone quotes.</p></blockquote>
+					</div>
+
+
 			</div>
 
-			<div class="col-xs-12 col-md-6">
+			<div class="col-xs-12 col-md-6 type-block">
 				<h3>Roboto</h3>
-				<p>Primary typeface. Used for body copy.</p>
+				<p>Primary typeface. Used for body copy, typically at 18px.</p>
+
+				<dl class="style-details">
+					<dt>Letter-spacing</dt> <dd>25</dd>
+					<dt>Default line-height</dt> <dd>1.67</dd>
+					<dt>Weights</dt> <dd>400, 700</dd>
+					<dt>Styles</dt> <dd>Normal, italic</dd>
+				</dl>
+
+				<hr>
+				<div class="type-samples">
+					<p style="font-size: 28px;">This is Roboto at 28px.</p>
+					<p style="font-size: 24px;">This is Roboto at 24px.</p>
+					<p style="font-size: 20px;">This is Roboto at 20px.</p>
+					<p style="font-size: 18px;">This is Roboto at 18px.</p>
+					<p style="font-size: 16px;">This is Roboto at 16px.</p>
+				</div>
 			</div>
 
-			<div class="col-xs-12 col-md-6">
+			<div class="col-xs-12 col-md-6 type-block">
 				<h3>Roboto Condensed</h3>
 				<p>Used for the level 2 heading, eyebrows, CTA buttons, and some utility copy.</p>
+				<dl class="style-details">
+					<dt>Letter-spacing</dt> <dd>.3em</dd>
+					<dt>Default line-height</dt> <dd>1.67</dd>
+					<dt>Weights</dt> <dd>700</dd>
+					<dt>Styles</dt> <dd>Normal</dd>
+				</dl>
+				<hr>
+				<div class="type-samples">
+					<p class="eyebrow">This is the default eyebrow styling</p>
+					<time class="eyebrow" style="color: #999;">Same style for dates and utility text</time>
+					<p class="utility-copy">Smaller when used with the 'utility-copy' class.</p>
+					<div class="row center-xs"><div class="module__title"><h2>Also used in level-2 headings</h2></div></div>
+					<a class="cta">And in CTAs</a>
+					<a class="cta cta--red">Even red ones</a>
+				</div>
 			</div>
 		</div>
 	</div>
