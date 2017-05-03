@@ -7,44 +7,220 @@
   top: 0;
   z-index: 5;
 
-  .admin-bar & {
-    top: 32px;
+  svg {
+    stroke: #fff;
+    width: 30px;
   }
 }
 
-.site-nav {
-  // border-bottom: 1px solid rgba(25, 25, 25, 0.2);
+.site-nav-wrap {
+  align-items: center;
   border-bottom: 1px solid transparentize(#fff, 0.75);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  max-width: $base-page-max-width;
+}
+
+.logo {
+  background: url("../images/optimized/logo-small.png") center no-repeat;
+  background-size: contain;
+  height: 22px;
+  left: $module-padding-xs;
+  position: relative;
+  width: 41px;
+}
+
+.site-nav {
+  background-color: $prh-blue-dk;
   color: #fff;
+  display: none;
+  flex: 1 0 100%;
   font-size: em(16px);
   font-weight: $light;
   letter-spacing: 0.05em;
   margin: auto;
-  max-width: $base-page-max-width;
-  padding: 25px 0;
 
-  a {
+  &.is-expanded {
+    display: block;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  a:not(.cta) {
     color: #fff;
-    padding: 0 1em;
+    display: block;
+    padding: 25px 1em;
     text-decoration: none;
+  }
 
-    &:hover {
-      text-decoration: underline;
+  .donate-btn {
+    margin: 0;
+  }
+
+  .sub-menu {
+    background: $prh-blue-lt;
+    display: none;
+    left: 0;
+    right: 0;
+    top: 100%;
+  }
+
+  .is-expanded .sub-menu {
+    display: block;
+  }
+}
+
+
+.menu-main-menu-container {
+  width: 100%;
+}
+
+.sub-menu {
+  li {
+    margin: auto;
+    max-width: $base-page-max-width;
+
+    &:last-child {
+      border-bottom: 0;
     }
   }
 
-}
+  a {
+    @include lora;
+    font-size: 22px;
+    text-indent: 1ch;
 
-.secondary-nav-list { //ul
-  max-width: 510px;
-  width: 100%;
-
-  li {
-    text-align: center;
+    &:hover,
+    &:focus {
+      background: $prh-blue-highlight;
+      color: $prh-pink-darkest;
+    }
   }
 }
 
-.logo {
-  max-width: 236px;
+.menu a {
+  border-bottom: 1px solid transparentize(#fff, 0.85);
 }
 
+.nav-ui {
+  align-items: center;
+  display: inline-flex;
+  justify-content: space-between;
+  position: relative;
+  right: $module-padding-xs;
+
+  a,
+  button {
+    margin-right: 25px;
+  }
+
+  .menu-btn {
+    margin-right: 0;
+  }
+}
+
+
+
+// Nav mask, to allow clicks outside to close the menu
+
+.is-expanded + .nav-mask {
+  // background: transparentize($prh-cream-lt, 0.5);
+  bottom: 0;
+  display: block;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+
+
+@include responsive-mq(md) {
+
+  .site-header {
+    padding-left: 0;
+    padding-right: 0;
+
+    svg { height: 30px; }
+  }
+
+  .logo {
+    background-image: url("../images/optimized/logo-large.png");
+    height: 40px;
+    left: 0;
+    width: 220px;
+  }
+
+  .site-nav-wrap {
+    flex-wrap: nowrap;
+  }
+
+  .site-nav {
+    background-color: transparent;
+    display: flex;
+    flex: 1;
+  }
+
+  .nav-ui {
+    order: 2;
+    right: 0;
+  }
+
+  .menu-main-menu-container {
+    width: auto;
+  }
+
+  .site-nav .menu {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .menu {
+    a {
+      border-bottom-width: 0;
+    }
+  }
+
+  .sub-menu {
+    position: absolute;
+
+    a {
+      border-bottom-width: 1px;
+      text-indent: 0;
+    }
+  }
+
+  .menu > li > a {
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      left: 0;
+      margin: auto;
+      margin-top: 1em;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 80%;
+    }
+
+    &:hover {
+      &::after {
+        background: #fff;
+      }
+    }
+  }
+
+  .menu > .is-expanded > a,
+  .menu > li > a:focus {
+    &::after {
+      background: $prh-red;
+    }
+  }
+}

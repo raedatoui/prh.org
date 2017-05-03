@@ -28,23 +28,37 @@
 		<![endif]-->
 
 		<div class="page-container">
-			<header role="banner" class="site-header">
-				<nav role="navigation" class="site-nav row middle-xs">
-						<a href="/" class="col-sm-3 col-md-3">
-							<img class="logo" alt="" src="<?php echo_theme_uri(); ?>/images/optimized/prh_nav_logo.svg" />
-						</a>
-						<ul class="col-xs-12 col-sm-8 col-md-7 row middle-xs">
-								<?php
-									$menu_items = wp_get_nav_menu_items("main-menu");
-									foreach ( (array) $menu_items as $key => $menu_item ) {
-										$title = $menu_item->title;
-										$url = $menu_item->url;
-										_e('<li><a href="' . $url . '">' . $title . '</a></li>');
-									}
-								?>
-						</ul>
-						<div class="col-xs-12 col-sm-1 col-md-2" style="text-align: right;">Donate</div>
-					<?php //get_search_form(); ?>
-				</nav>
+			<header role="banner" class="site-header" id="site-header">
+			<div class="site-nav-wrap">
+				<a href="/" class="logo col-sm-3 col-md-3">
+					<span class="visually-hidden">PRH Homepage</span>
+				</a>
 
+				<div class="nav-ui">
+					<button class="nav-btn search-btn" title="Search">
+						<svg class="icon--search" role="presentation">
+							<use xlink:href="#icon--search" />
+						</svg>
+					</button>
+
+					<a href="/wp-login.php" class="nav-btn login-btn" title="Log in"> 
+						<svg class="icon--person" role="presentation">
+							<use xlink:href="#icon--person" />
+						</svg>
+					</a>
+
+					<button class="nav-btn menu-btn md-down" id="menu-btn" aria-controls="site-nav" aria-expanded="false" title="Menu">
+						<svg class="icon--menu" role="presentation">
+							<use xlink:href="#icon--menu" />
+						</svg>
+					</button>
+
+					<a href="#" class="nav-btn donate-btn cta cta--red md-up">Donate</a>
+				</div>
+				<nav id="site-nav" class="site-nav">
+					<?php wp_nav_menu(); ?>
+					<a href="#" class="nav-btn donate-btn cta cta--red md-down">Donate</a>
+				</nav>
+				</div>
 			</header>
+			<div class="nav-mask" id="nav-mask"></div> -->

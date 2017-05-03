@@ -44,6 +44,12 @@
     <path class="st0" d="M12,40.5C12,33,18,27,25.5,27S39,33,39,40.5"></path>
   </symbol>
 
+  <symbol id="icon--menu"
+     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 25">
+    <path fill="#FFFFFF" d="M0,0h30v5H0V0z M0,10h30v5H0V10z M0,20h30v5H0V20z"/>
+  </symbol>
+
+
   <symbol id="icon--squiggle" xmlns="http://www.w3.org/2000/svg"
      viewBox="0 0 1118 106">
     <style type="text/css">
