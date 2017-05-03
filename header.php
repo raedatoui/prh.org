@@ -56,7 +56,7 @@
 					<a href="#" class="nav-btn donate-btn cta cta--red md-up">Donate</a>
 				</div>
 				<nav id="site-nav" class="site-nav">
-					<?php wp_nav_menu(); ?>
+					<?php wp_nav_menu(array('theme_location' => 'menu-1')); ?>
 					<a href="#" class="nav-btn donate-btn cta cta--red md-down">Donate</a>
 				</nav>
 				</div>

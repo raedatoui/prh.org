@@ -1,0 +1,89 @@
+.site-footer {
+  background-color: color(navy);
+  color: color(white);
+
+  &::before {
+    background-image: url("../images/optimized/navy-curve--arc.svg") !important;
+    background-position: top center !important;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.footer-col {
+  border-left: 1px solid transparentize(color(sky), 0.75);
+  padding-left: 35px;
+}
+
+.footer-title {
+  @extend h3;
+  color: color(sky);
+  font-weight: 400;
+}
+
+.footer-eyebrow {
+  color: color(sky);
+  margin-bottom: 2em;
+}
+
+.footer-copy {
+  font-size: 14px;
+}
+
+.footer-sitemap {
+  li {
+    float: left;
+    margin-bottom: 1em;
+    width: 50%;
+  }
+}
+
+.subscribe-link {
+  border-bottom: 1px solid transparentize(color(sky), 0.75);
+  padding-bottom: 2px;
+}
+
+.footer-social {
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+
+    &::before {
+      display: block;
+    }
+
+    &[href*="facebook"] {
+      &::before {
+        content: "FB";
+      }
+    }
+
+    &[href*="twitter"] {
+      &::before {
+        content: "TW";
+      }
+    }
+
+    &[href*="instagram"] {
+      &::before {
+        content: "IG";
+      }
+    }
+
+    &[href*="tumblr"] {
+      &::before {
+        content: "TU";
+      }
+    }
+  }
+}

@@ -10,8 +10,8 @@ $colors: (
   paper: #fff7f1,
   tan: #f1ebe6,
 
-  red: #E84D6A,
-  peach: #FFD1C7,
+  red: #e84d6a,
+  peach: #ffd1c7,
 
   gray: #999,
   black: #333,
@@ -25,9 +25,8 @@ $colors: (
 
 @function color($which) {
   @if not map-has-key($colors, $which) {
-    @warn "`#{$which}` isn't a valid color. Colors available: `#{map-keys($map)}`" 
-  }
-  @else {
+    @warn "`#{$which}` isn't a valid color. Colors available: `#{map-keys($map)}`"
+  } @else {
     @return map-get($colors, $which);
   }
 }
