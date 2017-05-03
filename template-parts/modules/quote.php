@@ -1,20 +1,20 @@
 <?php
-	$quoteText = $module[QUOTE_MODULE['text']];
-	$quoteClass = 'col-md-8';
-	if ( $quoteText == '') {
-		$quoteClass = 'col-md-12';
+	$quote_text = $module[QUOTE_MODULE['text']];
+	$quote_class = 'col-md-8';
+	if ( $quote_text == '') {
+		$quote_class = 'col-md-12';
 	}
 ?>
 <section class="module module__quote" id="<?php echo $module_title; ?>">
 	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<div class="row">
-			<?php if ( $quoteText != '') : ?>
+			<?php if ( $quote_text != '') : ?>
 				<div class="text-component col-xs-12 col-md-4">
-					<p><?php echo  $quoteText; ?></p>
+					<p><?php echo  $quote_text; ?></p>
 				</div>
 			<?php endif; ?>
-			<div class="quote-component col-xs-12 <?php echo $quoteClass ?>">
+			<div class="quote-component col-xs-12 <?php echo $quote_class ?>">
 				<blockquote>
 					<p><?php echo $module[QUOTE_MODULE['quote']]; ?></p>
 					<footer>

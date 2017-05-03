@@ -144,6 +144,7 @@ const OVERVIEW_MODULE = array(
 	'name' => 'Overview',
 	'options' => 'overview_options',
 	'content' => 'overview_content',
+	'resources_enabled' => 'overview_resources_enabled',
 	'resources_title' => 'overview_resources_title',
 	'resources_links' => 'overview_resource_links',
 	'resources_link_text' => 'overview_resource_link_text',
