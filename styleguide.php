@@ -67,7 +67,7 @@ get_header(); ?>
 	margin-bottom: 30px;
 }
 
-.type-block {
+.type-block:first-child {
 	margin-bottom: 100px;
 }
 
@@ -166,11 +166,13 @@ get_header(); ?>
 
 					</div>
 			
-					<hr>
+<!-- 					<hr>
 						<h1>This is a level-one heading (h1)</h1>
 						<h3>This is a level-three heading (h3)</h3>
 						<p class="lead-copy">This style can be used for the first paragraph of some text content. In CSS, the class to apply is "lead-copy".</p>
-						<blockquote><p>The italic version is used for standalone quotes.</p></blockquote>
+						<blockquote><p>The italic version is used for standalone quotes.</p></blockquote> -->
+
+
 					</div>
 
 
@@ -189,11 +191,11 @@ get_header(); ?>
 
 				<hr>
 				<div class="type-samples">
-					<p style="font-size: 28px;">This is Roboto at 28px.</p>
-					<p style="font-size: 24px;">This is Roboto at 24px.</p>
-					<p style="font-size: 20px;">This is Roboto at 20px.</p>
-					<p style="font-size: 18px;">This is Roboto at 18px.</p>
-					<p style="font-size: 16px;">This is Roboto at 16px.</p>
+					<p style="font-size: 28px;">Roboto (regular | <b>bold</b> | <i>italic</i> | <b><i>both</i></b>) at 28px.</p>
+					<p style="font-size: 24px;">Roboto (regular | <b>bold</b> | <i>italic</i> | <b><i>both</i></b>) at 24px.</p>
+					<p style="font-size: 20px;">Roboto (regular | <b>bold</b> | <i>italic</i> | <b><i>both</i></b>) at 20px.</p>
+					<p style="font-size: 18px;">Roboto (regular | <b>bold</b> | <i>italic</i> | <b><i>both</i></b>) at 18px.</p>
+					<p style="font-size: 16px;">Roboto (regular | <b>bold</b> | <i>italic</i> | <b><i>both</i></b>) at 16px.</p>
 				</div>
 			</div>
 
@@ -207,14 +209,21 @@ get_header(); ?>
 					<dt>Styles</dt> <dd>Normal</dd>
 				</dl>
 				<hr>
+
 				<div class="type-samples">
-					<p class="eyebrow">This is the default eyebrow styling</p>
+					<p class="eyebrow" style="font-size: 18px;">Roboto Condensed at 18px.</p>
+					<p class="eyebrow" style="font-size: 16px;">Roboto Condensed at 16px.</p>
+					<p class="eyebrow" style="font-size: 14px;">Roboto Condensed at 14px.</p>
+
+<!-- 					<p class="eyebrow">This is the default eyebrow styling</p>
 					<time class="eyebrow" style="color: #999;">Same style for dates and utility text</time>
 					<p class="utility-copy">Smaller when used with the 'utility-copy' class.</p>
 					<div class="row center-xs"><div class="module__title"><h2>Also used in level-2 headings</h2></div></div>
 					<a class="cta">And in CTAs</a>
 					<a class="cta cta--red">Even red ones</a>
+ -->
 				</div>
+
 			</div>
 		</div>
 	</div>
