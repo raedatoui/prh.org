@@ -8,6 +8,7 @@
 class PageModules {
 	public $modules;
 	public $keys;
+	public $hero;
 
 	function __construct( $post_id ) {
 		$groups = acf_get_field_groups( array( 'post_id' => $post_id ) );
@@ -23,6 +24,17 @@ class PageModules {
 			}
 		}
 		$this->modules = $modules;
+	}
+
+	function init() {
+		$has_hero = array_intersect( array_keys( $this->modules ), HEROS );
+		if ( count( $has_hero )  > 0 ) {
+			$hero_key = $has_hero[key( $has_hero )];
+			$this->hero = $this->modules[$hero_key];
+			$this->hero['config'] = MODULES[$hero_key];
+			unset( $this->modules[$hero_key] );
+		}
+
 		$this->prepare();
 		$this->configure();
 		$this->filter();
@@ -86,13 +98,30 @@ class PageModules {
 		uasort( $this->modules, $cmp );
 	}
 
+	function module_titles() {
+		$func = function ( $module ) {
+			return $module['config'][MODULE_OPTIONS['title']];
+		};
+		return array_map( $func, $this->modules );
+	}
+
 	function render() {
+		if ($this->hero != null ) {
+			$module = $this->hero;
+			if ( $this->hero['config']['name'] === HOMEPAGE_HERO_MODULE['name'] ) {
+				$module_title = $this->hero[$this->hero['config']['title']];
+			} else {
+				$module_title = get_the_title();
+			}
+			include( locate_template( $module['config']['template'], false, true ) );
+		}
 		foreach ($this->modules as $module) {
 			$mn = $module['config']['name'];
 			$template = MODULES[$mn]['template'];
 			if ( $module['is_aggregate']) {
 				$module['query'] = $this->build_query( $module );
 			}
+			$module_title = $module['config'][MODULE_OPTIONS['title']];
 			include( locate_template( $template, false, true ) );
 		}
 	}

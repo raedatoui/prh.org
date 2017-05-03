@@ -319,7 +319,7 @@
                 },
                 {
                     "key": "field_58ebab614d998",
-                    "label": "Title",
+                    "label": "Headline",
                     "name": "slide_title",
                     "type": "text",
                     "instructions": "The main header for this slide. Shorter is better!",
@@ -334,9 +334,7 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "maxlength": ""
                 },
                 {
                     "key": "field_58ebabaf4d999",
@@ -422,5 +420,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492701627
+    "modified": 1493761261
 }

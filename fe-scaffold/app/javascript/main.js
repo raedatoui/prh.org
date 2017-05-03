@@ -4,12 +4,13 @@ import './polyfills';
 import TweenMax from 'gsap/TweenMax';
 import EasePack from 'gsap/EasePack';
 import Flickity from 'flickity-imagesloaded';
-import TabAccordion from './tabbordion';
+import Macy from 'macy';
 import modernizr from './modernizr.js';
-import collapsible from './collapsible.js';
-import accordion from './accordion.js';
-import nav from './nav.js';
-import macy from 'macy';
+
+import TabAccordion from './tabbordion';
+import collapsible from './collapsible';
+import accordion from './accordion';
+import nav from './nav';
 
 function init(){
 
@@ -40,7 +41,7 @@ function init(){
 	let cards = document.querySelectorAll('.macy-grid');
 	if (cards.length > 0) {
 		for(let i = 0; i < cards.length; i++) {
-			macy.init({
+			var instance = Macy({
 				container: '#'+cards[i].id,
 				trueOrder: false,
 				waitForImages: false,
@@ -52,6 +53,7 @@ function init(){
 					760: 1,
 				}
 			});
+			instance.recalculate();
 		}
 	}
 

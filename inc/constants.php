@@ -14,15 +14,15 @@ const CONTENT_TYPES = array(
 );
 
 const CONTENT_TYPES_LABELS = array(
-	'post' => 'Articles',
-	'page' => 'Pages',
+	'post' => 'Article',
+	'page' => 'Page',
 	'press_release' => 'Press Release',
-	'phys_story' => 'Stories',
-	'prh_ipaper' => 'Legal Publications',
-	'prh_update' => 'Updates',
-	'prh_report' => 'Reports',
+	'phys_story' => 'Story',
+	'prh_ipaper' => 'Legal Publication',
+	'prh_update' => 'Update',
+	'prh_report' => 'Report',
 	'prh_news' => 'In the News',
-	'prh_events' => 'Events'
+	'prh_events' => 'Event'
 );
 
 const CONTENT_TYPES_FOR_AGGREGATION = array(
@@ -104,13 +104,19 @@ const CAROUSEL_MODULE = array(
 	'template' => 'template-parts/modules/carousel.php'
 );
 
-const HERO_MODULE = array(
-	'enabled' => 'hero_enabled',
-	'name' => 'Hero',
-	'options' => 'hero_options',
+const HOMEPAGE_HERO_MODULE = array(
+	'name' => 'Homepage Hero',
+	'title' => 'hero_title',
 	'header' => 'hero_header',
 	'text' => 'hero_text',
-	'template' => 'template-parts/modules/hero.php'
+	'template' => 'template-parts/modules/homepage-hero.php'
+);
+
+const PAGE_HERO_MODULE = array(
+	'name' => 'Page Hero',
+	'header' => 'hero_header',
+	'jump_links' => 'hero_jump_links',
+	'template' => 'template-parts/modules/page-hero.php'
 );
 
 const STATISTICS_MODULE = array(
@@ -210,7 +216,8 @@ const ROUTING_MODULE = array(
 /************* Mappings *****************/
 const MODULES = array(
 	CAROUSEL_MODULE['name'] => CAROUSEL_MODULE,
-	HERO_MODULE['name'] => HERO_MODULE,
+	HOMEPAGE_HERO_MODULE['name'] => HOMEPAGE_HERO_MODULE,
+	PAGE_HERO_MODULE['name'] => PAGE_HERO_MODULE,
 	STATISTICS_MODULE['name'] => STATISTICS_MODULE,
 	AGGREGATE_BY_POST_TYPE['name'] => AGGREGATE_BY_POST_TYPE,
 	AGGREGATE_BY_CATEGORY['name'] => AGGREGATE_BY_CATEGORY,
@@ -226,4 +233,9 @@ const MODULES = array(
 const AGGREGATES = array(
 	AGGREGATE_BY_CATEGORY['name'],
 	AGGREGATE_BY_POST_TYPE['name']
+);
+
+const HEROS = array(
+	HOMEPAGE_HERO_MODULE['name'],
+	PAGE_HERO_MODULE['name']
 );

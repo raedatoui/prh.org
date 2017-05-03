@@ -1,4 +1,4 @@
-<section class="module module__tabs">
+<section class="module module__tabs" id="<?php echo $module_title; ?>">
 	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<div class="row">

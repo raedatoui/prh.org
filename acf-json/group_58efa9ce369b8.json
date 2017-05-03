@@ -245,7 +245,7 @@
         },
         {
             "key": "field_58efaa0e737de",
-            "label": "Content",
+            "label": "Text",
             "name": "overview_content",
             "type": "wysiwyg",
             "instructions": "If your content is more than a paragraph or two long, you can use the \"read more\" toolbar button to insert a division - it's the third button from the right in the editing toolbar, the one that looks like two bars with a dotted line between them. Hit enter after a paragraph and press the button; everything after the dividing line it inserts will be hidden behind a \"Read more\" link.",
@@ -410,5 +410,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492701090
+    "modified": 1493761253
 }
