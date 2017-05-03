@@ -35,20 +35,20 @@
 				</a>
 
 				<div class="nav-ui">
-					<button class="nav-btn search-btn">
-						<svg class="icon--search" title="Search">
+					<button class="nav-btn search-btn" title="Search">
+						<svg class="icon--search" role="presentation">
 							<use xlink:href="#icon--search" />
 						</svg>
 					</button>
 
-					<a href="/wp-login.php" class="nav-btn login-btn"> 
-						<svg class="icon--person" title="Log in">
+					<a href="/wp-login.php" class="nav-btn login-btn" title="Log in"> 
+						<svg class="icon--person" role="presentation">
 							<use xlink:href="#icon--person" />
 						</svg>
 					</a>
 
-					<button class="nav-btn menu-btn md-down" id="menu-btn" aria-controls="site-nav" aria-expanded="false">
-						<svg class="icon--menu" title="Menu">
+					<button class="nav-btn menu-btn md-down" id="menu-btn" aria-controls="site-nav" aria-expanded="false" title="Menu">
+						<svg class="icon--menu" role="presentation">
 							<use xlink:href="#icon--menu" />
 						</svg>
 					</button>
