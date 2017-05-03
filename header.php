@@ -36,24 +36,21 @@
 
 				<div class="nav-ui">
 					<button class="nav-btn search-btn">
-						<svg class="icon--search" role="presentation">
+						<svg class="icon--search" title="Search">
 							<use xlink:href="#icon--search" />
 						</svg>
-						<span class="visually-hidden">Search</span>
 					</button>
 
-					<a href="" class="nav-btn login-btn"> 
-						<svg class="icon--person" role="presentation">
+					<a href="/wp-login.php" class="nav-btn login-btn"> 
+						<svg class="icon--person" title="Log in">
 							<use xlink:href="#icon--person" />
 						</svg>
-						<span class="visually-hidden">Log In</span>
 					</a>
 
 					<button class="nav-btn menu-btn md-down" id="menu-btn" aria-controls="site-nav" aria-expanded="false">
-						<svg class="icon--menu" role="presentation">
+						<svg class="icon--menu" title="Menu">
 							<use xlink:href="#icon--menu" />
 						</svg>
-						<span class="visually-hidden">Menu</sspan>
 					</button>
 
 					<a href="#" class="nav-btn donate-btn cta cta--red md-up">Donate</a>
