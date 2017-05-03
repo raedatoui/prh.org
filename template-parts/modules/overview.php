@@ -1,3 +1,10 @@
+<?php
+	$overview_class = 'col-md-12';
+	$resources_enabled = $module[OVERVIEW_MODULE['resources_enabled']];
+	if ( $resources_enabled ) {
+		$overview_class = 'col-md-8';
+	}
+?>
 <section class="overview module" id="<?php echo $module_title; ?>">
 	<div class="content">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
@@ -5,7 +12,7 @@
 		<div class="row top-xs">
 
 			<!-- Text component -->
-			<section class="overview-text col-md-8">
+			<section class="overview-text <?php echo $overview_class ?>">
 				<?php
 				$full_content = $module[OVERVIEW_MODULE['content']]; 
 				$contents = get_extended($full_content);
@@ -29,25 +36,27 @@
 				<?php endif; ?>
 			</section>
 
-			<!-- Resource links component -->
-			<aside class="sidebar 	resources-sidebar col-xs-12 col-md-3 col-md-offset-1">
-				<div class="sidebar-content resources-content">
+			<?php if ( $resources_enabled ) : ?>
+				<!-- Resource links component -->
+				<aside class="sidebar resources-sidebar col-xs-12 col-md-3 col-md-offset-1">
+					<div class="sidebar-content resources-content">
 
-					<h2 class="sidebar-header resources-header">
-						<?php echo $module[OVERVIEW_MODULE['resources_title']]; ?>
-					</h2>
+						<h2 class="sidebar-header resources-header">
+							<?php echo $module[OVERVIEW_MODULE['resources_title']]; ?>
+						</h2>
 
-					<ul class="sidebar-links resources-links">
-						<?php foreach ( $module[OVERVIEW_MODULE['resources_links']] as $index => $link ): ?>
-							<li>
-								<a href="<?php echo $link[OVERVIEW_MODULE['resources_link_url']]; ?>" class="resource-link">
-									<?php echo $link[OVERVIEW_MODULE['resources_link_text']]; ?>
-								</a>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-			</aside>
+						<ul class="sidebar-links resources-links">
+							<?php foreach ( $module[OVERVIEW_MODULE['resources_links']] as $index => $link ): ?>
+								<li>
+									<a href="<?php echo $link[OVERVIEW_MODULE['resources_link_url']]; ?>" class="resource-link">
+										<?php echo $link[OVERVIEW_MODULE['resources_link_text']]; ?>
+									</a>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+				</aside>
+			<?php endif; ?>
 
 		</div>
 	</div>
