@@ -8,10 +8,114 @@
 get_header(); ?>
 
 
+<style>
+
+.style-details {
+	margin-bottom: 2em;
+}
+
+.style-details:after {
+	content:"";
+	display: block;
+	clear: both;
+}
+
+.style-details dt,
+.style-details dd {
+	float: left;
+}
+
+.style-details dt { 
+	clear: both;
+	font-weight: bold; 
+	margin-right: 2ch;
+	width: 10em;
+}
+
+.swatch-block {
+	background: #fff;
+	background: #fff7f1;
+	border: 10px solid #fff1e6;
+	text-align: center;
+}
+
+.swatch-label {
+	display: block;
+	margin: 0 auto 40px;
+}
+
+.swatch {
+	height: 40px;
+	width: 100%;
+	margin: 20px auto;
+}
+
+.swatch-paper,
+.swatch-cream {
+	outline: 2px solid #f3ebde;
+}
+
+</style>
+
 <section class="hero module">
 	<div class="content">
 		<h1 class="hero__header">Style Guide</h1>
 		<div class="col-xs-12 hero__subhead">An inventory of global patterns.</div>
+	</div>
+</section>
+
+<!-- Colors -->
+<section class="module">
+	<div class="content">
+		<header class="row center-xs">
+			<div class="module__title">
+				<h2>Colors</h2>
+			</div>
+		</header>
+
+		<div class="row swatch-row">
+			<?php foreach (PRH_COLORS as $key => $color): ?>
+				<div class="col-xs-3 col-md-2 col-lg-1 swatch-block">
+					<div class="swatch swatch-<?php echo $key; ?>" style="background-color: <?php echo $color; ?>;"></div>
+					<span class="swatch-label eyebrow"><?php echo $key; ?></span>
+					<span class="swatch-label swatch-hex"><?php echo $color; ?></span>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>		
+
+
+<!-- Typefaces -->
+<section class="module">
+	<div class="content">
+		<header class="row center-xs">
+			<div class="module__title"><h2>Typefaces</h2></div>
+		</header>
+
+		<div class="row">
+			<div class="col-xs-12">
+				<h3>Lora</h3>
+					<p>Accent/emphasis typeface. Mostly used for headers.</p>
+					<dl class="style-details">
+						<dt>Letter-spacing</dt> <dd>-25</dd>
+						<dt>Default line-height</dt> <dd>1.25</dd>
+						<dt>Weights</dt> <dd>400, 700</dd>
+					</dl>
+				<h1>This is a level-one heading</h1>
+				<h3>This is a level-three heading</h3>
+			</div>
+
+			<div class="col-xs-12 col-md-6">
+				<h3>Roboto</h3>
+				<p>Primary typeface. Used for body copy.</p>
+			</div>
+
+			<div class="col-xs-12 col-md-6">
+				<h3>Roboto Condensed</h3>
+				<p>Used for the level 2 heading, eyebrows, CTA buttons, and some utility copy.</p>
+			</div>
+		</div>
 	</div>
 </section>
 

@@ -3,6 +3,37 @@
 //------------------------------------------------
 
 //COLORS DEFINITIONS
+
+$colors: (
+  white: #fff,
+  sand: #f3ebde,
+  paper: #fff7f1,
+  tan: #f1ebe6,
+
+  red: #e84d6a,
+  peach: #ffd1c7,
+  cream: #fff1e6,
+
+  gray: #999,
+  black: #333,
+
+  blue: #006bb8,
+  navy: #2e3563,
+  sky: #b7d5fb,
+
+  hairline: #b8b2bc,
+  hairline-1: #b8b2bc,
+  hairline-2: transparentize(#b7d5fb, 0.75)
+);
+
+@function color($which) {
+  @if not map-has-key($colors, $which) {
+    @warn "`#{$which}` isn't a valid color. Colors available: `#{map-keys($map)}`"
+  } @else {
+    @return map-get($colors, $which);
+  }
+}
+
 $prh-blue-lt: #2b83c6;
 $prh-blue-highlight: #428dc7;
 $prh-blue-dk: #2a548c;
