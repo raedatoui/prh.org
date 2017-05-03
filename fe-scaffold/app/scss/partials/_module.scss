@@ -1,5 +1,5 @@
 .module {
-  padding: $module-padding-xs;
+  padding: $module-padding-xs * 2 $module-padding-xs;
 
   img {
     flex-basis: auto;
@@ -8,7 +8,7 @@
   }
 
   @include responsive-mq(lg) {
-    padding: $module-padding-lg $module-padding-xs;
+    padding: $module-padding-lg $module-padding-xs * 2;
   }
 }
 
@@ -47,7 +47,7 @@
 .hero ~ .module {
 
   .page-template & {
-    padding-bottom: 13vw;
+    padding-bottom: 11vw;
     padding-top: 0;
     position: relative;
 
@@ -57,13 +57,13 @@
       background-size: 105vw auto; // slightly over-wide to avoid gaps at the edges
       content: "";
       display: block;
-      height: 12vw;
+      height: 10vw;
       left: 0;
       margin-top: 2px; // safer than using calc() to set the top offset
       padding: 0;
       position: absolute;
       right: 0;
-      top: -12vw;
+      top: -10vw;
     }
   }
 

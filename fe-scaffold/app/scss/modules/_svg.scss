@@ -45,3 +45,9 @@
   height: 32px;
   width: 32px;
 }
+
+.icon--menu {
+  @extend %svg;
+  height: 25px;
+  width: 30px;
+}

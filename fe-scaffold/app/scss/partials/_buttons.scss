@@ -31,13 +31,7 @@
   }
 }
 
-.cta--red {
-  background: $prh-red;
 
-  &::after {
-    background: url("../images/optimized/button_arrow-white.svg") 0 0 no-repeat;
-  }
-}
 
 .cta-row {
   margin-top: 40px;
@@ -59,6 +53,14 @@
   top: 50%;
   transform: translateY(-14px);
   width: 50px;
+}
+
+.cta--red {
+  background: $prh-red;
+
+  &::after {
+    background-image: url("../images/optimized/button_arrow-white.svg");
+  }
 }
 
 .cta--link:hover {

@@ -36,3 +36,16 @@ svg {
 section {
   min-height: 150px;
 }
+
+
+// Responsive show/hide helpers
+// specificity hack because these come early in the css
+
+.md-up.md-up {
+  display: none;
+  @include responsive-mq(md) { display: initial; }
+}
+
+.md-down.md-down {
+  @include responsive-mq(md) { display: none; }
+}

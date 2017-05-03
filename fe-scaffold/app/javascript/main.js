@@ -4,11 +4,13 @@ import './polyfills';
 import TweenMax from 'gsap/TweenMax';
 import EasePack from 'gsap/EasePack';
 import Flickity from 'flickity-imagesloaded';
-import TabAccordion from './tabbordion';
-import modernizr from './modernizr.js';
-import collapsible from './collapsible.js';
-import accordion from './accordion.js';
 import Macy from 'macy';
+import modernizr from './modernizr.js';
+
+import TabAccordion from './tabbordion';
+import collapsible from './collapsible';
+import accordion from './accordion';
+import nav from './nav';
 
 function init(){
 
@@ -22,6 +24,7 @@ function init(){
 		});
 	}
 
+	nav.init();
 	accordion.init();
 	collapsible.init();
 
@@ -46,8 +49,8 @@ function init(){
 				columns: 3,
 				breakAt: {
 					1200: 3,
-					978: 2,
-					760: 1,
+					992: 2,
+					768: 1
 				}
 			});
 			instance.recalculate();

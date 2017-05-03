@@ -1,0 +1,24 @@
+// Note: these aren't editor-specific styles;
+// those go in editor.scss.
+// This file is for wp artifacts like the admin bar.
+
+
+
+#wpadminbar {
+  position: fixed;
+}
+
+#wp-admin-bar-site-name .ab-item {
+  max-width: 100px;
+}
+
+.admin-bar .site-header {
+  padding-top: 45px;
+}
+
+@media (min-width: 780px) {
+  .admin-bar .site-header {
+    padding-top: 32px;
+  }
+}
+
