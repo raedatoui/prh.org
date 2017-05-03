@@ -8,7 +8,7 @@ blockquote {
 
   p {
     @include lora();
-    font-size: em(54px);
+    font-size: em(30px);
     font-style: italic;
     line-height: 1;
     margin-bottom: 0;
@@ -58,5 +58,9 @@ blockquote {
 @include responsive-mq("md") {
   .quote-component {
     margin: 0;
+
+    p {
+      font-size: em(54px);
+    }
   }
 }

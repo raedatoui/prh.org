@@ -18,7 +18,9 @@ if ( !function_exists('prh_wp_theme_setup') ):
 		add_theme_support('post-thumbnails' );
 
 		register_nav_menus(array(
-			'menu-1' => esc_html__('Primary', 'prh-wp-theme' ),
+			'menu-1' => esc_html__('Header', 'prh-wp-theme' ),
+			'footer-menu' => esc_html__('Footer: Sitemap', 'prh-wp-theme'),
+			'footer-social' => esc_html__('Footer: Social', 'prh-wp-theme')
 		));
 
 		add_theme_support( 'html5', array(
