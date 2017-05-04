@@ -25,8 +25,6 @@
   .info-module__title {
     font-size: em(60px);
     justify-content: center;
-    letter-spacing: -0.02em;
-    line-height: lh(70, 60);
     margin-bottom: 25px;
     margin-top: 70px;
     text-align: center;
@@ -34,19 +32,13 @@
 }
 
 .info-module__title {
-  @include lora();
-  color: $prh-navy-lt;
-  font-size: em(50px);
-  letter-spacing: -0.015em;
-  line-height: lh(60, 50);
+  font-size: 28px;
   margin-bottom: 35px;
 }
 
 .info-module__text {
   @include roboto();
   display: block;
-  font-size: em(30px);
-  font-weight: $light;
   line-height: lh(46, 30);
 }
 
@@ -61,7 +53,7 @@
   .columns-1,
   .columns-3 {
     .info-module__title {
-      font-size: em(44px);
+      font-size: 44px;
       line-height: lh(56, 44);
     }
 

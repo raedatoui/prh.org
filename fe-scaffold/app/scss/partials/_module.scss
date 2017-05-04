@@ -8,7 +8,7 @@
   }
 
   @include responsive-mq(lg) {
-    padding: $module-padding-lg $module-padding-xs * 2;
+    padding: $module-padding-lg $module-padding-xs;
   }
 }
 
@@ -48,7 +48,6 @@
 
   .page-template & {
     padding-bottom: 11vw;
-    padding-top: 0;
     position: relative;
 
     &::before {

@@ -35,9 +35,13 @@ get_header(); ?>
 			<?php the_content(); ?>
 		</div>
 
-		<footer class="post-byline">
-			<?php the_field( 'post_byline' ); ?>
-		</footer>
+		<?php
+			$byline_enabled = get_field( 'article_details_enabled');
+			if ( $byline_enabled ) : ?>
+				<footer class="post-byline">
+					<?php the_field( 'post_byline' ); ?>
+				</footer>
+			<?php endif; ?>
 	</article>
 
 	<div class="sidebar post-sidebar col-xs-12 col-md-3">
