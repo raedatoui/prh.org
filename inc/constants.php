@@ -240,3 +240,20 @@ const HEROS = array(
 	HOMEPAGE_HERO_MODULE['name'],
 	PAGE_HERO_MODULE['name']
 );
+
+/************* Stylistic stuff *****************/
+
+const PRH_COLORS = array(
+	'white' => '#ffffff',
+	'sand' => '#f3ebde',
+	'paper' => '#fff7f1',
+	'cream' => '#fff1e6',
+	'tan' => '#f1ebe6',
+	'red' => '#e84d6a',
+	'peach' => '#ffd1c7',
+	'gray' => '#999999',
+	'black' => '#333333',
+	'blue' => '#006bb8',
+	'navy' => '#2e3563',
+	'sky' => '#b7d5fb'
+	);

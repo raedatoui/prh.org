@@ -7,11 +7,183 @@
 
 get_header(); ?>
 
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/styleguide.css">
 
 <section class="hero module">
 	<div class="content">
 		<h1 class="hero__header">Style Guide</h1>
 		<div class="col-xs-12 hero__subhead">An inventory of global patterns.</div>
+	</div>
+</section>
+
+<!-- Colors -->
+<section class="module">
+	<div class="content">
+		<header class="row center-xs">
+			<div class="module__title">
+				<h2>Colors</h2>
+			</div>
+		</header>
+
+		<div class="row swatch-row">
+			<?php foreach (PRH_COLORS as $key => $color): ?>
+				<div class="col-xs-3 col-md-2 col-lg-1 swatch-block">
+					<div class="swatch swatch-<?php echo $key; ?>" style="background-color: <?php echo $color; ?>;"></div>
+					<span class="swatch-label eyebrow"><?php echo $key; ?></span>
+					<span class="swatch-label swatch-hex"><?php echo $color; ?></span>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>		
+
+
+<!-- Typefaces -->
+<?php $header_sizes = array(54, 44, 30, 28, 25, 22); 
+			$copy_sizes = array(28, 24, 20, 18, 16);
+			$eyebrow_sizes = array(18, 16, 14); ?>
+<section class="module">
+	<div class="content">
+		<header class="row center-xs">
+			<div class="module__title"><h2>Typefaces</h2></div>
+		</header>
+
+		<div class="row">
+			<div class="col-xs-12 type-block">
+				<h3>Lora</h3>
+					<p>Accent/emphasis typeface. Mostly used for headers and lead-in copy, and some quotes.</p>
+
+					<dl class="style-details">
+						<dt>Letter-spacing</dt> <dd>-25</dd>
+						<dt>Default line-height</dt> <dd>1.25</dd>
+						<dt>Weights</dt> <dd>400, 700</dd>
+						<dt>Styles</dt> <dd>Normal, italic</dd>
+					</dl>
+
+					<hr>
+					<div class="type-samples">
+					<div class="row">
+
+						<div class="col-md-6">
+							<?php foreach ($header_sizes as $index => $size): ?>
+								<h1 style="font-size:<?php echo $size;?>px;">Lora Regular at <?php echo $size;?>px.</h1>
+							<?php endforeach; ?>
+						</div>
+
+						<div class="col-md-6">
+							<?php foreach ($header_sizes as $index => $size): ?>
+								<h1 style="font-size:<?php echo $size;?>px; font-style: italic">Lora Italic at <?php echo $size;?>px.</h1>
+							<?php endforeach; ?>
+						</div>
+ 						
+ 						</div>
+ 						<!-- <hr> -->
+ 						<div class="row">
+
+						<div class="col-md-6">
+							<?php foreach ($header_sizes as $index => $size): ?>
+								<h1 style="font-size:<?php echo $size;?>px; font-weight: bold;">Lora Bold at <?php echo $size;?>px.</h1>
+							<?php endforeach; ?>
+						</div>						
+
+						<div class="col-md-6">
+							<?php foreach ($header_sizes as $index => $size): ?>
+								<h1 style="font-size:<?php echo $size;?>px; font-weight: bold; font-style: italic;">Lora Bold Italic at <?php echo $size;?>px.</h1>
+							<?php endforeach; ?>
+						</div>
+
+
+					</div>
+			
+<!-- 					<hr>
+						<h1>This is a level-one heading (h1)</h1>
+						<h3>This is a level-three heading (h3)</h3>
+						<p class="lead-copy">This style can be used for the first paragraph of some text content. In CSS, the class to apply is "lead-copy".</p>
+						<blockquote><p>The italic version is used for standalone quotes.</p></blockquote> -->
+
+
+					</div>
+
+
+			</div>
+
+			<div class="col-xs-12 col-md-6 type-block">
+				<h3>Roboto</h3>
+				<p>Primary typeface. Used for body copy, typically at 18px.</p>
+
+				<dl class="style-details">
+					<dt>Letter-spacing</dt> <dd>25</dd>
+					<dt>Default line-height</dt> <dd>1.67</dd>
+					<dt>Weights</dt> <dd>400, 700</dd>
+					<dt>Styles</dt> <dd>Normal, italic</dd>
+				</dl>
+
+				<hr>
+				<div class="type-samples">
+					<?php foreach ($copy_sizes as $index => $size): ?>
+						<p style="font-size: <?php echo $size;?>px;">Roboto (regular | <b>bold</b> | <i>italic</i> | <b><i>both</i></b>) at <?php echo $size; ?>px.</p>
+					<?php endforeach; ?>
+				</div>
+			</div>
+
+			<div class="col-xs-12 col-md-6 type-block">
+				<h3>Roboto Condensed</h3>
+				<p>Used for the level 2 heading, eyebrows, CTA buttons, and some utility copy.</p>
+				<dl class="style-details">
+					<dt>Letter-spacing</dt> <dd>.3em</dd>
+					<dt>Default line-height</dt> <dd>1.67</dd>
+					<dt>Weights</dt> <dd>700</dd>
+					<dt>Styles</dt> <dd>Normal</dd>
+				</dl>
+				<hr>
+
+				<div class="type-samples">
+					<?php foreach($eyebrow_sizes as $index => $size): ?>
+						<p class="eyebrow" style="font-size: <?php echo $size; ?>px;">Roboto Condensed at <?php echo $size; ?>px.</p>
+					<?php endforeach; ?>
+<!-- 					<p class="eyebrow">This is the default eyebrow styling</p>
+					<time class="eyebrow" style="color: #999;">Same style for dates and utility text</time>
+					<p class="utility-copy">Smaller when used with the 'utility-copy' class.</p>
+					<div class="row center-xs"><div class="module__title"><h2>Also used in level-2 headings</h2></div></div>
+					<a class="cta">And in CTAs</a>
+					<a class="cta cta--red">Even red ones</a>
+ -->
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="module">
+	<div class="content">
+		<header class="row center-xs">
+			<div class="module__title">
+				<h2>Buttons & links</h2>
+			</div>
+		</header>
+		<div class="row">
+			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
+				<a href="#" style="margin: 40px auto 30px; display: inline-block;">More Resources</a>
+				<span class="swatch-label"><code>default link styles</code></span>
+			</div>
+			
+			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
+				<a href="#" class="cta">Call To Action</a>
+				<span class="swatch-label"><code>.cta</code></span>
+			</div>
+
+			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
+				<a href="#" class="cta cta--red">Call To Action</a>
+				<span class="swatch-label"><code>.cta.cta--red</code></span>
+			</div>
+
+			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
+				<a href="#" class="cta--link" style="margin: 30px auto 15px; max-width: 15em;">Call To Action</a>
+				<span class="swatch-label"><code>.cta--link</code></span>
+			</div>
+
+		</div>
 	</div>
 </section>
 
@@ -29,7 +201,7 @@ get_header(); ?>
 	</div>
 </section>
 
-<section class="module">
+<!-- <section class="module">
 	<div class="content">
 	<header class="row center-xs">
 		<div class="module__title">
@@ -47,24 +219,10 @@ get_header(); ?>
 		<h6>Heading level six</h6>
 		<p>Most pages won’t get to this level of hierarchy, but others might, especially in areas like sidebars. Here's some more filler text. Physicians for Reproductive Health believes that access to contraception is of vital importance to women’s health because it allows them to determine the timing and spacing of pregnancies. In the medical world, we have studied birth control methods and their effects for decades.</p>
 	</div>
-</section>
+</section> -->
 
-<section class="module">
-	<div class="content">
-	<header class="row center-xs">
-		<div class="module__title">
-			<h2>Buttons & links</h2>
-		</div>
-		</header>
-		<div class="cta-row">
-			<a href="#" class="cta">Call To Action</a>
-			<a href="#" class="cta cta--red">Call to Action</a>
-		</div>
-		<p><a href="#">A normal inline link looks like this.</a></p>
-  </div>
-</section>
 
-<section class="module">
+<!-- <section class="module">
 	<div class="content">
 	<header class="row center-xs">
 		<div class="module__title">
@@ -99,7 +257,7 @@ get_header(); ?>
 		<p class="lead-copy">Below this, the page pulls from the wordpress admin area.</p>
 		<p>You can edit the page called 'Styleguide' and the contents will show up here. Any modules added that way will show below that.</p>
   </div>
-</section>
+</section> -->
 
 <section class="module">
 	<div class="content">
@@ -133,6 +291,13 @@ get_header(); ?>
   </div>
 </section>
 
+
+<?php 	
+	$page = new PageModules( get_the_ID() );
+	$page->init();
+	$page->render();
+	?>
+
 <?php
 while ( have_posts() ) : the_post(); ?>
 <section class="module">
@@ -147,8 +312,6 @@ while ( have_posts() ) : the_post(); ?>
 </section>
 
 <?php
-	$page = new PageModules( get_the_ID() );
-	$page->render();
 endwhile; ?>
 
 </div> <!-- /page-container -->
