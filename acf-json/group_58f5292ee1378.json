@@ -3,12 +3,31 @@
     "title": "Article Details",
     "fields": [
         {
+            "key": "field_58f8ccb29f7b1",
+            "label": "Enabled",
+            "name": "article_details_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_58f529aa95e99",
             "label": "Byline",
             "name": "post_byline",
             "type": "wysiwyg",
             "instructions": "Add a sentence or two about the author of this piece. This appears after the main content.",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -46,9 +65,37 @@
         ],
         [
             {
-                "param": "post_template",
+                "param": "post_type",
                 "operator": "==",
-                "value": "styleguide.php"
+                "value": "prh_ipaper"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "prh_update"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "prh_report"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "prh_news"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "prh_events"
             }
         ]
     ],
@@ -67,5 +114,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1493922425
+    "modified": 1493933665
 }
