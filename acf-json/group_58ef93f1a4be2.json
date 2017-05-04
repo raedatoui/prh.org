@@ -3,7 +3,7 @@
     "title": "Spotlight 3 Module",
     "fields": [
         {
-            "key": "field_58f8d15d9b140",
+            "key": "field_590b74bf5f4c7",
             "label": "Enabled",
             "name": "spotlight_3_enabled",
             "type": "true_false",
@@ -16,7 +16,7 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 1,
+            "default_value": 0,
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
@@ -27,11 +27,11 @@
             "name": "spotlight_3_options",
             "type": "component_field",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_58f8d15d9b140",
+                        "field": "field_590b74bf5f4c7",
                         "operator": "==",
                         "value": "1"
                     }
@@ -51,12 +51,12 @@
             "collapsed": "",
             "sub_fields": [
                 {
-                    "ID": 13224,
-                    "key": "field_58e1c06164889",
-                    "label": "Title",
-                    "name": "module_title",
+                    "ID": 12997,
+                    "key": "field_58e1e28198454",
+                    "label": "Enabled",
+                    "name": "module_enabled",
                     "prefix": "acf",
-                    "type": "text",
+                    "type": "true_false",
                     "value": null,
                     "menu_order": 0,
                     "instructions": "",
@@ -64,7 +64,36 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 13222,
+                    "parent": 12984,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_enabled",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "ID": 12985,
+                    "key": "field_58e1c06164889",
+                    "label": "Title",
+                    "name": "module_title",
+                    "prefix": "acf",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 1,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 12984,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -82,20 +111,20 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 13225,
+                    "ID": 12986,
                     "key": "field_58e1c0696488a",
                     "label": "Order",
                     "name": "module_order",
                     "prefix": "acf",
                     "type": "number",
                     "value": null,
-                    "menu_order": 1,
+                    "menu_order": 2,
                     "instructions": "",
                     "required": 1,
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 13222,
+                    "parent": 12984,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -115,20 +144,20 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 13226,
+                    "ID": 12987,
                     "key": "field_58e1c09e6488b",
                     "label": "Use CTA",
                     "name": "module_use_cta",
                     "prefix": "acf",
                     "type": "true_false",
                     "value": null,
-                    "menu_order": 2,
+                    "menu_order": 3,
                     "instructions": "",
                     "required": 0,
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 13222,
+                    "parent": 12984,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -144,14 +173,14 @@
                     "ui_off_text": ""
                 },
                 {
-                    "ID": 13227,
+                    "ID": 12993,
                     "key": "field_58e1c16d818a3",
                     "label": "CTA",
                     "name": "module_cta",
                     "prefix": "acf",
                     "type": "component_field",
                     "value": null,
-                    "menu_order": 3,
+                    "menu_order": 4,
                     "instructions": "",
                     "required": 0,
                     "id": "",
@@ -165,7 +194,7 @@
                             }
                         ]
                     ],
-                    "parent": 13222,
+                    "parent": 12984,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -183,7 +212,7 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
-                            "ID": 13216,
+                            "ID": 12991,
                             "key": "field_58e1c124a8dfe",
                             "label": "Label",
                             "name": "cta_label",
@@ -196,7 +225,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 13215,
+                            "parent": 12990,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -214,12 +243,12 @@
                             "disabled": 0
                         },
                         {
-                            "ID": 13217,
+                            "ID": 12992,
                             "key": "field_58e1c136a8dff",
                             "label": "Link",
                             "name": "cta_link",
                             "prefix": "acf",
-                            "type": "url",
+                            "type": "text",
                             "value": null,
                             "menu_order": 1,
                             "instructions": "",
@@ -227,7 +256,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 13215,
+                            "parent": 12990,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -237,7 +266,12 @@
                             "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
-                            "placeholder": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
                         }
                     ]
                 }
@@ -253,7 +287,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_58f8d15d9b140",
+                        "field": "field_590b74bf5f4c7",
                         "operator": "==",
                         "value": "1"
                     }
@@ -265,8 +299,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": 2,
-            "max": 3,
+            "min": 1,
+            "max": 0,
             "layout": "row",
             "button_label": "Add Row",
             "sub_fields": [
@@ -292,7 +326,7 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
-                            "ID": 13185,
+                            "ID": 13132,
                             "key": "field_58efc161c824b",
                             "label": "Use Spotlight CTA",
                             "name": "spotlight_use_cta",
@@ -305,7 +339,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 13184,
+                            "parent": 13131,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -321,7 +355,7 @@
                             "ui_off_text": ""
                         },
                         {
-                            "ID": 13186,
+                            "ID": 13133,
                             "key": "field_58ed54b34e3d2",
                             "label": "Image",
                             "name": "spotlight_image",
@@ -334,7 +368,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 13184,
+                            "parent": 13131,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -355,7 +389,7 @@
                             "mime_types": ""
                         },
                         {
-                            "ID": 13187,
+                            "ID": 13134,
                             "key": "field_58ed55144e3d3",
                             "label": "Headline",
                             "name": "spotlight_headline",
@@ -368,7 +402,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 13184,
+                            "parent": 13131,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -386,7 +420,7 @@
                             "disabled": 0
                         },
                         {
-                            "ID": 13188,
+                            "ID": 13135,
                             "key": "field_58ed553d4e3d4",
                             "label": "Text",
                             "name": "spotlight_text",
@@ -399,7 +433,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 13184,
+                            "parent": 13131,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -417,7 +451,7 @@
                             "disabled": 0
                         },
                         {
-                            "ID": 13189,
+                            "ID": 13136,
                             "key": "field_58ed554d4e3d5",
                             "label": "CTA",
                             "name": "spotlight_cta",
@@ -438,7 +472,7 @@
                                     }
                                 ]
                             ],
-                            "parent": 13184,
+                            "parent": 13131,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -456,7 +490,7 @@
                             "collapsed": "",
                             "sub_fields": [
                                 {
-                                    "ID": 13216,
+                                    "ID": 12991,
                                     "key": "field_58e1c124a8dfe",
                                     "label": "Label",
                                     "name": "cta_label",
@@ -469,7 +503,7 @@
                                     "id": "",
                                     "class": "",
                                     "conditional_logic": 0,
-                                    "parent": 13215,
+                                    "parent": 12990,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -487,12 +521,12 @@
                                     "disabled": 0
                                 },
                                 {
-                                    "ID": 13217,
+                                    "ID": 12992,
                                     "key": "field_58e1c136a8dff",
                                     "label": "Link",
                                     "name": "cta_link",
                                     "prefix": "acf",
-                                    "type": "url",
+                                    "type": "text",
                                     "value": null,
                                     "menu_order": 1,
                                     "instructions": "",
@@ -500,7 +534,7 @@
                                     "id": "",
                                     "class": "",
                                     "conditional_logic": 0,
-                                    "parent": 13215,
+                                    "parent": 12990,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -510,7 +544,12 @@
                                     "_prepare": 0,
                                     "_valid": 1,
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": "",
+                                    "readonly": 0,
+                                    "disabled": 0
                                 }
                             ]
                         }
@@ -526,6 +565,13 @@
                 "operator": "==",
                 "value": "homepage.php"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "styleguide.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -537,5 +583,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492706734
+    "modified": 1493923053
 }

@@ -361,7 +361,7 @@
                     "field_group_id": "group_58f900523b648",
                     "min": 1,
                     "max": "",
-                    "layout": "block",
+                    "layout": "row",
                     "button_label": "Add another block",
                     "appearances": "",
                     "collapsed": "",
@@ -436,6 +436,13 @@
                 "operator": "==",
                 "value": "issue.php"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "styleguide.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -447,5 +454,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1492722599
+    "modified": 1493922407
 }
