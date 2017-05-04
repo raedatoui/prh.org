@@ -9,8 +9,9 @@
  * @package prh-wp-theme
  */
 ?>
+    <?php include( locate_template( 'template-parts/modules/donate.php', false, false ) ); ?>
 
-    <footer id="colophon" class="site-footer module" role="contentinfo">
+    <footer id="colophon" class="site-footer footer-module module" role="contentinfo">
 
     <div class="content">
       <div class="row footer-row">

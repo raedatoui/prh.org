@@ -151,7 +151,6 @@ while ( have_posts() ) : the_post(); ?>
 	$page->render();
 endwhile; ?>
 
-</div> <!-- /page-container -->
 
 <?php
 get_footer();
