@@ -3,13 +3,40 @@
     "title": "Overview",
     "fields": [
         {
+            "key": "field_58f8ce0cbee97",
+            "label": "Enabled",
+            "name": "overview_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_58efaeb63e427",
             "label": "Options",
             "name": "overview_options",
             "type": "component_field",
             "instructions": "",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f8ce0cbee97",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -24,12 +51,12 @@
             "collapsed": "",
             "sub_fields": [
                 {
-                    "ID": 12997,
-                    "key": "field_58e1e28198454",
-                    "label": "Enabled",
-                    "name": "module_enabled",
+                    "ID": 13330,
+                    "key": "field_58e1c06164889",
+                    "label": "Title",
+                    "name": "module_title",
                     "prefix": "acf",
-                    "type": "true_false",
+                    "type": "text",
                     "value": null,
                     "menu_order": 0,
                     "instructions": "",
@@ -37,36 +64,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 12984,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "_name": "module_enabled",
-                    "_prepare": 0,
-                    "_valid": 1,
-                    "message": "",
-                    "default_value": 1,
-                    "ui": 0,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
-                },
-                {
-                    "ID": 12985,
-                    "key": "field_58e1c06164889",
-                    "label": "Title",
-                    "name": "module_title",
-                    "prefix": "acf",
-                    "type": "text",
-                    "value": null,
-                    "menu_order": 1,
-                    "instructions": "",
-                    "required": 0,
-                    "id": "",
-                    "class": "",
-                    "conditional_logic": 0,
-                    "parent": 12984,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -84,20 +82,20 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 12986,
+                    "ID": 13331,
                     "key": "field_58e1c0696488a",
                     "label": "Order",
                     "name": "module_order",
                     "prefix": "acf",
                     "type": "number",
                     "value": null,
-                    "menu_order": 2,
+                    "menu_order": 1,
                     "instructions": "",
                     "required": 1,
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 12984,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -117,20 +115,20 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 12987,
+                    "ID": 13332,
                     "key": "field_58e1c09e6488b",
                     "label": "Use CTA",
                     "name": "module_use_cta",
                     "prefix": "acf",
                     "type": "true_false",
                     "value": null,
-                    "menu_order": 3,
+                    "menu_order": 2,
                     "instructions": "",
                     "required": 0,
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 12984,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -146,14 +144,14 @@
                     "ui_off_text": ""
                 },
                 {
-                    "ID": 12993,
+                    "ID": 13333,
                     "key": "field_58e1c16d818a3",
                     "label": "CTA",
                     "name": "module_cta",
                     "prefix": "acf",
                     "type": "component_field",
                     "value": null,
-                    "menu_order": 4,
+                    "menu_order": 3,
                     "instructions": "",
                     "required": 0,
                     "id": "",
@@ -167,7 +165,7 @@
                             }
                         ]
                     ],
-                    "parent": 12984,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -185,7 +183,7 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
-                            "ID": 12991,
+                            "ID": 13318,
                             "key": "field_58e1c124a8dfe",
                             "label": "Label",
                             "name": "cta_label",
@@ -198,7 +196,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 12990,
+                            "parent": 13317,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -216,12 +214,12 @@
                             "disabled": 0
                         },
                         {
-                            "ID": 12992,
+                            "ID": 13319,
                             "key": "field_58e1c136a8dff",
                             "label": "Link",
                             "name": "cta_link",
                             "prefix": "acf",
-                            "type": "text",
+                            "type": "url",
                             "value": null,
                             "menu_order": 1,
                             "instructions": "",
@@ -229,7 +227,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 12990,
+                            "parent": 13317,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -239,12 +237,7 @@
                             "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "readonly": 0,
-                            "disabled": 0
+                            "placeholder": ""
                         }
                     ]
                 }
@@ -252,12 +245,20 @@
         },
         {
             "key": "field_58efaa0e737de",
-            "label": "Content",
+            "label": "Text",
             "name": "overview_content",
             "type": "wysiwyg",
             "instructions": "If your content is more than a paragraph or two long, you can use the \"read more\" toolbar button to insert a division - it's the third button from the right in the editing toolbar, the one that looks like two bars with a dotted line between them. Hit enter after a paragraph and press the button; everything after the dividing line it inserts will be hidden behind a \"Read more\" link.",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f8ce0cbee97",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -270,21 +271,61 @@
             "delay": 0
         },
         {
+            "key": "field_5909330914963",
+            "label": "Resources Enabled",
+            "name": "overview_resources_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f8ce0cbee97",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_58efaaa4737e0",
             "label": "Resources block",
             "name": "",
             "type": "message",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f8ce0cbee97",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_5909330914963",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
             "message": "Add up to four related links to sit alongside the overview. The list title defaults to 'Resources', but can be changed below.",
-            "esc_html": 0,
-            "new_lines": "wpautop"
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_58efaaaf737e1",
@@ -293,7 +334,20 @@
             "type": "text",
             "instructions": "",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f8ce0cbee97",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_5909330914963",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -303,9 +357,7 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
         },
         {
             "key": "field_58efaaf0737e2",
@@ -314,12 +366,26 @@
             "type": "repeater",
             "instructions": "Add up to four links to display in a list to the right of the overview text.",
             "required": 1,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f8ce0cbee97",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_5909330914963",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
+            "collapsed": "",
             "min": 1,
             "max": 4,
             "layout": "row",
@@ -362,8 +428,7 @@
                     "default_value": "",
                     "placeholder": ""
                 }
-            ],
-            "collapsed": ""
+            ]
         }
     ],
     "location": [
@@ -394,5 +459,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1493922497
+    "modified": 1493924069
 }

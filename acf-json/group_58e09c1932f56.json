@@ -3,13 +3,40 @@
     "title": "Statistics",
     "fields": [
         {
+            "key": "field_58f8cf1faf26e",
+            "label": "Enabled",
+            "name": "statistics_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_58e1c18fb852d",
             "label": "Options",
             "name": "statistics_options",
             "type": "component_field",
             "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f8cf1faf26e",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -20,18 +47,16 @@
             "max": 1,
             "layout": "row",
             "button_label": "Add Row",
-            "appearances": [
-                "hide-outer-label"
-            ],
+            "appearances": "",
             "collapsed": "",
             "sub_fields": [
                 {
-                    "ID": 12997,
-                    "key": "field_58e1e28198454",
-                    "label": "Enabled",
-                    "name": "module_enabled",
+                    "ID": 13330,
+                    "key": "field_58e1c06164889",
+                    "label": "Title",
+                    "name": "module_title",
                     "prefix": "acf",
-                    "type": "true_false",
+                    "type": "text",
                     "value": null,
                     "menu_order": 0,
                     "instructions": "",
@@ -39,36 +64,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 12984,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "_name": "module_enabled",
-                    "_prepare": 0,
-                    "_valid": 1,
-                    "message": "",
-                    "default_value": 1,
-                    "ui": 0,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
-                },
-                {
-                    "ID": 12985,
-                    "key": "field_58e1c06164889",
-                    "label": "Title",
-                    "name": "module_title",
-                    "prefix": "acf",
-                    "type": "text",
-                    "value": null,
-                    "menu_order": 1,
-                    "instructions": "",
-                    "required": 0,
-                    "id": "",
-                    "class": "",
-                    "conditional_logic": 0,
-                    "parent": 12984,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -86,20 +82,20 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 12986,
+                    "ID": 13331,
                     "key": "field_58e1c0696488a",
                     "label": "Order",
                     "name": "module_order",
                     "prefix": "acf",
                     "type": "number",
                     "value": null,
-                    "menu_order": 2,
+                    "menu_order": 1,
                     "instructions": "",
                     "required": 1,
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 12984,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -119,20 +115,20 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 12987,
+                    "ID": 13332,
                     "key": "field_58e1c09e6488b",
                     "label": "Use CTA",
                     "name": "module_use_cta",
                     "prefix": "acf",
                     "type": "true_false",
                     "value": null,
-                    "menu_order": 3,
+                    "menu_order": 2,
                     "instructions": "",
                     "required": 0,
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 12984,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -148,14 +144,14 @@
                     "ui_off_text": ""
                 },
                 {
-                    "ID": 12993,
+                    "ID": 13333,
                     "key": "field_58e1c16d818a3",
                     "label": "CTA",
                     "name": "module_cta",
                     "prefix": "acf",
                     "type": "component_field",
                     "value": null,
-                    "menu_order": 4,
+                    "menu_order": 3,
                     "instructions": "",
                     "required": 0,
                     "id": "",
@@ -169,7 +165,7 @@
                             }
                         ]
                     ],
-                    "parent": 12984,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -187,7 +183,7 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
-                            "ID": 12991,
+                            "ID": 13318,
                             "key": "field_58e1c124a8dfe",
                             "label": "Label",
                             "name": "cta_label",
@@ -200,7 +196,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 12990,
+                            "parent": 13317,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -218,12 +214,12 @@
                             "disabled": 0
                         },
                         {
-                            "ID": 12992,
+                            "ID": 13319,
                             "key": "field_58e1c136a8dff",
                             "label": "Link",
                             "name": "cta_link",
                             "prefix": "acf",
-                            "type": "text",
+                            "type": "url",
                             "value": null,
                             "menu_order": 1,
                             "instructions": "",
@@ -231,7 +227,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 12990,
+                            "parent": 13317,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -241,12 +237,7 @@
                             "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": "",
-                            "readonly": 0,
-                            "disabled": 0
+                            "placeholder": ""
                         }
                     ]
                 }
@@ -254,17 +245,26 @@
         },
         {
             "key": "field_58e33dddae4c1",
-            "label": "Figures",
-            "name": "statistics_figures",
+            "label": "Statistics Cards",
+            "name": "statistics_cards",
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58f8cf1faf26e",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
+            "collapsed": "",
             "min": 3,
             "max": 3,
             "layout": "row",
@@ -272,8 +272,8 @@
             "sub_fields": [
                 {
                     "key": "field_58e33e04ae4c2",
-                    "label": "Figure",
-                    "name": "statistic_figure",
+                    "label": "Statistic Card",
+                    "name": "statistic_card",
                     "type": "component_field",
                     "instructions": "",
                     "required": 0,
@@ -292,7 +292,7 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
-                            "ID": 13016,
+                            "ID": 13367,
                             "key": "field_58e33c8224087",
                             "label": "Number",
                             "name": "stat_number",
@@ -305,7 +305,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 13015,
+                            "parent": 13366,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -325,7 +325,7 @@
                             "disabled": 0
                         },
                         {
-                            "ID": 13017,
+                            "ID": 13368,
                             "key": "field_58e33d9b24088",
                             "label": "Text",
                             "name": "stat_text",
@@ -338,7 +338,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 13015,
+                            "parent": 13366,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -357,8 +357,7 @@
                         }
                     ]
                 }
-            ],
-            "collapsed": ""
+            ]
         }
     ],
     "location": [
@@ -378,7 +377,7 @@
         ]
     ],
     "menu_order": 3,
-    "position": "acf_after_title",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -386,5 +385,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1493922541
+    "modified": 1493924100
 }

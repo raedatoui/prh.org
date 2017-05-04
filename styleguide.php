@@ -7,78 +7,7 @@
 
 get_header(); ?>
 
-
-<style>
-
-.page-template-styleguide .hero ~ .module {
-	padding-bottom: 40px;
-}
-
-.page-template-styleguide .hero ~ .module:before {
-	display: none;
-}
-
-.style-details {
-	margin-bottom: 2em;
-}
-
-.style-details:after {
-	content:"";
-	display: block;
-	clear: both;
-}
-
-.style-details dt,
-.style-details dd {
-	float: left;
-}
-
-.style-details dt { 
-	clear: both;
-	font-weight: bold; 
-	margin-right: 2ch;
-	width: 10em;
-}
-
-.swatch-block {
-	background: #fff;
-	background: #fff7f1;
-	border: 10px solid #fff1e6;
-	text-align: center;
-}
-
-.swatch-label {
-	display: block;
-	margin: 0 auto 40px;
-}
-
-.swatch {
-	height: 40px;
-	width: 100%;
-	margin: 20px auto;
-}
-
-.swatch-paper,
-.swatch-cream {
-	outline: 2px solid #f3ebde;
-}
-
-.type-samples {
-	padding: 40px 0;
-}
-
-.type-samples h1,
-.type-samples h2,
-.type-samples h3,
-.type-samples p {
-	margin-bottom: 30px;
-}
-
-.type-block:first-child {
-	margin-bottom: 100px;
-}
-
-</style>
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/styleguide.css">
 
 <section class="hero module">
 	<div class="content">
@@ -362,6 +291,13 @@ get_header(); ?>
   </div>
 </section>
 
+
+<?php 	
+	$page = new PageModules( get_the_ID() );
+	$page->init();
+	$page->render();
+	?>
+
 <?php
 while ( have_posts() ) : the_post(); ?>
 <section class="module">
@@ -376,8 +312,6 @@ while ( have_posts() ) : the_post(); ?>
 </section>
 
 <?php
-	$page = new PageModules( get_the_ID() );
-	$page->render();
 endwhile; ?>
 
 </div> <!-- /page-container -->
