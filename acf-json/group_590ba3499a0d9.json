@@ -1,0 +1,181 @@
+{
+    "key": "group_590ba3499a0d9",
+    "title": "Donate Module",
+    "fields": [
+        {
+            "key": "field_590ba449fa0fc",
+            "label": "Enabled",
+            "name": "donate_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_590ba35bfa0f7",
+            "label": "Background image",
+            "name": "donate_bg",
+            "type": "image",
+            "instructions": "For the best results, use an image that's not too high-contrast - it'll have white text laid on top of it, so keep legibility in mind.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_590ba449fa0fc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_590ba39bfa0f8",
+            "label": "Title",
+            "name": "donate_title",
+            "type": "text",
+            "instructions": "An eye-catching statement about why visitors should donate.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_590ba449fa0fc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "We need your help to provide care.",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_590ba3cefa0f9",
+            "label": "Text",
+            "name": "donate_text",
+            "type": "text",
+            "instructions": "Additional text. Keep this to a sentence or so.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_590ba449fa0fc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Advance the need for reproductive health rights today with a tax-free donation.",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_590ba3eafa0fa",
+            "label": "Button text",
+            "name": "donate_cta_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_590ba449fa0fc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Donate",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_590ba414fa0fb",
+            "label": "Button url",
+            "name": "donate_cta_url",
+            "type": "url",
+            "instructions": "Where should the button in this module link?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_590ba449fa0fc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/secure2.convio.net\/prch\/site\/Donation2?idb=1471799783&DONATION_LEVEL_ID_SELECTED=1&df_id=1542&mfc_pref=T&1542.donation=form1&idb=0",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "is_acf_component": 0,
+    "modified": 1493935322
+}
