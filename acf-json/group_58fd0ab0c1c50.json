@@ -43,10 +43,10 @@
                 "id": ""
             },
             "choices": {
-                "1": "Kelsey Rhodes",
-                "2": "Kelsie Harris",
-                "3": "Mary Humphreys",
-                "4": "Jen Girdish"
+                "Kelsey Rhodes": "Kelsey Rhodes",
+                "Kelsie Harris": "Kelsie Harris",
+                "Mary Humphreys": "Mary Humphreys",
+                "Jen Girdish": "Jen Girdish"
             },
             "default_value": [],
             "allow_null": 0,
@@ -78,10 +78,10 @@
                 "id": ""
             },
             "choices": {
-                "1": "kelsey@prh.org",
-                "2": "kelsie@prh.org",
-                "3": "marye@prh.org",
-                "4": "jen@prh.org"
+                "kelsey@prh.org": "kelsey@prh.org",
+                "kelsie@prh.org": "kelsie@prh.org",
+                "marye@prh.org": "marye@prh.org",
+                "jen@prh.org": "jen@prh.org"
             },
             "default_value": [],
             "allow_null": 0,
@@ -113,10 +113,10 @@
                 "id": ""
             },
             "choices": {
-                "1": "(123) 555-555",
-                "2": "(456) 555-555",
-                "3": "(789) 555-555",
-                "4": "(074) 555-555"
+                "(123) 555-555": "(123) 555-555",
+                "(456) 555-555": "(456) 555-555",
+                "(789) 555-555": "(789) 555-555",
+                "(074) 555-555": "(074) 555-555"
             },
             "default_value": [],
             "allow_null": 0,
@@ -194,5 +194,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1493933585
+    "modified": 1493958070
 }

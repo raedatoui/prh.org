@@ -33,9 +33,9 @@ function prh_sync_media_contact_values()
 	<script type="text/javascript">
 	(function($){
 		$('*[data-name="media_contact_name"] select').change(function(){
-			var value = $(this).val();
-			$('*[data-name="media_contact_email"] select').val(value);
-			$('*[data-name="media_contact_phone"] select').val(value);
+			var selectedIndex = $(this)[0].selectedIndex;
+			$('*[data-name="media_contact_email"] select').prop('selectedIndex', selectedIndex);
+			$('*[data-name="media_contact_phone"] select').prop('selectedIndex', selectedIndex);
 		});
 	})(jQuery);
 	</script>
@@ -53,8 +53,8 @@ function prh_disable_media_contact_fields(){
 	<script type="text/javascript">
 	(function($) {
 		$(document).ready(function(){
-			$('*[data-name="media_contact_email"] select').attr('disabled', true);
-			$('*[data-name="media_contact_phone"] select').attr('disabled', true);
+			$('*[data-name="media_contact_email"] select').css('pointer-events', 'none');
+			$('*[data-name="media_contact_phone"] select').css('pointer-events', 'none');
   		});
 	})(jQuery);
 	</script>
