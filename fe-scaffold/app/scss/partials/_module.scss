@@ -66,7 +66,10 @@
     }
   }
 
-  .page-template-issue & {
+
+
+  .page-template-issue &,
+  .page-template-styleguide &  {
     &:nth-child(even) {
       background-color: $prh-pink-lt;
 
@@ -74,16 +77,49 @@
         background-image: url("../images/optimized/pink-curve--arc.svg");
       }
     }
+
+    &.donate-module:nth-child(odd) {
+      &::before {
+        background-image: url("../images/optimized/pink-arc--concave.svg") !important;
+      }
+    }
+
+    &.donate-module:nth-child(even) {
+      &::before {
+        background-image: url("../images/optimized/cream-arc--concave.svg") !important;
+      }
+    }
   }
 
 
   .home & {
     &:nth-child(odd) {
-      background-color: $prh-pink-lt;
+      background-color: color(peach);
 
       &::before {
         background-image: url("../images/optimized/pink-curve--arc.svg");
       }
     }
+
+    &.donate-module:nth-child(even) {
+      &::before {
+        background-image: url("../images/optimized/pink-arc--concave.svg") !important;
+      }
+    }
+
+    &.donate-module:nth-child(odd) {
+      &::before {
+        background-image: url("../images/optimized/cream-arc--concave.svg") !important;
+      }
+    }
+  }
+
+  &.footer-module::before {
+    background-image: url("../images/optimized/navy-curve--wave.svg") !important;
+  }
+
+  &.donate-module::before {
+    background-position: center top;
+    top: -5px; // avoids hairlines
   }
 }

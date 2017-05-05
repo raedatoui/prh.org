@@ -3,11 +3,6 @@
   color: color(white);
   padding-bottom: 100px !important;
 
-  &::before {
-    background-image: url("../images/optimized/navy-curve--arc.svg") !important;
-    background-position: top center !important;
-  }
-
   li {
     list-style: none;
   }
@@ -50,15 +45,13 @@
 
 .footer-sitemap {
   li {
-    float: left;
     margin-bottom: 1em;
-    width: 50%;
-  }
-}
 
-.subscribe-link {
-  border-bottom: 1px solid transparentize(color(sky), 0.75);
-  padding-bottom: 2px;
+    @media (max-width: 48em), (min-width: 62em) {
+      float: left;
+      width: 50%;
+    }
+  }
 }
 
 .footer-social {
@@ -73,16 +66,20 @@
 
   a {
 
+    display: block;
+
     &::before {
+      cursor: pointer;
       display: block;
       height: 20px;
+      margin: auto;
+      padding: 5px;
       width: 20px;
     }
 
     &:focus {
       &::before {
         outline: 1px dotted white;
-        outline-offset: 4px;
       }
     }
 

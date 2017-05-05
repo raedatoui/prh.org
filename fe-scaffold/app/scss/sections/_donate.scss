@@ -1,0 +1,29 @@
+.donate-module {
+  background-color: color(navy);
+  background-image: url("../images/optimized/donate-module.jpg"); // default; can be overridden via cms
+  background-position: top center;
+  background-size: cover;
+  color: #fff;
+  padding-bottom: 200px;
+  padding-top: 11vw;
+}
+
+.donate-header {
+  @extend %h1;
+  margin-top: 200px;
+}
+
+.donate-header,
+.donate-copy {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60em;
+}
+
+.donate-copy {
+  margin-bottom: 30px;
+}
+
+.donate-cta {
+  margin-bottom: 100px;
+}

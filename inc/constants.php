@@ -213,6 +213,17 @@ const ROUTING_MODULE = array(
 	'template' => 'template-parts/modules/routing-module.php'
 );
 
+const DONATE_MODULE = array(
+	'enabled' => 'donate_module_enabled',
+	'name' => 'Donate Module',
+	'headline' => 'donate_module_headline',
+	'text' => 'donate_module_text', 
+	'cta_text' => 'donate_module_cta_text',
+	'cta_url' => 'donate_module_cta_url',
+	'image' => 'donate_module_bg',
+	'template' => 'template-parts/modules/donate.php'
+);
+
 
 /************* Mappings *****************/
 const MODULES = array(
@@ -228,7 +239,8 @@ const MODULES = array(
 	SPOTLIGHT_3_MODULE['name'] => SPOTLIGHT_3_MODULE,
 	TAB_PANEL['name'] => TAB_PANEL,
 	ACCORDION_SECTION['name'] => ACCORDION_SECTION,
-	ROUTING_MODULE['name'] => ROUTING_MODULE
+	ROUTING_MODULE['name'] => ROUTING_MODULE,
+	DONATE_MODULE['name'] => DONATE_MODULE
 );
 
 const AGGREGATES = array(
@@ -240,6 +252,7 @@ const HEROS = array(
 	HOMEPAGE_HERO_MODULE['name'],
 	PAGE_HERO_MODULE['name']
 );
+
 
 /************* Stylistic stuff *****************/
 
