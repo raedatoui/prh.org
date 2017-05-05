@@ -68,7 +68,8 @@
 
 
 
-  .page-template-issue & {
+  .page-template-issue &,
+  .page-template-styleguide &  {
     &:nth-child(even) {
       background-color: $prh-pink-lt;
 
