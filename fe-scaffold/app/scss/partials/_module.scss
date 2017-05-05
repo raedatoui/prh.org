@@ -66,17 +66,7 @@
     }
   }
 
-  &.donate-module:nth-child(even) {
-    &::before {
-      background-image: url("../images/optimized/pink-arc--concave.svg");
-    }
-  }
 
-    &.donate-module:nth-child(odd) {
-    &::before {
-      background-image: url("../images/optimized/cream-arc--concave.svg");
-    }
-  }
 
   .page-template-issue & {
     &:nth-child(even) {
@@ -84,6 +74,18 @@
 
       &::before {
         background-image: url("../images/optimized/pink-curve--arc.svg");
+      }
+    }
+
+    &.donate-module:nth-child(odd) {
+      &::before {
+        background-image: url("../images/optimized/pink-arc--concave.svg") !important;
+      }
+    }
+
+    &.donate-module:nth-child(even) {
+      &::before {
+        background-image: url("../images/optimized/cream-arc--concave.svg") !important;
       }
     }
   }
@@ -95,6 +97,18 @@
 
       &::before {
         background-image: url("../images/optimized/pink-curve--arc.svg");
+      }
+    }
+
+    &.donate-module:nth-child(even) {
+      &::before {
+        background-image: url("../images/optimized/pink-arc--concave.svg") !important;
+      }
+    }
+
+    &.donate-module:nth-child(odd) {
+      &::before {
+        background-image: url("../images/optimized/cream-arc--concave.svg") !important;
       }
     }
   }
