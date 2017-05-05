@@ -139,7 +139,7 @@ class PageModules {
 				$module['query'] = $this->build_query( $module );
 			}
 			$module_title = $module['config'][MODULE_OPTIONS['title']];
-			return include( locate_template( $template, false, true ) );
+			include( locate_template( $template, false, true ) );
 		}
 	}
 
