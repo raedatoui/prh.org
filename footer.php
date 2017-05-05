@@ -15,21 +15,21 @@
     <div class="content">
       <div class="row footer-row">
 
-      <div class="col-xs-12 col-lg-4 footer-col">
-        <h4 class="eyebrow footer-eyebrow">Sitemap</h4>
+      <div class="col-xs-12 col-sm-4 footer-col">
+        <h4 class="footer-title">Sitemap</h4>
         <?php wp_nav_menu(array('theme_location' => 'footer-menu',
                                 'container' => 'nav',
                                 'container_class' => 'footer-menu-container', 
                                 'menu_class' => 'footer-sitemap')); ?>
       </div>
 
-      <div class="col-xs-12 col-lg-4 footer-col">
+      <div class="col-xs-12 col-sm-4 footer-col">
         <h4 class="footer-title">Stay Informed</h4>
         <p class="footer-copy">We deliver breaking news and reproductive justice opportunities straight to your inbox.</p>
-        <p class="footer-copy"><a class="eyebrow subscribe-link" href="#">Subscribe</a>
+        <p class="footer-copy"><a class="eyebrow subscribe-link capsule-link" href="#">Subscribe</a>
       </div>
 
-      <div class="col-xs-12 col-lg-4 footer-col">
+      <div class="col-xs-12 col-sm-4 footer-col">
         <h4 class="footer-title">Join the Conversation</h4>
         <ul class="footer-social social-icons">
           <?php wp_nav_menu(array('theme_location' => 'footer-social',

@@ -2,7 +2,7 @@
   @include roboto();
   background: $prh-navy-lt;
   color: #fff;
-  display: block;
+  display: table;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -30,8 +30,6 @@
     }
   }
 }
-
-
 
 .cta-row {
   margin-top: 40px;
@@ -83,5 +81,21 @@
 @include responsive-mq("md") {
   .cta {
     display: inline-block;
+  }
+}
+
+
+.capsule-link {
+  border-radius: 10px;
+  border: none;
+  display: table;
+  font-size: 13px;
+  line-height: 1;
+  padding: 10px 40px;
+  text-decoration: none;
+
+  .site-footer & {
+    background-color: color(smoke);
+    color: color(navy);
   }
 }

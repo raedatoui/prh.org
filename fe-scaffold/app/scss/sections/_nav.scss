@@ -12,9 +12,16 @@
     width: 30px;
   }
 
+  // the donate button next to the desktop nav
   .donate-btn {
     margin: 10px auto;
   }
+}
+
+// the donate button inside the mobile nav
+.site-nav .donate-btn {
+  margin: 0 auto;
+  width: 100%;
 }
 
 .site-nav-wrap {
