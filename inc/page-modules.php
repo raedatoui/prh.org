@@ -129,7 +129,6 @@ class PageModules {
 			}
 			include( locate_template( $module['config']['template'], false, true ) );
 		}
-		return $this;
 	}
 
 	function render_modules() {
@@ -153,7 +152,6 @@ class PageModules {
 				include( locate_template( $module['config']['template'], false, true ) );
 			}
 		}
-		return $this;
 	}
 
 	function render() {
