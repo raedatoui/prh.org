@@ -9,12 +9,15 @@ get_header(); ?>
 
 <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/styleguide.css">
 
+
+<!-- Hero -->
 <section class="hero module">
 	<div class="content">
 		<h1 class="hero__header">Style Guide</h1>
 		<div class="col-xs-12 hero__subhead">An inventory of global patterns.</div>
 	</div>
 </section>
+
 
 <!-- Colors -->
 <section class="module">
@@ -36,6 +39,40 @@ get_header(); ?>
 		</div>
 	</div>
 </section>		
+
+
+<!-- Links & buttons -->
+<section class="module">
+	<div class="content">
+		<header class="row center-xs">
+			<div class="module__title">
+				<h2>Buttons & links</h2>
+			</div>
+		</header>
+		<div class="row">
+			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
+				<a href="#" style="margin: 40px auto 30px; display: inline-block;">More Resources</a>
+				<span class="swatch-label"><code>default link styles</code></span>
+			</div>
+			
+			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
+				<a href="#" class="cta">Call To Action</a>
+				<span class="swatch-label"><code>.cta</code></span>
+			</div>
+
+			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
+				<a href="#" class="cta cta--red">Call To Action</a>
+				<span class="swatch-label"><code>.cta.cta--red</code></span>
+			</div>
+
+			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
+				<a href="#" class="cta--link" style="margin: 30px auto 15px; max-width: 15em;">Call To Action</a>
+				<span class="swatch-label"><code>.cta--link</code></span>
+			</div>
+
+		</div>
+	</div>
+</section>
 
 
 <!-- Typefaces -->
@@ -95,7 +132,7 @@ get_header(); ?>
 
 					</div>
 			
-<!-- 					<hr>
+           <!-- 					<hr>
 						<h1>This is a level-one heading (h1)</h1>
 						<h3>This is a level-three heading (h3)</h3>
 						<p class="lead-copy">This style can be used for the first paragraph of some text content. In CSS, the class to apply is "lead-copy".</p>
@@ -141,7 +178,7 @@ get_header(); ?>
 					<?php foreach($eyebrow_sizes as $index => $size): ?>
 						<p class="eyebrow" style="font-size: <?php echo $size; ?>px;">Roboto Condensed at <?php echo $size; ?>px.</p>
 					<?php endforeach; ?>
-<!-- 					<p class="eyebrow">This is the default eyebrow styling</p>
+   <!-- 					<p class="eyebrow">This is the default eyebrow styling</p>
 					<time class="eyebrow" style="color: #999;">Same style for dates and utility text</time>
 					<p class="utility-copy">Smaller when used with the 'utility-copy' class.</p>
 					<div class="row center-xs"><div class="module__title"><h2>Also used in level-2 headings</h2></div></div>
@@ -155,38 +192,37 @@ get_header(); ?>
 	</div>
 </section>
 
+
+<!-- SVGs / icons -->
+<?php $svgs = array('carat', 'close', 'search', 'person', 'squiggle'); ?>
 <section class="module">
 	<div class="content">
 		<header class="row center-xs">
 			<div class="module__title">
-				<h2>Buttons & links</h2>
+				<h2>SVG Assets</h2>
 			</div>
 		</header>
-		<div class="row">
-			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
-				<a href="#" style="margin: 40px auto 30px; display: inline-block;">More Resources</a>
-				<span class="swatch-label"><code>default link styles</code></span>
-			</div>
-			
-			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
-				<a href="#" class="cta">Call To Action</a>
-				<span class="swatch-label"><code>.cta</code></span>
-			</div>
+		<p class="lead-copy">SVGs can scale to any size without getting pixelated, so they're a natural choice for icons and UI elements.</p>
 
-			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
-				<a href="#" class="cta cta--red">Call To Action</a>
-				<span class="swatch-label"><code>.cta.cta--red</code></span>
-			</div>
+		<p>For the full svg code for these icons, see the file <code>svg.php</code> in the root folder of the Wordpress theme.</p>
+		<div class="row swatch-row">
 
-			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
-				<a href="#" class="cta--link" style="margin: 30px auto 15px; max-width: 15em;">Call To Action</a>
-				<span class="swatch-label"><code>.cta--link</code></span>
+			<?php foreach ( $svgs as $svg_name ): 
+			$size_class = ($svg_name == 'squiggle') ? ' col-sm-5' : ' col-sm-2'; ?>
+			<div class="swatch-block col-xs-12 <?php echo $size_class; ?>">
+				<svg class="icon--<?php echo $svg_name; ?> swatch" role="presentation">
+					<use xlink:href="#icon--<?php echo $svg_name; ?>" />
+				</svg>
+				<span class="swatch-label"><code>icon--<?php echo $svg_name; ?></code></span>
 			</div>
+		<?php endforeach; ?>
 
 		</div>
-	</div>
+  </div>
 </section>
 
+
+<!-- Text copy -->
 <section class="module">
 	<div class="content">
 		<header class="row center-xs">
@@ -201,119 +237,94 @@ get_header(); ?>
 	</div>
 </section>
 
-<!-- <section class="module">
-	<div class="content">
-	<header class="row center-xs">
-		<div class="module__title">
-			<h2>Headers</h2>
+
+<!-- Examples with context - not active till I can organize this better. -->
+<!-- 
+	<section class="module">
+		<div class="content">
+		<header class="row center-xs">
+			<div class="module__title">
+				<h2>Headers</h2>
+			</div>
+			</header>
+			<p class="lead-copy">Headers show content hierarchy.</p>
+			<p>The second-level heading, or module title, is used for naming the big subsections within a page. The word 'Headers' above this block of text is an example.</p>
+			<h3>Heading level three (h3)</h3>
+			<p>Following the page’s information hierarchy, third level headings should be used within the subsections. Avoid skipping levels – if your last header was an h2 and you want to label a block within that subsection, use an h3. If you need one within <em>that</em>, continue on with h4. HTML supports 6 levels of headers, but most content won't go deeper than 3 or 4.</p>
+			<h4>Heading level four</h4>
+			<p>Some pages won’t get to this level of hierarchy, but others might, especially in areas like sidebars. Here's some more filler text. Physicians for Reproductive Health believes that access to contraception is of vital importance to women’s health because it allows them to determine the timing and spacing of pregnancies. In the medical world, we have studied birth control methods and their effects for decades.</p>
+			<h5>Heading level five</h5>
+			<p>Most pages won’t get to this level of hierarchy, but others might, especially in areas like sidebars. Here's some more filler text. Physicians for Reproductive Health believes that access to contraception is of vital importance to women’s health because it allows them to determine the timing and spacing of pregnancies. In the medical world, we have studied birth control methods and their effects for decades.</p>
+			<h6>Heading level six</h6>
+			<p>Most pages won’t get to this level of hierarchy, but others might, especially in areas like sidebars. Here's some more filler text. Physicians for Reproductive Health believes that access to contraception is of vital importance to women’s health because it allows them to determine the timing and spacing of pregnancies. In the medical world, we have studied birth control methods and their effects for decades.</p>
 		</div>
-		</header>
-		<p class="lead-copy">Headers show content hierarchy.</p>
-		<p>The second-level heading, or module title, is used for naming the big subsections within a page. The word 'Headers' above this block of text is an example.</p>
-		<h3>Heading level three (h3)</h3>
-		<p>Following the page’s information hierarchy, third level headings should be used within the subsections. Avoid skipping levels – if your last header was an h2 and you want to label a block within that subsection, use an h3. If you need one within <em>that</em>, continue on with h4. HTML supports 6 levels of headers, but most content won't go deeper than 3 or 4.</p>
-		<h4>Heading level four</h4>
-		<p>Some pages won’t get to this level of hierarchy, but others might, especially in areas like sidebars. Here's some more filler text. Physicians for Reproductive Health believes that access to contraception is of vital importance to women’s health because it allows them to determine the timing and spacing of pregnancies. In the medical world, we have studied birth control methods and their effects for decades.</p>
-		<h5>Heading level five</h5>
-		<p>Most pages won’t get to this level of hierarchy, but others might, especially in areas like sidebars. Here's some more filler text. Physicians for Reproductive Health believes that access to contraception is of vital importance to women’s health because it allows them to determine the timing and spacing of pregnancies. In the medical world, we have studied birth control methods and their effects for decades.</p>
-		<h6>Heading level six</h6>
-		<p>Most pages won’t get to this level of hierarchy, but others might, especially in areas like sidebars. Here's some more filler text. Physicians for Reproductive Health believes that access to contraception is of vital importance to women’s health because it allows them to determine the timing and spacing of pregnancies. In the medical world, we have studied birth control methods and their effects for decades.</p>
-	</div>
-</section> -->
+	</section> -->
 
 
-<!-- <section class="module">
-	<div class="content">
-	<header class="row center-xs">
-		<div class="module__title">
-			<h2>Blockquotes</h2>
+	<!-- <section class="module">
+		<div class="content">
+		<header class="row center-xs">
+			<div class="module__title">
+				<h2>Blockquotes</h2>
+			</div>
+			</header>
+			<blockquote>
+				<p>This is what the default styling for a blockquote looks like, including a citation with a secondary detail.</p>
+				<footer><cite>—Joel Hodgson, <span class="cite-origin">Minnesota</span></cite></footer>
+			</blockquote>
 		</div>
-		</header>
-		<blockquote>
-			<p>This is what the default styling for a blockquote looks like, including a citation with a secondary detail.</p>
-			<footer><cite>—Joel Hodgson, <span class="cite-origin">Minnesota</span></cite></footer>
-		</blockquote>
-	</div>
-</section>
+	</section>
 
-<section class="module">
-	<div class="content">
-	<header class="row center-xs">
-		<div class="module__title">
-			<h2>Misc text elements</h2>
+	<section class="module">
+		<div class="content">
+		<header class="row center-xs">
+			<div class="module__title">
+				<h2>Misc text elements</h2>
+			</div>
+			</header>
+			<p><span class="eyebrow">Eyebrow text | Also used for dates</span></p>
 		</div>
-		</header>
-		<p><span class="eyebrow">Eyebrow text | Also used for dates</span></p>
-	</div>
-</section>
+	</section>
 
-<section class="module">
-	<div class="content">
-	<header class="row center-xs">
-		<div class="module__title">
-			<h2>Test your markup</h2>
-		</div>
-		</header>
-		<p class="lead-copy">Below this, the page pulls from the wordpress admin area.</p>
-		<p>You can edit the page called 'Styleguide' and the contents will show up here. Any modules added that way will show below that.</p>
-  </div>
-</section> -->
+	<section class="module">
+		<div class="content">
+		<header class="row center-xs">
+			<div class="module__title">
+				<h2>Test your markup</h2>
+			</div>
+			</header>
+			<p class="lead-copy">Below this, the page pulls from the wordpress admin area.</p>
+			<p>You can edit the page called 'Styleguide' and the contents will show up here. Any modules added that way will show below that.</p>
+	  </div>
+	</section> 
+-->
 
-<section class="module">
-	<div class="content">
-	<header class="row center-xs">
-		<div class="module__title">
-			<h2>SVG Assets</h2>
-		</div>
-		</header>
-		<p class="lead-copy">Our SVG assets, as defined in svg.php.</p>
-		<div>
-			<svg class="icon--carat" role="presentation">
-				<use xlink:href="#icon--carat" />
-			</svg>
-
-			<svg class="icon--close" role="presentation">
-				<use xlink:href="#icon--close" />
-			</svg>
-
-			<svg class="icon--search" role="presentation">
-				<use xlink:href="#icon--search" />
-			</svg>
-
-			<svg class="icon--person" role="presentation">
-				<use xlink:href="#icon--person" />
-			</svg>
-
-			<svg class="icon--squiggle" role="presentation">
-				<use xlink:href="#icon--squiggle" />
-			</svg>
-		</div>
-  </div>
-</section>
-
-
+<!-- Render out the page content, if there is any. Normal modules first, then page entry, then donate module. -->
 <?php 	
 	$page = new PageModules( get_the_ID() );
+	$_page = $page; // wordpress is altering the value of 'page' when we output the content, so this hacks around that
 	$page->init();
-	$page->render();
-	?>
+	$page->render_hero();
+	$page->render_modules();
 
-<?php
-while ( have_posts() ) : the_post(); ?>
-<section class="module">
-	<div class="content">
-	<header class="row center-xs">
-		<div class="module__title">
-			<h2><?php the_title(); ?></h2>
-		</div>
-		</header>
-		<?php the_content(); ?>
-	</div>
-</section>
+	if ( have_posts() ): 
+		while ( have_posts() ): 
+			the_post(); ?>
 
-<?php
-endwhile; ?>
+			<section class="module">
+				<div class="content">
+				<header class="row center-xs">
+					<div class="module__title">
+						<h2><?php the_title(); ?></h2>
+					</div>
+					</header>
+					<?php the_content(); ?>
+				</div>
+			</section>
 
+		<?php 
+		endwhile; 
+	endif;  
 
-<?php
-get_footer();
+	$_page->render_donate_module();
+	get_footer();

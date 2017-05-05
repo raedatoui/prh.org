@@ -1,24 +1,5 @@
 @import 'modules/variables';
 
-// Curves in the bg! Currently scoped to certain templates to avoid any weird interactions,
-// but it'll be more global eventually.
-.hero ~ .module {
-
-  .page-template-styleguide & {
-    &:nth-child(even) {
-      background-color: color(paper);
-
-      &::before {
-        background-image: url("../images/optimized/paper-curve--wave.svg");
-      }
-    }
-  }
-
-}
-
-
-
-
 .style-details {
   margin-bottom: 2em;
 }
@@ -43,7 +24,9 @@
 
 .swatch-block {
   background: #fff7f1;
-  border: 10px solid #fff1e6;
+  padding: 10px;
+  // border: 10px solid #fff1e6;
+  background-clip: content-box;
   text-align: center;
 }
 
@@ -53,9 +36,8 @@
 }
 
 .swatch {
-  height: 40px;
-  margin: 20px auto;
-  width: 100%;
+  height: 60px;
+  margin: 20px 10px;
 }
 
 .swatch-paper,

@@ -9,6 +9,7 @@ class PageModules {
 	public $modules;
 	public $keys;
 	public $hero;
+	public $donate;
 
 	function __construct( $post_id ) {
 		$groups = acf_get_field_groups( array( 'post_id' => $post_id ) );
@@ -118,7 +119,7 @@ class PageModules {
 		return array_map( $func, $this->modules );
 	}
 
-	function render() {
+	function render_hero() {
 		if ($this->hero != null ) {
 			$module = $this->hero;
 			if ( $this->hero['config']['name'] === HOMEPAGE_HERO_MODULE['name'] ) {
@@ -128,6 +129,10 @@ class PageModules {
 			}
 			include( locate_template( $module['config']['template'], false, true ) );
 		}
+		return $this;
+	}
+
+	function render_modules() {
 		foreach ($this->modules as $module) {
 			$mn = $module['config']['name'];
 			$template = MODULES[$mn]['template'];
@@ -135,9 +140,11 @@ class PageModules {
 				$module['query'] = $this->build_query( $module );
 			}
 			$module_title = $module['config'][MODULE_OPTIONS['title']];
-			include( locate_template( $template, false, true ) );
+			return include( locate_template( $template, false, true ) );
 		}
+	}
 
+	function render_donate_module() {
 		if ($this->donate != null ) {
 			$module = $this->donate;
 			$enabled_field = $module['config']['enabled'];
@@ -146,8 +153,15 @@ class PageModules {
 				include( locate_template( $module['config']['template'], false, true ) );
 			}
 		}
-
+		return $this;
 	}
+
+	function render() {
+		$this->render_hero();
+		$this->render_modules();
+		$this->render_donate_module();
+	}
+
 
 	function build_query( $module ) {
 		$args = array(
