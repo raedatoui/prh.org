@@ -13,6 +13,11 @@ get_header(); ?>
 <!-- Hero -->
 <section class="hero module">
 	<div class="content">
+		<header class="row center-xs">
+			<div class="module__title">
+				<h2>Hero Module</h2>
+			</div>
+		</header>
 		<h1 class="hero__header">Style Guide</h1>
 		<div class="col-xs-12 hero__subhead">An inventory of global patterns.</div>
 	</div>
