@@ -19,6 +19,9 @@ $mob-header-height: 180px;
 
     &.jump {
       margin: 0 2vw;
+      padding-bottom: 1px;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
     }
   }
 }
