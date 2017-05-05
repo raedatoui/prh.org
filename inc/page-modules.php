@@ -27,12 +27,25 @@ class PageModules {
 	}
 
 	function init() {
-		$has_hero = array_intersect( array_keys( $this->modules ), HEROS );
-		if ( count( $has_hero )  > 0 ) {
-			$hero_key = $has_hero[key( $has_hero )];
-			$this->hero = $this->modules[$hero_key];
-			$this->hero['config'] = MODULES[$hero_key];
+
+		// Separate out hero and donation modules, which have fixed positions on the page
+		$hero_name = MODULES['Homepage Hero']['name'];
+		$donate_name = MODULES['Donate Module']['name'];
+
+		// $has_hero = array_key_exists('Page Hero', $this->modules);
+		$has_hero = array_key_exists($hero_name, $this->modules);
+		$has_donate = array_key_exists($donate_name, $this->modules);
+
+		if ( $has_hero ) {
+			$this->hero = $this->modules[$hero_name];
+			$this->hero['config'] = MODULES[$hero_name];
 			unset( $this->modules[$hero_key] );
+		}
+
+		if ( $has_donate ) {
+			$this->donate = $this->modules[$donate_name];
+			$this->donate['config'] = MODULES[$donate_name];
+			unset( $this->modules[$donate_name]);
 		}
 
 		$this->prepare();
@@ -124,6 +137,16 @@ class PageModules {
 			$module_title = $module['config'][MODULE_OPTIONS['title']];
 			include( locate_template( $template, false, true ) );
 		}
+
+		if ($this->donate != null ) {
+			$module = $this->donate;
+			$enabled_field = $module['config']['enabled'];
+
+			if ( $module[$enabled_field]) {
+				include( locate_template( $module['config']['template'], false, true ) );
+			}
+		}
+
 	}
 
 	function build_query( $module ) {

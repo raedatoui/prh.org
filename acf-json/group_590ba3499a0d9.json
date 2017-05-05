@@ -5,7 +5,7 @@
         {
             "key": "field_590ba449fa0fc",
             "label": "Enabled",
-            "name": "donate_enabled",
+            "name": "donate_module_enabled",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -16,7 +16,7 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 0,
+            "default_value": 1,
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
@@ -24,7 +24,7 @@
         {
             "key": "field_590ba35bfa0f7",
             "label": "Background image",
-            "name": "donate_bg",
+            "name": "donate_module_bg",
             "type": "image",
             "instructions": "For the best results, use an image that's not too high-contrast - it'll have white text laid on top of it, so keep legibility in mind.",
             "required": 0,
@@ -55,8 +55,8 @@
         },
         {
             "key": "field_590ba39bfa0f8",
-            "label": "Title",
-            "name": "donate_title",
+            "label": "Headline",
+            "name": "donate_module_headline",
             "type": "text",
             "instructions": "An eye-catching statement about why visitors should donate.",
             "required": 0,
@@ -83,7 +83,7 @@
         {
             "key": "field_590ba3cefa0f9",
             "label": "Text",
-            "name": "donate_text",
+            "name": "donate_module_text",
             "type": "text",
             "instructions": "Additional text. Keep this to a sentence or so.",
             "required": 0,
@@ -109,8 +109,8 @@
         },
         {
             "key": "field_590ba3eafa0fa",
-            "label": "Button text",
-            "name": "donate_cta_text",
+            "label": "CTA (button) text",
+            "name": "donate_module_cta_text",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -136,8 +136,8 @@
         },
         {
             "key": "field_590ba414fa0fb",
-            "label": "Button url",
-            "name": "donate_cta_url",
+            "label": "CTA (button) url",
+            "name": "donate_module_cta_url",
             "type": "url",
             "instructions": "Where should the button in this module link?",
             "required": 0,
@@ -177,5 +177,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1493935322
+    "modified": 1493999999
 }
