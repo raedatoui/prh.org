@@ -374,6 +374,13 @@
                 "operator": "==",
                 "value": "styleguide.php"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "about.php"
+            }
         ]
     ],
     "menu_order": 3,
@@ -385,5 +392,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1493963258
+    "modified": 1494022030
 }
