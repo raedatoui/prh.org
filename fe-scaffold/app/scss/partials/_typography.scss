@@ -21,7 +21,7 @@ h1 { @extend %h1; }
 %h3 {
   @include lora();
   color: $prh-navy-lt;
-  font-weight: 700;
+  font-weight: $regular;
   line-height: (34 / 26);
   margin-bottom: em(20px, 26px);
 }
