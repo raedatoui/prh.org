@@ -41,7 +41,8 @@ const MODULE_OPTIONS = array(
 	'order' => 'module_order',
 	'title' => 'module_title',
 	'use_cta' => 'module_use_cta',
-	'cta' => 'module_cta'
+	'cta' => 'module_cta',
+	'use_jump_link' => 'module_show_in_hero'
 );
 
 const CTA_COMPONENT = array (

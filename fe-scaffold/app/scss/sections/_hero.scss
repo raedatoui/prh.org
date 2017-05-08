@@ -18,10 +18,10 @@ $mob-header-height: 180px;
     text-decoration: none;
 
     &.jump {
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
       margin: 0 2vw;
       padding-bottom: 1px;
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
     }
   }
 }
@@ -34,9 +34,14 @@ $mob-header-height: 180px;
 
 
 .article-hero {
+  padding-bottom: 100px;
   text-align: left;
 
   h1 {
     margin-bottom: 20px;
+  }
+
+  .hero-content {
+    padding: 0 20px;
   }
 }
