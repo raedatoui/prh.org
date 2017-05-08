@@ -1,0 +1,124 @@
+// Page sections with curvy edges? Sure! 
+
+// THE IDEA
+// Background color alternates - one module on peach, one on cream, repeated.
+// Curve shape also alternates between ^ [arc] and ~ [wave].
+
+// TRICKY PARTS
+// - Must be flexible to both browser window size and content size
+// - Has to work no matter how many modules are on a page, what's in them, or their order
+// - Should gracefully degrade in unsupported browsers (ie fall back to straight edges)
+// - Some modules are a little special, design-wise
+
+// HOW IT WORKS
+// Basically, we position curve-shape svgs above each module - fills match module bgs -
+// and are transparent above the curve line. (If we ever need to change
+// the shape of the curve, these svgs are what you want to edit.)
+
+// Say our page has modules A, B, and C. The curve between A/B comes from the
+// ::before on B. The curve between B/C comes from the ::before on C. Etc.
+// Bottom padding on each module creates space for the curve below it.
+
+// Note the unique rules for the footer and donate modules -
+// the donate one in particular handles its top curve differently
+// (curve image laid _on_ content vs curve prepended _above_ content)
+
+// CHANGING SCOPE?
+// The `.page-template` class covers a lot in Wordpress, so curves will show up 
+// everywhere but single posts, basically. If you need to exclude a specific template,
+// you may want to use (:not) selectors to do so.
+
+
+// I ended up breaking the different curve/color styles out into mixins,
+// since the selector logic that wraps them can get complex.
+// Allows for setting the bg or just the curve image, with !important flags or not, for various use cases.
+// You can use 'cream' or 'peach' as $color; anything else will fall back to cream.
+
+
+@mixin module-curves($color: cream, $set-color: true, $important: false) {
+  $peach-wave-img: "../images/optimized/curves/peach-curve--arc.svg";
+  $cream-wave-img: "../images/optimized/curves/cream-curve--wave.svg";
+
+  $bg-color: if($color == peach, color(peach), color(cream));
+  $img: if($color == peach, $peach-wave-img, $cream-wave-img);
+  $i: if($important, !important, null);
+
+  @if $set-color {
+    background-color: $bg-color $i;
+  }
+
+  &::before {
+    background-image: url($img) $i;
+  }
+}
+
+
+@mixin donate-module-curves() {
+  $odd-arc-img: "../images/optimized/curves/cream-arc--concave.svg";
+  $even-arc-img: "../images/optimized/curves/peach-arc--concave.svg";
+
+  &::before {
+    background-position: 0 0;
+    top: -5px !important;
+  }
+
+  &:nth-child(odd) {
+    &::before {
+      background-image: url($odd-arc-img) !important;
+    }
+  }
+
+  &:nth-child(even) {
+    &::before {
+      background-image: url($even-arc-img) !important;
+    }
+  }
+}
+
+
+@mixin footer-module-curves() {
+  &::before {
+    background-image: url("../images/optimized/curves/navy-curve--wave.svg") !important;
+    background-position: 0 0 !important;
+    background-position-y: 0; // for some reason, IE11 is insisting it needs this too.
+  }
+}
+
+
+///////////////////////////////
+
+.page-template .hero ~ .module {
+  padding-bottom: 11vw; // This should be a little more than the curve height set below
+  position: relative;
+
+  &::before {
+    background-position: bottom center;
+    background-repeat: repeat-x; // 'none' also works here
+    background-size: 105vw auto; // slightly over-wide to avoid gaps at the edges
+    content: "";
+    display: block;
+    height: 10vw;
+    left: 0;
+    margin-top: 2px; // this works more reliably than using calc() to set the top offset
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: -10vw;
+  }
+
+  &:nth-child(even) {
+    @include module-curves(cream);
+  }
+
+  &:nth-child(odd) {
+    @include module-curves(peach);
+  }
+
+  &.donate-module {
+    @include donate-module-curves;
+  }
+
+  &.footer-module {
+    @include footer-module-curves;
+  }
+}
