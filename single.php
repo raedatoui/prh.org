@@ -9,25 +9,27 @@ get_header(); ?>
 
 <section class="hero article-hero module">
 
-	<header class="col-xs-12 col-md-8">
+	<div class="content row hero-content">
+		<header class="col-xs-12 col-md-8">
 
-		<footer class="post-meta">
-			<span class="post-type eyebrow"><?php echo $pt_label; ?> | </span>
-			<time class="post-date utility-copy"><?php the_date( $date_format ); ?></time>
-		</footer>
+			<footer class="post-meta">
+				<span class="post-type eyebrow"><?php echo $pt_label; ?> | </span>
+				<time class="post-date utility-copy"><?php the_date( $date_format ); ?></time>
+			</footer>
 
-		<h1><?php the_title(); ?></h1>
+			<h1><?php the_title(); ?></h1>
 
-		<?php
-			$intro = get_the_excerpt();
-			if ( !is_generated( $intro ) ) {
-				echo '<p>' . $intro . '</p>';
-			} ?>
-	</header>
+			<?php
+				$intro = get_the_excerpt();
+				if ( !is_generated( $intro ) ) {
+					echo '<p>' . $intro . '</p>';
+				} ?>
+		</header>
+	</div>
 
 </section>
 
-<main class="content module row row-top">
+<main class="content module row row-top" id="main">
 
 	<article class="main-content post-content col-xs-12 col-md-9">
 
