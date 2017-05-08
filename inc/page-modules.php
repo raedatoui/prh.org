@@ -116,7 +116,10 @@ class PageModules {
 		$func = function ( $module ) {
 			return $module['config'][MODULE_OPTIONS['title']];
 		};
-		return array_map( $func, $this->modules );
+		$filter = function ( $module ) {
+			return $module['config'][MODULE_OPTIONS['use_jump_link']];
+		};
+		return array_map( $func, array_filter( $this->modules, $filter ) );
 	}
 
 	function render_hero() {
