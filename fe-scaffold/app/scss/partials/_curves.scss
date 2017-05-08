@@ -79,8 +79,8 @@
 @mixin footer-module-curves() {
   &::before {
     background-image: url("../images/optimized/curves/navy-curve--wave.svg") !important;
-    background-position: 0 0 !important;
-    background-position-y: 0; // for some reason, IE11 is insisting it needs this too.
+    background-position: top center;
+    background-position-y: 0;
   }
 }
 
