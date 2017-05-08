@@ -9,7 +9,7 @@ function prh_custom_dashboard_widgets() {
 add_action('wp_dashboard_setup', 'prh_custom_dashboard_widgets');
 
 
-define( 'DESIGNED_PAGE_TEMPLATES', json_encode( array( 'homepage.php', 'issue.php' ) ) );
+define( 'DESIGNED_PAGE_TEMPLATES', json_encode( array( 'homepage.php', 'issue.php'. 'about.php' ) ) );
 
 function prh_customize_meta_boxes( $post_type ) {
 	global $pagenow;
