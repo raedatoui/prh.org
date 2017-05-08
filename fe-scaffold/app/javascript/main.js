@@ -40,6 +40,7 @@ function init(){
 	
 	let cards = document.querySelectorAll('.macy-grid');
 	if (cards.length > 0) {
+		var instances = [];
 		for(let i = 0; i < cards.length; i++) {
 			var instance = Macy({
 				container: '#'+cards[i].id,
@@ -53,11 +54,14 @@ function init(){
 					768: 1
 				}
 			});
-			instance.recalculate();
+			instances.push(instance);
 		}
+		setTimeout(function() {
+			for(let i = 0; i < instances.length; i++) {
+				instances[i].recalculate();
+			}
+		}, 10);
 	}
-
 }
-
 
 init();
