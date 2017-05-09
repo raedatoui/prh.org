@@ -240,6 +240,35 @@
                             "placeholder": ""
                         }
                     ]
+                },
+                {
+                    "ID": 14688,
+                    "key": "field_5910c19e55118",
+                    "label": "Show in Hero",
+                    "name": "module_show_in_hero",
+                    "prefix": "acf",
+                    "type": "true_false",
+                    "value": null,
+                    "menu_order": 4,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 14575,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_show_in_hero",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "message": "Determines if module has a jump link in the hero",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 }
             ]
         },
@@ -363,23 +392,9 @@
     "location": [
         [
             {
-                "param": "page_template",
+                "param": "post_type",
                 "operator": "==",
-                "value": "homepage.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "styleguide.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "about.php"
+                "value": "page"
             }
         ]
     ],
@@ -392,5 +407,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494022030
+    "modified": 1494349873
 }
