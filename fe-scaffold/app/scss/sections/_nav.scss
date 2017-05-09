@@ -205,27 +205,25 @@
     position: relative;
 
     &::after {
-      content: "";
-
       background: color(red);
+      content: "";
       display: block;
       height: 2px;
-      left: 0;
+      left: 1em;
       margin: auto;
       margin-top: 1em;
-      position: absolute;
       opacity: 0;
-      right: 0;
+      position: absolute;
+      right: 1em;
       top: 50%;
-      width: 80%;
       transform: translateY(4px);
-      transition: 0.15s opacity 0s, 0.15s transform 0s;
+      transition: $fx-duration opacity 0s, $fx-duration transform 0s;
     }
 
     &:hover {
       &::after {
         opacity: 1;
-        transform: translateY(0px);
+        transform: translateY(0);
       }
     }
   }
