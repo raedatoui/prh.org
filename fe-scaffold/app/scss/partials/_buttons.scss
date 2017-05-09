@@ -1,6 +1,6 @@
 .cta {
   @include roboto();
-  background: $prh-navy-lt;
+  background-color: color(navy);
   color: #fff;
   display: table;
   font-size: 14px;
@@ -12,7 +12,8 @@
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  transition: 0.15s background 0s;
+  transition: $fx-duration background-color 0s;
+  will-change: background, transform;
 
   &:hover,
   &:focus {
@@ -20,11 +21,11 @@
   }
 
   &:hover {
-    background: $prh-navy-dk;
+    background-color: mix(color(blue), color(navy));
   }
 
   &:focus {
-    background: $prh-red;
+    background-color: color(red);
 
     &::after {
       background: url("../images/optimized/button_arrow-white.svg") 0 0 no-repeat;
@@ -37,8 +38,8 @@
 }
 
 .cta--link {
-  display: block;
-  padding: 14px 70px 14px 0;
+  display: table;
+  padding: 14px 90px 14px 0;
   position: relative;
 }
 
@@ -50,12 +51,23 @@
   position: absolute;
   right: 20px;
   top: 50%;
-  transform: translateY(-14px);
+  transform: translateY(-14px) translateX(0);
+  transition: $fx-duration transform 0s;
   width: 50px;
 }
 
+.cta:hover::after {
+  transform: translateY(-14px) translateX(8px);
+}
+
 .cta--red {
-  background: $prh-red;
+  background-color: color(red);
+  transition: $fx-duration background-color 0s;
+
+  &:hover,
+  &:focus {
+    background-color: mix(color(blue), color(navy));
+  }
 
   &::after {
     background-image: url("../images/optimized/button_arrow-white.svg");
@@ -76,6 +88,7 @@
 
   &::after {
     background-image: url("../images/optimized/button_arrow-red.svg");
+    transform: translateY(-14px) translateX(8px);
   }
 }
 
@@ -99,5 +112,10 @@
     background-color: color(smoke);
     border-radius: 0;
     color: color(navy);
+
+    &:hover,
+    &:focus {
+      background-color: color(red);
+    }
   }
 }

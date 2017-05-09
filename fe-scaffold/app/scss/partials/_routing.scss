@@ -43,7 +43,7 @@
     &::after {
       background-image: url("../images/optimized/red-disc.png");
       height: 109px;
-      right: -40px;
+      right: 0;
       top: -45px;
       transform: rotateZ(0deg);
       width: 109px;
@@ -82,13 +82,24 @@
 }
 
 .routing-ctas {
-  border-top: 1px solid #ccc;
   font-size: em(18px);
-  padding: 30px 50px;
+  overflow: hidden;
+  padding: 5px 50px;
 
   a {
     // just to make focus outlines a little nicer
     left: -20px;
     padding-left: 20px;
+
+    &::before {
+      background: #ccc;
+      content: "";
+      display: block;
+      height: 1px;
+      left: -50px;
+      position: absolute;
+      right: -300px;
+      top: 0;
+    }
   }
 }
