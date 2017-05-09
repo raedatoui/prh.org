@@ -91,13 +91,18 @@
     left: -20px;
   }
 
-  &,
-  &:hover {
-    background: transparent;
+  .arrow {
+    height: 44px;
+    width: 44px;
+    margin: auto;
+    fill: mix(color(navy), color(blue));
+    transition: $fx-duration fill 0s;
   }
 
-  .arrow {
-    fill: $prh-blue-lt;
+  &:hover {
+    .arrow {
+      fill: mix(color(blue), color(sky));
+    }
   }
 }
 
