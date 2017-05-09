@@ -205,21 +205,25 @@
     position: relative;
 
     &::after {
+      background: color(red);
       content: "";
       display: block;
       height: 2px;
-      left: 0;
+      left: 1em;
       margin: auto;
       margin-top: 1em;
+      opacity: 0;
       position: absolute;
-      right: 0;
+      right: 1em;
       top: 50%;
-      width: 80%;
+      transform: translateY(4px);
+      transition: $fx-duration opacity 0s, $fx-duration transform 0s;
     }
 
     &:hover {
       &::after {
-        background: $prh-red;
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   }
@@ -227,7 +231,8 @@
   .menu > .is-expanded > a,
   .menu > li > a:focus {
     &::after {
-      background: $prh-red;
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }

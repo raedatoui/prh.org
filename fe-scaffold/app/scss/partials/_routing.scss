@@ -79,14 +79,6 @@
 .routing-title {
   color: $prh-blue-lt;
   font-weight: 400;
-
-  @include responsive-mq(md) {
-    font-size: 34px;
-  }
-
-  @media (min-width: 1280px) {
-    font-size: 44px;
-  }
 }
 
 .routing-ctas {

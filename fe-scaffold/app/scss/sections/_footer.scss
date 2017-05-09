@@ -28,6 +28,14 @@
   }
 }
 
+.subscribe-link {
+  transition: 0.15s background-color 0s;
+
+  &:hover {
+    background-color: color(red);
+  }
+}
+
 .footer-title {
   @extend h3;
   color: color(sky);
@@ -44,6 +52,34 @@
 }
 
 .footer-sitemap {
+
+  a {
+    display: inline-block;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+    position: relative;
+
+    &::after {
+      background: color(red);
+      bottom: -5px;
+      content: "";
+      display: block;
+      height: 2px;
+      opacity: 0;
+      position: absolute;
+      transform: translateY(-4px);
+      transition: 0.15s transform 0s, 0.15s opacity 0s;
+      width: 100%;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
   li {
     margin-bottom: 1em;
 
@@ -67,14 +103,37 @@
   a {
 
     display: block;
+    padding: 5px;
+    position: relative;
+
+    &::after {
+      background: color(red);
+      bottom: -5px;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 5px;
+      margin: auto;
+      opacity: 0;
+      position: absolute;
+      right: 5px;
+      transform: translateY(4px);
+      transition: 0.15s opacity 0s, 0.15s transform 0s;
+    }
 
     &::before {
       cursor: pointer;
       display: block;
       height: 20px;
       margin: auto;
-      padding: 5px;
       width: 20px;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     &:focus {
