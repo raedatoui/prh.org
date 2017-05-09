@@ -34,6 +34,9 @@ $colors: (
   }
 }
 
+
+// TODO: These are getting standardized and/or deprecated as much as possible;
+// the $colors map should be the source of palette truth.
 $prh-blue-lt: #2b83c6;
 $prh-blue-highlight: #428dc7;
 $prh-blue-dk: #2a548c;
@@ -55,6 +58,7 @@ $prh-periwinkle: #6877ba;
 
 
 //GRADIENTS
+// todo: document where we use these
 $gradient-linear-blue: linear-gradient(to bottom, $prh-blue-lt 25%, $prh-blue-dk 100%);
 $gradient-radial-blue: radial-gradient(farthest-corner at 150px 150px , $prh-blue-lt 0%, $prh-blue-dk 100%);
 
@@ -101,6 +105,11 @@ $base-font-color: $base-font-blue;
 $base-font-kerning: 0;
 $base-font-size: 16px;
 $base-line-height: 1;
+
+//------------------------------------------------
+//  TIMING & CONSTANTS
+//------------------------------------------------
+$fx-duration: 0.15s;
 
 //------------------------------------------------
 //  MODULE SPACINGS
