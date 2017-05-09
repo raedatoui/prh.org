@@ -60,7 +60,7 @@ function init(){
 			for(let i = 0; i < instances.length; i++) {
 				instances[i].recalculate();
 			}
-		}, 10);
+		}, 100);
 	}
 }
 
