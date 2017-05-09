@@ -145,7 +145,6 @@
   z-index: 3;
 }
 
-
 @include responsive-mq(md) {
 
   .site-header {
@@ -174,7 +173,6 @@
 
   .nav-ui {
     order: 2;
-    right: 0;
   }
 
   .menu-main-menu-container {
