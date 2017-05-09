@@ -49,3 +49,14 @@ section {
 .md-down.md-down {
   @include responsive-mq(md) { display: none; }
 }
+
+// Transitions by default for links and buttons;
+// this gets overridden for different effects but it's a good baseline.
+
+a {
+  transition: 0.15s color 0s;
+}
+
+button {
+  transition: 0.15s background-color 0s;
+}

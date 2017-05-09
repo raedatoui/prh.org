@@ -2,6 +2,10 @@
   padding-bottom: 1.2rem;
   text-decoration: none;
 
+  .tile__container {  
+    transition: 0.15s background-color 0s;
+  }
+
   &:focus,
   &:hover {
     outline: none;

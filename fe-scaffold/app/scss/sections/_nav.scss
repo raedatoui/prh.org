@@ -206,20 +206,26 @@
 
     &::after {
       content: "";
+
+      background: color(red);
       display: block;
       height: 2px;
       left: 0;
       margin: auto;
       margin-top: 1em;
       position: absolute;
+      opacity: 0;
       right: 0;
       top: 50%;
       width: 80%;
+      transform: translateY(4px);
+      transition: 0.15s opacity 0s, 0.15s transform 0s;
     }
 
     &:hover {
       &::after {
-        background: $prh-red;
+        opacity: 1;
+        transform: translateY(0px);
       }
     }
   }
@@ -227,7 +233,8 @@
   .menu > .is-expanded > a,
   .menu > li > a:focus {
     &::after {
-      background: $prh-red;
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
