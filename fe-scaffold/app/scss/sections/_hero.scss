@@ -3,6 +3,7 @@ $mob-header-height: 180px;
 //HERO SECTION
 .hero {
   background-image: $gradient-linear-blue;
+  background-position: center;
   color: $base-font-white;
   padding-bottom: 11vw; // creates space for curves
   padding-top: 100px;
@@ -43,5 +44,26 @@ $mob-header-height: 180px;
 
   .hero-content {
     padding: 0 20px;
+  }
+}
+
+
+.shiny-hero {
+  background-image: url("../images/optimized/hero-particles.png"), $gradient-linear-blue;
+  background-size: 100vh auto, auto;
+
+  @include responsive-mq(lg) {
+    background-size: auto, auto;
+  }
+
+  .hero__header {
+    max-width: 20em;
+    margin: auto;
+  }
+
+  &::after {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
   }
 }
