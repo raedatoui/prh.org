@@ -12,13 +12,13 @@
 							alt=""/>
 						</div>
 						<div class="slide-half">
-							<?php 
+							<?php
 							echo_wrapped($slide[CAROUSEL_MODULE['eyebrow']], '<span class="eyebrow slide-eyebrow">', '</span>');
 							echo '<div class="slide-content">';
-							echo_wrapped($slide[CAROUSEL_MODULE['title']], '<h2 class="slide-title">', '</h2>'); 
-							echo_wrapped($slide[CAROUSEL_MODULE['text']], '<p class="slide-text">', '</p>'); 
+							echo_wrapped($slide[CAROUSEL_MODULE['title']], '<h2 class="slide-title">', '</h2>');
+							echo_wrapped($slide[CAROUSEL_MODULE['text']], '<p class="slide-text">', '</p>');
 							echo '</div>';
-							echo_wrapped($slide[CAROUSEL_MODULE['cta']], '<span class="slide-cta">', '</span>');
+							echo_wrapped($slide[CAROUSEL_MODULE['details']], '<span class="slide-cta">', '</span>');
 							?>
 						</div>
 					</a>
