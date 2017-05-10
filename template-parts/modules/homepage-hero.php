@@ -1,4 +1,4 @@
-<section class="hero module">
+<section class="hero module shiny-hero">
 	<div class="content">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<h1 class="hero__header"><?php 
