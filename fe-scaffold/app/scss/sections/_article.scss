@@ -63,15 +63,15 @@
     img {
       width: 100%;
     }
+  }
+  
+  ul,
+  ol {
+    padding-left: 2em;
+  }
 
-    ul,
-    ol {
-      padding-left: 2em;
-    }
-
-    li {
-      margin-bottom: 1em;
-    }
+  li {
+    margin-bottom: 1em;
   }
 
   @include responsive-mq(sm) {
