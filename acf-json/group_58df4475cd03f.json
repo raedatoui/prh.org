@@ -242,6 +242,35 @@
                             "placeholder": ""
                         }
                     ]
+                },
+                {
+                    "ID": 14688,
+                    "key": "field_5910c19e55118",
+                    "label": "Show in Hero",
+                    "name": "module_show_in_hero",
+                    "prefix": "acf",
+                    "type": "true_false",
+                    "value": null,
+                    "menu_order": 4,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 14575,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_show_in_hero",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "message": "Determines if module has a jump link in the hero",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 }
             ]
         },
@@ -359,10 +388,10 @@
                 },
                 {
                     "key": "field_58ebabf24d99a",
-                    "label": "Call to Action",
-                    "name": "slide_cta",
+                    "label": "Details",
+                    "name": "slide_details",
                     "type": "text",
-                    "instructions": "Optional call-to-action link text, displayed at the bottom of the slide.",
+                    "instructions": "Additional text that can be added to provide further information, for instance event details.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -371,12 +400,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "Buy tickets, Learn about our programs, etc.",
+                    "placeholder": "7 pm, May 2nd, 2017 | New York City",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "maxlength": ""
                 },
                 {
                     "key": "field_58ebac584d99b",
@@ -434,5 +461,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494021957
+    "modified": 1494447900
 }

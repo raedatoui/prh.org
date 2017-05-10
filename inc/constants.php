@@ -100,7 +100,7 @@ const CAROUSEL_MODULE = array(
 	'eyebrow' => 'slide_eyebrow',
 	'title' => 'slide_title',
 	'text' => 'slide_text',
-	'cta' => 'slide_cta',
+	'details' => 'slide_details',
 	'link' => 'slide_link',
 	'template' => 'template-parts/modules/carousel.php'
 );
@@ -218,7 +218,7 @@ const DONATE_MODULE = array(
 	'enabled' => 'donate_module_enabled',
 	'name' => 'Donate Module',
 	'headline' => 'donate_module_headline',
-	'text' => 'donate_module_text', 
+	'text' => 'donate_module_text',
 	'cta_text' => 'donate_module_cta_text',
 	'cta_url' => 'donate_module_cta_url',
 	'image' => 'donate_module_bg',

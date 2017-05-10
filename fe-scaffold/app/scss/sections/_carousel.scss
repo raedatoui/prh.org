@@ -55,8 +55,8 @@
 .slide-cta {
   @extend %eyebrow;
 
-  color: $prh-blue-lt;
-  text-decoration: underline;
+  color: color(gray);
+  // text-decoration: underline;
 }
 
 .slide-half {
