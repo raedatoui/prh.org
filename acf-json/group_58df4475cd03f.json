@@ -339,12 +339,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
+                    "placeholder": "Event | Talk",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "maxlength": ""
                 },
                 {
                     "key": "field_58ebab614d998",
@@ -461,5 +459,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494447900
+    "modified": 1494449282
 }
