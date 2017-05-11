@@ -1,11 +1,11 @@
 {
     "key": "group_58ef93f1a4be2",
-    "title": "Spotlight 3 Module",
+    "title": "Spotlights Module",
     "fields": [
         {
             "key": "field_58f8d15d9b140",
             "label": "Enabled",
-            "name": "spotlight_3_enabled",
+            "name": "spotlight_multi_enabled",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -24,7 +24,7 @@
         {
             "key": "field_58ef94c6c8487",
             "label": "Options",
-            "name": "spotlight_3_options",
+            "name": "spotlight_multi_options",
             "type": "component_field",
             "instructions": "",
             "required": 1,
@@ -240,13 +240,42 @@
                             "placeholder": ""
                         }
                     ]
+                },
+                {
+                    "ID": 14688,
+                    "key": "field_5910c19e55118",
+                    "label": "Show in Hero",
+                    "name": "module_show_in_hero",
+                    "prefix": "acf",
+                    "type": "true_false",
+                    "value": null,
+                    "menu_order": 4,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 14575,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_show_in_hero",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "message": "Determines if module has a jump link in the hero",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 }
             ]
         },
         {
             "key": "field_58ef9594c8488",
             "label": "Spotlights",
-            "name": "spotlight_3_repeater",
+            "name": "spotlight_multi_repeater",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -265,15 +294,15 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": 2,
-            "max": 3,
+            "min": 3,
+            "max": 12,
             "layout": "row",
             "button_label": "Add Row",
             "sub_fields": [
                 {
                     "key": "field_58ef95b7c8489",
-                    "label": "spotlight_3_card",
-                    "name": "spotlight_3_card",
+                    "label": "spotlight_multi_card",
+                    "name": "spotlight_multi_card",
                     "type": "component_field",
                     "instructions": "",
                     "required": 0,
@@ -551,5 +580,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494022007
+    "modified": 1494453464
 }

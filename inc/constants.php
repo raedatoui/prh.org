@@ -179,13 +179,13 @@ const SPOTLIGHT_1_MODULE = array(
 	'template' => 'template-parts/modules/spotlightone.php'
 );
 
-const SPOTLIGHT_3_MODULE = array(
-	'enabled' => 'spotlight_3_enabled',
-	'name' => 'Spotlight 3 Module',
-	'options' => 'spotlight_3_options',
-	'repeater' => 'spotlight_3_repeater',
-	'card' => 'spotlight_3_card',
-	'template' => 'template-parts/modules/spotlightthree.php'
+const SPOTLIGHTS_MODULE = array(
+	'enabled' => 'spotlight_multi_enabled',
+	'name' => 'Spotlights Module',
+	'options' => 'spotlight_multi_options',
+	'repeater' => 'spotlight_multi_repeater',
+	'card' => 'spotlight_multi_card',
+	'template' => 'template-parts/modules/spotlightmulti.php'
 );
 
 const TAB_PANEL = array(
@@ -237,7 +237,7 @@ const MODULES = array(
 	QUOTE_MODULE['name'] => QUOTE_MODULE,
 	OVERVIEW_MODULE['name'] => OVERVIEW_MODULE,
 	SPOTLIGHT_1_MODULE['name'] => SPOTLIGHT_1_MODULE,
-	SPOTLIGHT_3_MODULE['name'] => SPOTLIGHT_3_MODULE,
+	SPOTLIGHTS_MODULE['name'] => SPOTLIGHTS_MODULE,
 	TAB_PANEL['name'] => TAB_PANEL,
 	ACCORDION_SECTION['name'] => ACCORDION_SECTION,
 	ROUTING_MODULE['name'] => ROUTING_MODULE,
