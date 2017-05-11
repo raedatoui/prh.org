@@ -123,3 +123,72 @@ $search-height-lg: 126px;
     margin-right: 1em;
   }
 }
+
+
+// Pagination
+
+.pagination {
+  margin: auto;
+  display: flex;
+  align-items: center;
+
+  .page-numbers {
+    padding: 1em;
+    text-decoration: none;
+
+    color: color(navy);
+
+    &:hover {
+      color: color(blue);
+    }
+
+    &:focus {
+      color: color(red);
+    }
+  }
+
+  .prev,
+  .next {
+    width: 30px;
+    height: 60px;
+    margin: 0 1em;
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      background-size: auto;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .prev {
+    &::before {
+      background-image: url("../images/optimized/carat_prev.png");
+    }
+  }
+
+  .next {
+    &::before {
+      background-image: url("../images/optimized/carat_next.png");
+    }
+  }
+
+  .current {
+    background-image: url("../images/optimized/pagination-circle.png");
+    background-position: 0;
+    background-repeat: no-repeat;
+  }
+}
