@@ -9,43 +9,46 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
 
-		<?php
-		if ( have_posts() ) : ?>
+	<main id="main" class="site-main search-main" role="main">
+		<div class="module search-results-module">
+			<div class="content">
 
-			<header class="page-header">
 				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
+				if ( have_posts() ) : 
 				?>
-			</header><!-- .page-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+					<!-- Left side (results area) -->
+				<div class="row">
+					<div class="col-xs-12 col-md-9 col-lg-8 search-results">
+						<?php
+						// the markup for an individual result is in template-parts/content-search.php
+						while ( have_posts() ) : the_post();
+							get_template_part( 'template-parts/content', 'search' );
+						endwhile; ?>
+					</div>
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+					<!-- Right side (filtering) -->
+					<div class="sidebar post-sidebar col-xs-12 col-md-3 col-lg-offset-1 search-filters">
 
-			endwhile;
+					</div>
 
-			the_posts_navigation();
+				<?php 
 
-		else :
+				the_posts_navigation();
 
-			get_template_part( 'template-parts/content', 'none' );
+				// else :
 
-		endif; ?>
+				// 	get_template_part( 'template-parts/content', 'none' );
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+				endif; ?>
+			</div>
+		</div>
+		</div>
 
+	</main><!-- #main -->
+
+	
 <?php
 get_sidebar();
 get_footer();
