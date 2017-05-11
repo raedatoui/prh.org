@@ -30,9 +30,12 @@ $menu_ids = get_nav_menu_locations();
 					</div>
 
 					<div class="col-xs-12 col-sm-4 footer-col">
-						<h4 class="footer-title">Stay Informed</h4>
-						<p class="footer-copy">We deliver breaking news and reproductive justice opportunities straight to your inbox.</p>
-						<p class="footer-copy"><a class="eyebrow subscribe-link capsule-link" href="#">Subscribe</a>
+						<?php
+						$widget_data = prh_get_widget_data_for( 1 )[1];
+						?>
+						<h4 class="footer-title"><?php echo $widget_data->title; ?></h4>
+						<p class="footer-copy"><?php echo $widget_data->text; ?></p>
+						<p class="footer-copy"><a class="eyebrow subscribe-link capsule-link" href="<?php echo $widget_data->url; ?>">Subscribe</a>
 					</div>
 
 					<div class="col-xs-12 col-sm-4 footer-col">

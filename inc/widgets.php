@@ -99,9 +99,109 @@ class prh_media_contact_widget extends WP_Widget {
 	}
 } // Class prh_media_contact_widget ends here
 
+
+// Creating the widget
+class prh_subscription_widget extends WP_Widget {
+
+	function __construct() {
+		parent::__construct(
+		// Base ID of your widget
+		'prh_subscription_widget',
+
+		// Widget name will appear in UI
+		__('Global Subscription Link', 'prh_subscription_widget_domain'),
+
+		// Widget description
+		array( 'description' => __( 'This widget stores default media contact info for all content types', 'prh_subscription_widget_domain' ) ) );
+	}
+
+	// Creating widget front-end
+	// This is where the action happens
+	public function widget( $args, $instance ) {
+		$title = apply_filters( 'widget_title', $instance['title'] );
+		$text = apply_filters( 'widget_text', $instance['text'] );
+		$url = apply_filters( 'widget_url', $instance['url'] );
+
+		// before and after widget arguments are defined by themes
+//		echo $args['before_widget'];
+
+		if ( ! empty( $title ) )
+			echo $title;
+
+		if ( ! empty( $text ) )
+			echo $text;
+
+		if ( ! empty( $url ) )
+			echo $url;
+
+		// This is where you run the code and display the output
+		echo __( '', 'prh_subscription_widget_domain' );
+//		echo $args['after_widget'];
+	}
+
+	// Widget Backend
+	public function form( $instance ) {
+		if ( isset( $instance[ 'title' ] ) ) {
+			$title = $instance[ 'title' ];
+		}
+		else {
+			$title = __( '', 'prh_subscription_widget_domain' );
+		}
+		if ( isset( $instance[ 'text' ] ) ) {
+			$text = $instance[ 'text' ];
+		}
+		else {
+			$text = __( '', 'prh_subscription_widget_domain' );
+		}
+		if ( isset( $instance[ 'url' ] ) ) {
+			$url = $instance[ 'url' ];
+		}
+		else {
+			$url= __( '', 'prh_subscription_widget_domain' );
+		}
+
+		// Widget admin form
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+			<input class="widefat"
+				id="<?php echo $this->get_field_id( 'title' ); ?>"
+				name="<?php echo $this->get_field_name( 'title' ); ?>"
+				type="text" value="<?php echo esc_attr( $title ); ?>"
+				placeholder="Stay Informed" />
+
+			<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text:' ); ?></label>
+			<input class="widefat"
+				id="<?php echo $this->get_field_id( 'text' ); ?>"
+				name="<?php echo $this->get_field_name( 'text' ); ?>"
+				type="textarea" value="<?php echo esc_attr( $text ); ?>"
+				placeholder="We deliver breaking news and reproductive justice opportunities straight to your inbox." />
+
+			<label for="<?php echo $this->get_field_id( 'url' ); ?>"><?php _e( 'Url:' ); ?></label>
+			<input class="widefat"
+				id="<?php echo $this->get_field_id( 'url' ); ?>"
+				name="<?php echo $this->get_field_name( 'url' ); ?>"
+				type="text" value="<?php echo esc_attr( $url); ?>"
+				placeholder="http://support.prh.org"/>
+		</p>
+		<?php
+	}
+
+	// Updating widget replacing old instances with new
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['text'] = ( ! empty( $new_instance['text'] ) ) ? strip_tags( $new_instance['text'] ) : '';
+		$instance['url'] = ( ! empty( $new_instance['url'] ) ) ? strip_tags( $new_instance['url'] ) : '';
+		return $instance;
+	}
+} // Class prh_media_contact_widget ends here
+
+
 // Register and load the widget
 function prh_load_widgets() {
 	register_widget( 'prh_media_contact_widget' );
+	register_widget( 'prh_subscription_widget' );
 }
 add_action( 'widgets_init', 'prh_load_widgets' );
 
