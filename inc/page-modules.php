@@ -18,7 +18,10 @@ class PageModules {
 			$module = acf_get_fields($group);
 			$key = $group['title'];
 
-			$modules[$key] = array('module_name' => $group['title']);
+			$modules[$key] = array(
+				'module_name' => $group['title'],
+				'module_order' => $group_key
+			);
 			foreach($module as $field_name => $field ) {
 				$f = $field['name'];
 				$modules[$key][$f] = get_field($f);
