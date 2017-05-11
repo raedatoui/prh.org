@@ -44,6 +44,42 @@ $cats = get_categories();
 					</h2>
 				</header><!-- .page-header -->
 
+				<!-- Filter selection (if any are active) -->
+				<div class="filter-row row">
+					<div class="col-xs-12 col-md-9 col-lg-8">
+					<div class="row">
+						<div class="col-xs-2 filter-label">My Filters:</div>
+						<div class="col-xs col-md-7">
+							<ul class="active-filters filter-list">
+
+
+								<?php
+							// DUMMY LOGIC - remove this when the real code is hooked up
+							// this is just to let us test some tag display.
+
+								$filters = array( 1, 2, 3 );
+								foreach ( $filters as $filter ):
+
+									$tag->name = 'Sample tag';
+								$tag->slug = 'abortion-access';
+								$tag->count = '20';
+								?>
+
+								<li class="active-filter">
+									<a class="tag" href="<?php bloginfo('url' );?>/tag/<?php print_r( $tag->slug );?>">
+										<?php print_r( $tag->name . ' (' . $tag->count . ')' ); ?>
+									</a>
+								</li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
+						<div class="col-xs-3 filter-cancel">
+							<a href="#">Clear all selections</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
 					<!-- Left side (results area) -->
 				<div class="row">
 					<div class="col-xs-12 col-md-9 col-lg-8 search-results">
@@ -57,7 +93,7 @@ $cats = get_categories();
 					<!-- Right side (filtering) -->
 					<div class="sidebar post-sidebar col-xs-12 col-md-3 col-lg-offset-1 search-filters">
 
-						<aside class="sidebar-block media-contact-block">
+						<aside class="sidebar-block types-filter-block">
 							<div class="sidebar-content">
 								<h2 class="sidebar-header">Content type</h2>
 
@@ -77,7 +113,7 @@ $cats = get_categories();
 							</div>
 						</aside>
 
-						<aside class="sidebar-block media-contact-block">
+						<aside class="sidebar-block categories-filter-block">
 							<div class="sidebar-content">
 								<h2 class="sidebar-header">Category</h2>
 

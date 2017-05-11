@@ -11,7 +11,7 @@
 <div class="search-result">
 	<article class="row result-row" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="result-meta col-xs-2">
-			<div class="eyebrow result-type"><?php echo get_post_type(); ?></div>
+			<div class="eyebrow result-type"><?php echo get_post_type_object(get_post_type())->labels->singular_name; ?></div>
 			<div class="result-date"><?php prh_wp_theme_posted_on(); ?></div>
 		</header>
 		<div class="result-content col-xs">
@@ -21,7 +21,7 @@
 			<?php 
 		$tags = get_the_tags( $post->ID );
 		if ( $tags ):  ?>
-			<aside class="tags-block listing-tags-block">
+			<aside class="tags-block result-tags">
 					<ul class="tags-list">
 						<?php foreach( $tags as $tag ):  ?>
 							<li>

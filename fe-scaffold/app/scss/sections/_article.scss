@@ -109,12 +109,20 @@ a.tag {
   @include lora;
   border: 1px solid;
   border-radius: 20px;
-  color: $prh-blue-lt;
+  color: color(blue);
   display: inline-block;
   font-size: 15px;
   line-height: 1.2;
   padding: 10px 14px;
   text-decoration: none;
+
+  &:hover {
+    color: color(navy);
+  }
+
+  &:focus {
+    color: color(red);
+  }
 }
 
 // Header meta
