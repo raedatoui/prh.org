@@ -64,7 +64,8 @@ const TAB_CARD = array(
 	'image' => 'tab_card_image',
 	'title' => 'tab_card_title',
 	'text' => 'tab_card_text',
-	'cta' => 'tab_card_cta'
+	'use_cta' => 'tab_card_use_cta',
+	'cta' => 'tab_card_cta',
 );
 
 const STATISTIC_CARD = array(

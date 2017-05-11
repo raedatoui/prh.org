@@ -37,16 +37,27 @@
 						</button>
 					</h3>
 					<div class="tab-inner row">
-						<div class="col-xs-12 col-md-4">
+						<?php
+							$copy_class = '4';
+							$has_image = !empty( $card[TAB_CARD['image']] );
+							if ( !$has_image ) {
+								$copy_class = '12';
+							}
+						?>
+						<div class="col-xs-12 col-md-<?php echo $copy_class; ?>">
 							<p><?php echo $card[TAB_CARD['text']] ?></p>
-							<?php $cta = $card[TAB_CARD['cta']][0];  ?>
-							<a class="cta" href="<? echo $cta[CTA_COMPONENT['link']];?>">
-								<? echo $cta[CTA_COMPONENT['label']]; ?>
-							</a>
+							<?php if ( $card[TAB_CARD['use_cta']] ): ?>
+								<?php $cta = $card[TAB_CARD['cta']][0];  ?>
+								<a class="cta" href="<? echo $cta[CTA_COMPONENT['link']];?>">
+									<? echo $cta[CTA_COMPONENT['label']]; ?>
+								</a>
+							<?php endif; ?>
 						</div>
-						<div class="col-xs-12 col-md-8">
-							<img src="<?php echo $card[TAB_CARD['image']]['url'] ?>" />
-						</div>
+						<?php  if( $has_image ):  ?>
+							<div class="col-xs-12 col-md-8">
+								<img src="<?php echo $card[TAB_CARD['image']]['url'] ?>" />
+							</div>
+						<?php endif; ?>
 					</div>
 				</div>
 			</section>
