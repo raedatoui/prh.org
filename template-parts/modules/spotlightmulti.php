@@ -4,12 +4,12 @@
 	<div class="module__content columns-3">
 		<div class="row">
 			<div class="col-xs-12">
-				<p class="focus-lead-copy"><?php echo $module[SPOTLIGHTS_MODULE['headline']]?></p>
+				<p class="focus-lead-copy"><?php echo $module[$module['config']['headline']]?></p>
 			</div>
 		</div>
 		<div class="row">
-				<?php foreach ( $module[SPOTLIGHTS_MODULE['repeater']] as $cardContainer ): ?>
-					<?php $card = $cardContainer[SPOTLIGHTS_MODULE['card']][0] ?>
+				<?php foreach ( $module[$module['config']['repeater']] as $cardContainer ): ?>
+					<?php $card = $cardContainer[$module['config']['card']][0] ?>
 					<div class="info-module--component">
 						<img class="info-module__img" alt="" src="<?php echo $card[SPOTLIGHT_CARD['image']]['url'] ?>" />
 						<div class="info-module__info">

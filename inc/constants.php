@@ -189,6 +189,17 @@ const SPOTLIGHTS_MODULE = array(
 	'template' => 'template-parts/modules/spotlightmulti.php'
 );
 
+const SPOTLIGHTS_MODULE_SECONDARY = array(
+	'enabled' => 'spotlight_multi2_enabled',
+	'name' => 'Spotlights Module Secondary',
+	'options' => 'spotlight_multi2_options',
+	'headline' => 'spotlight_multi2_headline',
+	'repeater' => 'spotlight_multi2_repeater',
+	'card' => 'spotlight_multi2_card',
+	'template' => 'template-parts/modules/spotlightmulti.php'
+);
+
+
 const TAB_PANEL = array(
 	'enabled' => 'tab_panel_enabled',
 	'name' => 'Tab Panel',
@@ -239,6 +250,7 @@ const MODULES = array(
 	OVERVIEW_MODULE['name'] => OVERVIEW_MODULE,
 	SPOTLIGHT_1_MODULE['name'] => SPOTLIGHT_1_MODULE,
 	SPOTLIGHTS_MODULE['name'] => SPOTLIGHTS_MODULE,
+	SPOTLIGHTS_MODULE_SECONDARY['name'] => SPOTLIGHTS_MODULE_SECONDARY,
 	TAB_PANEL['name'] => TAB_PANEL,
 	ACCORDION_SECTION['name'] => ACCORDION_SECTION,
 	ROUTING_MODULE['name'] => ROUTING_MODULE,
