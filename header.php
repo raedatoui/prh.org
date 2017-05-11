@@ -35,7 +35,7 @@
 				</a>
 
 				<div class="nav-ui">
-					<button class="nav-btn search-btn" title="Search">
+					<button class="nav-btn search-btn" id="site-search-btn" title="Search">
 						<svg class="icon--search" role="presentation">
 							<use xlink:href="#icon--search" />
 						</svg>
@@ -63,5 +63,12 @@
 					
 				</nav>
 				</div>
+
+				<div id="search-bar" class="search-bar">
+					<div class="content search-bar-content">
+					<?php get_search_form(); ?>
+					</div>
+				</div>
+
 			</header>
 			<div class="nav-mask" id="nav-mask"></div>

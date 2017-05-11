@@ -1,0 +1,125 @@
+
+// Search bar
+
+$search-height-lg: 126px;
+
+.search-bar {
+  @include lora;
+  font-size: 36px;
+  padding: 40px 0;
+  background-color: color(blue);
+  color: color(white);
+  display: none;
+
+  .search-open & {
+    display: block;
+  }
+}
+
+.search-label {
+  flex: 0 1 auto;
+}
+
+.search-field {
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid;
+  color: color(white);
+  flex: 1;
+  font-family: $lora;
+  font-size: 36px;
+  line-height: 1;
+  padding-bottom: 0;
+  position: relative;
+
+  $placeholder-color: transparentize(#fff, 0.15);
+
+  // Has to be specified like this because it's a nonstandard prop
+  &::-webkit-input-placeholder {
+    color: $placeholder-color;
+  }
+
+  &::-moz-placeholder {
+    color: $placeholder-color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $placeholder-color;
+  }
+
+  &:-moz-placeholder {
+    color: $placeholder-color;
+  }
+}
+
+
+////////////////////////////////////////
+// Search results view
+
+.search-hero {
+  padding: 50px 0 0;
+
+  @include responsive-mq(md) {
+    padding-top: 79px;
+  }
+}
+
+.search-page-title {
+  @extend %h3;
+  font-size: 28px;
+}
+
+// Results list
+
+.search-result {
+  padding: 40px 0;
+  border-top: 1px solid;
+}
+
+.result-meta {
+  padding-top: .5em;
+}
+
+.result-type {
+  color: color(navy);
+  margin-bottom: 2em;
+}
+
+.result-date {
+  color: color(gray);
+}
+
+.result-title a {
+  color: color(navy);
+  text-decoration: none;
+
+  &:hover {
+    color: color(blue);
+  }
+}
+
+.result-title ~ p {
+  color: color(gray);
+}
+
+
+
+
+// Filters
+
+.filter-list {
+  @include lora;
+  padding: 0;
+
+  li {
+    color: color(blue);
+    list-style: none;
+    margin-bottom: 1em;
+    font-size: 18px;
+  }
+
+  input {
+    margin-right: 1em;
+  }
+}
