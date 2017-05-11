@@ -47,9 +47,9 @@ get_header(); ?>
 	</article>
 
 	<div class="sidebar post-sidebar col-xs-12 col-md-3">
-	<!-- Media contact -->
 
-	<aside class="sidebar-block media-contact-block">
+		<!-- Media contact -->
+		<aside class="sidebar-block media-contact-block">
 		<div class="sidebar-content">
 			<h2 class="sidebar-header">Media contact</h2>
 			<?php
@@ -73,27 +73,39 @@ get_header(); ?>
 		</div>
 	</aside>
 
-	<!-- Tags -->
-	<?php 
-		$tags = get_the_tags( $post->ID );
-		if ( $tags ):  ?>
-			<aside class="sidebar-block tags-block">
+		<!-- Tags -->
+		<?php
+			$tags = get_the_tags( $post->ID );
+			if ( $tags ):  ?>
+				<aside class="sidebar-block tags-block">
+					<div class="sidebar-content">
+						<h2 class="sidebar-header">Tagged under</h2>
+						<ul class="tags-list">
+							<?php foreach( $tags as $tag ):  ?>
+								<li>
+									<a class="tag" href="<?php bloginfo('url' );?>/tag/<?php print_r( $tag->slug );?>">
+										<?php print_r( $tag->name . ' (' . $tag->count . ')' ); ?>
+									</a>
+								</li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+				</aside>
+			<?php endif; ?>
+
+			<!-- Subscribe -->
+			<aside class="sidebar-block subscribe-block">
+				<?php $widget_data = prh_get_widget_data_for( 1 )[1]; ?>
 				<div class="sidebar-content">
-					<h2 class="sidebar-header">Tagged under</h2>
-					<ul class="tags-list">
-						<?php foreach( $tags as $tag ):  ?>
-							<li>
-								<a class="tag" href="<?php bloginfo('url' );?>/tag/<?php print_r( $tag->slug );?>">
-									<?php print_r( $tag->name . ' (' . $tag->count . ')' ); ?>
-								</a>
-							</li>
-						<?php endforeach; ?>
-					</ul>
+					<h2 class="sidebar-header"><?php echo $widget_data->title; ?></h2>
+					<a class="cta" href="<? echo $widget_data->link;?>">Subscribe</a>
 				</div>
 			</aside>
-		<?php endif; ?>
 
 	</div>
+
+
+
 </main>
 
 <?php
