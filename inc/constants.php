@@ -153,6 +153,19 @@ const OVERVIEW_MODULE = array(
 	'template' => 'template-parts/modules/overview.php'
 );
 
+const OVERVIEW_MODULE_SECONDARY = array(
+	'enabled' => 'overview_enabled2',
+	'name' => 'Overview Secondary',
+	'options' => 'overview_options2',
+	'content' => 'overview_content2',
+	'resources_enabled' => 'overview_resources_enabled2',
+	'resources_title' => 'overview_resources_title2',
+	'resources_links' => 'overview_resource_links2',
+	'resources_link_text' => 'overview_resource_link_text2',
+	'resources_link_url' => 'overview_resource_link_url2',
+	'template' => 'template-parts/modules/overview.php'
+);
+
 const AGGREGATE_BY_POST_TYPE = array(
 	'enabled' => 'aggregate_by_post_type_enabled',
 	'name' => 'Aggregate by Content Type',
@@ -256,6 +269,7 @@ const MODULES = array(
 	AGGREGATE_BY_CATEGORY['name'] => AGGREGATE_BY_CATEGORY,
 	QUOTE_MODULE['name'] => QUOTE_MODULE,
 	OVERVIEW_MODULE['name'] => OVERVIEW_MODULE,
+	OVERVIEW_MODULE_SECONDARY['name'] => OVERVIEW_MODULE_SECONDARY,
 	SPOTLIGHT_1_MODULE['name'] => SPOTLIGHT_1_MODULE,
 	SPOTLIGHTS_MODULE['name'] => SPOTLIGHTS_MODULE,
 	SPOTLIGHTS_MODULE_SECONDARY['name'] => SPOTLIGHTS_MODULE_SECONDARY,
