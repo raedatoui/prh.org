@@ -73,7 +73,7 @@ $cats = get_categories();
 								<?php endforeach; ?>
 							</ul>
 						</div>
-						<div class="col-xs-3 filter-cancel">
+						<div class="col-xs-12 col-sm-3 filter-cancel">
 							<a href="#">Clear all selections</a>
 						</div>
 					</div>
@@ -99,12 +99,17 @@ $cats = get_categories();
 
 								<ul class="filter-list checkbox-list type-list">
 								<?php
-								foreach ( $content_types as $type ): ?>
+								foreach ( $content_types as $type ): 
+									$filtered_query = 'post_type=' . $type->name . '&s=' . get_search_query();
+									$query_url = '/?' . $filtered_query;
+									?>
 
 									<li class="checkbox-item">
 										<label>
 											<input type="checkbox" class="filter filter-type" id="filter-type-<?php echo $type->slug; ?>">
-											<?php echo $type->labels->singular_name; ?>
+											<a href="<?php echo $query_url; ?>">
+												<?php echo $type->labels->singular_name; ?>
+											</a>
 										</label>
 									</li>
 								<?php endforeach; ?>

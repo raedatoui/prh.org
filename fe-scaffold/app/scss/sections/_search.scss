@@ -87,11 +87,16 @@ $search-height-lg: 126px;
 
 .result-meta {
   padding-top: .5em;
+  margin-bottom: 30px;
 }
 
 .result-type {
   color: color(navy);
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+  
+  @include responsive-mq(md) {
+    margin-bottom: 2em;
+  }
 }
 
 .result-date {

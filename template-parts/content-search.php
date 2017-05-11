@@ -10,7 +10,7 @@
 ?>
 <div class="search-result">
 	<article class="row result-row" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<header class="result-meta col-xs-2">
+		<header class="result-meta col-xs-12 col-md-2">
 			<div class="eyebrow result-type"><?php echo get_post_type_object(get_post_type())->labels->singular_name; ?></div>
 			<div class="result-date"><?php prh_wp_theme_posted_on(); ?></div>
 		</header>
