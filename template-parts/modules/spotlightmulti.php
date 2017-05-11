@@ -3,7 +3,11 @@
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ) ?>
 	<div class="module__content columns-3">
 		<div class="row">
-
+			<div class="col-xs-12">
+				<p class="focus-lead-copy"><?php echo $module[SPOTLIGHTS_MODULE['headline']]?></p>
+			</div>
+		</div>
+		<div class="row">
 				<?php foreach ( $module[SPOTLIGHTS_MODULE['repeater']] as $cardContainer ): ?>
 					<?php $card = $cardContainer[SPOTLIGHTS_MODULE['card']][0] ?>
 					<div class="info-module--component">

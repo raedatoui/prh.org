@@ -183,6 +183,7 @@ const SPOTLIGHTS_MODULE = array(
 	'enabled' => 'spotlight_multi_enabled',
 	'name' => 'Spotlights Module',
 	'options' => 'spotlight_multi_options',
+	'headline' => 'spotlight_multi_headline',
 	'repeater' => 'spotlight_multi_repeater',
 	'card' => 'spotlight_multi_card',
 	'template' => 'template-parts/modules/spotlightmulti.php'
