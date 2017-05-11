@@ -5,7 +5,7 @@
 
     <div class="row routing-row macy-grid" id="routing-macy">
       
-      <?php foreach ( $module[ROUTING_MODULE['repeater']] as $index => $block ): ?>
+      <?php foreach ( $module[$module['config']['repeater']] as $index => $block ): ?>
       <div class="col-xs-12 col-sm-6 col-lg-4">
         <div class="routing-block">
 

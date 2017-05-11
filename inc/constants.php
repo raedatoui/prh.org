@@ -226,6 +226,14 @@ const ROUTING_MODULE = array(
 	'template' => 'template-parts/modules/routing-module.php'
 );
 
+const ROUTING_MODULE_SECONDARY = array(
+	'enabled' => 'routing_module2_enabled',
+	'name' => 'Routing Module Secondary',
+	'options' => 'routing_module2_options',
+	'repeater' => 'routing_blocks2',
+	'template' => 'template-parts/modules/routing-module.php'
+);
+
 const DONATE_MODULE = array(
 	'enabled' => 'donate_module_enabled',
 	'name' => 'Donate Module',
@@ -254,6 +262,7 @@ const MODULES = array(
 	TAB_PANEL['name'] => TAB_PANEL,
 	ACCORDION_SECTION['name'] => ACCORDION_SECTION,
 	ROUTING_MODULE['name'] => ROUTING_MODULE,
+	ROUTING_MODULE_SECONDARY['name'] => ROUTING_MODULE_SECONDARY,
 	DONATE_MODULE['name'] => DONATE_MODULE
 );
 
