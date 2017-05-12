@@ -53,7 +53,7 @@ gulp.task('html', function(){
 });
 
 gulp.task('js-lint', function(){
-	return gulp.src([ projJsSrc , '!node_modules/**'])
+	return gulp.src([ projJsSrc , '!node_modules/**', '!vendor/*.js'])
 		.pipe(eslint())
 		.pipe(eslint.format());
 });
