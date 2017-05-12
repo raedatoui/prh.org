@@ -1,0 +1,264 @@
+
+// Search bar
+
+$search-height-lg: 126px;
+
+.search-bar {
+  @include lora;
+  font-size: 36px;
+  padding: 40px 0;
+  background-color: color(blue);
+  color: color(white);
+  display: none;
+
+  .search-open & {
+    display: block;
+  }
+}
+
+.search-label {
+  flex: 0 1 auto;
+}
+
+.search-field {
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid;
+  color: color(white);
+  flex: 1;
+  font-family: $lora;
+  font-size: 36px;
+  line-height: 1;
+  padding-bottom: 0;
+  position: relative;
+
+  $placeholder-color: transparentize(#fff, 0.15);
+
+  // Has to be specified like this because it's a nonstandard prop
+  &::-webkit-input-placeholder {
+    color: $placeholder-color;
+  }
+
+  &::-moz-placeholder {
+    color: $placeholder-color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $placeholder-color;
+  }
+
+  &:-moz-placeholder {
+    color: $placeholder-color;
+  }
+}
+
+
+////////////////////////////////////////
+// Search results view
+
+.search-hero {
+  padding: 50px 0 0;
+
+  @include responsive-mq(md) {
+    padding-top: 79px;
+  }
+}
+
+.search-page-title {
+  @extend %h3;
+  font-size: 28px;
+}
+
+// Results list
+
+.search-result {
+  padding: 40px 0;
+  border-top: 1px solid color(navy);
+
+  &:last-of-type {
+    margin-bottom: 40px;
+
+    @include responsive-mq(md) {
+      border-bottom: 1px solid color(navy);
+    }
+  }
+}
+
+.result-meta {
+  padding-top: .5em;
+  margin-bottom: 30px;
+}
+
+.result-type {
+  color: color(navy);
+  margin-bottom: 1em;
+
+  @include responsive-mq(md) {
+    margin-bottom: 2em;
+  }
+}
+
+.result-date {
+  color: color(gray);
+}
+
+.result-title a {
+  color: color(navy);
+  text-decoration: none;
+
+  &:hover {
+    color: color(blue);
+  }
+
+  &:focus {
+    color: color(red);
+  }
+}
+
+.result-title ~ p {
+  color: color(gray);
+}
+
+.result-tags {
+  margin-top: 2em;
+}
+
+
+// Filters
+
+.filter-list {
+  @include lora;
+  padding: 0;
+
+  li {
+    color: color(blue);
+    list-style: none;
+    margin-bottom: 1em;
+    font-size: 18px;
+  }
+
+  input {
+    margin-right: 1em;
+  }
+}
+
+.checkbox-item {
+  .item-label::before {
+    background: url("../images/optimized/checkbox-background.png") 18px 0;
+    content: "";
+    display: inline-block;
+    height: 18px;
+    margin-right: 12px;
+    vertical-align: middle;
+    width: 18px;
+  }
+
+  &.is-checked {
+    .item-label::before {
+      background-position: 0 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+// Active filters
+
+.filter-row {
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.active-filter {
+  display: inline-block;
+  margin-right: 1em;
+  
+  .tag::after {
+    content: "×";
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .tag:hover,
+  .tag:focus {
+    &::after {
+      color: color(red);
+    }
+  }
+}
+
+.filter-cancel {
+  text-align: right;
+}
+
+
+// Pagination
+
+.results-pagination {
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+
+  .page-numbers {
+    padding: 1em;
+    text-decoration: none;
+
+    color: color(navy);
+
+    &:hover {
+      color: color(blue);
+    }
+
+    &:focus {
+      color: color(red);
+    }
+  }
+
+  .prev,
+  .next {
+    width: 30px;
+    height: 60px;
+    margin: 0 1em;
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      background-size: auto;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .prev {
+    &::before {
+      background-image: url("../images/optimized/carat_prev.png");
+    }
+  }
+
+  .next {
+    &::before {
+      background-image: url("../images/optimized/carat_next.png");
+    }
+  }
+
+  .current {
+    background-image: url("../images/optimized/pagination-circle.png");
+    background-position: 0;
+    background-repeat: no-repeat;
+  }
+}
