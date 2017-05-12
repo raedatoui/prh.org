@@ -1,11 +1,11 @@
 {
-    "key": "group_58e65cdac3cf2",
-    "title": "Aggregate by Content Type",
+    "key": "group_591403acc2573",
+    "title": "Overview Secondary",
     "fields": [
         {
-            "key": "field_58f8cf3e42199",
+            "key": "field_591403acce1ee",
             "label": "Enabled",
-            "name": "aggregate_by_post_type_enabled",
+            "name": "overview_enabled2",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -22,16 +22,16 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_58e65ce040bd3",
+            "key": "field_591403acce169",
             "label": "Options",
-            "name": "aggregate_by_post_type_options",
+            "name": "overview_options2",
             "type": "component_field",
             "instructions": "",
             "required": 1,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_58f8cf3e42199",
+                        "field": "field_591403acce1ee",
                         "operator": "==",
                         "value": "1"
                     }
@@ -273,16 +273,16 @@
             ]
         },
         {
-            "key": "field_58e65cef40bd4",
-            "label": "Aggregate",
-            "name": "content_type_aggregate",
-            "type": "posttype_select",
-            "instructions": "By selecting a term from the list, this section will auto-populate with the three most recently published items of content within that categorization.",
+            "key": "field_591403acce19c",
+            "label": "Text",
+            "name": "overview_content2",
+            "type": "wysiwyg",
+            "instructions": "If your content is more than a paragraph or two long, you can use the \"read more\" toolbar button to insert a division - it's the third button from the right in the editing toolbar, the one that looks like two bars with a dotted line between them. Hit enter after a paragraph and press the button; everything after the dividing line it inserts will be hidden behind a \"Read more\" link.",
             "required": 1,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_58f8cf3e42199",
+                        "field": "field_591403acce1ee",
                         "operator": "==",
                         "value": "1"
                     }
@@ -294,23 +294,22 @@
                 "id": ""
             },
             "default_value": "",
-            "allow_null": 0,
-            "multiple": 0,
-            "placeholder": "",
-            "disabled": 0,
-            "readonly": 0
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
         },
         {
-            "key": "field_58f1af6e1cac7",
-            "label": "Count",
-            "name": "aggregate_by_post_type_count",
-            "type": "select",
+            "key": "field_591403acce1ad",
+            "label": "Resources Enabled",
+            "name": "overview_resources_enabled2",
+            "type": "true_false",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_58f8cf3e42199",
+                        "field": "field_591403acce1ee",
                         "operator": "==",
                         "value": "1"
                     }
@@ -321,18 +320,142 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "3": "3",
-                "6": "6",
-                "9": "9"
-            },
-            "default_value": [],
-            "allow_null": 0,
-            "multiple": 0,
+            "message": "",
+            "default_value": 0,
             "ui": 0,
-            "ajax": 0,
-            "return_format": "value",
-            "placeholder": ""
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_591403acce1bb",
+            "label": "Resources block",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_591403acce1ee",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_591403acce1ad",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Add up to four related links to sit alongside the overview. The list title defaults to 'Resources', but can be changed below.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_591403acce1cc",
+            "label": "Title",
+            "name": "overview_resources_title2",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_591403acce1ee",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_591403acce1ad",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Resources",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_591403acce1dd",
+            "label": "Links",
+            "name": "overview_resource_links2",
+            "type": "repeater",
+            "instructions": "Add up to four links to display in a list to the right of the overview text.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_591403acce1ee",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_591403acce1ad",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 1,
+            "max": 4,
+            "layout": "row",
+            "button_label": "Add another link",
+            "sub_fields": [
+                {
+                    "key": "field_591403acdc079",
+                    "label": "Link text",
+                    "name": "overview_resource_link_text2",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_591403acdc08c",
+                    "label": "URL",
+                    "name": "overview_resource_link_url2",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -340,7 +463,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "homepage.php"
+                "value": "issue.php"
             }
         ],
         [
@@ -354,18 +477,21 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "issue.php"
+                "value": "about.php"
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 10,
     "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "comments"
+    ],
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494518502
+    "modified": 1494483944
 }

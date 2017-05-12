@@ -1,6 +1,6 @@
 <?php
 	$overview_class = 'col-md-12';
-	$resources_enabled = $module[OVERVIEW_MODULE['resources_enabled']];
+	$resources_enabled = $module[$module['config']['resources_enabled']];
 	if ( $resources_enabled ) {
 		$overview_class = 'col-md-8';
 	}
@@ -14,7 +14,7 @@
 			<!-- Text component -->
 			<section class="overview-text <?php echo $overview_class ?>">
 				<?php
-				$full_content = $module[OVERVIEW_MODULE['content']]; 
+				$full_content = $module[$module['config']['content']];
 				$contents = get_extended($full_content);
 				$moretext = (strlen($contents['more_text']) > 1) ? $contents['more_text'] : 'Read more'; 
 				?>
@@ -42,14 +42,14 @@
 					<div class="sidebar-content resources-content">
 
 						<h2 class="sidebar-header resources-header">
-							<?php echo $module[OVERVIEW_MODULE['resources_title']]; ?>
+							<?php echo $module[$module['config']['resources_title']]; ?>
 						</h2>
 
 						<ul class="sidebar-links resources-links">
-							<?php foreach ( $module[OVERVIEW_MODULE['resources_links']] as $index => $link ): ?>
+							<?php foreach ( $module[$module['config']['resources_links']] as $index => $link ): ?>
 								<li>
-									<a href="<?php echo $link[OVERVIEW_MODULE['resources_link_url']]; ?>" class="resource-link">
-										<?php echo $link[OVERVIEW_MODULE['resources_link_text']]; ?>
+									<a href="<?php echo $link[$module['config']['resources_link_url']]; ?>" class="resource-link">
+										<?php echo $link[$module['config']['resources_link_text']]; ?>
 									</a>
 								</li>
 							<?php endforeach; ?>

@@ -1,11 +1,11 @@
- <section class="routing module">
+<section class="routing module">
   <div class="content">
 
     <?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 
-    <div class="row routing-row macy-grid" id="routing-macy">
+    <div class="row routing-row macy-grid" id="routing-macy-<?php echo $module['module_order']; ?>">
       
-      <?php foreach ( $module[ROUTING_MODULE['repeater']] as $index => $block ): ?>
+      <?php foreach ( $module[$module['config']['repeater']] as $index => $block ): ?>
       <div class="col-xs-12 col-sm-6 col-lg-4">
         <div class="routing-block">
 

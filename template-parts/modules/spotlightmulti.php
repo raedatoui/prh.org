@@ -3,9 +3,13 @@
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ) ?>
 	<div class="module__content columns-3">
 		<div class="row">
-
-				<?php foreach ( $module[SPOTLIGHT_3_MODULE['repeater']] as $cardContainer ): ?>
-					<?php $card = $cardContainer[SPOTLIGHT_3_MODULE['card']][0] ?>
+			<div class="col-xs-12">
+				<p class="focus-lead-copy"><?php echo $module[$module['config']['headline']]?></p>
+			</div>
+		</div>
+		<div class="row">
+				<?php foreach ( $module[$module['config']['repeater']] as $cardContainer ): ?>
+					<?php $card = $cardContainer[$module['config']['card']][0] ?>
 					<div class="info-module--component">
 						<img class="info-module__img" alt="" src="<?php echo $card[SPOTLIGHT_CARD['image']]['url'] ?>" />
 						<div class="info-module__info">

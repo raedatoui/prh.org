@@ -64,7 +64,8 @@ const TAB_CARD = array(
 	'image' => 'tab_card_image',
 	'title' => 'tab_card_title',
 	'text' => 'tab_card_text',
-	'cta' => 'tab_card_cta'
+	'use_cta' => 'tab_card_use_cta',
+	'cta' => 'tab_card_cta',
 );
 
 const STATISTIC_CARD = array(
@@ -153,6 +154,19 @@ const OVERVIEW_MODULE = array(
 	'template' => 'template-parts/modules/overview.php'
 );
 
+const OVERVIEW_MODULE_SECONDARY = array(
+	'enabled' => 'overview_enabled2',
+	'name' => 'Overview Secondary',
+	'options' => 'overview_options2',
+	'content' => 'overview_content2',
+	'resources_enabled' => 'overview_resources_enabled2',
+	'resources_title' => 'overview_resources_title2',
+	'resources_links' => 'overview_resource_links2',
+	'resources_link_text' => 'overview_resource_link_text2',
+	'resources_link_url' => 'overview_resource_link_url2',
+	'template' => 'template-parts/modules/overview.php'
+);
+
 const AGGREGATE_BY_POST_TYPE = array(
 	'enabled' => 'aggregate_by_post_type_enabled',
 	'name' => 'Aggregate by Content Type',
@@ -179,14 +193,26 @@ const SPOTLIGHT_1_MODULE = array(
 	'template' => 'template-parts/modules/spotlightone.php'
 );
 
-const SPOTLIGHT_3_MODULE = array(
-	'enabled' => 'spotlight_3_enabled',
-	'name' => 'Spotlight 3 Module',
-	'options' => 'spotlight_3_options',
-	'repeater' => 'spotlight_3_repeater',
-	'card' => 'spotlight_3_card',
-	'template' => 'template-parts/modules/spotlightthree.php'
+const SPOTLIGHTS_MODULE = array(
+	'enabled' => 'spotlight_multi_enabled',
+	'name' => 'Spotlights Module',
+	'options' => 'spotlight_multi_options',
+	'headline' => 'spotlight_multi_headline',
+	'repeater' => 'spotlight_multi_repeater',
+	'card' => 'spotlight_multi_card',
+	'template' => 'template-parts/modules/spotlightmulti.php'
 );
+
+const SPOTLIGHTS_MODULE_SECONDARY = array(
+	'enabled' => 'spotlight_multi2_enabled',
+	'name' => 'Spotlights Module Secondary',
+	'options' => 'spotlight_multi2_options',
+	'headline' => 'spotlight_multi2_headline',
+	'repeater' => 'spotlight_multi2_repeater',
+	'card' => 'spotlight_multi2_card',
+	'template' => 'template-parts/modules/spotlightmulti.php'
+);
+
 
 const TAB_PANEL = array(
 	'enabled' => 'tab_panel_enabled',
@@ -214,6 +240,14 @@ const ROUTING_MODULE = array(
 	'template' => 'template-parts/modules/routing-module.php'
 );
 
+const ROUTING_MODULE_SECONDARY = array(
+	'enabled' => 'routing_module2_enabled',
+	'name' => 'Routing Module Secondary',
+	'options' => 'routing_module2_options',
+	'repeater' => 'routing_blocks2',
+	'template' => 'template-parts/modules/routing-module.php'
+);
+
 const DONATE_MODULE = array(
 	'enabled' => 'donate_module_enabled',
 	'name' => 'Donate Module',
@@ -236,11 +270,14 @@ const MODULES = array(
 	AGGREGATE_BY_CATEGORY['name'] => AGGREGATE_BY_CATEGORY,
 	QUOTE_MODULE['name'] => QUOTE_MODULE,
 	OVERVIEW_MODULE['name'] => OVERVIEW_MODULE,
+	OVERVIEW_MODULE_SECONDARY['name'] => OVERVIEW_MODULE_SECONDARY,
 	SPOTLIGHT_1_MODULE['name'] => SPOTLIGHT_1_MODULE,
-	SPOTLIGHT_3_MODULE['name'] => SPOTLIGHT_3_MODULE,
+	SPOTLIGHTS_MODULE['name'] => SPOTLIGHTS_MODULE,
+	SPOTLIGHTS_MODULE_SECONDARY['name'] => SPOTLIGHTS_MODULE_SECONDARY,
 	TAB_PANEL['name'] => TAB_PANEL,
 	ACCORDION_SECTION['name'] => ACCORDION_SECTION,
 	ROUTING_MODULE['name'] => ROUTING_MODULE,
+	ROUTING_MODULE_SECONDARY['name'] => ROUTING_MODULE_SECONDARY,
 	DONATE_MODULE['name'] => DONATE_MODULE
 );
 

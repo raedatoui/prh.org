@@ -1,11 +1,11 @@
 {
-    "key": "group_58e65cdac3cf2",
-    "title": "Aggregate by Content Type",
+    "key": "group_5914008ea48f4",
+    "title": "Routing Module Secondary",
     "fields": [
         {
-            "key": "field_58f8cf3e42199",
+            "key": "field_5914008eb1995",
             "label": "Enabled",
-            "name": "aggregate_by_post_type_enabled",
+            "name": "routing_module2_enabled",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -16,22 +16,22 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 1,
+            "default_value": 0,
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
         },
         {
-            "key": "field_58e65ce040bd3",
+            "key": "field_5914008eb19a6",
             "label": "Options",
-            "name": "aggregate_by_post_type_options",
+            "name": "routing_module2_options",
             "type": "component_field",
             "instructions": "",
             "required": 1,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_58f8cf3e42199",
+                        "field": "field_5914008eb1995",
                         "operator": "==",
                         "value": "1"
                     }
@@ -45,7 +45,7 @@
             "field_group_id": "group_58e1c055118d9",
             "min": 1,
             "max": 1,
-            "layout": "row",
+            "layout": "block",
             "button_label": "Add Row",
             "appearances": "",
             "collapsed": "",
@@ -273,16 +273,16 @@
             ]
         },
         {
-            "key": "field_58e65cef40bd4",
-            "label": "Aggregate",
-            "name": "content_type_aggregate",
-            "type": "posttype_select",
-            "instructions": "By selecting a term from the list, this section will auto-populate with the three most recently published items of content within that categorization.",
-            "required": 1,
+            "key": "field_5914008eb19b0",
+            "label": "Routing Blocks",
+            "name": "routing_blocks2",
+            "type": "component_field",
+            "instructions": "Tip: use 3 or 6 blocks for a balanced layout.",
+            "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_58f8cf3e42199",
+                        "field": "field_5914008eb1995",
                         "operator": "==",
                         "value": "1"
                     }
@@ -293,73 +293,172 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "allow_null": 0,
-            "multiple": 0,
-            "placeholder": "",
-            "disabled": 0,
-            "readonly": 0
-        },
-        {
-            "key": "field_58f1af6e1cac7",
-            "label": "Count",
-            "name": "aggregate_by_post_type_count",
-            "type": "select",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_58f8cf3e42199",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "3": "3",
-                "6": "6",
-                "9": "9"
-            },
-            "default_value": [],
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "ajax": 0,
-            "return_format": "value",
-            "placeholder": ""
+            "field_group_id": "group_590771529f31b",
+            "min": 1,
+            "max": 12,
+            "layout": "row",
+            "button_label": "Add another block",
+            "appearances": "",
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "ID": 14588,
+                    "key": "field_5907715925a62",
+                    "label": "Title",
+                    "name": "routing_block_title",
+                    "prefix": "acf",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 0,
+                    "instructions": "Shorter is better!",
+                    "required": 1,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 14587,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "routing_block_title",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "ID": 14589,
+                    "key": "field_5907717d25a63",
+                    "label": "Text",
+                    "name": "routing_block_text",
+                    "prefix": "acf",
+                    "type": "text",
+                    "value": null,
+                    "menu_order": 1,
+                    "instructions": "Keep this to a sentence or so.",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 14587,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "routing_block_text",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "ID": 14590,
+                    "key": "field_590771a925a64",
+                    "label": "Links",
+                    "name": "routing_block_links",
+                    "prefix": "acf",
+                    "type": "repeater",
+                    "value": null,
+                    "menu_order": 2,
+                    "instructions": "Add up to 4 links to appear at the bottom of this routing block.",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 14587,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "routing_block_links",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "collapsed": "field_590771e725a66",
+                    "min": 1,
+                    "max": 4,
+                    "layout": "row",
+                    "button_label": "Add another link",
+                    "sub_fields": [
+                        {
+                            "ID": 14591,
+                            "key": "field_590771c625a65",
+                            "label": "Link text",
+                            "name": "routing_block_link_text",
+                            "prefix": "acf",
+                            "type": "text",
+                            "value": null,
+                            "menu_order": 0,
+                            "instructions": "",
+                            "required": 1,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": 0,
+                            "parent": 14590,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "_name": "routing_block_link_text",
+                            "_prepare": 0,
+                            "_valid": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "ID": 14592,
+                            "key": "field_590771e725a66",
+                            "label": "Link URL",
+                            "name": "routing_block_link_url",
+                            "prefix": "acf",
+                            "type": "url",
+                            "value": null,
+                            "menu_order": 1,
+                            "instructions": "",
+                            "required": 1,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": 0,
+                            "parent": 14590,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "_name": "routing_block_link_url",
+                            "_prepare": 0,
+                            "_valid": 1,
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "location": [
         [
             {
-                "param": "page_template",
+                "param": "post_type",
                 "operator": "==",
-                "value": "homepage.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "styleguide.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "issue.php"
+                "value": "page"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "acf_after_title",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -367,5 +466,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494518502
+    "modified": 1494483138
 }
