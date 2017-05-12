@@ -7,6 +7,7 @@ var nav = {
         $triggers = $nav.querySelectorAll('.menu-item > a'),
         $menuItems = $nav.querySelectorAll('.menu > li'),
         $mask = document.querySelector('.nav-mask'),
+        $searchButton = document.querySelector('#site-search-btn'),
         
         // Track the focusable elements so we can trap focus in the menu
         $focusables = (function getFocusables() {
@@ -77,6 +78,12 @@ var nav = {
           }
 
           $target.classList.toggle('is-expanded');
+        },
+
+        // Toggle the visibility of the search bar when the [Q] is cicked
+
+        toggleSearchBar = function() {
+          $header.classList.toggle('search-open');
         };
 
 
@@ -92,6 +99,7 @@ var nav = {
     });
 
     $menuButton.addEventListener('click', toggleNav);
+    $searchButton.addEventListener('click', toggleSearchBar);
     $mask.addEventListener('click', closeNav);
     window.addEventListener('keyup', handleKeyup);
   }

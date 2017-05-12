@@ -8,23 +8,33 @@
  */
 
 ?>
+<div class="search-result">
+	<article class="row result-row" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<header class="result-meta col-xs-12 col-md-2">
+			<div class="eyebrow result-type"><?php echo get_post_type_object(get_post_type())->labels->singular_name; ?></div>
+			<div class="result-date"><?php prh_wp_theme_posted_on(); ?></div>
+		</header>
+		<div class="result-content col-xs">
+			<?php the_title( sprintf( '<h3 class="result-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+			<?php the_excerpt(); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php prh_wp_theme_posted_on(); ?>
-		</div><!-- .entry-meta -->
+			<?php 
+		$tags = get_the_tags( $post->ID );
+		if ( $tags ):  ?>
+			<aside class="tags-block result-tags">
+					<ul class="tags-list">
+						<?php foreach( $tags as $tag ):  ?>
+							<li>
+								<a class="tag" href="<?php bloginfo('url' );?>/tag/<?php print_r( $tag->slug );?>">
+									<?php print_r( $tag->name . ' (' . $tag->count . ')' ); ?>
+								</a>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+			</aside>
 		<?php endif; ?>
-	</header><!-- .entry-header -->
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
 
-	<footer class="entry-footer">
-		<?php prh_wp_theme_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+		</div>
+	</article>
+</div>

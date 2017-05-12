@@ -1,0 +1,15 @@
+.archive-main {
+  padding-top: 50px;
+
+  @include responsive-mq(md) {
+    padding-top: 80px;
+  }
+}
+
+.archive-header {
+  padding: 40px 0;
+}
+
+.archive-page-title {
+  font-size: 36px;
+}
