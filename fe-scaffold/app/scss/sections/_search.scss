@@ -5,7 +5,7 @@ $search-height-lg: 126px;
 
 .search-bar {
   @include lora;
-  font-size: 26px;
+  font-size: 20px;
   padding: 40px 0;
   background-color: color(blue);
   color: color(white);
@@ -13,6 +13,10 @@ $search-height-lg: 126px;
 
   .search-open & {
     display: block;
+  }
+
+  @include responsive-mq(sm) {
+    font-size: 26px;
   }
 
   @include responsive-mq(md) {
@@ -32,10 +36,11 @@ $search-height-lg: 126px;
   color: color(white);
   flex: 1;
   font-family: $lora;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 1;
   padding: 0;
   position: relative;
+  margin-right: 20px;
 
   $placeholder-color: transparentize(#fff, 0.15);
 
@@ -54,6 +59,10 @@ $search-height-lg: 126px;
 
   &:-moz-placeholder {
     color: $placeholder-color;
+  }
+
+  @include responsive-mq(sm) {
+    font-size: 26px;
   }
 
   @include responsive-mq(md) {
