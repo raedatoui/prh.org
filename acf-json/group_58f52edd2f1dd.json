@@ -16,7 +16,7 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 1,
+            "default_value": 0,
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
@@ -240,6 +240,35 @@
                             "placeholder": ""
                         }
                     ]
+                },
+                {
+                    "ID": 14688,
+                    "key": "field_5910c19e55118",
+                    "label": "Show in Hero",
+                    "name": "module_show_in_hero",
+                    "prefix": "acf",
+                    "type": "true_false",
+                    "value": null,
+                    "menu_order": 4,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": 14575,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "_name": "module_show_in_hero",
+                    "_prepare": 0,
+                    "_valid": 1,
+                    "message": "Determines if module has a jump link in the hero",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 }
             ]
         },
@@ -355,7 +384,7 @@
                             "label": "Text",
                             "name": "tab_card_text",
                             "prefix": "acf",
-                            "type": "text",
+                            "type": "textarea",
                             "value": null,
                             "menu_order": 1,
                             "instructions": "Overview copy about the topic being covered in the tab. Example: 'American and state governments...'",
@@ -374,11 +403,9 @@
                             "_valid": 1,
                             "default_value": "",
                             "placeholder": "",
-                            "prepend": "",
-                            "append": "",
                             "maxlength": "",
-                            "readonly": 0,
-                            "disabled": 0
+                            "rows": "",
+                            "new_lines": "wpautop"
                         },
                         {
                             "ID": 14618,
@@ -390,7 +417,7 @@
                             "value": null,
                             "menu_order": 2,
                             "instructions": "",
-                            "required": 1,
+                            "required": 0,
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
@@ -415,12 +442,12 @@
                             "mime_types": ""
                         },
                         {
-                            "ID": 14619,
-                            "key": "field_58f52e966bb11",
-                            "label": "CTA",
-                            "name": "tab_card_cta",
+                            "ID": 15042,
+                            "key": "field_59148dbad9e16",
+                            "label": "Use CTA",
+                            "name": "tab_card_use_cta",
                             "prefix": "acf",
-                            "type": "component_field",
+                            "type": "true_false",
                             "value": null,
                             "menu_order": 3,
                             "instructions": "",
@@ -428,6 +455,43 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
+                            "parent": 14615,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "_name": "tab_card_use_cta",
+                            "_prepare": 0,
+                            "_valid": 1,
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "ID": 14619,
+                            "key": "field_58f52e966bb11",
+                            "label": "CTA",
+                            "name": "tab_card_cta",
+                            "prefix": "acf",
+                            "type": "component_field",
+                            "value": null,
+                            "menu_order": 4,
+                            "instructions": "",
+                            "required": 0,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_59148dbad9e16",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "parent": 14615,
                             "wrapper": {
                                 "width": "",
@@ -534,5 +598,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1493933248
+    "modified": 1494569020
 }

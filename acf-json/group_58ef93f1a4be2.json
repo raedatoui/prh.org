@@ -16,7 +16,7 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 1,
+            "default_value": 0,
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
@@ -593,5 +593,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494518724
+    "modified": 1494569028
 }
