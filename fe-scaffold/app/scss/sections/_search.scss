@@ -93,7 +93,7 @@ $search-height-lg: 126px;
 .result-type {
   color: color(navy);
   margin-bottom: 1em;
-  
+
   @include responsive-mq(md) {
     margin-bottom: 2em;
   }
@@ -143,6 +143,27 @@ $search-height-lg: 126px;
   }
 }
 
+.checkbox-item {
+  .item-label::before {
+    background: url("../images/optimized/checkbox-background.png") 18px 0;
+    content: "";
+    display: inline-block;
+    height: 18px;
+    margin-right: 12px;
+    vertical-align: middle;
+    width: 18px;
+  }
+
+  &.is-checked {
+    .item-label::before {
+      background-position: 0 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
 
 // Active filters
 
@@ -154,6 +175,19 @@ $search-height-lg: 126px;
 .active-filter {
   display: inline-block;
   margin-right: 1em;
+  
+  .tag::after {
+    content: "×";
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .tag:hover,
+  .tag:focus {
+    &::after {
+      color: color(red);
+    }
+  }
 }
 
 .filter-cancel {

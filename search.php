@@ -33,9 +33,32 @@ $cats = get_categories();
 			<div class="content">
 
 				<?php
-				if ( have_posts() ) : 
 				global $wp_query;
+
+			//	var_dump($wp_query->query_vars);
+
+				$type_queried = false;
+				$cat_queried = false;
+
 				$total_results = $wp_query->found_posts;
+				$active_search_query = get_search_query();
+				$active_type_query = $wp_query->query_vars['post_type'];
+				$active_cat_query = $wp_query->query_vars['category_name'];
+				$active_cat_name = get_category($wp_query->query_vars['cat'])->name;
+
+				if ($active_type_query && $active_type_query != 'any' && $active_type_query != '') {
+					$type_queried = true;
+				}
+
+				if ($active_cat_query && $active_cat_query != 'any' && $active_cat_query != '') {
+					$cat_queried = true;
+				}
+
+				$base_query =  '/?s=' . $active_search_query;
+				$type_query = $base_query. '&post_type=' . $active_type_query;
+				$cat_query = $base_query . '&category_name=' . $active_cat_query;
+				$full_query = $base_query . '&post_type=' . $active_type_query . '&category_name=' . $active_cat_query;
+
 				?>
 
 				<header class="page-header row">
@@ -44,50 +67,58 @@ $cats = get_categories();
 					</h2>
 				</header><!-- .page-header -->
 
-				<!-- Filter selection (if any are active) -->
-				<div class="filter-row row">
-					<div class="col-xs-12 col-md-9 col-lg-8">
-					<div class="row">
-						<div class="col-xs-2 filter-label">My Filters:</div>
-						<div class="col-xs col-md-7">
-							<ul class="active-filters filter-list">
+				<?php 
+					if ($type_queried || $cat_queried): ?>
+					<div class="filter-row row">
+						<div class="col-xs-12 col-md-9 col-lg-8">
+						<div class="row">
+							<div class="col-xs-2 filter-label">My Filters:</div>
+							<div class="col-xs col-md-7">
+								<ul class="active-filters filter-list">
 
+									<?php if ($type_queried):
+									$filtered_type = get_post_type_object($active_type_query); ?>
+									<li class="active-filter">
+										<a class="tag" href="<?php echo $cat_query; ?>">
+											<?php echo $filtered_type->labels->singular_name; ?> <span class="visually-hidden">(Click to remove filter)</span>
+										</a>
+									</li>
+								<?php endif; ?>
 
-								<?php
-							// DUMMY LOGIC - remove this when the real code is hooked up
-							// this is just to let us test some tag display.
+								<?php if ($cat_queried): ?>
+									<li class="active-filter">
+										<a class="tag"  href="<?php echo $type_query; ?>">
+											<?php echo $active_cat_name; ?> <span class="visually-hidden">(Click to remove filter)</span>
+										</a>
+									</li>
+								<?php endif; ?>
 
-								$filters = array( 1, 2, 3 );
-								foreach ( $filters as $filter ):
-
-									$tag->name = 'Sample tag';
-								$tag->slug = 'abortion-access';
-								$tag->count = '20';
-								?>
-
-								<li class="active-filter">
-									<a class="tag" href="<?php bloginfo('url' );?>/tag/<?php print_r( $tag->slug );?>">
-										<?php print_r( $tag->name . ' (' . $tag->count . ')' ); ?>
-									</a>
-								</li>
-								<?php endforeach; ?>
-							</ul>
-						</div>
-						<div class="col-xs-12 col-sm-3 filter-cancel">
-							<a href="#">Clear all selections</a>
+								</ul>
+							</div>
+							<div class="col-xs-12 col-sm-3 filter-cancel">
+								<a href="<?php echo $base_query; ?>">Clear all selections</a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+
+				
+		<?php endif; ?>
 
 					<!-- Left side (results area) -->
 				<div class="row">
 					<div class="col-xs-12 col-md-9 col-lg-8 search-results">
 						<?php
+						if ( have_posts() ) : 
 						// the markup for an individual result is in template-parts/content-search.php
 						while ( have_posts() ) : the_post();
 							get_template_part( 'template-parts/content', 'search' );
-						endwhile; ?>
+						endwhile; 
+
+						else : // if !have_posts
+							get_template_part( 'template-parts/content', 'none' ); 
+					endif; 
+				?>
 					</div>
 
 					<!-- Right side (filtering) -->
@@ -99,19 +130,40 @@ $cats = get_categories();
 
 								<ul class="filter-list checkbox-list type-list">
 								<?php
-								foreach ( $content_types as $type ): 
-									$filtered_query = 'post_type=' . $type->name . '&s=' . get_search_query();
-									$query_url = '/?' . $filtered_query;
-									?>
 
-									<li class="checkbox-item">
-										<label>
-											<input type="checkbox" class="filter filter-type" id="filter-type-<?php echo $type->slug; ?>">
+								foreach ( $content_types as $type ): 
+
+									$is_active = ( $type->name == $active_type_query );
+									if ( $type->name == 'page' ) {
+										$query_url = $base_query . '&post_type=' . $type->name;
+									}
+									else {
+										$query_url = $cat_query . '&post_type=' . $type->name;
+									}
+
+									if ($is_active) {
+										$query_url = $cat_query;
+									}
+									// $filtered_query = ( $type->name == 'page' ) ? $base_query : $cat_query;
+									// $query_url = ( $is_active ) ? $filtered_query : $filtered_query . '&post_type=' . $type->name;
+
+									?>
+									
+
+									<?php 
+									// this is HACKY, but for some reason the page type query doesn't work.
+									if ($type->name !== 'page') { ?>
+
+									<li class="checkbox-item <?php echo ($is_active ? 'is-checked' : ''); ?>">
 											<a href="<?php echo $query_url; ?>">
-												<?php echo $type->labels->singular_name; ?>
+												<span class="item-label"><?php echo $type->labels->singular_name; ?></span>
+												<span class="visually-hidden">
+													<?php echo $is_active ? '(Active.)' : ''; ?>
+												</span>
 											</a>
-										</label>
 									</li>
+
+									<?php } ?>
 								<?php endforeach; ?>
 								</ul>
 
@@ -123,13 +175,19 @@ $cats = get_categories();
 								<h2 class="sidebar-header">Category</h2>
 
 								<ul class="filter-list checkbox-list type-list">
-								<?php foreach ( $cats as $cat ): ?>
+								<?php foreach ( $cats as $cat ): 
+									$is_active = ( $cat->slug == $active_cat_query );
+									$filtered_query =  ( $type->name == 'page' ) ? $base_query : $type_query;
+									$query_url = ( $is_active ) ? $filtered_query : $filtered_query . '&category_name=' . $cat->slug;
+								?>
 
-									<li class="checkbox-item">
-										<label>
-											<input type="checkbox" class="filter filter-cat" id="filter-cat-<?php echo $cat->slug; ?>">
-											<?php echo $cat->name ?>
-										</label>
+									<li class="checkbox-item <?php echo $is_active ? 'is-checked' : ''; ?>">
+											<a href="<?php echo $query_url; ?>">
+												<span class="item-label"><?php echo $cat->name ?></span>
+												<span class="visually-hidden">
+													<?php echo $is_active ? '(Active.)' : ''; ?>
+												</span>
+											</a>
 									</li>
 
 								<?php endforeach; ?>
@@ -159,11 +217,7 @@ $cats = get_categories();
 
 
 
-				<?php 
-				// the_posts_navigation();
-				// else :
-				// 	get_template_part( 'template-parts/content', 'none' ); ?>
-				<?php endif; ?>
+
 			</div>
 		</div>
 
