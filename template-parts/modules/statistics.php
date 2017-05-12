@@ -4,9 +4,11 @@
 		<div class="row">
 			<?php foreach ( $module[STATISTICS_MODULE['repeater']] as $index => $card ): ?>
 				<? $card = $card[STATISTICS_MODULE['card']][0]; ?>
-				<div class="stat-title col-xs-12 col-md-4">
+				<div class="stat-card col-xs-12 col-md-4">
+					<?php echo_wrapped($card[STATISTIC_CARD['eyebrow']], '<span class="eyebrow stat-eyebrow">', '</span>'); ?>
 					<span class="stat-number"><?php echo $card[STATISTIC_CARD['number']] ?></span>
-					<span class="stat-category"><?php echo $card[STATISTIC_CARD['text']] ?></span>
+					<span class="stat-object"><?php echo $card[STATISTIC_CARD['text']] ?></span>
+					<span class="stat-summary"><?php echo $card[STATISTIC_CARD['summary']] ?></span>
 				</div>
 			<?php endforeach; ?>
 		</div>

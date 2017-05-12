@@ -106,12 +106,22 @@
     top: -10vw;
   }
 
+
+
   &:nth-child(even) {
     @include module-curves(cream);
+
+    &.stats {
+      background-image: url("../images/optimized/tan-particles-bg.png");
+    }
   }
 
   &:nth-child(odd) {
     @include module-curves(peach);
+
+    &.stats {
+      background-image: url("../images/optimized/peach-particles-bg.png");
+    }
   }
 
   &.donate-module {
