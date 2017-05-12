@@ -69,8 +69,10 @@ const TAB_CARD = array(
 );
 
 const STATISTIC_CARD = array(
+	'eyebrow' => 'stat_eyebrow',
 	'number' => 'stat_number',
 	'text' => 'stat_text',
+	'summary' => 'stat_summary'
 );
 
 const ACCORDION_ITEM = array(

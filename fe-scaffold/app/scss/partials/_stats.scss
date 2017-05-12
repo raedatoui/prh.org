@@ -1,16 +1,25 @@
-.stat-number,
-.stat-category {
-  @include lora();
-  display: block;
-  margin: 0 auto;
-  text-align: center;
+.stats {
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.stat-number {
+.stat-card {
+  margin-top: 40px;
+}
+
+.stat-number,
+.stat-category,
+.stat-object,
+.stat-summary {
+  @include lora();
+  display: block;
+}
+
+.stat-number,
+.stat-object {
   color: #be3e50;
-  font-size: em(100px);
+
   font-style: italic;
-  font-weight: 600;
 
   .backgroundcliptext & {
     -webkit-background-clip: text;
@@ -18,14 +27,50 @@
     background-image: $gradient-linear-rose;
     color: transparent;
   }
+
+  font-size: em(64px);
+  line-height: lh(74, 64);
+
+
+  .home & {
+    font-size: em(60px);
+    @include responsive-mq(lg) {
+      font-size: em(100px);
+    }
+  }
 }
 
-.stat-category {
-  font-size: em(20px);
+.stat-number {
+  line-height: 1;
+}
+
+.stat-eyebrow {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+.stat-object {
+  padding-bottom: .25em; // without this, it clips weirdly
+
+
+  .home & {
+    font-size: em(44px);
+    @include responsive-mq(lg) {
+      font-size: em(64px);
+    }
+  }
+}
+
+.stat-summary {
+  font-size: em(22px);
   letter-spacing: -0.001em;
-  line-height: lh(25, 20);
+  line-height: 1.5;
   margin-bottom: 42px;
-  max-width: 13em;
+  
+  @include responsive-mq(md) {
+    max-width: 14em;
+  }
 }
 
 .stats {
@@ -39,14 +84,5 @@
     .cta-row {
       margin-top: 40px;
     }
-  }
-
-  .stat-number {
-    font-size: em(150px);
-  }
-
-  .stat-category {
-    font-size: em(28px);
-    line-height: lh(38, 28);
   }
 }
