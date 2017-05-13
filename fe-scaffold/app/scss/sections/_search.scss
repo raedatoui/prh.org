@@ -7,7 +7,7 @@ $search-height-lg: 126px;
   @include lora;
   font-size: 20px;
   padding: 40px 0;
-  background-color: color(blue);
+  background-color: color(blue); // TODO: add gradient
   color: color(white);
   display: none;
 
