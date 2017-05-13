@@ -18,9 +18,16 @@
 								<span class="info-module__text"><?php echo $card[SPOTLIGHT_CARD['text']] ?></span>
 							<?php endif; ?>
 							<?php if ( $card[SPOTLIGHT_CARD['use_cta']] ):  ?>
-								<?php $cta = $card[SPOTLIGHT_CARD['cta']][0];  ?>
-								<a class="cta" href="<? echo $cta[CTA_COMPONENT['link']];?>">
-									<? echo $cta[CTA_COMPONENT['label']]; ?>
+								<?php
+									$cta = $card[SPOTLIGHT_CARD['cta']][0];
+									$cta_label = trim($cta[CTA_COMPONENT['label']]);
+									$cta_class = "cta";
+									if ( $cta_label == "Donate" ) {
+										$cta_class = "cta cta--red";
+									}
+								?>
+								<a class="<?php echo $cta_class; ?>" href="<? echo $cta[CTA_COMPONENT['link']];?>">
+									<? echo $cta_label; ?>
 								</a>
 							<?php endif; ?>
 						</div>

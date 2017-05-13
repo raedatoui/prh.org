@@ -47,9 +47,16 @@
 						<div class="col-xs-12 col-md-<?php echo $copy_class; ?>">
 							<p><?php echo $card[TAB_CARD['text']] ?></p>
 							<?php if ( $card[TAB_CARD['use_cta']] ): ?>
-								<?php $cta = $card[TAB_CARD['cta']][0];  ?>
-								<a class="cta" href="<? echo $cta[CTA_COMPONENT['link']];?>">
-									<? echo $cta[CTA_COMPONENT['label']]; ?>
+								<?php
+									$cta = $card[TAB_CARD['cta']][0];
+									$cta_label = trim($cta[CTA_COMPONENT['label']]);
+									$cta_class = "cta";
+									if ( $cta_label == "Donate" ) {
+										$cta_class = "cta cta--red";
+									}
+								?>
+								<a class="<?php echo $cta_class; ?>" href="<? echo $cta[CTA_COMPONENT['link']];?>">
+									<? echo $cta_label; ?>
 								</a>
 							<?php endif; ?>
 						</div>
