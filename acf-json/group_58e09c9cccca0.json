@@ -8,7 +8,7 @@
             "name": "hero_title",
             "type": "text",
             "instructions": "Title of the module. Appears as an eyebrow and gives an indication of the content within the section.",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -78,5 +78,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1493998751
+    "modified": 1494711863
 }
