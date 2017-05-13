@@ -86,7 +86,7 @@ $base-gutter: 4%;
 //------------------------------------------------
 //  FONTS VARS
 //------------------------------------------------
-//Font Weight
+//Font Weight -- TODO: cleanup or deprecate
 $thin: 100;
 $light: 300;
 $regular: 400;
@@ -104,7 +104,7 @@ $base-font-weight: $regular;
 $base-font-color: $base-font-blue;
 $base-font-kerning: 0;
 $base-font-size: 16px;
-$base-line-height: 1;
+$base-line-height: 1; // TODO: needed?
 
 //------------------------------------------------
 //  TIMING & CONSTANTS
@@ -116,6 +116,12 @@ $fx-duration: 0.15s;
 //------------------------------------------------
 $module-padding-xs: 20px;
 $module-padding-lg: 60px;
+
+$x-padding-sm: 30px;
+$x-padding-lg: 60px;
+
+$y-padding-sm: 60px;
+$y-padding-lg: 80px;
 
 //------------------------------------------------
 //  FLEXBOX GRID BREAKPOINTS

@@ -1,5 +1,5 @@
 .module {
-  padding: $module-padding-xs * 2 $module-padding-xs;
+  padding: $v-padding-sm $h-padding-sm;
 
   img {
     flex-basis: auto;
@@ -8,7 +8,7 @@
   }
 
   @include responsive-mq(lg) {
-    padding: $module-padding-lg $module-padding-xs;
+    padding: $v-padding-lg $h-padding-lg;
   }
 }
 
@@ -16,7 +16,7 @@
   background-position: bottom right;
   background-repeat: repeat-x;
   display: inline-block;
-  margin: 30px auto 50px;
+  margin: 0 auto 80px;
   text-transform: uppercase;
 
   h2 {
