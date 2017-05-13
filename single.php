@@ -93,18 +93,16 @@ get_header(); ?>
 				</aside>
 			<?php endif; ?>
 
-			<!-- Subscribe -->
-			<aside class="sidebar-block subscribe-block">
-				<?php $widget_data = prh_get_widget_data_for( 1 )[1]; ?>
-				<div class="sidebar-content">
-					<h2 class="sidebar-header"><?php echo $widget_data->title; ?></h2>
-					<a class="cta" href="<? echo $widget_data->url;?>">Subscribe</a>
-				</div>
-			</aside>
+		<!-- Subscribe -->
+		<aside class="sidebar-block subscribe-block">
+			<?php $widget_data = prh_get_widget_data_for( 1 )[1]; ?>
+			<div class="sidebar-content">
+				<h2 class="sidebar-header"><?php echo $widget_data->title; ?></h2>
+				<a class="cta" href="<? echo $widget_data->url;?>">Subscribe</a>
+			</div>
+		</aside>
 
 	</div>
-
-
 
 </main>
 
