@@ -5,7 +5,7 @@
 		$quote_class = 'col-md-12';
 	}
 ?>
-<section class="module module__quote" id="<?php echo $module_title; ?>">
+<section class="module module__quote" id="<?php echo sanitize_title($module_title); ?>">
 	<div class="content">
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<div class="row">

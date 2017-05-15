@@ -1,4 +1,4 @@
-<section class="module" id="<?php echo $module_title; ?>">
+<section class="module" id="<?php echo sanitize_title($module_title); ?>">
 	<div class="content">
 
 	<?php foreach ( $module[ACCORDION_SECTION['repeater']] as $group ): ?>

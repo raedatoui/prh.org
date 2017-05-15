@@ -1,4 +1,4 @@
-<section class="routing module">
+<section class="routing module" id="<?php echo sanitize_title($module_title); ?>">
   <div class="content">
 
     <?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>

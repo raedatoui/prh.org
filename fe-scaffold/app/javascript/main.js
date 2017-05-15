@@ -11,6 +11,7 @@ import TabAccordion from './tabbordion';
 import collapsible from './collapsible';
 import accordion from './accordion';
 import nav from './nav';
+import jumpLinks from './jump-links';
 
 function init(){
 
@@ -62,6 +63,10 @@ function init(){
 			}
 		}, 100);
 	}
+
+	jumpLinks.init();
 }
 
-init();
+window.onload = function() {
+	init();
+}

@@ -7,7 +7,7 @@
 		?></h1>
 		<p class="hero__subhead">
 			<?php foreach ($module[PAGE_HERO_MODULE['jump_links']] as $item): ?>
-			<a class="hero__link jump" href="#<?php echo $item ?>"><?php echo  $item ?></a>
+			<a class="hero__link jump-link" href="#<?php echo $item['slug']; ?>"><?php echo $item['pretty']; ?></a>
 			<?php endforeach; ?>
 		</p>
 	</div>
