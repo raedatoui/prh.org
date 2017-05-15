@@ -1,6 +1,10 @@
 .module {
   padding: $module-padding-xs * 2 $module-padding-xs;
 
+  &:focus {
+    outline: none; // jump-links js allows focusing, but we don't need/want a visual indicator in this case
+  }
+
   img {
     flex-basis: auto;
     height: auto;

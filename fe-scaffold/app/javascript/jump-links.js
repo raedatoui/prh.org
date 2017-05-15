@@ -6,7 +6,8 @@ var jumpLinks = {
     e.preventDefault();
     jump(e.target.hash, {
         duration: 800,
-        offset: -100
+        offset: -100,
+        a11y: true
       }
     );
   },
