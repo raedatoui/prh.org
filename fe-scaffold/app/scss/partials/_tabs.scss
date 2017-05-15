@@ -110,6 +110,11 @@ $tab-accordion-padding: 50px;
 
 @include responsive-mq("md") {
 
+  .module__tabs {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
   .tab-accordion {
     background: transparent;
     padding: 0;
