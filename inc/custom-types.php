@@ -314,3 +314,19 @@ function event_type() {
 	register_taxonomy_for_object_type( 'post_tag', 'prh_events' );
 }
 add_action( 'init', 'event_type' );
+
+add_action('pre_get_posts', 'query_post_type');
+function query_post_type($query) {
+	if($query->is_main_query() && ( is_category() || is_tag() )) {
+		$query->set( 'post_type', array(
+			'post',
+			'press_release',
+			'phys_story',
+			'prh_ipaper',
+			'prh_update',
+			'prh_report',
+			'prh_news',
+			'prh_events'
+		) );
+  }
+}
