@@ -24,6 +24,21 @@ function init(){
 		});
 	}
 
+	let fbLinks = document.querySelectorAll('.fb-link');
+	if (fbLinks.length > 0) {
+		
+		for (let i = 0; i < fbLinks.length; i++) {
+			fbLinks[i].addEventListener('click', function(e) {
+				e.preventDefault();
+
+				FB.ui({
+				  method: 'share',
+				  href: window.location.href,
+				}, function(response){});
+			})
+		}
+	}
+
 	nav.init();
 	accordion.init();
 	collapsible.init();
