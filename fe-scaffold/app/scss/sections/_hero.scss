@@ -10,7 +10,8 @@ $mob-header-height: 180px;
   text-align: center;
 
   .hero__subhead {
-    margin-top: 15px;
+    margin: 15px auto auto auto;
+    width: 100%;
     padding: 20px 0;
   }
 
@@ -30,8 +31,12 @@ $mob-header-height: 180px;
 @include responsive-mq("sm") {
   .hero {
     padding-top: 180px;
+    .hero__subhead {
+      width: 75%;
+    }
   }
 }
+
 
 
 .article-hero {
@@ -57,13 +62,13 @@ $mob-header-height: 180px;
   }
 
   .hero__header {
-    max-width: 20em;
     margin: auto;
+    max-width: 20em;
   }
 
   &::after {
-    width: 100%;
-    position: absolute;
     bottom: 0;
+    position: absolute;
+    width: 100%;
   }
 }

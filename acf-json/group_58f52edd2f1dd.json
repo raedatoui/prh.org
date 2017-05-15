@@ -51,7 +51,7 @@
             "collapsed": "",
             "sub_fields": [
                 {
-                    "ID": 14576,
+                    "ID": 13330,
                     "key": "field_58e1c06164889",
                     "label": "Title",
                     "name": "module_title",
@@ -64,7 +64,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 14575,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -82,7 +82,7 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 14577,
+                    "ID": 13331,
                     "key": "field_58e1c0696488a",
                     "label": "Order",
                     "name": "module_order",
@@ -95,7 +95,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 14575,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -115,7 +115,7 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 14578,
+                    "ID": 13332,
                     "key": "field_58e1c09e6488b",
                     "label": "Use CTA",
                     "name": "module_use_cta",
@@ -128,7 +128,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 14575,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -144,7 +144,7 @@
                     "ui_off_text": ""
                 },
                 {
-                    "ID": 14579,
+                    "ID": 13333,
                     "key": "field_58e1c16d818a3",
                     "label": "CTA",
                     "name": "module_cta",
@@ -165,7 +165,7 @@
                             }
                         ]
                     ],
-                    "parent": 14575,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -183,7 +183,7 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
-                            "ID": 14564,
+                            "ID": 13318,
                             "key": "field_58e1c124a8dfe",
                             "label": "Label",
                             "name": "cta_label",
@@ -196,7 +196,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 14563,
+                            "parent": 13317,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -214,7 +214,7 @@
                             "disabled": 0
                         },
                         {
-                            "ID": 14565,
+                            "ID": 13319,
                             "key": "field_58e1c136a8dff",
                             "label": "Link",
                             "name": "cta_link",
@@ -227,7 +227,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 14563,
+                            "parent": 13317,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -242,7 +242,7 @@
                     ]
                 },
                 {
-                    "ID": 14688,
+                    "ID": 13446,
                     "key": "field_5910c19e55118",
                     "label": "Show in Hero",
                     "name": "module_show_in_hero",
@@ -255,7 +255,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 14575,
+                    "parent": 13329,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -301,7 +301,7 @@
         },
         {
             "key": "field_58f52f1be0391",
-            "label": "Tab Panel Tabs",
+            "label": "Tab cards",
             "name": "tab_panel_tabs",
             "type": "repeater",
             "instructions": "",
@@ -321,10 +321,10 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": 0,
+            "min": 1,
             "max": 0,
-            "layout": "table",
-            "button_label": "Add Row",
+            "layout": "row",
+            "button_label": "Add another tab card",
             "sub_fields": [
                 {
                     "key": "field_58f52f41e0392",
@@ -348,7 +348,7 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
-                            "ID": 14616,
+                            "ID": 13370,
                             "key": "field_58f52e2a6bb0e",
                             "label": "Title",
                             "name": "tab_card_title",
@@ -361,7 +361,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 14615,
+                            "parent": 13369,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -379,7 +379,7 @@
                             "disabled": 0
                         },
                         {
-                            "ID": 14617,
+                            "ID": 13371,
                             "key": "field_58f52e566bb0f",
                             "label": "Text",
                             "name": "tab_card_text",
@@ -392,7 +392,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 14615,
+                            "parent": 13369,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -408,7 +408,7 @@
                             "new_lines": "wpautop"
                         },
                         {
-                            "ID": 14618,
+                            "ID": 13372,
                             "key": "field_58f52e7b6bb10",
                             "label": "Image",
                             "name": "tab_card_image",
@@ -421,7 +421,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 14615,
+                            "parent": 13369,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -442,7 +442,7 @@
                             "mime_types": ""
                         },
                         {
-                            "ID": 15042,
+                            "ID": 13458,
                             "key": "field_59148dbad9e16",
                             "label": "Use CTA",
                             "name": "tab_card_use_cta",
@@ -455,7 +455,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 14615,
+                            "parent": 13369,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -471,7 +471,7 @@
                             "ui_off_text": ""
                         },
                         {
-                            "ID": 14619,
+                            "ID": 13373,
                             "key": "field_58f52e966bb11",
                             "label": "CTA",
                             "name": "tab_card_cta",
@@ -492,7 +492,7 @@
                                     }
                                 ]
                             ],
-                            "parent": 14615,
+                            "parent": 13369,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -510,7 +510,7 @@
                             "collapsed": "",
                             "sub_fields": [
                                 {
-                                    "ID": 14564,
+                                    "ID": 13318,
                                     "key": "field_58e1c124a8dfe",
                                     "label": "Label",
                                     "name": "cta_label",
@@ -523,7 +523,7 @@
                                     "id": "",
                                     "class": "",
                                     "conditional_logic": 0,
-                                    "parent": 14563,
+                                    "parent": 13317,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -541,7 +541,7 @@
                                     "disabled": 0
                                 },
                                 {
-                                    "ID": 14565,
+                                    "ID": 13319,
                                     "key": "field_58e1c136a8dff",
                                     "label": "Link",
                                     "name": "cta_link",
@@ -554,7 +554,7 @@
                                     "id": "",
                                     "class": "",
                                     "conditional_logic": 0,
-                                    "parent": 14563,
+                                    "parent": 13317,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -576,16 +576,9 @@
     "location": [
         [
             {
-                "param": "page_template",
+                "param": "post_type",
                 "operator": "==",
-                "value": "issue.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "styleguide.php"
+                "value": "page"
             }
         ]
     ],
@@ -598,5 +591,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494569020
+    "modified": 1494710405
 }
