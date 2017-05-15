@@ -1,5 +1,9 @@
 .stats {
   background-position: center;
+
+  .cta-row {
+    margin-top: 0;
+  }
 }
 
 .stat-card {
@@ -17,8 +21,9 @@
 .stat-number,
 .stat-object {
   color: #be3e50;
-
+  font-size: em(64px);
   font-style: italic;
+  line-height: lh(74, 64);
 
   .backgroundcliptext & {
     -webkit-background-clip: text;
@@ -26,10 +31,6 @@
     background-image: $gradient-linear-rose;
     color: transparent;
   }
-
-  font-size: em(64px);
-  line-height: lh(74, 64);
-
 
   .home & {
     font-size: em(60px);
@@ -50,7 +51,7 @@
 }
 
 .stat-object {
-  padding-bottom: .25em; // without this, it clips weirdly
+  padding-bottom: 0.25em; // without this, it clips weirdly
 
 
   .home & {
@@ -66,15 +67,9 @@
   letter-spacing: -0.001em;
   line-height: 1.5;
   margin-bottom: 42px;
-  
+
   @include responsive-mq(md) {
     max-width: 14em;
-  }
-}
-
-.stats {
-  .cta-row {
-    margin-top: 0;
   }
 }
 
