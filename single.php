@@ -48,6 +48,19 @@ get_header(); ?>
 
 	<div class="sidebar post-sidebar col-xs-12 col-md-3">
 
+		<!-- Social sharing -->
+		<aside class="sidebar-block social-block">
+			<div class="sidebar-content sidebar-social">
+
+				<h2 class="sidebar-header">Share</h2>
+				<ul class="social-icons">
+					<li><a href="http://twitter.com"><span class="visually-hidden">Share on Twitter</span></a></li>
+					<li><a href="http://facebook.com"><span class="visually-hidden">Share on Facebook</span></a></li>
+					<li><a href="mailto:"><span class="visually-hidden">Email link</span></a></li>
+				</ul>
+			</div>
+		</aside>
+
 		<!-- Media contact -->
 		<aside class="sidebar-block media-contact-block">
 		<div class="sidebar-content">

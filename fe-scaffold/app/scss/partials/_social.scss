@@ -1,0 +1,104 @@
+
+.social-icons {
+
+  li {
+    display: inline-block;
+
+    & + li {
+      margin-left: 10px;
+    }
+  }
+
+  a {
+
+    display: block;
+    padding: 5px;
+    position: relative;
+
+    &::before {
+      cursor: pointer;
+      display: block;
+      height: 20px;
+      margin: auto;
+      width: 20px;
+    }
+
+    &:focus {
+      &::before {
+        outline: 1px dotted white;
+      }
+    }
+  }
+}
+
+.footer-social {
+  a {
+    &::after {
+      background: color(red);
+      bottom: -5px;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 5px;
+      margin: auto;
+      opacity: 0;
+      position: absolute;
+      right: 5px;
+      transform: translateY(4px);
+      transition: 0.15s opacity 0s, 0.15s transform 0s;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    &[href*="facebook"] {
+      &::before {
+        content: url("../images/optimized/icons/white/icon--facebook.svg");
+      }
+    }
+
+    &[href*="twitter"] {
+      &::before {
+        content: url("../images/optimized/icons/white/icon--twitter.svg");
+      }
+    }
+
+    &[href*="instagram"] {
+      &::before {
+        content: url("../images/optimized/icons/white/icon--instagram.svg");
+      }
+    }
+
+    &[href*="tumblr"] {
+      &::before {
+        content: url("../images/optimized/icons/white/icon--tumblr.svg");
+      }
+    }
+  }
+}
+
+.sidebar-social {
+  a {
+    &[href*="facebook"] {
+      &::before {
+        content: url("../images/optimized/icons/navy/icon--facebook.svg");
+      }
+    }
+
+    &[href*="twitter"] {
+      &::before {
+        content: url("../images/optimized/icons/navy/icon--twitter.svg");
+      }
+    }
+
+    &[href*="mailto"] {
+      &::before {
+        content: url("../images/optimized/icons/navy/icon--tumblr.svg");
+      }
+    }
+  }
+}
