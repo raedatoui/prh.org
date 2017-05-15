@@ -40,7 +40,7 @@ rules:
     - 1
     - extra-properties: [osx-font-smoothing]
   no-qualifying-elements:
-    - 1
+    - 0
     - allow-element-with-attribute: 1
   no-trailing-zero: 1
   no-transition-all: 0

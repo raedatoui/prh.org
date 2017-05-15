@@ -62,13 +62,13 @@ $mob-header-height: 180px;
   }
 
   .hero__header {
-    max-width: 20em;
     margin: auto;
+    max-width: 20em;
   }
 
   &::after {
-    width: 100%;
-    position: absolute;
     bottom: 0;
+    position: absolute;
+    width: 100%;
   }
 }
