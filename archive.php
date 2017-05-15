@@ -9,7 +9,6 @@
 
 get_header(); ?>
 
-
 	<main id="main" class="site-main archive-main" role="main">
 		<div class="module archive-content-module">
 			<div class="content">
@@ -22,26 +21,19 @@ get_header(); ?>
 					</h1>
 				</header>
 
-				<?php
-				if ( have_posts() ) : 
-				?>
-
+				<?php if ( have_posts() ) : ?>
 					<!-- Left side (results area) -->
-				<div class="row">
-					<div class="col-xs-12 col-md-10 search-results archive-entries">
-						<?php
-						// the markup for an individual result is in template-parts/content-search.php
-						while ( have_posts() ) : the_post();
-							get_template_part( 'template-parts/content', 'search' );
-						endwhile; ?>
+					<div class="row">
+						<div class="col-xs-12 col-md-10 search-results archive-entries">
+							<?php
+							// the markup for an individual result is in template-parts/content-search.php
+							while ( have_posts() ) : the_post();
+								get_template_part( 'template-parts/content', 'search' );
+							endwhile; ?>
+						</div>
 					</div>
-
-					<!-- Right side (filtering) -->
-<!-- 					<div class="sidebar post-sidebar col-xs-12 col-md-3 col-lg-offset-1 search-filters">
-
-					</div> -->
-
-				<nav class="pagination results-pagination">
+					<div class="row">
+						<nav class="pagination results-pagination">
 					<?php 
 
 					global $wp_query;
@@ -59,23 +51,12 @@ get_header(); ?>
 						'next_text' => ''
 					) ); ?>
 				</nav>
+					</div>
+				<?php endif; ?>
 
-				<?php 
-
-			//	the_posts_navigation();
-
-				// else :
-
-				// 	get_template_part( 'template-parts/content', 'none' );
-
-				endif; ?>
 			</div>
 		</div>
-		</div>
-
 	</main><!-- #main -->
 
-	
 <?php
-get_sidebar();
 get_footer();
