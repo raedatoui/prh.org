@@ -1,0 +1,62 @@
+[
+    {
+        "name": "404page",
+        "status": "active",
+        "update": "none",
+        "version": "2.4"
+    },
+    {
+        "name": "advanced-custom-fields-component_field",
+        "status": "active",
+        "update": "none",
+        "version": "1.0.12"
+    },
+    {
+        "name": "advanced-custom-fields-pro",
+        "status": "active",
+        "update": "available",
+        "version": "5.5.12"
+    },
+    {
+        "name": "disable-comments",
+        "status": "active",
+        "update": "none",
+        "version": "1.6"
+    },
+    {
+        "name": "filter-page-by-template",
+        "status": "active",
+        "update": "none",
+        "version": "1.0"
+    },
+    {
+        "name": "post-type-select-for-advanced-custom-fields",
+        "status": "active",
+        "update": "none",
+        "version": "1.0.0"
+    },
+    {
+        "name": "post-type-switcher",
+        "status": "active",
+        "update": "none",
+        "version": "3.0.0"
+    },
+    {
+        "name": "wordpress-importer",
+        "status": "active",
+        "update": "none",
+        "version": "0.6.3"
+    },
+    {
+        "name": "wp-optimize",
+        "status": "active",
+        "update": "none",
+        "version": "2.1.1"
+    },
+    {
+        "name": "wordpress-seo",
+        "status": "active",
+        "update": "none",
+        "version": "4.7.1"
+    }
+]
