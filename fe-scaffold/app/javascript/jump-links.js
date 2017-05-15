@@ -1,14 +1,14 @@
+import jump from 'jump.js'
+
 var jumpLinks = {
   links: document.querySelectorAll('.jump-link'),
   jumpScroll: function(e) {
-
     e.preventDefault();
-
-    let $target = document.querySelector(e.target.hash),
-        targetPos = $target.offsetTop,
-        offset = 50;
-  
-    window.scrollTo(0, targetPos - offset);
+    jump(e.target.hash, {
+        duration: 800,
+        offset: -100
+      }
+    );
   },
   init: function() {
     for (var i = 0; i < this.links.length; i++) {
