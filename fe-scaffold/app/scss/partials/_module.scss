@@ -15,12 +15,18 @@
 %module-title {
   background-position: bottom right;
   background-repeat: repeat-x;
-  display: inline-block;
+  display: table;
   margin: 30px auto 50px;
   text-transform: uppercase;
 
   h2 {
     @extend %eyebrow;
+    margin-bottom: 15px;
+    padding: 0;
+  }
+
+  @include responsive-mq(md) {
+    margin-bottom: 80px;
   }
 }
 
@@ -29,11 +35,6 @@
 
   background-image: url("../images/optimized/asset_detail_wave_dk.png");
   color: $base-font-blue;
-
-  h2 {
-    margin-bottom: 15px;
-    padding: 0 2em;
-  }
 
   .hero & {
     background-image: url("../images/optimized/asset_detail_wave.png");

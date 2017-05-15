@@ -13,10 +13,8 @@ get_header(); ?>
 <!-- Hero -->
 <section class="hero module">
 	<div class="content">
-		<header class="row center-xs">
-			<div class="module__title">
-				<h2>Hero Module</h2>
-			</div>
+		<header class="module__title">
+			<h2>Hero Module</h2>
 		</header>
 		<h1 class="hero__header">Style Guide</h1>
 		<div class="col-xs-12 hero__subhead">An inventory of global patterns.</div>
@@ -27,10 +25,8 @@ get_header(); ?>
 <!-- Colors -->
 <section class="module">
 	<div class="content">
-		<header class="row center-xs">
-			<div class="module__title">
-				<h2>Colors</h2>
-			</div>
+		<header class="module__title">
+			<h2>Colors</h2>
 		</header>
 
 		<div class="row swatch-row">
@@ -49,10 +45,8 @@ get_header(); ?>
 <!-- Links & buttons -->
 <section class="module">
 	<div class="content">
-		<header class="row center-xs">
-			<div class="module__title">
-				<h2>Buttons & links</h2>
-			</div>
+		<header class="module__title">
+			<h2>Buttons & links</h2>
 		</header>
 		<div class="row">
 			<div class="swatch-block col-xs-12 col-md-6 col-lg-3 button-swatch-block">
@@ -86,8 +80,8 @@ get_header(); ?>
 			$eyebrow_sizes = array(18, 16, 14); ?>
 <section class="module">
 	<div class="content">
-		<header class="row center-xs">
-			<div class="module__title"><h2>Typefaces</h2></div>
+		<header class="module__title">
+			<h2>Typefaces</h2>
 		</header>
 
 		<div class="row">
@@ -202,10 +196,8 @@ get_header(); ?>
 <?php $svgs = array('carat', 'close', 'search', 'person', 'squiggle'); ?>
 <section class="module">
 	<div class="content">
-		<header class="row center-xs">
-			<div class="module__title">
-				<h2>SVG Assets</h2>
-			</div>
+		<header class="module__title">
+			<h2>SVG Assets</h2>
 		</header>
 		<p class="lead-copy">SVGs can scale to any size without getting pixelated, so they're a natural choice for icons and UI elements.</p>
 
@@ -230,10 +222,8 @@ get_header(); ?>
 <!-- Text copy -->
 <section class="module">
 	<div class="content">
-		<header class="row center-xs">
-			<div class="module__title">
-				<h2>Copy</h2>
-			</div>
+		<header class="module__title">
+			<h2>Copy</h2>
 		</header>
 		<p class="lead-copy">This paragraph text is larger than normal. It’s generally used at the beginning of a page or section, to introduce the content. Blocks of text in this style shouldn’t be too long.</p>
 		<p>This is normal paragraph text. These styles apply to most of the body copy throughout the site. They support styles like <strong>bold</strong> and <em>italic</em> and can contain <a href="#">links</a> to other pages.</p>
@@ -318,11 +308,9 @@ get_header(); ?>
 
 			<section class="module">
 				<div class="content">
-				<header class="row center-xs">
-					<div class="module__title">
+				<header class="module__title">
 						<h2><?php the_title(); ?></h2>
-					</div>
-					</header>
+				</header>
 					<?php the_content(); ?>
 				</div>
 			</section>
