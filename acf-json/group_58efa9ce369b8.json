@@ -242,7 +242,7 @@
                     ]
                 },
                 {
-                    "ID": 13446,
+                    "ID": 14688,
                     "key": "field_5910c19e55118",
                     "label": "Show in Hero",
                     "name": "module_show_in_hero",
@@ -255,7 +255,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 13329,
+                    "parent": 14575,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -463,16 +463,10 @@
     "location": [
         [
             {
-                "param": "page_template",
+
+                "param": "post_type",
                 "operator": "==",
-                "value": "issue.php"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "styleguide.php"
+                "value": "page"
             }
         ]
     ],
