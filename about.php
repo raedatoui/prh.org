@@ -12,7 +12,7 @@ get_header(); ?>
 	$page->hero = array(
 		'module_name' => 'Page Hero',
 		'config' => PAGE_HERO_MODULE,
-		'hero_jump_links' => $page->module_titles()
+		'hero_jump_links' => $page->jump_links()
 	);
 	$page->render();
 

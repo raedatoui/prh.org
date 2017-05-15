@@ -1,8 +1,6 @@
 'use strict';
 
 import './polyfills';
-import TweenMax from 'gsap/TweenMax';
-import EasePack from 'gsap/EasePack';
 import Flickity from 'flickity-imagesloaded';
 import Macy from 'macy';
 import modernizr from './modernizr.js';
@@ -11,10 +9,20 @@ import TabAccordion from './tabbordion';
 import collapsible from './collapsible';
 import accordion from './accordion';
 import nav from './nav';
+import jumpLinks from './jump-links';
 
 function init(){
 
-	let carousel = document.querySelector('.carousel');
+	nav.init();
+	accordion.init();
+	collapsible.init();
+
+	let carousel = document.querySelector('.carousel'),
+			tabs = document.querySelector('.tab-accordion'),
+			cards = document.querySelectorAll('.macy-grid'),
+			jumps = document.querySelectorAll('.jump-link');
+
+
 	if (carousel) {
 		let flickity = new Flickity(carousel, {
 			cellAlign: 'left',
@@ -24,11 +32,6 @@ function init(){
 		});
 	}
 
-	nav.init();
-	accordion.init();
-	collapsible.init();
-
-	let tabs = document.querySelector('.tab-accordion');
 	if (tabs) {
 		TabAccordion.init('.tab-accordion', {
 			tabClass: '.tab-nav-title',
@@ -38,7 +41,6 @@ function init(){
 		});
 	}
 	
-	let cards = document.querySelectorAll('.macy-grid');
 	if (cards.length > 0) {
 		var instances = [];
 		for(let i = 0; i < cards.length; i++) {
@@ -62,6 +64,12 @@ function init(){
 			}
 		}, 100);
 	}
+
+	if (jumps.length > 0) {
+		jumpLinks.init();
+	}
 }
 
-init();
+window.onload = function() {
+	init();
+}

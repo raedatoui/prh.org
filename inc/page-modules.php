@@ -125,6 +125,15 @@ class PageModules {
 		return array_map( $func, array_filter( $this->modules, $filter ) );
 	}
 
+	function jump_links() {
+		$jump_links = array();
+		foreach ( $this->module_titles() as $index => $title ) {
+			$jump_links[$index]['pretty'] = $title;
+			$jump_links[$index]['slug'] = sanitize_title($title);
+		}
+		return $jump_links;
+	}
+
 	function render_hero() {
 		if ($this->hero != null ) {
 			$module = $this->hero;
