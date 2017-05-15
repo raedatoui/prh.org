@@ -107,10 +107,10 @@ $cats = get_categories();
 					<div class="col-xs-12 col-md-9 col-lg-8 search-results">
 						<?php
 							if ( have_posts() ) :
-							// the markup for an individual result is in template-parts/content-search.php
-							while ( have_posts() ) : the_post();
-								get_template_part( 'template-parts/content', 'search' );
-							endwhile;
+								// the markup for an individual result is in template-parts/content-search.php
+								while ( have_posts() ) : the_post();
+									get_template_part( 'template-parts/content', 'search' );
+								endwhile;
 
 							else : // if !have_posts
 								get_template_part( 'template-parts/content', 'none' );
@@ -192,7 +192,7 @@ $cats = get_categories();
 							</div>
 						</aside>
 					</div>
-			
+
 					<!-- Results Pagination -->
 					<nav class="pagination results-pagination">
 						<?php
