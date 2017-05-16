@@ -1,0 +1,35 @@
+// Per-output settings; this way we can override for different outputs.
+
+$image-dir: "../images/";
+
+// Settings & tools
+@import "modules/all";
+
+// 3rd party
+@import "vendor/flexboxgrid";
+
+// Partials
+@import "partials/reset";
+@import "partials/base-styles";
+@import "partials/typography";
+@import "partials/module";
+@import "partials/curves";
+@import "partials/buttons";
+@import "partials/text";
+
+// Sections
+@import "sections/nav";
+@import "sections/hero";
+@import "sections/overview";
+@import "sections/footer";
+
+// Custom, luminate-pages-only styles
+
+// Keeps the page from ever being too short
+main {
+  min-height: calc(100vh - 700px);
+}
+
+.module.site-footer::before {
+  background-image: image("curves/navy-curve--arc.svg") !important;
+}
