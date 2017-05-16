@@ -1,6 +1,7 @@
 // nav SECTION
 .site-header {
-  background-color: $prh-blue-lt;
+  // background-color: $prh-blue-lt;
+  background-color: color(button-blue);
   left: 0;
   position: fixed;
   right: 0;
@@ -74,7 +75,7 @@
   }
 
   .sub-menu {
-    background: $prh-blue-lt;
+    background: color(button-blue);
     display: none;
     left: 0;
     right: 0;
@@ -108,14 +109,14 @@
 
     &:hover,
     &:focus {
-      background: $prh-blue-highlight;
+      background-color: color(highlight-blue);
       color: color(peach);
     }
   }
 }
 
 .site-nav .menu a {
-  border-bottom: 1px solid transparentize(#fff, 0.85);
+  border-bottom: 1px solid color(hairline-3);
 }
 
 .nav-ui {
@@ -144,7 +145,6 @@
 // Nav mask, to allow clicks outside to close the menu
 
 .is-expanded + .nav-mask {
-  // background: transparentize($prh-cream-lt, 0.5);
   bottom: 0;
   display: block;
   left: 0;

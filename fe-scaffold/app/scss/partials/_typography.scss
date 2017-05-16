@@ -70,10 +70,14 @@ p, li {
 }
 
 a {
-  color: $prh-blue-lt;
+  color: color(blue);
+
+  &:hover {
+    color: color(red);
+  }
 
   &:focus {
-    color: $prh-red;
+    color: color(red);
     outline: 1px dotted;
   }
 }
