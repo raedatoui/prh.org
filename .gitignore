@@ -26,3 +26,5 @@ node_modules/
 css/*
 js/bundle.js
 js/bundle.js.map
+static/css/*
+static/js/*
