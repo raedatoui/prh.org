@@ -28,7 +28,7 @@
     background-color: color(red);
 
     &::after {
-      background: url("../images/optimized/button_arrow-white.svg") 0 0 no-repeat;
+      background: image("button_arrow-white.svg") 0 0 no-repeat;
     }
   }
 }
@@ -45,7 +45,7 @@
 
 .cta--link::after,
 .cta::after {
-  background: url("../images/optimized/button_arrow-lilac.svg") 0 0 no-repeat;
+  background: image("button_arrow-lilac.svg") 0 0 no-repeat;
   content: " ";
   height: 30px;
   position: absolute;
@@ -70,7 +70,7 @@
   }
 
   &::after {
-    background-image: url("../images/optimized/button_arrow-white.svg");
+    background-image: image("button_arrow-white.svg");
   }
 }
 
@@ -87,7 +87,7 @@
   color: $prh-red;
 
   &::after {
-    background-image: url("../images/optimized/button_arrow-red.svg");
+    background-image: image("button_arrow-red.svg");
     transform: translateY(-14px) translateX(8px);
   }
 }

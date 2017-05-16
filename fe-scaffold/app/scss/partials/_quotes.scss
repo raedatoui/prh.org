@@ -26,13 +26,13 @@ blockquote {
     }
 
     &::before {
-      background: url("../images/optimized/quote_start.svg") 0 0 no-repeat;
+      background: image("quote_start.svg") 0 0 no-repeat;
       left: -30px;
       top: -55px;
     }
 
     &::after {
-      background: url("../images/optimized/quote_end.svg") 0 0 no-repeat;
+      background: image("quote_end.svg") 0 0 no-repeat;
       bottom: 0;
       right: 30px;
       transform: rotate(23deg);

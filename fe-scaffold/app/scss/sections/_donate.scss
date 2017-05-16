@@ -1,6 +1,6 @@
 .donate-module {
   background-color: color(navy);
-  background-image: url("../images/optimized/donate-module.jpg"); // default; can be overridden via cms
+  background-image: image("donate-module.jpg"); // default; can be overridden via cms
   background-position: top center;
   background-size: cover;
   color: #fff;

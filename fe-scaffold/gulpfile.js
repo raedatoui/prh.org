@@ -38,10 +38,14 @@ const projJsSrc =  projJsSrcDir + '/**/*.js';
 const pubJsDest = projDestDir + '/javascript';
 const localJsDest = '../js';
 
-const projSassEntry = projSrcDir + '/scss/*.scss';
+const projSassEntry = [projSrcDir + '/scss/main.scss', projSrcDir + '/scss/editor.scss', projSrcDir + '/scss/styleguide.scss'];
 const projSassSrc = projSrcDir + '/scss/**/*.scss';
 const pubSassDest = projDestDir + '/stylesheets';
 const localSassDest = '../css';
+
+const staticSassEntry = projSrcDir + '/scss/luminate.scss';
+const staticSassDest = '../static/css';
+const staticJsDest = '../static/js';
 
 gulp.task('default', [ 'watch' ]);
 
@@ -111,6 +115,15 @@ gulp.task('sass', function(){
 		.pipe(connect.reload());
 });
 
+gulp.task('static-sass', function() {
+	return gulp.src(staticSassEntry)
+	.pipe(sass({ outputStyle: 'expanded', includePaths: './node_modules'})
+	.on('error', sass.logError))
+	.pipe( postcss([ autoprefixer() ]) )
+	.pipe( gulp.dest(staticSassDest) )
+	.pipe(connect.reload());
+});
+
 gulp.task('sass-lint', function() {
 	gulp.src([
 		projSassSrc,
@@ -165,6 +178,39 @@ gulp.task('buildJS', [ 'js-lint', 'modernizr' ], function(){
 
 });
 
+gulp.task('static-js', [ 'js-lint', 'modernizr' ], function(){
+	return rollup({
+		format: 'umd', //umd,amd,cjs
+		moduleName: 'luminateBundle', //only for umd
+		exports: 'named',
+		entry: projJsSrcDir + '/luminate.js',
+		sourceMap: true,
+		plugins: [
+			nodeResolve({
+				jsnext: true,
+				main: true,
+				preferBuiltins: true,
+				browser: true,
+			}),
+			commonjs({
+				ignoreGlobal: true,
+				namedExports: {
+					'./node_modules/gsap': [ 'TweenMax', 'EasePack' ]
+				}
+			}),
+			includePaths({
+				paths: [ projJsSrcDir + '/' ]
+			})
+		]
+	})
+	.pipe( source( 'luminate.js', projJsSrcDir ) )
+	.pipe( buffer() )
+	.pipe( buble() )
+	.pipe( rename('luminate.js' ) )
+	.pipe( gulp.dest(staticJsDest) );
+
+});
+
 gulp.task('serve', [ 'build', 'watch'], function(){
 	connect.server({
 		port: 9000,
@@ -178,10 +224,10 @@ gulp.task('reload', function(){
 	connect.reload();
 });
 
-gulp.task('build', ['images', 'html', 'sass', 'buildJS']);
+gulp.task('build', ['images', 'html', 'sass', 'static-sass', 'static-js', 'buildJS']);
 
 gulp.task('watch', function(){
 	gulp.watch('./app/**/*.html', ['html']);
-	gulp.watch(projJsSrc, ['buildJS', 'reload']);
-	gulp.watch(projSassSrc, ['sass', 'sass-lint', 'reload']);
+	gulp.watch(projJsSrc, ['buildJS', 'static-js', 'reload']);
+	gulp.watch(projSassSrc, ['sass', 'static-sass', 'sass-lint', 'reload']);
 });

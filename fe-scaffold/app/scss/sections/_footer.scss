@@ -144,25 +144,25 @@
 
     &[href*="facebook"] {
       &::before {
-        content: url("../images/optimized/icons/icon--facebook.svg");
+        content: image("icons/icon--facebook.svg");
       }
     }
 
     &[href*="twitter"] {
       &::before {
-        content: url("../images/optimized/icons/icon--twitter.svg");
+        content: image("icons/icon--twitter.svg");
       }
     }
 
     &[href*="instagram"] {
       &::before {
-        content: url("../images/optimized/icons/icon--instagram.svg");
+        content: image("icons/icon--instagram.svg");
       }
     }
 
     &[href*="tumblr"] {
       &::before {
-        content: url("../images/optimized/icons/icon--tumblr.svg");
+        content: image("icons/icon--tumblr.svg");
       }
     }
   }
