@@ -11,39 +11,29 @@
   width: 40px;
 }
 
-.icon--close {
+.icon--close,
+.icon--plus,
+.icon--minus {
   @extend %svg;
   height: 34px;
   width: 34px;
 }
 
-.icon--search {
-  @extend %svg;
-  height: 50px;
-  width: 50px;
-}
-
+.icon--search,
 .icon--person {
   @extend %svg;
   height: 50px;
   width: 50px;
 }
 
+
 .icon--squiggle {
   @extend %svg;
 }
 
-.icon--plus {
-  @extend %svg;
+.icon--plus,
+.icon-minus {
   fill: $base-font-blue;
-  height: 32px;
-  width: 32px;
-}
-
-.icon--minus {
-  @extend %svg;
-  height: 32px;
-  width: 32px;
 }
 
 .icon--menu {
