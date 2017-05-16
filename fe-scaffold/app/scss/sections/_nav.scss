@@ -35,12 +35,11 @@
 }
 
 .logo {
-  background: url("../images/optimized/logo-small.png") center no-repeat;
-  background-size: contain;
   flex-basis: 41px;
   height: 22px;
   left: $module-padding-xs;
   position: relative;
+  padding: 0;
   width: 41px;
 }
 
@@ -131,6 +130,12 @@
   }
 }
 
+
+.logo .logo-svg {
+  height: 100%;
+  width: 100%;
+}
+
 // Nav mask, to allow clicks outside to close the menu
 
 .is-expanded + .nav-mask {
@@ -154,11 +159,15 @@
   }
 
   .logo {
-    background-image: url("../images/optimized/logo-large.png");
     flex-basis: 220px;
     height: 40px;
     left: 20px;
     width: 220px;
+  }
+
+  .logo .logo-svg {
+    height: 100%;
+    width: 100%;
   }
 
   .site-nav-wrap {
