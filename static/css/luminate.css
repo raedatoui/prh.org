@@ -2440,6 +2440,84 @@ a:focus {
   }
 }
 
+.info-module .cta {
+  margin-top: 70px;
+}
+
+.info-module__img {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+@media (min-width: 62em) {
+  .info-module__img {
+    margin-bottom: 0;
+  }
+}
+
+.columns-1 img {
+  margin: auto;
+}
+
+.columns-3 .info-module__title {
+  font-size: 3.75em;
+  -ms-flex-pack: center;
+      justify-content: center;
+  margin-bottom: 25px;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.info-module__title {
+  font-size: 28px;
+  margin-bottom: 35px;
+}
+
+.info-module__text {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  display: block;
+  line-height: 1.53333;
+}
+
+@media (min-width: 62em) {
+  .info-module .cta {
+    margin-top: 50px;
+  }
+  .columns-1 .info-module__title,
+  .columns-3 .info-module__title {
+    font-size: 44px;
+    line-height: 1.27273;
+  }
+  .columns-1 .info-module__text,
+  .columns-3 .info-module__text {
+    font-size: 1.125em;
+    font-weight: 400;
+    line-height: 1.66667;
+  }
+  .columns-3 .info-module--component {
+    -ms-flex-preferred-size: 33.3333%;
+        flex-basis: 33.3333%;
+    padding: 1rem;
+  }
+  .columns-3 .info-module__info {
+    text-align: center;
+  }
+  .columns-3 .info-module__title,
+  .columns-3 .info-module__img,
+  .columns-3 .info-module__text {
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 75%;
+  }
+}
+
 .site-header {
   background-color: #2b83c6;
   left: 0;
@@ -2978,10 +3056,10 @@ a:focus {
   content: url(../images/icons/icon--tumblr.svg);
 }
 
-main {
+.hero + .module {
   min-height: calc(100vh - 700px);
 }
 
-.static-page .hero ~ .module.footer-module::before{
+.static-page .hero + .module + .module.site-footer::before {
   background-image: url(../images/curves/navy-curve--arc.svg) !important;
 }

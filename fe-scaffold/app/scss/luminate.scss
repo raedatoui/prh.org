@@ -16,6 +16,7 @@ $image-dir: "../images/";
 @import "partials/curves";
 @import "partials/buttons";
 @import "partials/text";
+@import "partials/info";
 
 // Sections
 @import "sections/nav";
@@ -26,10 +27,11 @@ $image-dir: "../images/";
 // Custom, luminate-pages-only styles
 
 // Keeps the page from ever being too short
-main {
+.hero + .module {
   min-height: calc(100vh - 700px);
 }
 
-.module.site-footer::before {
+// force the arced footer curve if there's only one module, even an empty one
+.static-page .hero + .module + .module.site-footer::before {
   background-image: image("curves/navy-curve--arc.svg") !important;
 }
