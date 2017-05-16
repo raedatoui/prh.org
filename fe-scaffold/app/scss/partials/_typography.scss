@@ -62,7 +62,7 @@ h3 {
   @extend %eyebrow;
 }
 
-p {
+p, li {
   font-size: 18px;
   letter-spacing: em((25px / 1000px), 18px);
   line-height: (30 / 18);
