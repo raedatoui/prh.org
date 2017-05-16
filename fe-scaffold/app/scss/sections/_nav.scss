@@ -35,7 +35,7 @@
 }
 
 .logo {
-  background: url("../images/optimized/logo-small.png") center no-repeat;
+  background: image("logo-small.png") center no-repeat;
   background-size: contain;
   flex-basis: 41px;
   height: 22px;
@@ -154,7 +154,7 @@
   }
 
   .logo {
-    background-image: url("../images/optimized/logo-large.png");
+    background-image: image("logo-large.png");
     flex-basis: 220px;
     height: 40px;
     left: 20px;

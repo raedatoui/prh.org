@@ -55,7 +55,7 @@ $mob-header-height: 180px;
 
 
 .shiny-hero {
-  background-image: url("../images/optimized/hero-particles.png"), $gradient-linear-blue;
+  background-image: image("hero-particles.png"), $gradient-linear-blue;
   background-size: 100vh auto, auto;
 
   @include responsive-mq(lg) {
