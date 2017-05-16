@@ -2168,7 +2168,7 @@ h3, .footer-title {
   }
 }
 
-p {
+p, li {
   font-size: 18px;
   letter-spacing: 0.00139em;
   line-height: 1.66667;
@@ -2556,14 +2556,13 @@ a:focus {
 }
 
 .logo {
-  background: url(../images/logo-small.png) center no-repeat;
-  background-size: contain;
   -ms-flex-preferred-size: 41px;
       flex-basis: 41px;
   height: 22px;
   left: 20px;
   margin: 20px 0;
   position: relative;
+  padding: 0;
   width: 41px;
 }
 
@@ -2655,6 +2654,11 @@ a:focus {
   margin-right: 0;
 }
 
+.logo .logo-svg {
+  height: 100%;
+  width: 100%;
+}
+
 .is-expanded + .nav-mask {
   bottom: 0;
   display: block;
@@ -2674,12 +2678,15 @@ a:focus {
     height: 30px;
   }
   .logo {
-    background-image: url(../images/logo-large.png);
     -ms-flex-preferred-size: 220px;
         flex-basis: 220px;
     height: 40px;
     left: 20px;
     width: 220px;
+  }
+  .logo .logo-svg {
+    height: 100%;
+    width: 100%;
   }
   .site-nav-wrap {
     -ms-flex-wrap: nowrap;
