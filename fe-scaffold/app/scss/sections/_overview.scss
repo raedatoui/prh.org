@@ -54,17 +54,7 @@
   }
 
   a {
-    color: inherit;
     text-decoration: none;
-
-    &:hover {
-      color: $prh-blue-lt;
-    }
-
-    &:focus {
-      background: $prh-cream-lightest;
-      color: $prh-red;
-    }
   }
 }
 
