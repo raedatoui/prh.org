@@ -8,7 +8,7 @@
 
   &::before,
   &::after {
-    background-image: url("../images/optimized/asset_detail_wave_dk.png");
+    background-image: image("asset_detail_wave_dk.png");
     background-position: center;
     background-repeat: repeat-x;
     content: "";
@@ -44,7 +44,7 @@
     }
 
     &::before {
-      background-image: url("../images/optimized/pink-dot.png");
+      background-image: image("pink-dot.png");
       content: "";
       display: inline-block;
       height: 15px;
