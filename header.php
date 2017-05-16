@@ -31,6 +31,12 @@
 			<header role="banner" class="site-header" id="site-header">
 			<div class="site-nav-wrap">
 				<a href="/" class="logo col-sm-3 col-md-3">
+						<svg class="logo-svg logo-large md-up" role="presentation">
+							<use xlink:href="#logo-large" />
+						</svg>
+						<svg class="logo-svg logo-small md-down" role="presentation">
+							<use xlink:href="#logo-small" />
+						</svg>
 					<span class="visually-hidden">PRH Homepage</span>
 				</a>
 
