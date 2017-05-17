@@ -12,9 +12,10 @@ $tab-accordion-padding: 50px;
 
 .tab-nav-ordinal {
   @include lora();
-  color: $prh-blue-lt;
+  color: color(blue);
   font-size: em(64px);
   font-style: italic;
+  font-weight: 400;
   line-height: lh(60, 64);
   margin-right: 25px;
 }
@@ -27,7 +28,7 @@ $tab-accordion-padding: 50px;
 .tab-nav-title {
   @extend %eyebrow;
   align-content: flex-start;
-  color: $prh-navy-lt;
+  color: color(navy);
   display: flex;
   flex-direction: row;
   margin-top: 4px;
