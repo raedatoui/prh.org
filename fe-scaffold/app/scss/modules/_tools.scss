@@ -21,7 +21,7 @@
 }
 
 @function image($path) {
-  @return url(#{$image-dir}#{$path});
+  @return url("#{$image-dir}#{$path}");
 }
 
 // Makes an element visually hidden, but accessible.
