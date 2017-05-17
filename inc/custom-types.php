@@ -317,7 +317,7 @@ add_action( 'init', 'event_type' );
 
 add_action('pre_get_posts', 'query_post_type');
 function query_post_type($query) {
-	if($query->is_main_query() && ( is_category() || is_tag() )) {
+	if( $query->is_main_query() && is_tag() ) {
 		$query->set( 'post_type', array(
 			'post',
 			'press_release',
