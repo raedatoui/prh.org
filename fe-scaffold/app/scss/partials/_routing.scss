@@ -1,3 +1,8 @@
+.routing .focus-lead-copy {
+  @include responsive-mq(md) {
+    margin-bottom: em(34px, 18px);
+  }
+}
 .routing-row {
 
   > div {
@@ -65,7 +70,6 @@
     }
   }
 }
-
 
 .routing-block {
   background: $prh-cream-lightest;
