@@ -8,7 +8,11 @@
 
 .stat-card {
   & + & {
-  margin-top: 40px;
+    margin-top: 40px;
+
+    @include responsive-mq(md) {
+      margin-top: 0;
+    }
   }
 }
 
@@ -76,6 +80,11 @@
 }
 
 @include responsive-mq("md") {
+  .stat-object,
+  .stat-summary {
+    max-width: 95%;
+  }
+
   .stats {
     .cta-row {
       margin-top: 40px;
