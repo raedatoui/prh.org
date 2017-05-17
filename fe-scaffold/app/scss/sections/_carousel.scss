@@ -31,7 +31,6 @@
   }
 
   @include responsive-mq("sm") {
-    align-items: stretch;
     flex-direction: row;
     padding: 0 60px;
   }
@@ -72,7 +71,7 @@
     width: auto;
   }
 
-  @include responsive-mq("sm") {
+  @include responsive-mq("md") {
     display: flex;
     flex: 0 1 auto;
     flex-direction: column;
@@ -81,6 +80,13 @@
 
     &:nth-child(2) {
       flex: 1 0 50%;
+      padding-left: 60px;
+    }
+  }
+
+  @include responsive-mq("lg") {
+    &:nth-child(2) {
+      padding-left: 100px;
     }
   }
 }
