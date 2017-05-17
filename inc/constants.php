@@ -239,6 +239,7 @@ const ROUTING_MODULE = array(
 	'name' => 'Routing Module',
 	'options' => 'routing_module_options',
 	'repeater' => 'routing_blocks',
+	'headline' => 'routing_module_headline',
 	'template' => 'template-parts/modules/routing-module.php'
 );
 
@@ -247,6 +248,7 @@ const ROUTING_MODULE_SECONDARY = array(
 	'name' => 'Routing Module Secondary',
 	'options' => 'routing_module2_options',
 	'repeater' => 'routing_blocks2',
+	'headline' => 'routing_module2_headline',
 	'template' => 'template-parts/modules/routing-module.php'
 );
 
