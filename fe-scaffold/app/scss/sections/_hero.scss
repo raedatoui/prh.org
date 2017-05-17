@@ -10,16 +10,16 @@ $mob-header-height: 180px;
   text-align: center;
 
   .hero__subhead {
-    margin: 15px auto auto auto;
-    width: 100%;
+    margin: 15px auto auto;
     padding: 20px 0;
+    width: 100%;
   }
 
   .hero__link {
     color: inherit;
     text-decoration: none;
   }
-  
+
   .jump-link {
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -37,13 +37,12 @@ $mob-header-height: 180px;
 @include responsive-mq("sm") {
   .hero {
     padding-top: 180px;
+
     .hero__subhead {
       width: 75%;
     }
   }
 }
-
-
 
 .article-hero {
   padding-bottom: 100px;
@@ -57,7 +56,6 @@ $mob-header-height: 180px;
     padding: 0 20px;
   }
 }
-
 
 .shiny-hero {
   background-image: image("hero-particles.png"), $gradient-linear-blue;
