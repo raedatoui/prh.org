@@ -149,18 +149,17 @@ $cats = get_categories();
 
 									<?php
 									// this is HACKY, but for some reason the page type query doesn't work.
-									if ($type->name !== 'page') { ?>
+									if ( $type->name !== 'page' && $type->name !== 'post' && $type->name !== 'attachment' ) : ?>
+										<li class="checkbox-item <?php echo ($is_active ? 'is-checked' : ''); ?>">
+												<a href="<?php echo $query_url; ?>">
+													<span class="item-label"><?php echo $type->labels->singular_name; ?></span>
+													<span class="visually-hidden">
+														<?php echo $is_active ? '(Active.)' : ''; ?>
+													</span>
+												</a>
+										</li>
+									<?php endif; ?>
 
-									<li class="checkbox-item <?php echo ($is_active ? 'is-checked' : ''); ?>">
-											<a href="<?php echo $query_url; ?>">
-												<span class="item-label"><?php echo $type->labels->singular_name; ?></span>
-												<span class="visually-hidden">
-													<?php echo $is_active ? '(Active.)' : ''; ?>
-												</span>
-											</a>
-									</li>
-
-									<?php } ?>
 								<?php endforeach; ?>
 								</ul>
 
