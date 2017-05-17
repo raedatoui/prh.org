@@ -19,6 +19,11 @@ $tab-accordion-padding: 50px;
   margin-right: 25px;
 }
 
+.tab-nav-copy {
+  font-size: 18px;
+  line-height: lh(28, 18);
+}
+
 .tab-nav-title {
   @extend %eyebrow;
   align-content: flex-start;
