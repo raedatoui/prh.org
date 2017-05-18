@@ -234,8 +234,8 @@ function news_type() {
 		// let's now add all the options for this post type
 		array(
 			'labels' => array(
-				'name' => __( 'In the News', 'prh-wp-theme' ), /* This is the Title of the Group */
-				'singular_name' => __( 'News Item', 'prh-wp-theme' ), /* This is the individual type */
+				'name' => __( 'PRH In the News', 'prh-wp-theme' ), /* This is the Title of the Group */
+				'singular_name' => __( 'PRH In the News', 'prh-wp-theme' ), /* This is the individual type */
 				'all_items' => __( 'All News', 'prh-wp-theme' ), /* the all items menu item */
 				'add_new' => __( 'Add New', 'prh-wp-theme' ), /* The add new menu item */
 				'add_new_item' => __( 'Add New News Item', 'prh-wp-theme' ), /* Add New Display Title */
@@ -248,7 +248,7 @@ function news_type() {
 				'not_found_in_trash' => __( 'Nothing found in Trash', 'prh-wp-theme' ), /* This displays if there is nothing in the trash */
 				'parent_item_colon' => '',
 			), /* end of arrays */
-			'description' => __( 'In the News', 'prh-wp-theme' ), /* Custom Type Description */
+			'description' => __( 'PRH In the News', 'prh-wp-theme' ), /* Custom Type Description */
 			'public' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => false,

@@ -21,7 +21,7 @@ const CONTENT_TYPES_LABELS = array(
 	'prh_ipaper' => 'Legal Publication',
 	'prh_update' => 'Update',
 	'prh_report' => 'Report',
-	'prh_news' => 'In the News',
+	'prh_news' => 'PRH In the News',
 	'prh_events' => 'Event'
 );
 
