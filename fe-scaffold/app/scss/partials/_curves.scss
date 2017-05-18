@@ -112,6 +112,11 @@
     &.stats {
       background-image: image("tan-particles-bg.png");
     }
+
+    .module-overlay {
+      fill: color(cream-overlay);
+      stroke: color(cream-overlay);
+    }
   }
 
   &:nth-child(odd) {
@@ -119,6 +124,11 @@
 
     &.stats {
       background-image: image("peach-particles-bg.png");
+    }
+
+    .module-overlay {
+      fill: color(peach-overlay);
+      stroke: color(peach-overlay);
     }
   }
 

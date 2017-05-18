@@ -28,7 +28,10 @@ $colors: (
   hairline: #b8b2bc,
   hairline-1: #b8b2bc,
   hairline-2: transparentize(#b7d5fb, 0.75),
-  hairline-3: transparentize(#fff, 0.85)
+  hairline-3: transparentize(#fff, 0.85),
+
+  cream-overlay:  #f1dccd,
+  peach-overlay: #f1c1b3
 );
 
 @function color($which) {
