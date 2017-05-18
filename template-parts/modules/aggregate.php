@@ -26,7 +26,7 @@
 							<h3 class="tile__title"><?php the_title(); ?></h3>
 							<div class="tile__summary">
 								<p><?php echo sanitize_text_field(get_the_excerpt()); ?></p>
-								</div>
+							</div>
 						</div>
 					</a>
 			<?php
