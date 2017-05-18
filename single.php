@@ -53,65 +53,63 @@ $date_format = get_option( 'date_format' );
 				
 			</article>
 
-		<div class="sidebar post-sidebar col-xs-12 col-md-3 col-md-offset-1">
+			<div class="sidebar post-sidebar col-xs-12 col-md-3 col-md-offset-1">
 
-			<!-- Media contact -->
-			<aside class="sidebar-block media-contact-block">
-				<div class="sidebar-content">
-					<h2 class="sidebar-header">Media contact</h2>
-					<?php
-					$show_media_contact = get_field( 'media_contact_enabled' );
-					if ( $show_media_contact ) {
-						$email_link = get_field( 'media_contact_email' );
-						$phone_link = get_field( 'media_contact_phone' );
-						$name = get_field('media_contact_name');
-					} else {
-						$widget_data = prh_get_widget_data_for( 1 )[0];
-						$name = $widget_data->name;
-						$email_link = $widget_data->email;
-						$phone_link = $widget_data->phone;
-					}
-					$email_url = '<a class="contact-link" href="mailto:' . $email_link . '" rel="author">';
-					$phone_url = '<a class="contact-link" href="tel:' . $phone_link . '" rel="author">';
-					?>
-					<p><?php echo $name; ?></p>
-					<?php echo_wrapped( $email_link, $email_url, '</a>' ); ?>
-					<?php echo_wrapped( $phone_link, $phone_url, '</a>' ); ?>
-				</div>
-			</aside>
+				<!-- Media contact -->
+				<aside class="sidebar-block media-contact-block">
+					<div class="sidebar-content">
+						<h2 class="sidebar-header">Media contact</h2>
+						<?php
+						$show_media_contact = get_field( 'media_contact_enabled' );
+						if ( $show_media_contact ) {
+							$email_link = get_field( 'media_contact_email' );
+							$phone_link = get_field( 'media_contact_phone' );
+							$name = get_field('media_contact_name');
+						} else {
+							$widget_data = prh_get_widget_data_for( 1 )[0];
+							$name = $widget_data->name;
+							$email_link = $widget_data->email;
+							$phone_link = $widget_data->phone;
+						}
+						$email_url = '<a class="contact-link" href="mailto:' . $email_link . '" rel="author">';
+						$phone_url = '<a class="contact-link" href="tel:' . $phone_link . '" rel="author">';
+						?>
+						<p><?php echo $name; ?></p>
+						<?php echo_wrapped( $email_link, $email_url, '</a>' ); ?>
+						<?php echo_wrapped( $phone_link, $phone_url, '</a>' ); ?>
+					</div>
+				</aside>
 
-			<!-- Tags -->
-			<?php
-			$tags = get_the_tags( $post->ID );
-			if ( $tags ):  ?>
-			<aside class="sidebar-block tags-block">
-				<div class="sidebar-content">
-					<h2 class="sidebar-header">Tagged under</h2>
-					<ul class="tags-list">
-						<?php foreach( $tags as $tag ):  ?>
-							<li>
-								<a class="tag" href="<?php bloginfo('url' );?>/tag/<?php print_r( $tag->slug );?>">
-									<?php print_r( $tag->name . ' (' . $tag->count . ')' ); ?>
-								</a>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-			</aside>
-		<?php endif; ?>
+				<!-- Tags -->
+				<?php $tags = get_the_tags( $post->ID ); if ( $tags ):  ?>
+					<aside class="sidebar-block tags-block">
+						<div class="sidebar-content">
+							<h2 class="sidebar-header">Tagged under</h2>
+							<ul class="tags-list">
+								<?php foreach( $tags as $tag ):  ?>
+									<li>
+										<a class="tag" href="<?php bloginfo('url' );?>/tag/<?php print_r( $tag->slug );?>">
+											<?php print_r( $tag->name . ' (' . $tag->count . ')' ); ?>
+										</a>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
+					</aside>
+				<?php endif; ?>
 
-		<!-- Subscribe -->
-		<aside class="sidebar-block subscribe-block">
-			<?php $widget_data = prh_get_widget_data_for( 1 )[1]; ?>
-			<div class="sidebar-content">
-				<h2 class="sidebar-header"><?php echo $widget_data->title; ?></h2>
-				<a class="cta" href="<? echo $widget_data->url;?>">Subscribe</a>
+				<!-- Subscribe -->
+				<aside class="sidebar-block subscribe-block">
+					<?php $widget_data = prh_get_widget_data_for( 1 )[1]; ?>
+					<div class="sidebar-content">
+						<h2 class="sidebar-header"><?php echo $widget_data->title; ?></h2>
+						<a class="cta" href="<? echo $widget_data->url;?>">Subscribe</a>
+					</div>
+				</aside>
+
 			</div>
-		</aside>
-
+		</div>
 	</div>
-</div>
-</div>
 </main>
 
 <?php
