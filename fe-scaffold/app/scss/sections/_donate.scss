@@ -1,7 +1,7 @@
 .donate-module {
   background-color: color(navy);
   background-image: image("donate-module.jpg"); // default; can be overridden via cms
-  background-position: top center;
+  background-position: center 30%;
   background-size: cover;
   color: #fff;
   padding-top: 8vw;
@@ -10,7 +10,7 @@
 .donate-header {
   @extend %h1;
   margin-bottom: 20px;
-  margin-top: 120px;
+  margin-top: 70px;
 }
 
 .donate-header,
@@ -25,5 +25,5 @@
 }
 
 .donate-cta {
-  margin-bottom: 120px;
+  margin-bottom: 30px;
 }
