@@ -8,35 +8,14 @@ blockquote {
 
   p {
     @include lora();
+    display: inline;
     font-size: em(30px);
     font-style: italic;
-    line-height: 1;
+    line-height: lh(64, 54);
     margin-bottom: 0;
     position: relative;
     z-index: 1;
-
-    &::before,
-    &::after {
-      content: " ";
-      display: block;
-      height: 90px;
-      position: absolute;
-      width: 90px;
-      z-index: -1;
-    }
-
-    &::before {
-      background: image("quote_start.svg") 0 0 no-repeat;
-      left: -30px;
-      top: -55px;
-    }
-
-    &::after {
-      background: image("quote_end.svg") 0 0 no-repeat;
-      bottom: 0;
-      right: 30px;
-      transform: rotate(23deg);
-    }
+    padding-left: 30px;
   }
 
   cite {
@@ -52,7 +31,49 @@ blockquote {
   }
 }
 
+.quote-icon {
+  position: absolute;
+  width: 60px;
+  height: 40px;
+  z-index: -1;
+}
+
+.quote-start {
+  top: 0;
+  left: -20px;
+}
+
+.quote-end {
+  bottom: 0;
+  right: -50px;
+  transform: rotate(10deg);
+}
+
 @include responsive-mq("md") {
+  .quote-icon {
+    width: 90px;
+    height: auto;
+  }
+
+  .quote-start {
+    top: -75px;
+    left: -50px;
+  }
+
+  .quote-end {
+    bottom: -40px;
+    right: -80px;
+  }
+}
+
+@include responsive-mq("md") {
+
+  blockquote {
+    p {
+      padding-left: 0;
+    }
+  }
+
   .quote-component {
     margin: 0;
 
