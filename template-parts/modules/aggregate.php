@@ -24,7 +24,9 @@
 							</div>
 							<date class="tile__date"><?php echo get_the_date($dateFormat, $post); ?></date>
 							<h3 class="tile__title"><?php the_title(); ?></h3>
-							<div class="tile__summary"><?php the_excerpt(); ?></div>
+							<div class="tile__summary">
+								<p><?php echo sanitize_text_field(get_the_excerpt()); ?></p>
+							</div>
 						</div>
 					</a>
 			<?php
