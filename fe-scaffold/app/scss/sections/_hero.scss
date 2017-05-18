@@ -1,10 +1,14 @@
 $mob-header-height: 180px;
 
+$nav-height-sm: 62px;
+$nav-height-lg: 80px;
+
 //HERO SECTION
 .hero {
   background-image: $gradient-linear-blue;
   background-position: center;
   color: $base-font-white;
+  margin-top: $nav-height-sm;
   padding-bottom: 11vw; // creates space for curves
   padding-top: 100px;
   text-align: center;
@@ -36,24 +40,28 @@ $mob-header-height: 180px;
 
 @include responsive-mq("sm") {
   .hero {
-    padding-top: 180px;
-
     .hero__subhead {
       width: 75%;
     }
   }
 }
 
+@include responsive-mq("lg") {
+  .hero {
+    margin-top: $nav-height-lg;
+  }
+}
+
 .article-hero {
-  padding-bottom: 100px;
+  padding-bottom: 60px;
   text-align: left;
 
   h1 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
-  .hero-content {
-    padding: 0 20px;
+  p {
+    margin-bottom: 0;
   }
 }
 
