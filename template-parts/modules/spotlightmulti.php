@@ -13,7 +13,9 @@
 				<?php foreach ( $module[$module['config']['repeater']] as $cardContainer ): ?>
 					<?php $card = $cardContainer[$module['config']['card']][0] ?>
 					<div class="info-module--component">
-						<img class="info-module__img" alt="" src="<?php echo $card[SPOTLIGHT_CARD['image']]['url'] ?>" />
+						<div class="info-module__img">
+							<img alt="" src="<?php echo $card[SPOTLIGHT_CARD['image']]['url'] ?>" />
+						</div>
 						<div class="info-module__info">
 							<h3 class="info-module__title"><?php echo $card[SPOTLIGHT_CARD['headline']] ?></h3>
 							<?php if ( $card[SPOTLIGHT_CARD['text']] != '' ) : ?>

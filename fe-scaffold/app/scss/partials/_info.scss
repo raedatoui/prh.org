@@ -5,11 +5,11 @@
   }
 }
 
-.info-module__img {
+.info-module .info-module__img {
   align-self: center;
   margin: auto;
   margin-bottom: 30px;
-  max-width: 100%;
+  max-width: 350px;
   text-align: center;
 
   @include responsive-mq(md) {
@@ -68,13 +68,15 @@
   line-height: lh(46, 30);
 }
 
-@include responsive-mq("md") {
-
+@include responsive-mq("sm") {
   .columns-1 {
-    .info-module--component {
+    .info-module__info  {
       text-align: left;
     }
   }
+}
+
+@include responsive-mq("md") {
 
   .columns-1,
   .columns-3 {
