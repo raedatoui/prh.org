@@ -1,37 +1,3 @@
-
-.social-icons {
-
-  li {
-    display: inline-block;
-
-    & + li {
-      margin-left: 10px;
-    }
-  }
-
-  a {
-
-    display: block;
-    padding: 5px;
-    position: relative;
-
-    &::before {
-      cursor: pointer;
-      display: block;
-      height: 20px;
-      margin: auto;
-      width: 20px;
-    }
-
-    &:focus {
-      &::before {
-        outline: 1px dotted white;
-      }
-    }
-  }
-}
-
-
 .footer-social,
 .social-icons {
 
@@ -40,6 +6,7 @@
 
   li {
     display: inline-block;
+    margin-bottom: 0;
   }
 
   a {
@@ -66,6 +33,7 @@
     &::before {
       cursor: pointer;
       display: block;
+      fill: #fff;
       height: 20px;
       margin: auto;
       width: 20px;
@@ -88,25 +56,80 @@
 
     &[href*="facebook"] {
       &::before {
-        content: image("icons/icon--facebook.svg");
+        content: image("icons/navy/icon--facebook.svg");
       }
     }
 
     &[href*="twitter"] {
       &::before {
-        content: image("icons/icon--twitter.svg");
+        content: image("icons/navy/icon--twitter.svg");
       }
     }
 
     &[href*="instagram"] {
       &::before {
-        content: image("icons/icon--instagram.svg");
+        content: image("icons/navy/icon--instagram.svg");
       }
     }
 
     &[href*="tumblr"] {
       &::before {
-        content: image("icons/icon--tumblr.svg");
+        content: image("icons/navy/icon--tumblr.svg");
+      }
+    }
+
+
+    &[href*="mailto:"] {
+      &::before {
+        content: image("icons/navy/icon--mail.svg");
+      }
+    }
+
+    &[class*="permalink"] {
+      &::before {
+        content: image("icons/navy/icon--link.svg");
+      }
+    }
+
+  }
+}
+
+.footer-social {
+  a {
+    &[href*="facebook"] {
+      &::before {
+        content: image("icons/white/icon--facebook.svg");
+      }
+    }
+
+    &[href*="twitter"] {
+      &::before {
+        content: image("icons/white/icon--twitter.svg");
+      }
+    }
+
+    &[href*="instagram"] {
+      &::before {
+        content: image("icons/white/icon--instagram.svg");
+      }
+    }
+
+    &[href*="tumblr"] {
+      &::before {
+        content: image("icons/white/icon--tumblr.svg");
+      }
+    }
+
+
+    &[href*="mailto:"] {
+      &::before {
+        content: image("icons/white/icon--mail.svg");
+      }
+    }
+
+    &[class*="permalink"] {
+      &::before {
+        content: image("icons/white/icon--link.svg");
       }
     }
   }

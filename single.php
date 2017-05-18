@@ -62,9 +62,17 @@ $date_format = get_option( 'date_format' );
 
 						<h2 class="sidebar-header">Share</h2>
 						<ul class="social-icons">
-							<li><a href="https://twitter.com/intent/tweet?url=<?php echo the_permalink(); ?>&text=<?php the_title(); ?>"><span class="visually-hidden">Share on Twitter</span></a></li>
+
 							<li><a href="http://facebook.com" class="fb-link"><span class="visually-hidden">Share on Facebook</span></a></li>
+
+							<li><a href="https://twitter.com/intent/tweet?url=<?php echo the_permalink(); ?>&text=<?php the_title(); ?>"><span class="visually-hidden">Share on Twitter</span></a></li>
+
+							<!-- todo: enqueue tumblr script for this to work -->
+							<li><a href="http://www.tumblr.com/share"><span class="visually-hidden">Share on Twitter</span></a></li>
+
 							<li><a href="mailto:"><span class="visually-hidden">Email link</span></a></li>
+
+							<li><a href="#" class="permalink-icon"><span class="visually-hidden">Email link</span></a></li>
 						</ul>
 					</div>
 				</aside>
