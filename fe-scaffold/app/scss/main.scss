@@ -1,3 +1,7 @@
+// Per-output settings; this way we can override for different outputs.
+
+$image-dir: "../images/optimized/";
+
 // Settings & tools
 @import "modules/all";
 

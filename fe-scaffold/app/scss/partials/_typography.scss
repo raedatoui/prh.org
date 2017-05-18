@@ -62,7 +62,8 @@ h3 {
   @extend %eyebrow;
 }
 
-p {
+p,
+li {
   font-size: 18px;
   letter-spacing: em((25px / 1000px), 18px);
   line-height: (30 / 18);
@@ -70,10 +71,14 @@ p {
 }
 
 a {
-  color: $prh-blue-lt;
+  color: color(blue);
+
+  &:hover {
+    color: color(red);
+  }
 
   &:focus {
-    color: $prh-red;
+    color: color(red);
     outline: 1px dotted;
   }
 }

@@ -1,60 +1,72 @@
 $mob-header-height: 180px;
 
+$nav-height-sm: 62px;
+$nav-height-lg: 80px;
+
 //HERO SECTION
 .hero {
   background-image: $gradient-linear-blue;
   background-position: center;
   color: $base-font-white;
+  margin-top: $nav-height-sm;
   padding-bottom: 11vw; // creates space for curves
   padding-top: 100px;
   text-align: center;
 
   .hero__subhead {
-    margin: 15px auto auto auto;
-    width: 100%;
+    margin: 15px auto auto;
     padding: 20px 0;
+    width: 100%;
   }
 
   .hero__link {
     color: inherit;
     text-decoration: none;
+  }
 
-    &.jump {
-      border-bottom-style: solid;
-      border-bottom-width: 1px;
-      margin: 0 2vw;
-      padding-bottom: 1px;
+  .jump-link {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    font-size: 14px;
+    line-height: lh(24, 14);
+    margin: 0 2vw;
+    padding-bottom: 1px;
+
+    @include responsive-mq(md) {
+      font-size: 18px;
     }
   }
 }
 
 @include responsive-mq("sm") {
   .hero {
-    padding-top: 180px;
     .hero__subhead {
       width: 75%;
     }
   }
 }
 
-
-
-.article-hero {
-  padding-bottom: 100px;
-  text-align: left;
-
-  h1 {
-    margin-bottom: 20px;
-  }
-
-  .hero-content {
-    padding: 0 20px;
+@include responsive-mq("lg") {
+  .hero {
+    margin-top: $nav-height-lg;
   }
 }
 
+.article-hero {
+  padding-bottom: 60px;
+  text-align: left;
+
+  h1 {
+    margin-bottom: 15px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
 
 .shiny-hero {
-  background-image: url("../images/optimized/hero-particles.png"), $gradient-linear-blue;
+  background-image: image("hero-particles.png"), $gradient-linear-blue;
   background-size: 100vh auto, auto;
 
   @include responsive-mq(lg) {

@@ -30,7 +30,7 @@
 
 .subscribe-link {
   transition: 0.15s background-color 0s;
-
+  margin-top: 26px;
   &:hover {
     background-color: color(red);
   }
@@ -61,14 +61,14 @@
 
     &::after {
       background: color(red);
-      bottom: -5px;
+      bottom: -3px;
       content: "";
       display: block;
       height: 2px;
       opacity: 0;
       position: absolute;
-      transform: translateY(-4px);
-      transition: 0.15s transform 0s, 0.15s opacity 0s;
+      transform: translateY(4px);
+      transition: $fx-duration transform 0s, $fx-duration opacity 0s;
       width: 100%;
     }
 

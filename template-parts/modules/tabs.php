@@ -1,11 +1,14 @@
-<section class="module module__tabs" id="<?php echo $module_title; ?>">
+<section class="module module__tabs" id="<?php echo sanitize_title($module_title); ?>">
 	<div class="content">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
-		<div class="row">
-			<div class="col-xs-12">
-				<p class="focus-lead-copy"><?php echo $module[TAB_PANEL['headline']]?></p>
+
+		<?php if ( $module[$module['config']['headline']] ): ?>
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="focus-lead-copy"><?php echo $module[$module['config']['headline']]?></p>
+				</div>
 			</div>
-		</div>
+		<?php endif; ?>
 
 		<div class="tab-accordion">
 			<div class="content">

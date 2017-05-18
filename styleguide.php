@@ -114,7 +114,7 @@ get_header(); ?>
  						
  						</div>
  						<!-- <hr> -->
- 						<div class="row">
+ 	<!-- 					<div class="row">
 
 						<div class="col-md-6">
 							<?php foreach ($header_sizes as $index => $size): ?>
@@ -129,7 +129,7 @@ get_header(); ?>
 						</div>
 
 
-					</div>
+					</div> -->
 			
            <!-- 					<hr>
 						<h1>This is a level-one heading (h1)</h1>

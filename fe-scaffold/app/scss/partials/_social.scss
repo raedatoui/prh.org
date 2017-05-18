@@ -31,21 +31,44 @@
   }
 }
 
-.footer-social {
+
+.footer-social,
+.social-icons {
+
+  position: relative;
+  left: -5px; // lines up the icons with the header
+
+  li {
+    display: inline-block;
+  }
+
   a {
+
+    display: block;
+    padding: 10px;
+    position: relative;
+
     &::after {
       background: color(red);
-      bottom: -5px;
+      bottom: -3px;
       content: "";
       display: block;
       height: 2px;
-      left: 5px;
+      left: 10px;
       margin: auto;
       opacity: 0;
       position: absolute;
-      right: 5px;
+      right: 10px;
       transform: translateY(4px);
-      transition: 0.15s opacity 0s, 0.15s transform 0s;
+      transition: $fx-duration opacity 0s, $fx-duration transform 0s;
+    }
+
+    &::before {
+      cursor: pointer;
+      display: block;
+      height: 20px;
+      margin: auto;
+      width: 20px;
     }
 
     &:hover {
@@ -55,49 +78,35 @@
       }
     }
 
+    &:focus {
+      outline: 1px dotted white;
+
+      &::before {
+        outline: none;
+      }
+    }
+
     &[href*="facebook"] {
       &::before {
-        content: url("../images/optimized/icons/white/icon--facebook.svg");
+        content: image("icons/icon--facebook.svg");
       }
     }
 
     &[href*="twitter"] {
       &::before {
-        content: url("../images/optimized/icons/white/icon--twitter.svg");
+        content: image("icons/icon--twitter.svg");
       }
     }
 
     &[href*="instagram"] {
       &::before {
-        content: url("../images/optimized/icons/white/icon--instagram.svg");
+        content: image("icons/icon--instagram.svg");
       }
     }
 
     &[href*="tumblr"] {
       &::before {
-        content: url("../images/optimized/icons/white/icon--tumblr.svg");
-      }
-    }
-  }
-}
-
-.sidebar-social {
-  a {
-    &[href*="facebook"] {
-      &::before {
-        content: url("../images/optimized/icons/navy/icon--facebook.svg");
-      }
-    }
-
-    &[href*="twitter"] {
-      &::before {
-        content: url("../images/optimized/icons/navy/icon--twitter.svg");
-      }
-    }
-
-    &[href*="mailto"] {
-      &::before {
-        content: url("../images/optimized/icons/navy/icon--tumblr.svg");
+        content: image("icons/icon--tumblr.svg");
       }
     }
   }

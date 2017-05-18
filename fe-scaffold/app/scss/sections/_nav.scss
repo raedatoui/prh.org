@@ -1,6 +1,7 @@
 // nav SECTION
 .site-header {
-  background-color: $prh-blue-lt;
+  // background-color: $prh-blue-lt;
+  background-color: color(button-blue);
   left: 0;
   position: fixed;
   right: 0;
@@ -10,6 +11,10 @@
   svg {
     stroke: #fff;
     width: 30px;
+  }
+
+  li {
+    margin-bottom: 0;
   }
 
   // the donate button next to the desktop nav
@@ -35,11 +40,11 @@
 }
 
 .logo {
-  background: url("../images/optimized/logo-small.png") center no-repeat;
-  background-size: contain;
   flex-basis: 41px;
   height: 22px;
   left: $module-padding-xs;
+  margin: 20px 0;
+  padding: 0;
   position: relative;
   width: 41px;
 }
@@ -70,7 +75,7 @@
   }
 
   .sub-menu {
-    background: $prh-blue-lt;
+    background: color(button-blue);
     display: none;
     left: 0;
     right: 0;
@@ -104,14 +109,14 @@
 
     &:hover,
     &:focus {
-      background: $prh-blue-highlight;
+      background-color: color(highlight-blue);
       color: color(peach);
     }
   }
 }
 
 .site-nav .menu a {
-  border-bottom: 1px solid transparentize(#fff, 0.85);
+  border-bottom: 1px solid color(hairline-3);
 }
 
 .nav-ui {
@@ -124,6 +129,10 @@
   a,
   button {
     margin-right: 25px;
+
+    &:focus {
+      outline: 1px dotted white;
+    }
   }
 
   .menu-btn {
@@ -131,10 +140,15 @@
   }
 }
 
+
+.logo .logo-svg {
+  height: 100%;
+  width: 100%;
+}
+
 // Nav mask, to allow clicks outside to close the menu
 
 .is-expanded + .nav-mask {
-  // background: transparentize($prh-cream-lt, 0.5);
   bottom: 0;
   display: block;
   left: 0;
@@ -154,11 +168,15 @@
   }
 
   .logo {
-    background-image: url("../images/optimized/logo-large.png");
     flex-basis: 220px;
     height: 40px;
     left: 20px;
     width: 220px;
+  }
+
+  .logo .logo-svg {
+    height: 100%;
+    width: 100%;
   }
 
   .site-nav-wrap {
@@ -200,21 +218,22 @@
     }
   }
 
-  .site-nav .menu > li > a {
+  .site-nav .menu > li > a,
+  .search-btn,
+  .login-btn {
     position: relative;
 
     &::after {
       background: color(red);
+      bottom: 21px;
       content: "";
       display: block;
       height: 2px;
       left: 1em;
       margin: auto;
-      margin-top: 1em;
       opacity: 0;
       position: absolute;
       right: 1em;
-      top: 50%;
       transform: translateY(4px);
       transition: $fx-duration opacity 0s, $fx-duration transform 0s;
     }
@@ -225,6 +244,13 @@
         transform: translateY(0);
       }
     }
+  }
+
+  .search-btn::after,
+  .login-btn::after {
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   .menu > .is-expanded > a,
