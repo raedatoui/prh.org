@@ -83,7 +83,6 @@ function prh_custom_menu_order( $menu_ord ) {
 	return array(
 		'index.php',
 		'edit.php?post_type=page', // Pages
-		'edit.php', // Posts
 		'edit.php?post_type=press_release', // Press Release
 		'edit.php?post_type=phys_story', // Stories
 		'edit.php?post_type=prh_ipaper', // Legal Publications
@@ -91,6 +90,7 @@ function prh_custom_menu_order( $menu_ord ) {
 		'edit.php?post_type=prh_report', // Reports
 		'edit.php?post_type=prh_news', // News
 		'edit.php?post_type=prh_events', // Events
+		'edit.php?post_type=prh_staff', // Staff
 		'separator1', // First separator
 
 		'nav-menus.php',
