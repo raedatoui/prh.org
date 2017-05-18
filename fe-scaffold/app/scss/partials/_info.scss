@@ -11,6 +11,7 @@
   margin-bottom: 30px;
   max-width: 350px;
   text-align: center;
+  width: 80%;
 
   @include responsive-mq(md) {
     margin-bottom: 0;
