@@ -67,10 +67,12 @@ $date_format = get_option( 'date_format' );
 
 							<li><a href="https://twitter.com/intent/tweet?url=<?php echo the_permalink(); ?>&text=<?php the_title(); ?>"><span class="visually-hidden">Share on Twitter</span></a></li>
 
-							<!-- todo: enqueue tumblr script for this to work -->
 							<li><a href="http://www.tumblr.com/share"><span class="visually-hidden">Share on Twitter</span></a></li>
 
-							<li><a href="mailto:"><span class="visually-hidden">Email link</span></a></li>
+							<?php 
+							$encoded_subject = urlencode('Found this article from Physicians for Reproductive Health');
+							$encoded_url = urlencode(get_the_title() . ' - ' . get_the_permalink()); ?>
+							<li><a target="_blank" href="mailto:?subject=<?php echo $encoded_subject; ?>&body=<?php echo $encoded_url; ?>"><span class="visually-hidden">Email link</span></a></li>
 
 							<li><a href="#" class="permalink-icon"><span class="visually-hidden">Email link</span></a></li>
 						</ul>
