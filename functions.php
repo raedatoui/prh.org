@@ -130,3 +130,18 @@ function echo_wrapped( $var, $before='', $after='' ) {
 	}
 	echo $before . $var . $after;
 }
+
+
+/**
+ * Returning an authentication error if a user who is not logged in tries to query the REST API
+ * @param $access
+ * @return WP_Error
+ */
+function prh_only_allow_logged_in_rest_access( $access ) {
+
+	if( !current_user_can('administrator') ) {
+		return new WP_Error( 'rest_cannot_access', __( 'No access.', 'disable-json-api' ), array( 'status' => rest_authorization_required_code() ) );
+	}
+	return $access;
+}
+add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );
