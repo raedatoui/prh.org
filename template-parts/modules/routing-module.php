@@ -3,8 +3,16 @@
 
     <?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 
+	<?php if ( $module[$module['config']['headline']] ): ?>
+		<div class="row">
+			<div class="col-xs-12">
+				<p class="focus-lead-copy"><?php echo $module[$module['config']['headline']]?></p>
+			</div>
+		</div>
+	<?php endif; ?>
+
     <div class="row routing-row macy-grid" id="routing-macy-<?php echo $module['module_order']; ?>">
-      
+
       <?php foreach ( $module[$module['config']['repeater']] as $index => $block ): ?>
       <div class="col-xs-12 col-sm-6 col-lg-4">
         <div class="routing-block">

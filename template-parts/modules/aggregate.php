@@ -4,8 +4,8 @@
 ?>
 <section class="module module__aggregate-card" id="<?php echo sanitize_title($module_title); ?>">
 	<div class="content">
-	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
-		<div class="row macy-grid" id="aggregate-macy">
+		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
+		<div class="row macy-grid" id="aggregate-macy-<?php echo $module['module_id']; ?>">
 			<?php
 				while ($query->have_posts()):
 					$query->the_post();
@@ -24,7 +24,9 @@
 							</div>
 							<date class="tile__date"><?php echo get_the_date($dateFormat, $post); ?></date>
 							<h3 class="tile__title"><?php the_title(); ?></h3>
-							<div class="tile__summary"><?php the_excerpt(); ?></div>
+							<div class="tile__summary">
+								<p><?php echo sanitize_text_field(get_the_excerpt()); ?></p>
+							</div>
 						</div>
 					</a>
 			<?php

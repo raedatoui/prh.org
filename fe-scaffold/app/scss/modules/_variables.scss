@@ -12,6 +12,7 @@ $colors: (
   cream: #fff1e6,
 
   red: #e84d6a,
+  salmon: #f89993,
   peach: #ffd1c7,
 
   gray: #999,
@@ -21,14 +22,21 @@ $colors: (
   blue: #006bb8,
   navy: #2e3563,
   sky: #b7d5fb,
+  button-blue: #2179bd,
+  highlight-blue: #428dc7,
+
   hairline: #b8b2bc,
   hairline-1: #b8b2bc,
-  hairline-2: transparentize(#b7d5fb, 0.75)
+  hairline-2: transparentize(#b7d5fb, 0.75),
+  hairline-3: transparentize(#fff, 0.85),
+
+  cream-overlay:  #f1dccd,
+  peach-overlay: #f1c1b3
 );
 
 @function color($which) {
   @if not map-has-key($colors, $which) {
-    @warn "`#{$which}` isn't a valid color. Colors available: `#{map-keys($map)}`"
+    @warn "#{$which}` isn't a valid color. Colors available: `#{map-keys($colors)}`"
   } @else {
     @return map-get($colors, $which);
   }
@@ -59,8 +67,8 @@ $prh-periwinkle: #6877ba;
 
 //GRADIENTS
 // todo: document where we use these
-$gradient-linear-blue: linear-gradient(to bottom, $prh-blue-lt 25%, $prh-blue-dk 100%);
-$gradient-radial-blue: radial-gradient(farthest-corner at 150px 150px , $prh-blue-lt 0%, $prh-blue-dk 100%);
+$gradient-linear-blue: linear-gradient(to bottom, color(button-blue) 25%, $prh-blue-dk 100%);
+$gradient-radial-blue: radial-gradient(farthest-corner at 150px 150px , color(button-blue) 0%, $prh-blue-dk 100%);
 
 $gradient-linear-pink: linear-gradient(to bottom, $prh-pink-lt 0%, $prh-pink-dk 75%);
 $gradient-radial-pink: radial-gradient(farthest-corner at 50px 50px , $prh-pink-lt 0%, $prh-pink-dk 100%);

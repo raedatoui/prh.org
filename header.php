@@ -17,6 +17,15 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<?php wp_head(); ?>
+
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
 	</head>
 
 	<body <?php body_class();?>>
@@ -31,6 +40,12 @@
 			<header role="banner" class="site-header" id="site-header">
 			<div class="site-nav-wrap">
 				<a href="/" class="logo col-sm-3 col-md-3">
+						<svg class="logo-svg logo-large md-up" role="presentation">
+							<use xlink:href="#logo-large" />
+						</svg>
+						<svg class="logo-svg logo-small md-down" role="presentation">
+							<use xlink:href="#logo-small" />
+						</svg>
 					<span class="visually-hidden">PRH Homepage</span>
 				</a>
 

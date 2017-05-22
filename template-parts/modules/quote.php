@@ -16,7 +16,20 @@
 			<?php endif; ?>
 			<div class="quote-component col-xs-12 <?php echo $quote_class ?>">
 				<blockquote>
-					<p><?php echo $module[QUOTE_MODULE['quote']]; ?></p>
+
+				<p>
+					<svg class="quote-icon quote-start module-overlay" role="presentation">
+						<use xlink:href="#quote-start" />
+					</svg>
+
+					<?php echo $module[QUOTE_MODULE['quote']]; ?>
+
+					<svg class="quote-icon quote-end module-overlay" role="presentation">
+						<use xlink:href="#quote-end" />
+					</svg>
+
+					</p>
+
 					<footer>
 						<cite>&mdash;<?php echo $module[QUOTE_MODULE['attribution_name']]; ?><?php
 							$attr_loc = $module[QUOTE_MODULE['attribution_location']];

@@ -37,11 +37,11 @@
 .module__title {
   @extend %module-title;
 
-  background-image: url("../images/optimized/asset_detail_wave_dk.png");
+  background-image: image("asset_detail_wave_dk.png");
   color: $base-font-blue;
 
   .hero & {
-    background-image: url("../images/optimized/asset_detail_wave.png");
+    background-image: image("asset_detail_wave.png");
     color: #fff;
   }
 }

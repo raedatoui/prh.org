@@ -1,0 +1,153 @@
+// Per-output settings; this way we can override for different outputs.
+
+$image-dir: "../images/";
+
+// Settings & tools
+@import "modules/all";
+
+// 3rd party
+@import "vendor/flexboxgrid";
+
+// Partials
+@import "partials/reset";
+@import "partials/base-styles";
+@import "partials/typography";
+@import "partials/module";
+@import "partials/curves";
+@import "partials/buttons";
+@import "partials/text";
+@import "partials/info";
+
+// Sections
+@import "sections/nav";
+@import "sections/hero";
+@import "sections/overview";
+@import "sections/footer";
+
+
+
+
+
+// Custom, luminate-pages-only styles
+
+
+
+// Keeps the page from ever being too short
+.hero + .module {
+  min-height: calc(100vh - 700px);
+}
+
+// force the arced footer curve if there's only one module, even an empty one
+.static-page .hero + .module + .module.site-footer::before {
+  background-image: image("curves/navy-curve--arc.svg") !important;
+}
+
+
+// Form styles
+label,
+input,
+textarea {
+  display: block;
+  font-size: 18px;
+  line-height: 1.4;
+  width: 100%;
+}
+
+label {
+  margin-bottom: 0.25em;
+}
+
+input {
+  margin-bottom: 1em;
+}
+
+input,
+textarea {
+  padding: 10px 30px;
+}
+
+textarea {
+  height: 790px;
+  margin-bottom: 40px;
+  padding: 30px;
+
+  &::after {
+    content: "";
+    display: block;
+    margin-bottom: 80px;
+    width: 100%;
+  }
+}
+
+.checkbox-line {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.checkbox-line input {
+  flex: 0 1 30px;
+  height: 30px;
+}
+
+.recipients-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.recipients-list li {
+  align-items: center;
+  display: flex;
+  margin-top: 1em;
+}
+
+.recipients-list svg {
+  height: 22px;
+  margin-right: 10px;
+  width: 30px;
+}
+
+.script-list {
+  padding-left: 80px;
+}
+
+.script-list li {
+  font-size: 18px;
+  line-height: 1.67;
+  margin-bottom: 1em;
+}
+
+.script-box {
+  background-color: #fff7f1;
+  border-radius: 12px;
+  margin-bottom: 80px;
+  padding: 60px;
+  position: relative;
+  width: 100%;
+}
+
+.resources-content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.script-box::after {
+  border-color: #fff1e6 #fff1e6 #fff1e6 #fff7f1;
+  border-style: solid;
+  border-width: 30px 0 30px 50px;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 30px;
+  position: absolute;
+  right: -50px;
+  top: 100px;
+  width: 50px;
+}
+
+.script-box::before {
+  bottom: -35px;
+  content: image("blue-donut.png");
+  display: block;
+  left: -35px;
+  position: absolute;
+}

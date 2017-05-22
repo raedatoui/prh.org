@@ -72,7 +72,7 @@ add_action( 'widgets_init', 'prh_wp_theme_widgets_init' );
  */
 function prh_wp_theme_scripts() {
 	wp_enqueue_style( 'prh-wp-theme-style', get_template_directory_uri() . '/css/main.css' );
-	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto+Condensed:700|Roboto:400,400i,700,700i' );
+	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto+Condensed:700|Roboto:400,400i,700,700i' );
 
 	// TODO: check if this is needed
 	wp_enqueue_script('prh-wp-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
@@ -130,3 +130,18 @@ function echo_wrapped( $var, $before='', $after='' ) {
 	}
 	echo $before . $var . $after;
 }
+
+
+/**
+ * Returning an authentication error if a user who is not logged in tries to query the REST API
+ * @param $access
+ * @return WP_Error
+ */
+function prh_only_allow_logged_in_rest_access( $access ) {
+
+	if( !current_user_can('administrator') ) {
+		return new WP_Error( 'rest_cannot_access', __( 'No access.', 'disable-json-api' ), array( 'status' => rest_authorization_required_code() ) );
+	}
+	return $access;
+}
+add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );

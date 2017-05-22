@@ -1,3 +1,9 @@
+.routing .focus-lead-copy {
+  @include responsive-mq(md) {
+    margin-bottom: em(34px, 18px);
+  }
+}
+
 .routing-row {
 
   > div {
@@ -17,7 +23,7 @@
 
   > :first-child {
     &::before {
-      background-image: url("../images/optimized/blue-donut.png");
+      background-image: image("blue-donut.png");
       height: 92px;
       left: -45px;
       top: 100px;
@@ -29,7 +35,7 @@
     z-index: 2;
 
     &::before {
-      background-image: url("../images/optimized/tan-disc.png");
+      background-image: image("tan-disc.png");
       height: 74px;
       left: -40px;
       top: 50%;
@@ -41,7 +47,7 @@
 
   > :nth-child(3n + 2) {
     &::after {
-      background-image: url("../images/optimized/red-disc.png");
+      background-image: image("red-disc.png");
       height: 109px;
       right: 0;
       top: -45px;
@@ -55,7 +61,7 @@
     z-index: 1;
 
     &::before {
-      background-image: url("../images/optimized/blue-donut.png");
+      background-image: image("blue-donut.png");
       bottom: 10px;
       height: 92px;
       right: -20px;
@@ -65,7 +71,6 @@
     }
   }
 }
-
 
 .routing-block {
   background: $prh-cream-lightest;

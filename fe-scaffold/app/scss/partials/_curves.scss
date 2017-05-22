@@ -36,8 +36,8 @@
 
 
 @mixin module-curves($color: cream, $set-color: true, $important: false) {
-  $peach-wave-img: "../images/optimized/curves/peach-curve--arc.svg";
-  $cream-wave-img: "../images/optimized/curves/cream-curve--wave.svg";
+  $peach-wave-img: "curves/peach-curve--arc.svg";
+  $cream-wave-img: "curves/cream-curve--wave.svg";
 
   $bg-color: if($color == peach, color(peach), color(cream));
   $img: if($color == peach, $peach-wave-img, $cream-wave-img);
@@ -48,14 +48,14 @@
   }
 
   &::before {
-    background-image: url($img) $i;
+    background-image: image($img) $i;
   }
 }
 
 
 @mixin donate-module-curves() {
-  $odd-arc-img: "../images/optimized/curves/cream-arc--concave.svg";
-  $even-arc-img: "../images/optimized/curves/peach-arc--concave.svg";
+  $odd-arc-img: "curves/cream-arc--concave.svg";
+  $even-arc-img: "curves/peach-arc--concave.svg";
 
   &::before {
     background-position: top center;
@@ -64,13 +64,13 @@
 
   &:nth-child(odd) {
     &::before {
-      background-image: url($odd-arc-img) !important;
+      background-image: image($odd-arc-img) !important;
     }
   }
 
   &:nth-child(even) {
     &::before {
-      background-image: url($even-arc-img) !important;
+      background-image: image($even-arc-img) !important;
     }
   }
 }
@@ -78,7 +78,7 @@
 
 @mixin footer-module-curves() {
   &::before {
-    background-image: url("../images/optimized/curves/navy-curve--wave.svg") !important;
+    background-image: image("curves/navy-curve--wave.svg") !important;
     background-position: top center;
     background-position-y: 0;
   }
@@ -106,13 +106,16 @@
     top: -10vw;
   }
 
-
-
   &:nth-child(even) {
     @include module-curves(cream);
 
     &.stats {
-      background-image: url("../images/optimized/tan-particles-bg.png");
+      background-image: image("tan-particles-bg.png");
+    }
+
+    .module-overlay {
+      fill: color(cream-overlay);
+      stroke: color(cream-overlay);
     }
   }
 
@@ -120,7 +123,12 @@
     @include module-curves(peach);
 
     &.stats {
-      background-image: url("../images/optimized/peach-particles-bg.png");
+      background-image: image("peach-particles-bg.png");
+    }
+
+    .module-overlay {
+      fill: color(peach-overlay);
+      stroke: color(peach-overlay);
     }
   }
 

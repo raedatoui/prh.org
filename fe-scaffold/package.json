@@ -4,6 +4,7 @@
   "description": "Static HTML for PRH Wordpress Site",
   "main": "gulpfile.js",
   "dependencies": {
+    "clipboard": "^1.6.1",
     "flickity-imagesloaded": "^2.0.0",
     "gsap": "^1.19.1",
     "jump.js": "^1.0.2",

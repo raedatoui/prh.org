@@ -99,7 +99,9 @@ var nav = {
     });
 
     $menuButton.addEventListener('click', toggleNav);
-    $searchButton.addEventListener('click', toggleSearchBar);
+    if ($searchButton) {
+      $searchButton.addEventListener('click', toggleSearchBar);
+    }
     $mask.addEventListener('click', closeNav);
     window.addEventListener('keyup', handleKeyup);
   }

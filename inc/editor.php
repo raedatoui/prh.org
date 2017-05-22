@@ -88,6 +88,12 @@ function prh_mce_before_init_insert_formats( $init_array ) {
 			'block' => 'blockquote'
 		),
 		array(
+			'title' => 'Quote (wide)',
+			'classes' => 'article-quote article-quote--wide',
+			'wrapper' => true,
+			'block' => 'blockquote'
+		),
+		array(
 			'title' => 'Citation',
 			'classes' => 'article-cite',
 			'block' => 'cite'

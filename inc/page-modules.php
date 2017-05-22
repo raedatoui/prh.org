@@ -20,7 +20,8 @@ class PageModules {
 
 			$modules[$key] = array(
 				'module_name' => $group['title'],
-				'module_order' => $group_key
+				'module_order' => $group_key,
+				'module_id' => $group['key']
 			);
 			foreach($module as $field_name => $field ) {
 				$f = $field['name'];

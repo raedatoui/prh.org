@@ -10,7 +10,8 @@ const CONTENT_TYPES = array(
 	array( 'prh_update', 'prh_updates' ),
 	array( 'prh_report', 'prh_reports' ),
 	array( 'prh_news', 'prh_news' ),
-	array( 'prh_events', 'prh_events' )
+	array( 'prh_events', 'prh_events' ),
+	array( 'prh_staff', 'staff' )
 );
 
 const CONTENT_TYPES_LABELS = array(
@@ -21,19 +22,20 @@ const CONTENT_TYPES_LABELS = array(
 	'prh_ipaper' => 'Legal Publication',
 	'prh_update' => 'Update',
 	'prh_report' => 'Report',
-	'prh_news' => 'In the News',
-	'prh_events' => 'Event'
+	'prh_news' => 'PRH In the News',
+	'prh_events' => 'Event',
+	'prh_staff' => 'Staff'
 );
 
 const CONTENT_TYPES_FOR_AGGREGATION = array(
-	'post',
 	'press_release',
 	'phys_story',
 	'prh_ipaper',
 	'prh_update',
 	'prh_report',
 	'prh_news',
-	'prh_events'
+	'prh_events',
+	'prh_staff'
 );
 
 /************* Components *****************/
@@ -239,6 +241,7 @@ const ROUTING_MODULE = array(
 	'name' => 'Routing Module',
 	'options' => 'routing_module_options',
 	'repeater' => 'routing_blocks',
+	'headline' => 'routing_module_headline',
 	'template' => 'template-parts/modules/routing-module.php'
 );
 
@@ -247,6 +250,7 @@ const ROUTING_MODULE_SECONDARY = array(
 	'name' => 'Routing Module Secondary',
 	'options' => 'routing_module2_options',
 	'repeater' => 'routing_blocks2',
+	'headline' => 'routing_module2_headline',
 	'template' => 'template-parts/modules/routing-module.php'
 );
 

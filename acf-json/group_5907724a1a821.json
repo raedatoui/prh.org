@@ -273,6 +273,33 @@
             ]
         },
         {
+            "key": "field_591bcac58fea2",
+            "label": "Headline",
+            "name": "routing_module_headline",
+            "type": "text",
+            "instructions": "An impactful statement that provides an overview of the content found within this section of the page. Example: 'We protect abortion access by fighting against the current threats.'",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5907725eff94f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_59077296ff951",
             "label": "Routing Blocks",
             "name": "routing_blocks",
@@ -466,5 +493,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494270555
+    "modified": 1494993741
 }

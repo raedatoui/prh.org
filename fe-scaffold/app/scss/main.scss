@@ -1,3 +1,7 @@
+// Per-output settings; this way we can override for different outputs.
+
+$image-dir: "../images/optimized/";
+
 // Settings & tools
 @import "modules/all";
 
@@ -21,6 +25,7 @@
 @import "partials/accordions";
 @import "partials/tabs";
 @import "partials/routing";
+@import "partials/social";
 
 // Sections
 @import "sections/nav";
