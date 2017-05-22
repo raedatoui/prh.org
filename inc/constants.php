@@ -28,7 +28,6 @@ const CONTENT_TYPES_LABELS = array(
 );
 
 const CONTENT_TYPES_FOR_AGGREGATION = array(
-	'post',
 	'press_release',
 	'phys_story',
 	'prh_ipaper',
