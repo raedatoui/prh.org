@@ -12,7 +12,7 @@
 		<div class="row top-xs">
 
 			<!-- Text component -->
-			<section class="overview-text <?php echo $overview_class ?>">
+			<section class="overview-text main-content <?php echo $overview_class ?>">
 				<?php
 				$full_content = $module[$module['config']['content']];
 				$contents = get_extended($full_content);

@@ -17,7 +17,7 @@
 						<use xlink:href="#icon--plus" />
 					</svg>
 					<?php echo $item[ACCORDION_ITEM['title']]; ?></h3>
-				<div class="accordion-content">
+				<div class="accordion-content main-content">
 					<?php echo $item[ACCORDION_ITEM['content']]; ?>
 				</div>
 			<?php endforeach; ?>

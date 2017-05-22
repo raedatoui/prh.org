@@ -70,8 +70,17 @@
     padding-left: 2em;
   }
 
+  li ul,
+  li ol {
+    margin-top: 0.5em;
+  }
+
   li {
     margin-bottom: 1em;
+
+    li {
+      margin-bottom: 0.5em;
+    }
   }
 
   @include responsive-mq(sm) {
