@@ -74,7 +74,9 @@ $date_format = get_option( 'date_format' );
 							$encoded_url = urlencode(get_the_title() . ' - ' . get_the_permalink()); ?>
 							<li><a target="_blank" href="mailto:?subject=<?php echo $encoded_subject; ?>&body=<?php echo $encoded_url; ?>"><span class="visually-hidden">Email link</span></a></li>
 
-							<li><a href="#" class="permalink-icon"><span class="visually-hidden">Email link</span></a></li>
+							<li class="copy-link"><a class="permalink-icon" data-clipboard-text="<?php the_permalink(); ?>"><span class="visually-hidden">Copy link</span></a>
+							<div class="copied-link-message" aria-hidden="true">Copied!</div>
+							</li>
 						</ul>
 					</div>
 				</aside>

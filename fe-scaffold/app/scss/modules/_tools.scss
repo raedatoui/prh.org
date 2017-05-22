@@ -1,5 +1,7 @@
 @import "font_mixins";
 
+$image-dir: "../images/optimized" !default;
+
 //Responsive Breakpoints - Hugo Giraudel
 @mixin responsive-mq($name) {
   @if map-has-key($breakpointmap, $name) {

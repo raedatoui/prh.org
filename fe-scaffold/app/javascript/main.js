@@ -4,6 +4,7 @@ import './polyfills';
 import Flickity from 'flickity-imagesloaded';
 import Macy from 'macy';
 import modernizr from './modernizr.js';
+import Clipboard from 'clipboard';
 
 import TabAccordion from './tabbordion';
 import collapsible from './collapsible';
@@ -20,8 +21,20 @@ function init(){
 	let carousel = document.querySelector('.carousel'),
 			tabs = document.querySelector('.tab-accordion'),
 			cards = document.querySelectorAll('.macy-grid'),
-			jumps = document.querySelectorAll('.jump-link');
+			jumps = document.querySelectorAll('.jump-link'),
+			permalink = document.querySelector('.permalink-icon');
 
+	if (permalink) {
+		var clipboard = new Clipboard(permalink),
+				clipStatus = permalink.nextElementSibling;
+
+		clipboard.on('success', function() {
+			clipStatus.classList.add('is-visible');
+			setTimeout(function () {
+				clipStatus.classList.remove('is-visible');
+			}, 2000);
+		});
+	}
 
 	if (carousel) {
 		let flickity = new Flickity(carousel, {

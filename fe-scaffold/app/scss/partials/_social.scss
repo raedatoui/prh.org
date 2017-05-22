@@ -134,3 +134,38 @@
     }
   }
 }
+
+
+// Special "copy permalink" button behavior
+
+.copy-link {
+  position: relative;
+}
+
+.copied-link-message {
+
+  background: color(navy);
+  border-radius: 5px;
+  color: color(white);
+  font-size: 14px;
+  opacity: 0;
+  padding: 5px 15px;
+  position: absolute;
+  right: 0;
+  top: -40px;
+  transition: $fx-duration opacity;
+
+  &::after {
+    border: 6px solid transparent;
+    border-bottom: 0;
+    border-top: 12px solid color(navy);
+    content: "";
+    display: block;
+    left: 70%;
+    position: absolute;
+  }
+
+  &.is-visible {
+    opacity: 1;
+  }
+}
