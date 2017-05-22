@@ -145,3 +145,60 @@ function prh_only_allow_logged_in_rest_access( $access ) {
 	return $access;
 }
 add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );
+
+// Send new users to a special page
+function redirectOnFirstLogin( $redirect_to, $requested_redirect_to, $user )
+{
+    // URL to redirect to
+    $redirect_url = 'http://154.0d0.mwp.accessdomain.com/privacy-policy/';
+    // How many times to redirect the user
+    $num_redirects = 1;
+    // Cookie-based solution: captures users who registered within the last n hours
+    // The reason to set it as "last n hours" is so that if a user clears their cookies or logs in with a different browser,
+    // they don't get this same redirect treatment long after they're already a registered user
+    // 172800 seconds = 48 hours
+    $message_period = 172800;
+
+    // If they're on the login page, don't do anything
+    if( !isset( $user->user_login ) )
+    {
+        return $redirect_to;
+    }
+
+	$is_a_member = false;
+	require_once( ABSPATH . 'wp-includes/pluggable.php' );
+	if ( $group = Groups_Group::read_by_name( 'LTA' ) ) {
+		$is_a_member = Groups_User_Group::read( get_current_user_id() , $group->group_id );
+	}
+	print_r( $is_a_member);
+	if ( ! $is_a_member ) {
+		return 'http://154.0d0.mwp.accessdomain.com/';
+	} else {
+		return 'http://154.0d0.mwp.accessdomain.com/lta-landing-page/';
+	}
+//    $key_name = 'redirect_on_first_login_' . $user->ID;
+//
+//    if( strtotime( $user->user_registered ) > ( time() - $message_period )
+//        && ( !isset( $_COOKIE[$key_name] ) || intval( $_COOKIE[$key_name] ) < $num_redirects )
+//      )
+//    {
+//        if( isset( $_COOKIE[$key_name] ) )
+//        {
+//            $num_redirects = intval( $_COOKIE[$key_name] ) + 1;
+//        }
+//        setcookie( $key_name, $num_redirects, time() + $message_period, COOKIEPATH, COOKIE_DOMAIN );
+//        return $redirect_url;
+//    }
+//    else
+//    {
+//        return $redirect_to;
+//    }
+}
+
+add_filter( 'login_redirect', 'redirectOnFirstLogin', 10, 3 );
+
+function login_action($login) {
+
+//	print_r(json_encode($user));
+}
+add_action( 'wp_login', 'login_action' );
