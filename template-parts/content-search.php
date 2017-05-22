@@ -16,7 +16,7 @@
 		</header>
 		<div class="result-content col-xs">
 			<?php the_title( sprintf( '<h3 class="result-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
-			<?php the_excerpt(); ?>
+			<p><?php echo sanitize_text_field(get_the_excerpt()); ?></p>
 
 			<?php 
 		$tags = get_the_tags( $post->ID );
