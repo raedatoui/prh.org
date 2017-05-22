@@ -17,7 +17,7 @@
   margin-bottom: 30px;
   max-width: 350px;
   text-align: center;
-  width: 350px;
+  width: 100%;
 
   @include responsive-mq(md) {
     margin-bottom: 0;
@@ -115,7 +115,7 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
-      width: 75%;
+      width: 95%;
     }
   }
 }
