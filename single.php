@@ -41,6 +41,7 @@ $date_format = get_option( 'date_format' );
 					<?php the_content(); ?>
 				</div>
 
+
 				<?php
 				$byline_enabled = get_field( 'article_details_enabled');
 				if ( $byline_enabled ) : ?>
@@ -54,6 +55,31 @@ $date_format = get_option( 'date_format' );
 			</article>
 
 			<div class="sidebar post-sidebar col-xs-12 col-md-3 col-md-offset-1">
+
+				<!-- Social sharing -->
+				<aside class="sidebar-block social-block">
+					<div class="sidebar-content sidebar-social">
+
+						<h2 class="sidebar-header">Share</h2>
+						<ul class="social-icons">
+
+							<li><a href="http://facebook.com" class="fb-link"><span class="visually-hidden">Share on Facebook</span></a></li>
+
+							<li><a href="https://twitter.com/intent/tweet?url=<?php echo the_permalink(); ?>&text=<?php the_title(); ?>"><span class="visually-hidden">Share on Twitter</span></a></li>
+
+							<li><a href="http://www.tumblr.com/share"><span class="visually-hidden">Share on Twitter</span></a></li>
+
+							<?php 
+							$encoded_subject = urlencode('Found this article from Physicians for Reproductive Health');
+							$encoded_url = urlencode(get_the_title() . ' - ' . get_the_permalink()); ?>
+							<li><a target="_blank" href="mailto:?subject=<?php echo $encoded_subject; ?>&body=<?php echo $encoded_url; ?>"><span class="visually-hidden">Email link</span></a></li>
+
+							<li class="copy-link"><a class="permalink-icon" data-clipboard-text="<?php the_permalink(); ?>"><span class="visually-hidden">Copy link</span></a>
+							<div class="copied-link-message" aria-hidden="true">Copied!</div>
+							</li>
+						</ul>
+					</div>
+				</aside>
 
 				<!-- Media contact -->
 				<aside class="sidebar-block media-contact-block">
@@ -71,10 +97,10 @@ $date_format = get_option( 'date_format' );
 							$email_link = $widget_data->email;
 							$phone_link = $widget_data->phone;
 						}
-						$email_url = '<a class="contact-link" href="mailto:' . $email_link . '" rel="author">';
-						$phone_url = '<a class="contact-link" href="tel:' . $phone_link . '" rel="author">';
+						$email_url = '<a class="contact-link contact-info" href="mailto:' . $email_link . '" rel="author">';
+						$phone_url = '<a class="contact-link contact-info" href="tel:' . $phone_link . '" rel="author">';
 						?>
-						<p><?php echo $name; ?></p>
+						<p class="contact-info"><?php echo $name; ?></p>
 						<?php echo_wrapped( $email_link, $email_url, '</a>' ); ?>
 						<?php echo_wrapped( $phone_link, $phone_url, '</a>' ); ?>
 					</div>
