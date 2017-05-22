@@ -317,7 +317,7 @@ add_action( 'init', 'event_type' );
 
 
 /**
- * Events
+ * Saff
  */
 function staff_type() {
 	// creating (registering) the custom type
@@ -377,4 +377,16 @@ function query_post_type($query) {
 			'prh_staff'
 		) );
   }
+}
+
+function get_latest_articles( $count = 3) {
+
+	$args = array(
+		'post_status' => array( 'publish' ),
+		'orderby' => 'date',
+		'order'   => 'DESC',
+		'posts_per_page' => $count,
+		'post_type' => CONTENT_TYPES_FOR_AGGREGATION
+	);
+	return new WP_Query( $args );
 }
