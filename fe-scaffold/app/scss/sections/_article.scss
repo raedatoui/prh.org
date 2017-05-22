@@ -30,11 +30,13 @@
     display: block;
     font-size: 14px;
     margin: 0;
+    margin-top: 1em;
   }
 }
 
 @include responsive-mq(sm) {
-  .article-quote {
+  .article-quote--left,
+  .article-quote--right {
     width: 24em;
   }
 
