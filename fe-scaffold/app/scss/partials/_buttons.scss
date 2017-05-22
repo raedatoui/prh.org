@@ -46,7 +46,7 @@
 
 .spotlight-cta {
   font-size: 18px;
-  left: 30px;
+  left: 30px; // this makes them look more optically centered, in light of the arrows
   margin: 12px auto 0;
 
   .home & {
