@@ -46,7 +46,7 @@ function init(){
 		for(let i = 0; i < cards.length; i++) {
 			var instance = Macy({
 				container: '#'+cards[i].id,
-				trueOrder: false,
+				trueOrder: true,
 				waitForImages: false,
 				margin: 0,
 				columns: 3,
