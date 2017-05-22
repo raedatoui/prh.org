@@ -78,11 +78,7 @@
   }
 
   li {
-    margin-bottom: 1em;
-
-    li {
-      margin-bottom: 0.5em;
-    }
+    margin-bottom: 0.5em;
   }
 
   @include responsive-mq(sm) {

@@ -41,27 +41,22 @@
 .columns-3 {
 
   .info-module--component {
-    margin: 0 auto 40px;
+    margin: 0 auto 80px;
   }
 
   .info-module__title {
     font-size: 28px;
     justify-content: center;
+    line-height: lh(38, 28);
     margin-bottom: 20px;
-    margin-top: 0;
+    margin-top: 30px;
     text-align: center;
-
-    @include responsive-mq(md) {
-      font-size: em(60px);
-      margin-top: 25px;
-    }
   }
 
   .info-module__text {
     display: block;
     text-align: center;
   }
-
 }
 
 .info-module__title {
@@ -85,13 +80,14 @@
 
 @include responsive-mq("md") {
 
+  .columns-1 .info-module__title,
+  .home .columns-3 .info-module__title {
+    font-size: 44px;
+    line-height: lh(56, 44);
+  }
+
   .columns-1,
   .columns-3 {
-    .info-module__title {
-      font-size: 44px;
-      line-height: lh(56, 44);
-    }
-
     .info-module__text {
       font-size: em(18px);
       font-weight: $regular;
@@ -118,4 +114,5 @@
       width: 95%;
     }
   }
+
 }
