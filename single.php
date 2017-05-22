@@ -135,7 +135,13 @@ $date_format = get_option( 'date_format' );
 			</div>
 
 		</div>
-		
+
+		<div class="row">
+			<div class="col-xs-12">
+				<p class="focus-lead-copy">Latest Articles</p>
+			</div>
+		</div>
+
 		<div class="row">
 			<?php
 				$query = get_latest_articles();
