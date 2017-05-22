@@ -13,9 +13,9 @@ blockquote {
     font-style: italic;
     line-height: lh(64, 54);
     margin-bottom: 0;
+    padding-left: 30px;
     position: relative;
     z-index: 1;
-    padding-left: 30px;
   }
 
   cite {
@@ -32,15 +32,15 @@ blockquote {
 }
 
 .quote-icon {
+  height: 40px;
   position: absolute;
   width: 60px;
-  height: 40px;
   z-index: -1;
 }
 
 .quote-start {
-  top: 0;
   left: -20px;
+  top: 0;
 }
 
 .quote-end {
@@ -51,13 +51,13 @@ blockquote {
 
 @include responsive-mq("md") {
   .quote-icon {
-    width: 90px;
     height: auto;
+    width: 90px;
   }
 
   .quote-start {
-    top: -75px;
     left: -50px;
+    top: -75px;
   }
 
   .quote-end {

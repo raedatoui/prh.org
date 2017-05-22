@@ -159,10 +159,10 @@ a.tag {
   text-decoration: none;
 
   &::before {
-    height: auto;
     display: inline-block;
-    vertical-align: middle;
+    height: auto;
     margin-right: 15px;
+    vertical-align: middle;
     width: 16px;
   }
 
@@ -172,5 +172,5 @@ a.tag {
 
   &[href*="tel:"]::before {
     content: image("icons/navy/icon--phone.svg");
-  } 
+  }
 }
