@@ -95,10 +95,10 @@ $date_format = get_option( 'date_format' );
 							$email_link = $widget_data->email;
 							$phone_link = $widget_data->phone;
 						}
-						$email_url = '<a class="contact-link" href="mailto:' . $email_link . '" rel="author">';
-						$phone_url = '<a class="contact-link" href="tel:' . $phone_link . '" rel="author">';
+						$email_url = '<a class="contact-link contact-info" href="mailto:' . $email_link . '" rel="author">';
+						$phone_url = '<a class="contact-link contact-info" href="tel:' . $phone_link . '" rel="author">';
 						?>
-						<p><?php echo $name; ?></p>
+						<p class="contact-info"><?php echo $name; ?></p>
 						<?php echo_wrapped( $email_link, $email_url, '</a>' ); ?>
 						<?php echo_wrapped( $phone_link, $phone_url, '</a>' ); ?>
 					</div>

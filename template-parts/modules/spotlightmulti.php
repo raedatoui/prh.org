@@ -1,18 +1,19 @@
 <section class="info-module module" id="<?php echo sanitize_title($module_title); ?>">
 	<div class="content">
-	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ) ?>
-	<div class="module__content columns-3">
-		<?php if ( $module[$module['config']['headline']] ): ?>
-			<div class="row">
-				<div class="col-xs-12">
-					<p class="focus-lead-copy"><?php echo $module[$module['config']['headline']]?></p>
+		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ) ?>
+		<div class="module__content columns-3">
+			<?php if ( $module[$module['config']['headline']] ): ?>
+				<div class="row">
+					<div class="col-xs-12">
+						<p class="focus-lead-copy"><?php echo $module[$module['config']['headline']]?></p>
+					</div>
 				</div>
-			</div>
-		<?php endif; ?>
-		<div class="row">
+			<?php endif; ?>
+
+			<div class="row">
 				<?php foreach ( $module[$module['config']['repeater']] as $cardContainer ): ?>
 					<?php $card = $cardContainer[$module['config']['card']][0] ?>
-					<div class="info-module--component">
+					<div class="info-module--component col-xs-12 col-sm-6 col-md-4">
 						<div class="info-module__img">
 							<img alt="" src="<?php echo $card[SPOTLIGHT_CARD['image']]['url'] ?>" />
 						</div>
@@ -37,7 +38,8 @@
 						</div>
 					</div>
 				<?php endforeach; ?>
+			</div>
+			<?php include( locate_template( 'template-parts/components/cta.php', false, false ) ); ?>
 		</div>
-	</div>
 	</div>
 </section>

@@ -10,7 +10,8 @@ const CONTENT_TYPES = array(
 	array( 'prh_update', 'prh_updates' ),
 	array( 'prh_report', 'prh_reports' ),
 	array( 'prh_news', 'prh_news' ),
-	array( 'prh_events', 'prh_events' )
+	array( 'prh_events', 'prh_events' ),
+	array( 'prh_staff', 'staff' )
 );
 
 const CONTENT_TYPES_LABELS = array(
@@ -22,7 +23,8 @@ const CONTENT_TYPES_LABELS = array(
 	'prh_update' => 'Update',
 	'prh_report' => 'Report',
 	'prh_news' => 'PRH In the News',
-	'prh_events' => 'Event'
+	'prh_events' => 'Event',
+	'prh_staff' => 'Staff'
 );
 
 const CONTENT_TYPES_FOR_AGGREGATION = array(
@@ -33,7 +35,8 @@ const CONTENT_TYPES_FOR_AGGREGATION = array(
 	'prh_update',
 	'prh_report',
 	'prh_news',
-	'prh_events'
+	'prh_events',
+	'prh_staff'
 );
 
 /************* Components *****************/

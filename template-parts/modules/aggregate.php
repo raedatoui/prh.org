@@ -4,8 +4,8 @@
 ?>
 <section class="module module__aggregate-card" id="<?php echo sanitize_title($module_title); ?>">
 	<div class="content">
-	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
-		<div class="row macy-grid" id="aggregate-macy">
+		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
+		<div class="row macy-grid" id="aggregate-macy-<?php echo $module['module_id']; ?>">
 			<?php
 				while ($query->have_posts()):
 					$query->the_post();

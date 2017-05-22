@@ -141,3 +141,27 @@ a.tag {
     font-size: em(14px);
   }
 }
+
+// Media contact
+.contact-info {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 0.5em;
+  text-decoration: none;
+
+  &::before {
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+    width: 16px;
+  }
+
+  &[href*="mailto:"]::before {
+    content: image("icons/navy/icon--mail.svg");
+  }
+
+  &[href*="tel:"]::before {
+    content: image("icons/navy/icon--phone.svg");
+  } 
+}
