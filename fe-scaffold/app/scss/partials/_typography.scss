@@ -1,15 +1,13 @@
-//THIS IS WHERE TYPOGRAPHY STYLING SHOULD GO...
-
 %headline {
   font-weight: 400;
   letter-spacing: em((-25/1000), 54px);
-  line-height: 1.25;
+  line-height: lh(45, 40);
   @include lora();
 }
 
 %h1 {
   @extend %headline;
-  font-size: 30px;
+  font-size: 40px;
 
   @include responsive-mq("sm") {
     font-size: 54px;
