@@ -1,9 +1,9 @@
 <?php
 	wp_reset_postdata();
 	$today = date('Ymd');
-	$upcoming_events = get_posts( array (
+	$upcoming_events = new WP_Query( array (
 		'numberposts'	=> -1,
-		'post_type'		=> 'prh_event',
+		'post_type'		=> 'prh_events',
 		'orderby'		=> 'meta_value',
 		'order'			=> 'DESC',
 		'meta_query' => array(
@@ -14,8 +14,21 @@
 			)
 		)
 	) );
-	$past_events = array();
-	print_r($upcoming_events);
+
+	$past_events = new WP_Query( array (
+		'numberposts'	=> 5,
+		'post_type'		=> 'prh_events',
+		'orderby'		=> 'meta_value',
+		'order'			=> 'DESC',
+		'meta_query' => array(
+			array(
+				'key'		=> 'event_date',
+				'compare'	=> '<',
+				'value'		=> $today
+			)
+		)
+	) );
+
 
 ?>
 
@@ -25,7 +38,7 @@
 	</div>
 </section>
 
-<section class="routing module" id="our-focus">
+<section class="module">
 	<div class="content">
 		<?php if ( $upcoming_events->have_posts() ) : ?>
 			<div class="row">
@@ -34,8 +47,8 @@
 				</div>
 			</div>
 			<div class="row">
-				<?php while ( $upcoming_events->have_posts() ) : $upcoming_eventsthe_post(); ?>
-					<h2><?php the_title(); ?></h2>
+				<?php while ( $upcoming_events->have_posts() ) : $upcoming_events->the_post(); ?>
+					<p><?php the_title(); ?></p>
 				<?php endwhile; ?>
 			</div>
 		<?php else: ?>
@@ -48,13 +61,26 @@
   </div>
 </section>
 
-<section class="routing module" id="our-focus">
+<section class="module">
 	<div class="content">
+		<?php if ( $past_events->have_posts() ) : ?>
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="focus-lead-copy">Upcoming Events</p>
+				</div>
+			</div>
+			<div class="row">
+				<?php while ( $past_events->have_posts() ) : $past_events->the_post(); ?>
+					<p><?php the_title(); ?></p>
+				<?php endwhile; ?>
+			</div>
+		<?php else: ?>
 		<div class="row">
 			<div class="col-xs-12">
-				<p class="focus-lead-copy">Past Events</p>
+				<p class="focus-lead-copy">No Past Events</p>
 			</div>
 		</div>
+		<?php endif; ?>
   </div>
 </section>
 
