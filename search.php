@@ -63,8 +63,11 @@ $cats = get_categories();
 
 				<header class="page-header row">
 					<h2 class="page-title search-page-title col-xs">
-						<?php printf( esc_html__( '%s results for &ldquo;%s&rdquo;', 'prh-wp-theme' ), $total_results, '<span class="search-query-term">' . get_search_query() . '</span>' ); ?>
+						<?php printf( '%s results <span class="search-query-term md-up"> for &ldquo;%s&rdquo;</span>', $total_results,  get_search_query() ); ?>
 					</h2>
+
+					<!-- This triggers a checkbox a bit further down in the html...no-JS menu toggling? Sure! -->
+					<label for="show-filters" class="md-down cta filters-button">Filters</label>
 				</header><!-- .page-header -->
 
 				<?php if ($type_queried || $cat_queried): ?>
@@ -118,8 +121,8 @@ $cats = get_categories();
 						?>
 					</div>
 
-
 					<!-- Right side (filtering) -->
+					<input id="show-filters" type="checkbox" class="show-filters">
 					<div class="sidebar post-sidebar col-xs-12 col-md-3 col-lg-offset-1 search-filters">
 						<aside class="sidebar-block types-filter-block">
 							<div class="sidebar-content">
