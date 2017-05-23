@@ -5,6 +5,7 @@ get_header(); ?>
 $pt_object = get_post_type_object($post_type);
 $pt_label = $pt_object->labels->singular_name;
 $date_format = get_option( 'date_format' );
+the_post();
 ?>
 
 <section class="hero article-hero module">
