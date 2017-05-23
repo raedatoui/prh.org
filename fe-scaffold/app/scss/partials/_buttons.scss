@@ -103,6 +103,12 @@
     background-image: image("button_arrow-red.svg");
     transform: translateY(-14px) translateX(8px);
   }
+
+  .home & {
+    &::after {
+      background-image: image("button_arrow-lilac.svg");
+    }
+  }
 }
 
 @include responsive-mq("md") {

@@ -24,7 +24,7 @@ the_post();
 				<?php
 				$intro = get_the_excerpt();
 				if ( !is_generated( $intro ) ) {
-					echo '<p>' . $intro . '</p>';
+					echo '<p>' . sanitize_text_field($intro) . '</p>';
 				} ?>
 			</header>
 		</div>
