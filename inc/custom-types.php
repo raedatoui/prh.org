@@ -30,8 +30,8 @@ function press_release_type() {
 			'show_ui' => true,
 			'query_var' => true,
 			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
-			'rewrite' => array( 'slug' => 'press-release', 'with_front' => false ), /* you can specify its url slug */
-			'has_archive' => 'press-release', /* you can rename the slug here */
+			'rewrite' => array( 'slug' => 'press-releases', 'with_front' => false ), /* you can specify its url slug */
+			'has_archive' => 'press-releases', /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
@@ -76,7 +76,7 @@ function story_type() {
 			'query_var' => true,
 			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
 			'rewrite' => array( 'slug' => 'stories', 'with_front' => false), /* you can specify its url slug */
-			'has_archive' => 'story', /* you can rename the slug here */
+			'has_archive' => 'stories', /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
@@ -121,7 +121,7 @@ function publication_type() {
 			'query_var' => true,
 			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
 			'rewrite' => array( 'slug' => 'legal-publications', 'with_front' => false ), /* you can specify its url slug */
-			'has_archive' => 'legal-publication', /* you can rename the slug here */
+			'has_archive' => 'legal-publications', /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
@@ -166,7 +166,7 @@ function update_type() {
 			'query_var' => true,
 			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
 			'rewrite' => array( 'slug' => 'updates', 'with_front' => false ), /* you can specify its url slug */
-			'has_archive' => 'update', /* you can rename the slug here */
+			'has_archive' => 'updates', /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
@@ -211,7 +211,7 @@ function report_type() {
 			'query_var' => true,
 			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
 			'rewrite' => array( 'slug' => 'reports', 'with_front' => false), /* you can specify its url slug */
-			'has_archive' => 'report', /* you can rename the slug here */
+			'has_archive' => 'reports', /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
@@ -255,8 +255,8 @@ function news_type() {
 			'show_ui' => true,
 			'query_var' => true,
 			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
-			'rewrite' => array( 'slug' => 'news', 'with_front' => false ), /* you can specify its url slug */
-			'has_archive' => 'news', /* you can rename the slug here */
+			'rewrite' => array( 'slug' => 'prh-in-the-news', 'with_front' => false ), /* you can specify its url slug */
+			'has_archive' => 'prh-in-the-news', /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
@@ -301,7 +301,7 @@ function event_type() {
 			'query_var' => true,
 			'menu_icon'   => 'dashicons-admin-page', /* the icon for the custom post type menu */
 			'rewrite' => array( 'slug' => 'events', 'with_front' => false ), /* you can specify its url slug */
-			'has_archive' => 'events', /* you can rename the slug here */
+			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */

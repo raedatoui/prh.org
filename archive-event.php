@@ -8,7 +8,12 @@
  */
 
 get_header(); ?>
-
+	<h1>WHYYYYY</h1>
+	<section class="hero module shiny-hero">
+		<div class="content">
+			<h1 class="hero__header">Attend an Event</h1>
+		</div>
+	</section>
 	<main id="main" class="site-main archive-main" role="main">
 		<div class="module archive-content-module">
 			<div class="content">

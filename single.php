@@ -5,6 +5,7 @@ get_header(); ?>
 $pt_object = get_post_type_object($post_type);
 $pt_label = $pt_object->labels->singular_name;
 $date_format = get_option( 'date_format' );
+the_post();
 ?>
 
 <section class="hero article-hero module">
@@ -153,7 +154,7 @@ $date_format = get_option( 'date_format' );
 					<a class="aggregate-tile col-xs-12 col-md-4" href="<?php echo $link ?>" aria-label="<?php the_title(); ?>">
 						<div class="tile__container">
 							<div class="tile__type--container">
-								<span class="tile__type"><?php echo CONTENT_TYPES_LABELS[$post_type]; ?></span>
+								<span class="tile__type"><?php echo CONTENT_TYPES_LABELS[$post_type][0]; ?></span>
 								<?php if ( $postImage != '' ) : ?>
 									<div class="tile__source">
 										<img src="<?php echo $postImage ?>" />
