@@ -87,11 +87,12 @@
 
 ///////////////////////////////
 
-.page-template .hero ~ .module {
-  padding-bottom: 11vw; // This should be a little more than the curve height set below
-  position: relative;
+.page-template .hero ~ .module,
+.story-main-module {
+    
+    position: relative;
 
-  &::before {
+    &::before {
     background-position: bottom center;
     background-repeat: repeat-x; // 'none' also works here
     background-size: 105vw auto; // slightly over-wide to avoid gaps at the edges
@@ -105,6 +106,10 @@
     right: 0;
     top: -10vw;
   }
+}
+
+.page-template .hero ~ .module {
+  padding-bottom: 11vw; // This should be a little more than the curve height set below
 
   &:nth-child(even) {
     @include module-curves(cream);
@@ -139,4 +144,8 @@
   &.footer-module {
     @include footer-module-curves;
   }
+}
+
+.story-main-module {
+  @include module-curves(cream);
 }
