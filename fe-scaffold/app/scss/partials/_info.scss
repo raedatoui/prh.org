@@ -67,7 +67,14 @@
 .info-module__text {
   @include roboto();
   display: block;
-  line-height: lh(46, 30);
+  font-size: 18px;
+  line-height: 1.67;
+}
+
+.columns-1 {
+  .info-module__text {
+    text-align: left;
+  }
 }
 
 @include responsive-mq("sm") {
