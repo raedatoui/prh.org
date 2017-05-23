@@ -15,9 +15,9 @@ blockquote {
   p {
     @include lora();
     display: inline;
-    font-size: em(30px);
+    font-size: em(35px);
     font-style: italic;
-    line-height: lh(64, 54);
+    line-height: lh(40, 35);
     margin-bottom: 0;
     padding-left: 30px;
     position: relative;
@@ -55,7 +55,7 @@ blockquote {
   transform: rotate(10deg);
 }
 
-@include responsive-mq("md") {
+@include responsive-mq("lg") {
   .quote-icon {
     height: auto;
     width: 90px;
@@ -72,7 +72,7 @@ blockquote {
   }
 }
 
-@include responsive-mq("md") {
+@include responsive-mq("lg") {
 
   blockquote {
     p {
