@@ -137,6 +137,11 @@ the_post();
 
 		</div>
 
+	</div>
+</main>
+
+<section class="module">
+	<div class="content">
 		<div class="row">
 			<div class="col-xs-12">
 				<p class="focus-lead-copy">Latest Articles</p>
@@ -173,7 +178,6 @@ the_post();
 				wp_reset_postdata(); ?>
 		</div>
 	</div>
-</main>
-
+</section>
 <?php
 get_footer();
