@@ -32,7 +32,7 @@ the_post();
 
 </section>
 
-<section class="module story-main-module" id="main">
+<main class="module story-main-module" id="main">
 	<div class="content">
 		<div class="row row-top">
 			<article class="main-content post-content col-xs-12 col-md-8">
@@ -138,7 +138,7 @@ the_post();
 		</div>
 
 	</div>
-</section>
+</main>
 
 <section class="module">
 	<div class="content">
