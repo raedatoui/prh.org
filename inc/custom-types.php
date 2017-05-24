@@ -379,7 +379,7 @@ function query_post_type($query) {
 			));
 		}
 		if ( is_archive() && $query->get('post_type') == 'prh_events') {
-			$query->set('posts_per_page', 3);
+			$query->set('posts_per_page', 8);
 			$query->set('meta_key', 'event_date');
 			$query->set('orderby', 'meta_value');
 			$query->set('order', 'DESC');
