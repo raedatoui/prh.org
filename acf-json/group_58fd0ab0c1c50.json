@@ -22,6 +22,33 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_5925e405aa80c",
+            "label": "Label",
+            "name": "media_contact_label",
+            "type": "text",
+            "instructions": "A label that indicates the type of contact",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58fd0ab7ac2c0",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Media Contact",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_58fd0ad7ac2c1",
             "label": "Name",
             "name": "media_contact_name",
@@ -201,5 +228,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1495211115
+    "modified": 1495655666
 }
