@@ -363,20 +363,28 @@ add_action( 'init', 'staff_type' );
 
 add_action('pre_get_posts', 'query_post_type');
 function query_post_type($query) {
-	if( $query->is_main_query() && is_tag() ) {
-		$query->set( 'post_type', array(
-			'post',
-			'page',
-			'press_release',
-			'phys_story',
-			'prh_ipaper',
-			'prh_update',
-			'prh_report',
-			'prh_news',
-			'prh_events',
-			'prh_staff'
-		) );
-  }
+	if( $query->is_main_query() ) {
+		if ( is_tag() ) {
+			$query->set('post_type', array(
+				'post',
+				'page',
+				'press_release',
+				'phys_story',
+				'prh_ipaper',
+				'prh_update',
+				'prh_report',
+				'prh_news',
+				'prh_events',
+				'prh_staff'
+			));
+		}
+		if ( is_archive() && $query->get('post_type') == 'prh_events') {
+			$query->set('posts_per_page', 3);
+			$query->set('meta_key', 'event_date');
+			$query->set('orderby', 'meta_value');
+			$query->set('order', 'DESC');
+		}
+	}
 }
 
 function get_latest_articles( $count = 3) {
