@@ -32,7 +32,7 @@ the_post();
 
 </section>
 
-<main class="module story-main-module" id="main">
+<section class="module story-main-module" id="main">
 	<div class="content">
 		<div class="row row-top">
 			<article class="main-content post-content col-xs-12 col-md-8">
@@ -137,12 +137,16 @@ the_post();
 
 		</div>
 
+	</div>
+</section>
+
+<section class="module">
+	<div class="content">
 		<div class="row">
 			<div class="col-xs-12">
 				<p class="focus-lead-copy">Latest Articles</p>
 			</div>
 		</div>
-
 		<div class="row">
 			<?php
 				$query = get_latest_articles();
@@ -173,7 +177,6 @@ the_post();
 				wp_reset_postdata(); ?>
 		</div>
 	</div>
-</main>
-
+</section>
 <?php
 get_footer();
