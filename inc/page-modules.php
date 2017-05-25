@@ -193,6 +193,11 @@ class PageModules {
 				$args['post_type'] = $module[AGGREGATE_BY_POST_TYPE['post_type']];
 				$args['posts_per_page'] = $module[AGGREGATE_BY_POST_TYPE['count']];
 				break;
+			case AGGREGATE_BY_TAG['name']:
+				$args['tag'] = $module[AGGREGATE_BY_TAG['tag']]->slug;
+				$args['post_type'] = CONTENT_TYPES_FOR_AGGREGATION;
+				$args['posts_per_page'] = $module[AGGREGATE_BY_TAG['count']];
+				break;
 		}
 		return new WP_Query( $args );
 	}

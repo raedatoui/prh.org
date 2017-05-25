@@ -38,6 +38,8 @@ const CONTENT_TYPES_FOR_AGGREGATION = array(
 	'prh_staff'
 );
 
+const TAG_TYPES_FOR_AGGREGATION = 'press_releases-tag';
+
 /************* Components *****************/
 const MODULE_OPTIONS = array(
 	'order' => 'module_order',
@@ -189,6 +191,15 @@ const AGGREGATE_BY_CATEGORY = array(
 	'template' => 'template-parts/modules/aggregate.php'
 );
 
+const AGGREGATE_BY_TAG = array(
+	'enabled' => 'aggregate_by_tag_enabled',
+	'name' => 'Aggregate by Tag',
+	'options' => 'aggregate_by_tag_options',
+	'tag' => 'tag_aggregate',
+	'count' => 'aggregate_by_tag_count',
+	'template' => 'template-parts/modules/aggregate.php'
+);
+
 const SPOTLIGHT_1_MODULE = array(
 	'enabled' => 'spotlight_1_enabled',
 	'name' => 'Spotlight 1 Module',
@@ -274,6 +285,7 @@ const MODULES = array(
 	STATISTICS_MODULE['name'] => STATISTICS_MODULE,
 	AGGREGATE_BY_POST_TYPE['name'] => AGGREGATE_BY_POST_TYPE,
 	AGGREGATE_BY_CATEGORY['name'] => AGGREGATE_BY_CATEGORY,
+	AGGREGATE_BY_TAG['name'] => AGGREGATE_BY_TAG,
 	QUOTE_MODULE['name'] => QUOTE_MODULE,
 	OVERVIEW_MODULE['name'] => OVERVIEW_MODULE,
 	OVERVIEW_MODULE_SECONDARY['name'] => OVERVIEW_MODULE_SECONDARY,
@@ -289,7 +301,8 @@ const MODULES = array(
 
 const AGGREGATES = array(
 	AGGREGATE_BY_CATEGORY['name'],
-	AGGREGATE_BY_POST_TYPE['name']
+	AGGREGATE_BY_POST_TYPE['name'],
+	AGGREGATE_BY_TAG['name']
 );
 
 const HEROS = array(
