@@ -44,7 +44,7 @@ class PageModules {
 		if ( $has_hero ) {
 			$this->hero = $this->modules[$hero_name];
 			$this->hero['config'] = MODULES[$hero_name];
-			unset( $this->modules[$hero_key] );
+			unset( $this->modules[$hero_name] );
 		}
 
 		if ( $has_donate ) {
