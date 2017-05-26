@@ -67,14 +67,19 @@ $nav-height-lg: 80px;
 
 .shiny-hero {
   background-image: image("hero-particles.png"), $gradient-linear-blue;
-  background-size: auto 60vh, auto;
+  background-size: auto 150%, auto;
+
+  .home & {
+    background-size: auto 100%, auto;
+  }
 
   @include responsive-mq(lg) {
     background-size: auto, auto;
+
   }
 
   .hero__header {
-    margin: auto;
+    margin: 0 auto 40px;
     max-width: 20em;
   }
 
