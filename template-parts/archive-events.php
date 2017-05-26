@@ -72,7 +72,7 @@ if ( have_posts() ) {
 
 <?php
 	$donate_bg = get_template_directory_uri() . '/images/optimized/donate-module.jpg';
-	$front_id = get_option(page_on_front);
+	$front_id = get_option('page_on_front');
 	$headline = get_field(DONATE_MODULE['headline'], $front_id);
 	$text = get_field(DONATE_MODULE['text'], $front_id);
 	$cta_url = get_field(DONATE_MODULE['cta_url'], $front_id);
