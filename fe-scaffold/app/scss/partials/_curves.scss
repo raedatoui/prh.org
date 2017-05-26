@@ -126,6 +126,9 @@
 
   &:nth-child(odd) {
     @include module-curves(peach);
+    &:not(.donate-module):not(.footer-module) {
+      padding-top: 0;
+    }
 
     &.stats {
       background-image: image("peach-particles-bg.png");
