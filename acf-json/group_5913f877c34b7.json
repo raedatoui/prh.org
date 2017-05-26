@@ -324,7 +324,7 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": 3,
+            "min": 1,
             "max": 50,
             "layout": "row",
             "button_label": "Add Row",
@@ -604,5 +604,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1495686206
+    "modified": 1495777029
 }
