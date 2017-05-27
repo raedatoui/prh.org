@@ -26,8 +26,9 @@
 								<?php
 									$cta = $card[SPOTLIGHT_CARD['cta']][0];
 									$cta_label = trim($cta[CTA_COMPONENT['label']]);
+									$url = $cta[CTA_COMPONENT['link']];
 								?>
-								<a class="cta--link spotlight-cta" href="<? echo $cta[CTA_COMPONENT['link']];?>">
+								<a class="cta--link spotlight-cta" href="<? echo $url; ?>" target="<?php echo get_url_target( $url ); ?>">
 									<? echo $cta_label; ?>
 								</a>
 							<?php endif; ?>
