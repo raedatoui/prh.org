@@ -219,7 +219,7 @@
                             "label": "Link",
                             "name": "cta_link",
                             "prefix": "acf",
-                            "type": "url",
+                            "type": "text",
                             "value": null,
                             "menu_order": 1,
                             "instructions": "",
@@ -237,7 +237,10 @@
                             "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
-                            "placeholder": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ]
                 },
@@ -322,7 +325,7 @@
             },
             "collapsed": "",
             "min": 3,
-            "max": 12,
+            "max": 50,
             "layout": "row",
             "button_label": "Add Row",
             "sub_fields": [
@@ -548,7 +551,7 @@
                                     "label": "Link",
                                     "name": "cta_link",
                                     "prefix": "acf",
-                                    "type": "url",
+                                    "type": "text",
                                     "value": null,
                                     "menu_order": 1,
                                     "instructions": "",
@@ -566,7 +569,10 @@
                                     "_prepare": 0,
                                     "_valid": 1,
                                     "default_value": "",
-                                    "placeholder": ""
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
                                 }
                             ]
                         }
@@ -581,6 +587,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "default"
             }
         ]
     ],
@@ -593,5 +604,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494568961
+    "modified": 1495686206
 }

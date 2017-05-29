@@ -17,12 +17,16 @@ class prh_media_contact_widget extends WP_Widget {
 	// Creating widget front-end
 	// This is where the action happens
 	public function widget( $args, $instance ) {
+		$label = apply_filters( 'widget_name', $instance['label'] );
 		$name = apply_filters( 'widget_name', $instance['name'] );
 		$email = apply_filters( 'widget_email', $instance['email'] );
 		$phone = apply_filters( 'widget_phone', $instance['phone'] );
 
 		// before and after widget arguments are defined by themes
 //		echo $args['before_widget'];
+
+		if ( ! empty( $label ) )
+			echo "<p>" . $label . "</p>";
 
 		if ( ! empty( $name ) )
 			echo "<p>" . $name . "</p>";
@@ -40,18 +44,28 @@ class prh_media_contact_widget extends WP_Widget {
 
 	// Widget Backend
 	public function form( $instance ) {
+		if ( isset( $instance[ 'label' ] ) ) {
+			$label = $instance[ 'label' ];
+		}
+		else {
+			$label = __( '', 'prh_media_contact_widget_domain' );
+		}
+
+
 		if ( isset( $instance[ 'name' ] ) ) {
 			$name = $instance[ 'name' ];
 		}
 		else {
 			$name = __( '', 'prh_media_contact_widget_domain' );
 		}
+
 		if ( isset( $instance[ 'email' ] ) ) {
 			$email = $instance[ 'email' ];
 		}
 		else {
 			$email = __( '', 'prh_media_contact_widget_domain' );
 		}
+
 		if ( isset( $instance[ 'phone' ] ) ) {
 			$phone = $instance[ 'phone' ];
 		}
@@ -65,6 +79,14 @@ class prh_media_contact_widget extends WP_Widget {
 		// Widget admin form
 		?>
 		<p>
+			<label for="<?php echo $this->get_field_id( 'label' ); ?>"><?php _e( 'Contact Type:' ); ?></label>
+			<input class="widefat"
+				id="<?php echo $this->get_field_id( 'label' ); ?>"
+				name="<?php echo $this->get_field_name( 'label' ); ?>"
+				type="text" value="<?php echo esc_attr( $label ); ?>"
+				placeholder="Media Contact" />
+
+
 			<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php _e( 'Contact Name:' ); ?></label>
 			<input class="widefat"
 				id="<?php echo $this->get_field_id( 'name' ); ?>"
@@ -92,6 +114,7 @@ class prh_media_contact_widget extends WP_Widget {
 	// Updating widget replacing old instances with new
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
+		$instance['label'] = ( ! empty( $new_instance['label'] ) ) ? strip_tags( $new_instance['label'] ) : '';
 		$instance['name'] = ( ! empty( $new_instance['name'] ) ) ? strip_tags( $new_instance['name'] ) : '';
 		$instance['email'] = ( ! empty( $new_instance['email'] ) ) ? strip_tags( $new_instance['email'] ) : '';
 		$instance['phone'] = ( ! empty( $new_instance['phone'] ) ) ? strip_tags( $new_instance['phone'] ) : '';

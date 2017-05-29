@@ -15,20 +15,19 @@ const CONTENT_TYPES = array(
 );
 
 const CONTENT_TYPES_LABELS = array(
-	'post' => 'Article',
-	'page' => 'Page',
-	'press_release' => 'Press Release',
-	'phys_story' => 'Story',
-	'prh_ipaper' => 'Legal Publication',
-	'prh_update' => 'Update',
-	'prh_report' => 'Report',
-	'prh_news' => 'PRH In the News',
-	'prh_events' => 'Event',
-	'prh_staff' => 'Staff'
+  'post' => array( 'Article', 'Articles'),
+  'page' => array( 'Page', 'Pages'),
+  'press_release' => array( 'Press Release', 'Press  Releases'),
+  'phys_story' => array( 'Story', 'Stories'),
+  'prh_ipaper' => array( 'Legal Publication', 'Legal Publications'),
+  'prh_update' => array( 'Update', 'Updates'),
+  'prh_report' => array( 'Report', 'Reports'),
+  'prh_news' => array( 'PRH in the News', 'PRH in the News'),
+  'prh_events' => array( 'Event', 'Events'),
+  'prh_staff' => array( 'Staff', 'Staff')
 );
 
 const CONTENT_TYPES_FOR_AGGREGATION = array(
-	'post',
 	'press_release',
 	'phys_story',
 	'prh_ipaper',
@@ -38,6 +37,8 @@ const CONTENT_TYPES_FOR_AGGREGATION = array(
 	'prh_events',
 	'prh_staff'
 );
+
+const TAG_TYPES_FOR_AGGREGATION = 'press_releases-tag';
 
 /************* Components *****************/
 const MODULE_OPTIONS = array(
@@ -190,6 +191,15 @@ const AGGREGATE_BY_CATEGORY = array(
 	'template' => 'template-parts/modules/aggregate.php'
 );
 
+const AGGREGATE_BY_TAG = array(
+	'enabled' => 'aggregate_by_tag_enabled',
+	'name' => 'Aggregate by Tag',
+	'options' => 'aggregate_by_tag_options',
+	'tag' => 'tag_aggregate',
+	'count' => 'aggregate_by_tag_count',
+	'template' => 'template-parts/modules/aggregate.php'
+);
+
 const SPOTLIGHT_1_MODULE = array(
 	'enabled' => 'spotlight_1_enabled',
 	'name' => 'Spotlight 1 Module',
@@ -275,6 +285,7 @@ const MODULES = array(
 	STATISTICS_MODULE['name'] => STATISTICS_MODULE,
 	AGGREGATE_BY_POST_TYPE['name'] => AGGREGATE_BY_POST_TYPE,
 	AGGREGATE_BY_CATEGORY['name'] => AGGREGATE_BY_CATEGORY,
+	AGGREGATE_BY_TAG['name'] => AGGREGATE_BY_TAG,
 	QUOTE_MODULE['name'] => QUOTE_MODULE,
 	OVERVIEW_MODULE['name'] => OVERVIEW_MODULE,
 	OVERVIEW_MODULE_SECONDARY['name'] => OVERVIEW_MODULE_SECONDARY,
@@ -290,7 +301,8 @@ const MODULES = array(
 
 const AGGREGATES = array(
 	AGGREGATE_BY_CATEGORY['name'],
-	AGGREGATE_BY_POST_TYPE['name']
+	AGGREGATE_BY_POST_TYPE['name'],
+	AGGREGATE_BY_TAG['name']
 );
 
 const HEROS = array(

@@ -13,7 +13,7 @@
 			<div class="row">
 				<?php foreach ( $module[$module['config']['repeater']] as $cardContainer ): ?>
 					<?php $card = $cardContainer[$module['config']['card']][0] ?>
-					<div class="info-module--component">
+					<div class="info-module--component col-xs-12 col-sm-6 col-md-4">
 						<div class="info-module__img">
 							<img alt="" src="<?php echo $card[SPOTLIGHT_CARD['image']]['url'] ?>" />
 						</div>
@@ -26,12 +26,8 @@
 								<?php
 									$cta = $card[SPOTLIGHT_CARD['cta']][0];
 									$cta_label = trim($cta[CTA_COMPONENT['label']]);
-									$cta_class = "cta";
-									if ( $cta_label == "Donate" ) {
-										$cta_class = "cta cta--red";
-									}
 								?>
-								<a class="<?php echo $cta_class; ?>" href="<? echo $cta[CTA_COMPONENT['link']];?>">
+								<a class="cta--link spotlight-cta" href="<? echo $cta[CTA_COMPONENT['link']];?>">
 									<? echo $cta_label; ?>
 								</a>
 							<?php endif; ?>

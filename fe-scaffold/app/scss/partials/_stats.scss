@@ -27,7 +27,7 @@
 .stat-number,
 .stat-object {
   color: #be3e50;
-  font-size: em(64px);
+  font-size: 64px;
   font-style: italic;
   line-height: lh(74, 64);
 
@@ -39,9 +39,9 @@
   }
 
   .home & {
-    font-size: em(60px);
+    font-size: 35px;
     @include responsive-mq(lg) {
-      font-size: em(100px);
+      font-size: 90px;
     }
   }
 }
@@ -59,11 +59,12 @@
 .stat-object {
   padding-bottom: 0.25em; // without this, it clips weirdly
 
+  font-size: 35px;
+  line-height: lh(40, 35);
 
   .home & {
-    font-size: em(44px);
     @include responsive-mq(lg) {
-      font-size: em(64px);
+      font-size: 54px;
     }
   }
 }

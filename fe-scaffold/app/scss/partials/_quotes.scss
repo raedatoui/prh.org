@@ -1,6 +1,12 @@
 .quote-component {
   color: $prh-blue-lt;
   margin: 36px 0;
+
+  blockquote {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 915px; // avoids long lines
+  }
 }
 
 blockquote {
@@ -9,13 +15,13 @@ blockquote {
   p {
     @include lora();
     display: inline;
-    font-size: em(30px);
+    font-size: em(35px);
     font-style: italic;
-    line-height: lh(64, 54);
+    line-height: lh(40, 35);
     margin-bottom: 0;
+    padding-left: 30px;
     position: relative;
     z-index: 1;
-    padding-left: 30px;
   }
 
   cite {
@@ -32,15 +38,15 @@ blockquote {
 }
 
 .quote-icon {
+  height: 40px;
   position: absolute;
   width: 60px;
-  height: 40px;
   z-index: -1;
 }
 
 .quote-start {
-  top: 0;
   left: -20px;
+  top: 0;
 }
 
 .quote-end {
@@ -49,15 +55,15 @@ blockquote {
   transform: rotate(10deg);
 }
 
-@include responsive-mq("md") {
+@include responsive-mq("lg") {
   .quote-icon {
-    width: 90px;
     height: auto;
+    width: 90px;
   }
 
   .quote-start {
-    top: -75px;
     left: -50px;
+    top: -75px;
   }
 
   .quote-end {
@@ -66,7 +72,7 @@ blockquote {
   }
 }
 
-@include responsive-mq("md") {
+@include responsive-mq("lg") {
 
   blockquote {
     p {

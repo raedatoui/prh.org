@@ -30,11 +30,13 @@
     display: block;
     font-size: 14px;
     margin: 0;
+    margin-top: 1em;
   }
 }
 
 @include responsive-mq(sm) {
-  .article-quote {
+  .article-quote--left,
+  .article-quote--right {
     width: 24em;
   }
 
@@ -70,8 +72,13 @@
     padding-left: 2em;
   }
 
+  li ul,
+  li ol {
+    margin-top: 0.5em;
+  }
+
   li {
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
   }
 
   @include responsive-mq(sm) {
@@ -139,5 +146,29 @@ a.tag {
 
   p {
     font-size: em(14px);
+  }
+}
+
+// Media contact
+.contact-info {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 0.5em;
+  text-decoration: none;
+
+  &::before {
+    display: inline-block;
+    height: auto;
+    margin-right: 15px;
+    vertical-align: middle;
+    width: 16px;
+  }
+
+  &[href*="mailto:"]::before {
+    content: image("icons/navy/icon--mail.svg");
+  }
+
+  &[href*="tel:"]::before {
+    content: image("icons/navy/icon--phone.svg");
   }
 }

@@ -146,6 +146,15 @@ function prh_only_allow_logged_in_rest_access( $access ) {
 }
 add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );
 
+// Add specific CSS class by filter
+function prh_extra_body_class( $classes ) {
+	if ( is_archive() && get_post_type() == 'prh_events') {
+		$classes[] = 'page page-template';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'prh_extra_body_class' );
+
 // Send new users to a special page
 function redirectOnFirstLogin( $redirect_to, $requested_redirect_to, $user )
 {
