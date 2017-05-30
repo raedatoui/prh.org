@@ -80,7 +80,8 @@
           </div>
 
           <div class="event-rsvp-row col-xs-12 col-sm">
-            <a class="cta rsvp-cta" href="<?php echo $event['cta'][0]['cta_link'];?>">
+			<?php $url = $event['cta'][0]['cta_link']; ?>
+            <a class="cta rsvp-cta" href="<?php echo $url; ?>" target="<?php echo get_url_target( $url ); ?>">
               <?php echo $event['cta'][0]['cta_label']; ?>
             </a>
           </div>

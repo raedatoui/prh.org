@@ -11,12 +11,14 @@ import collapsible from './collapsible';
 import accordion from './accordion';
 import nav from './nav';
 import jumpLinks from './jump-links';
+import backToTop from './back-to-top';
 
 function init(){
 
 	nav.init();
 	accordion.init();
 	collapsible.init();
+	backToTop.init();
 
 	let carousel = document.querySelector('.carousel'),
 			tabs = document.querySelector('.tab-accordion'),

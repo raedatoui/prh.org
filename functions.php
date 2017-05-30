@@ -155,7 +155,42 @@ function prh_extra_body_class( $classes ) {
 	}
 	return $classes;
 }
+
 add_filter( 'body_class', 'prh_extra_body_class' );
 
 
+function get_url_target( $url ) {
+	// Parse home URL and parameter URL
+	$link_url = parse_url( $url );
+	$home_url = parse_url( "http://" . $_SERVER['HTTP_HOST'] );
 
+	// Decide on target
+	if( $link_url['host'] == $home_url['host'] ) {
+		// Is an internal link
+		$target = '_self';
+	} else {
+		// Is an external link
+		$target = '_blank';
+	}
+	return $target;
+}
+
+function prh_login_form() { ?>
+    <style type="text/css">
+		#login h1 a, .login h1 a {
+			background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/optimized/logo-large.png);
+			height:40px;
+			width:220px;
+			background-size: 220px 40px;
+			background-repeat: no-repeat;
+			padding-bottom: 30px;
+		}
+		body {
+			background: #006bb8 !important;
+		}
+		.login #backtoblog a, .login #nav a {
+			color: #ffffff !important;
+		}
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'prh_login_form' );

@@ -20,7 +20,7 @@ $cats = get_categories();
 ?>
 
 	<!-- Persistent search bar above the results -->
-	<div class="search-open hero search-hero">
+	<div class="search-open hero search-hero" id="hero">
 		<div id="search-bar" class="search-bar">
 			<div class="content search-bar-content">
 			<?php get_search_form(); ?>

@@ -29,7 +29,7 @@ if ( have_posts() ) {
 }
 ?>
 
-<section class="hero module shiny-hero">
+<section class="hero module shiny-hero" id="hero">
 	<div class="content">
 		<h1 class="hero__header">Attend an Event</h1>
 	</div>
@@ -59,7 +59,7 @@ if ( have_posts() ) {
 		<div class="content events-content">
 			<header class="module__title"><h2>Past Events</h2></header>
 			<div class="row">
-				<?php 
+				<?php
 				$show_time = false;
 				foreach($past_events as $index => $event ):
 					include( locate_template( 'template-parts/content-event.php', false, false ) );
@@ -84,7 +84,9 @@ if ( have_posts() ) {
 		<h2 class="donate-header"><?php echo $headline; ?></h2>
 		<p class="donate-copy"><?php echo $text; ?></p>
 		<div class="cta-row center-xs donate-cta">
-			<a class="cta cta--red" href="<?php echo $cta_url; ?>"><?php echo $cta_text; ?></a>
+			<a class="cta cta--red" href="<?php echo $cta_url; ?>" target="<?php get_url_target( $cta_url ); ?>">
+				<?php echo $cta_text; ?>
+			</a>
 		</div>
 	</div>
 </section>

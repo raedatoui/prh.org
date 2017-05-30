@@ -6,9 +6,10 @@
 		if ( $cta_label == "Donate" ) {
 			$cta_class = "cta cta--red";
 		}
+		$url = $cta[CTA_COMPONENT['link']];
 	?>
 	<div class="row cta-row">
-		<a class="<?php echo $cta_class; ?>" href="<? echo $cta[CTA_COMPONENT['link']];?>">
+		<a class="<?php echo $cta_class; ?>" href="<? echo $url; ?>" target="<?php echo get_url_target( $url ); ?>">
 			<?php echo $cta_label; ?>
 		</a>
 	</div>
