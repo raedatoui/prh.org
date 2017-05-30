@@ -82,7 +82,7 @@
                     "key": "field_590771e725a66",
                     "label": "Link URL",
                     "name": "routing_block_link_url",
-                    "type": "url",
+                    "type": "text",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -92,7 +92,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -115,5 +118,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1493844877
+    "modified": 1495660740
 }

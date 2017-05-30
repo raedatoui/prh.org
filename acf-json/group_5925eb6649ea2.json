@@ -1,11 +1,11 @@
 {
-    "key": "group_58e65cdac3cf2",
-    "title": "Aggregate by Content Type",
+    "key": "group_5925eb6649ea2",
+    "title": "Aggregate by Tag",
     "fields": [
         {
-            "key": "field_58f8cf3e42199",
+            "key": "field_5925eb66577e1",
             "label": "Enabled",
-            "name": "aggregate_by_post_type_enabled",
+            "name": "aggregate_by_tag_enabled",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -22,16 +22,16 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_58e65ce040bd3",
+            "key": "field_5925eb66577f4",
             "label": "Options",
-            "name": "aggregate_by_post_type_options",
+            "name": "aggregate_by_tag_options",
             "type": "component_field",
             "instructions": "",
             "required": 1,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_58f8cf3e42199",
+                        "field": "field_5925eb66577e1",
                         "operator": "==",
                         "value": "1"
                     }
@@ -45,7 +45,7 @@
             "field_group_id": "group_58e1c055118d9",
             "min": 1,
             "max": 1,
-            "layout": "row",
+            "layout": "block",
             "button_label": "Add Row",
             "appearances": "",
             "collapsed": "",
@@ -219,7 +219,7 @@
                             "label": "Link",
                             "name": "cta_link",
                             "prefix": "acf",
-                            "type": "url",
+                            "type": "text",
                             "value": null,
                             "menu_order": 1,
                             "instructions": "",
@@ -237,7 +237,10 @@
                             "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
-                            "placeholder": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ]
                 },
@@ -273,16 +276,16 @@
             ]
         },
         {
-            "key": "field_58e65cef40bd4",
+            "key": "field_5925eb6657801",
             "label": "Aggregate",
-            "name": "content_type_aggregate",
-            "type": "posttype_select",
-            "instructions": "By selecting a term from the list, this section will auto-populate with the three most recently published items of content within that categorization.",
+            "name": "tag_aggregate",
+            "type": "taxonomy",
+            "instructions": "",
             "required": 1,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_58f8cf3e42199",
+                        "field": "field_5925eb66577e1",
                         "operator": "==",
                         "value": "1"
                     }
@@ -293,24 +296,26 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "taxonomy": "post_tag",
+            "field_type": "select",
             "allow_null": 0,
-            "multiple": 0,
-            "placeholder": "",
-            "disabled": 0,
-            "readonly": 0
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "object",
+            "multiple": 0
         },
         {
-            "key": "field_58f1af6e1cac7",
+            "key": "field_5925eb665780d",
             "label": "Count",
-            "name": "aggregate_by_post_type_count",
+            "name": "aggregate_by_tag_count",
             "type": "select",
-            "instructions": "",
+            "instructions": "multiple of 3",
             "required": 1,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_58f8cf3e42199",
+                        "field": "field_5925eb66577e1",
                         "operator": "==",
                         "value": "1"
                     }
@@ -358,5 +363,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1495572004
+    "modified": 1495685757
 }

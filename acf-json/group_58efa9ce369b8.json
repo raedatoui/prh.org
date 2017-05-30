@@ -219,7 +219,7 @@
                             "label": "Link",
                             "name": "cta_link",
                             "prefix": "acf",
-                            "type": "url",
+                            "type": "text",
                             "value": null,
                             "menu_order": 1,
                             "instructions": "",
@@ -237,7 +237,10 @@
                             "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
-                            "placeholder": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ]
                 },
@@ -445,7 +448,7 @@
                     "key": "field_58efab56737e4",
                     "label": "URL",
                     "name": "overview_resource_link_url",
-                    "type": "url",
+                    "type": "text",
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -455,7 +458,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -466,6 +472,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "default"
             }
         ]
     ],
@@ -481,5 +492,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494862377
+    "modified": 1495643895
 }

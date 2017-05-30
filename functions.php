@@ -145,3 +145,13 @@ function prh_only_allow_logged_in_rest_access( $access ) {
 	return $access;
 }
 add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );
+
+
+add_filter( 'body_class', 'extra_body_class' );
+// Add specific CSS class by filter
+function extra_body_class( $classes ) {
+	if ( is_archive() && get_post_type() == 'prh_events') {
+		$classes[] = 'page page-template';
+	}
+	return $classes;
+}
