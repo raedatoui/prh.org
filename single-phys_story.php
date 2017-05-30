@@ -8,7 +8,7 @@ $date_format = get_option( 'date_format' );
 the_post();
 ?>
 
-<section class="hero story-hero module">
+<section class="hero story-hero module" id="hero">
 
 	<div class="content">
 		<div class="row">

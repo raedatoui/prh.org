@@ -89,10 +89,9 @@
 
 .page-template .hero ~ .module,
 .story-main-module {
-    
-    position: relative;
+  position: relative;
 
-    &::before {
+  &::before {
     background-position: bottom center;
     background-repeat: repeat-x; // 'none' also works here
     background-size: 105vw auto; // slightly over-wide to avoid gaps at the edges

@@ -11,7 +11,7 @@ get_header(); ?>
 
 
 <!-- Hero -->
-<section class="hero module">
+<section class="hero module" id="hero">
 	<div class="content">
 		<header class="module__title">
 			<h2>Hero Module</h2>

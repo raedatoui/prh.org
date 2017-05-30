@@ -1,3 +1,4 @@
+<span id="hero"></span> <!-- needed for back-to-top link -->
 <main id="main" class="site-main archive-main" role="main">
 	<div class="module archive-content-module">
 		<div class="content">
