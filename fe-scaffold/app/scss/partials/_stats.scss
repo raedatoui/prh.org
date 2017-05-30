@@ -57,10 +57,9 @@
 }
 
 .stat-object {
-  padding-bottom: 0.25em; // without this, it clips weirdly
-
   font-size: 35px;
   line-height: lh(40, 35);
+  padding-bottom: 0.25em; // without this, it clips weirdly
 
   .home & {
     @include responsive-mq(lg) {
