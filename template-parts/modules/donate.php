@@ -20,7 +20,8 @@ $donate_bg = $module[DONATE_MODULE['image']] ?
     </p>
 
     <div class="cta-row center-xs donate-cta">
-      <a class="cta cta--red" href="<?php echo $module[DONATE_MODULE['cta_url']]; ?>"><?php echo $module[DONATE_MODULE['cta_text']]; ?></a>
+		<?php $url = $module[DONATE_MODULE['cta_url']]; ?>
+      <a class="cta cta--red" href="<?php echo $url; ?>" target="<?php get_url_target( $url ); ?>"><?php echo $module[DONATE_MODULE['cta_text']]; ?></a>
     </div>
 
   </div>

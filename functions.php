@@ -155,3 +155,19 @@ function extra_body_class( $classes ) {
 	}
 	return $classes;
 }
+
+function get_url_target( $url ) {
+	// Parse home URL and parameter URL
+	$link_url = parse_url( $url );
+	$home_url = parse_url( "http://" . $_SERVER['HTTP_HOST'] );
+
+	// Decide on target
+	if( $link_url['host'] == $home_url['host'] ) {
+		// Is an internal link
+		$target = '_self';
+	} else {
+		// Is an external link
+		$target = '_blank';
+	}
+	return $target;
+}
