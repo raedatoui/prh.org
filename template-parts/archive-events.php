@@ -29,7 +29,7 @@ if ( have_posts() ) {
 }
 ?>
 
-<section class="hero module shiny-hero">
+<section class="hero module shiny-hero" id="hero">
 	<div class="content">
 		<h1 class="hero__header">Attend an Event</h1>
 	</div>

@@ -124,7 +124,7 @@
 
 
 <symbol id="back-to-top" viewBox="0 0 60 60">
-<circle fill="#2E3563" cx="30" cy="30" r="30"/>
+<circle cx="30" cy="30" r="30"/>
 <polyline fill="none" stroke="#FFF7F1" stroke-width="2" stroke-linecap="round" points="12.1,37.1 30.3,18.9 47.9,36.5 "/>
 </symbol>
 

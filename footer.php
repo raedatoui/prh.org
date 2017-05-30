@@ -56,7 +56,7 @@ $menu_ids = get_nav_menu_locations();
 		</footer><!-- #colophon -->
 
 	</div><!-- .page-container-->
-
+  <?php include( locate_template( 'template-parts/components/back-to-top-button.php', false, false)); ?>
 
 	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/bundle.js"></script>
 
