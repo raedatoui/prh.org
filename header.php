@@ -56,7 +56,7 @@
 						</svg>
 					</button>
 
-					<a href="/wp-login.php" class="nav-btn login-btn" title="Log in"> 
+					<a href="/wp-admin/profile.php" class="nav-btn login-btn" title="Log in">
 						<svg class="icon--person" role="presentation">
 							<use xlink:href="#icon--person" />
 						</svg>
