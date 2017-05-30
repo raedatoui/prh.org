@@ -24,11 +24,6 @@
   }
 }
 
-.columns-1 {
-  img {
-    margin: auto;
-  }
-}
 
 .info-module--component {
   text-align: center;
@@ -72,6 +67,11 @@
 }
 
 .columns-1 {
+
+  img {
+    margin: auto;
+  }
+
   .info-module__text {
     text-align: left;
   }

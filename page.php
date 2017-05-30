@@ -9,7 +9,7 @@ the_post();
 
 <section class="hero article-hero module">
 
-	<div class="content row hero-content">
+	<div class="content row hero-content" id="hero">
 		<header class="col-xs-12 col-md-8">
 
 			<h1><?php the_title(); ?></h1>
