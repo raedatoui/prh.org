@@ -89,7 +89,8 @@
 
 .page-template .hero ~ .module,
 .story-main-module,
-.latest-articles-module {
+.latest-articles-module,
+.footer-module {
   position: relative;
 
   &::before {
@@ -158,6 +159,7 @@ body .hero ~ .module {
   @include module-curves(peach);
   margin-top: 8vw;
   padding-top: 30px;
+  padding-bottom: 11vw;
 
   @include responsive-mq(sm) {
     padding-top: 0;
