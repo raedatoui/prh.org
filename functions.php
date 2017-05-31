@@ -175,22 +175,7 @@ function get_url_target( $url ) {
 	return $target;
 }
 
-function prh_login_form() { ?>
-    <style type="text/css">
-		#login h1 a, .login h1 a {
-			background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/optimized/logo-large.png);
-			height:40px;
-			width:220px;
-			background-size: 220px 40px;
-			background-repeat: no-repeat;
-			padding-bottom: 30px;
-		}
-		body {
-			background: #006bb8 !important;
-		}
-		.login #backtoblog a, .login #nav a {
-			color: #ffffff !important;
-		}
-    </style>
-<?php }
-add_action( 'login_enqueue_scripts', 'prh_login_form' );
+function prh_login_form() {
+	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/css/login.css" />';
+}
+add_action( 'login_head', 'prh_login_form' );
