@@ -134,3 +134,118 @@ function new_nav_menu () {
 			15 );
 }
 add_action( 'admin_menu', 'new_nav_menu' );
+
+
+// Settings page for the homepage Action Alert
+
+add_action( 'admin_menu', 'prh_add_admin_menu' );
+add_action( 'admin_init', 'prh_settings_init' );
+
+
+function prh_add_admin_menu(  ) { 
+	add_options_page( 'Action Alert', 'Action Alert', 'manage_options', 'action-alerts', 'prh_options_page' );
+}
+
+
+function prh_settings_init(  ) { 
+
+	register_setting( 'actionAlerts', 'prh_settings' );
+
+	add_settings_section(
+		'prh_actionAlerts_section', 
+		'Homepage Action Alert', 
+		'prh_settings_section_callback', 
+		'actionAlerts'
+	);
+
+	add_settings_field( 
+		'action_alert_enabled', 
+		'Show action alert', 
+		'action_alert_enabled_render', 
+		'actionAlerts', 
+		'prh_actionAlerts_section' 
+	);
+
+	add_settings_field( 
+		'action_alert_text', 
+		'Alert bar text:', 
+		'action_alert_text_render', 
+		'actionAlerts', 
+		'prh_actionAlerts_section' 
+	);
+
+	add_settings_field( 
+		'action_alert_url', 
+		'URL for the alert to link to:', 
+		'action_alert_url_render', 
+		'actionAlerts', 
+		'prh_actionAlerts_section' 
+	);
+
+		add_settings_field( 
+		'action_alert_expires', 
+		'Show this alert until:', 
+		'action_alert_expires_render', 
+		'actionAlerts', 
+		'prh_actionAlerts_section' 
+	);
+}
+
+function is_alert_expired() {
+	$options = get_option( 'prh_settings' );
+	return ( $options['action_alert_expires'] && strtotime($options['action_alert_expires']) < time() );
+}
+
+function action_alert_enabled_render() { 
+	$options = get_option( 'prh_settings' );
+	$checked = $options['action_alert_enabled'];
+
+	if (is_alert_expired()) {
+		$checked = false;
+	}
+
+	?>
+	<input type='checkbox' name='prh_settings[action_alert_enabled]' <?php checked( $checked, 1 ); ?> value='1'>
+	<?php if (is_alert_expired() & $options['action_alert_enabled']): ?>
+		<span style="color: red;">Heads up! This alert auto-expired on <?php echo date( 'F j, Y', strtotime($options['action_alert_expires'])); ?>. To re-enable, change or clear the date field below.</span>
+	<?php endif; ?>
+	<?php
+}
+
+
+function action_alert_text_render() { 
+	$options = get_option( 'prh_settings' );
+	?>
+	<input type='text' name='prh_settings[action_alert_text]' value='<?php echo esc_attr($options['action_alert_text']); ?>' placeholder="Ex: Call your senator. Click here for a script." style="width: 80%;">
+	<?php
+}
+
+
+function action_alert_url_render() { 
+	$options = get_option( 'prh_settings' );
+	?>
+	<input type='text' name='prh_settings[action_alert_url]' value='<?php echo $options['action_alert_url']; ?>' placeholder="Ex: http://prh.org/action-page" style="width: 80%;">
+	<?php
+
+}function action_alert_expires_render() { 
+	$options = get_option( 'prh_settings' );
+	?>
+	<input type='date' name='prh_settings[action_alert_expires]' value='<?php echo $options['action_alert_expires']; ?>'>
+	<?php
+}
+
+function prh_settings_section_callback() { 
+	echo 'When enabled, this message shows on the homepage and links to the specified URL.<br><br> If the action has a known end date (for example, a bill is being voted on or an event is happening), you can set the alert to auto-expire by putting that date in the field below.<br>For an action without a set end date, leave the field empty. The alert will show until you manually uncheck to disable it.';
+}
+
+function prh_options_page() { ?>
+	<form action='options.php' method='post'>
+		<?php
+		settings_fields( 'actionAlerts' );
+		do_settings_sections( 'actionAlerts' );
+		submit_button();
+		?>
+	</form>
+	<?php
+}
+?>
