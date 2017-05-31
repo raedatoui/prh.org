@@ -1,6 +1,5 @@
-<?php include( locate_template( 'template-parts/modules/action-alert.php', false, false ) ); ?>
-
 <section class="hero module shiny-hero" id="hero">
+<?php include( locate_template( 'template-parts/modules/action-alert.php', false, false ) ); ?>
   <div class="content">
     <?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<h1 class="hero__header"><?php 

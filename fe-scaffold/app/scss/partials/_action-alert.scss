@@ -3,10 +3,12 @@
   margin: 10px auto;
   position: absolute;
   right: 0;
+  top: 110px;
   text-align: center;
 
   span {
-    display: inline-block;
+    display: block;
+    margin-bottom: 8px;
     padding-right: 2em;
 
     &::before {
@@ -21,6 +23,11 @@
       text-align: center;
       text-indent: 4px;
       width: 1em;
+    }
+
+    @include responsive-mq(sm) {
+      display: inline-block;
+      margin-bottom: 0;
     }
   }
 
