@@ -158,6 +158,13 @@
   z-index: 3;
 }
 
+@include responsive-mq(sm) {
+  .menu-main-menu-container {
+    margin-left: 20px;
+    width: auto;
+  }
+}
+
 @include responsive-mq(md) {
 
   .site-header {
@@ -194,7 +201,7 @@
   }
 
   .menu-main-menu-container {
-    margin-left: 80px;
+    margin-left: 20px;
     width: auto;
   }
 
@@ -207,6 +214,8 @@
     a {
       border-bottom-width: 0;
     }
+
+    > li > a { white-space: nowrap; }
   }
 
   .sub-menu {
@@ -259,5 +268,11 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+@include responsive-mq(lg) {
+  .menu-main-menu-container {
+    margin-left: 80px;
   }
 }

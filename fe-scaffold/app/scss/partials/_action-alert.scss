@@ -1,0 +1,51 @@
+.action-alert {
+  left: 0;
+  margin: 10px auto;
+  position: absolute;
+  right: 0;
+  top: 110px;
+  text-align: center;
+
+  span {
+    display: block;
+    margin-bottom: 8px;
+    padding-right: 2em;
+
+    &::before {
+      background: color(navy);
+      border-radius: 50%;
+      color: #fc9993;
+      content: "!";
+      display: inline-block;
+      font-size: 18px;
+      height: 1em;
+      margin-right: 1em;
+      text-align: center;
+      text-indent: 4px;
+      width: 1em;
+    }
+
+    @include responsive-mq(sm) {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    background:  #fc9993;
+    color: color(navy);
+    display: block;
+    margin: auto;
+    max-width: $base-page-max-width;
+    padding: 21px;
+    text-decoration: none;
+    transition: $fx-duration background 0s;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+      background: #fabab4;
+      color: color(navy);
+    }
+  }
+}
