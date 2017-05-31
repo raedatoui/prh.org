@@ -145,3 +145,29 @@ function prh_only_allow_logged_in_rest_access( $access ) {
 	return $access;
 }
 add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );
+
+
+add_filter( 'body_class', 'extra_body_class' );
+// Add specific CSS class by filter
+function extra_body_class( $classes ) {
+	if ( is_archive() && get_post_type() == 'prh_events') {
+		$classes[] = 'page page-template';
+	}
+	return $classes;
+}
+
+function get_url_target( $url ) {
+	// Parse home URL and parameter URL
+	$link_url = parse_url( $url );
+	$home_url = parse_url( "http://" . $_SERVER['HTTP_HOST'] );
+
+	// Decide on target
+	if( $link_url['host'] == $home_url['host'] ) {
+		// Is an internal link
+		$target = '_self';
+	} else {
+		// Is an external link
+		$target = '_blank';
+	}
+	return $target;
+}

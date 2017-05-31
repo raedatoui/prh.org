@@ -25,7 +25,6 @@ function prh_customize_meta_boxes( $post_type ) {
 
 	if ( $post_type == 'page' ) {
 		remove_meta_box( 'postimagediv','page','side' ); // Featured Image Metabox
-		remove_meta_box( 'slugdiv','page','normal' ); // Slug Metabox
 		remove_meta_box( 'postcustom','page','normal' ); // Custom Fields Metabox
 	}
 	$template_filename = get_post_meta( $post_id, '_wp_page_template', true );

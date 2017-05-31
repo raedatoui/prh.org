@@ -4,8 +4,9 @@ var jumpLinks = {
   links: document.querySelectorAll('.jump-link'),
   jumpScroll: function(e) {
     e.preventDefault();
+
     jump(e.target.hash, {
-        duration: 800,
+        duration: 1000,
         offset: -100,
         a11y: true
       }

@@ -6,7 +6,8 @@
 			<?php foreach ( $module[CAROUSEL_MODULE['slides']] as $index => $slide ): ?>
 
 				<div class="slide slide-<?php echo $index ?>">
-					<a class="slide-link" href="http://<?php echo $slide[CAROUSEL_MODULE['link']]; ?>">
+					<?php $url = "http://" . $slide[CAROUSEL_MODULE['link']]; ?>
+					<a class="slide-link" href="<?php echo $url ?>" target="<?php echo get_url_target( $url ); ?>">
 						<div class="slide-half">
 							<img src="<?php echo $slide[CAROUSEL_MODULE['image']]['url'] ?>"
 							alt=""/>

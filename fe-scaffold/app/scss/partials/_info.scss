@@ -24,11 +24,6 @@
   }
 }
 
-.columns-1 {
-  img {
-    margin: auto;
-  }
-}
 
 .info-module--component {
   text-align: center;
@@ -67,7 +62,20 @@
 .info-module__text {
   @include roboto();
   display: block;
-  line-height: lh(46, 30);
+  font-size: 18px;
+  line-height: 1.67;
+}
+
+.columns-1 {
+
+  img {
+    margin: auto;
+  }
+
+  .info-module__text,
+  h3 {
+    text-align: left;
+  }
 }
 
 @include responsive-mq("sm") {

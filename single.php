@@ -5,9 +5,10 @@ get_header(); ?>
 $pt_object = get_post_type_object($post_type);
 $pt_label = $pt_object->labels->singular_name;
 $date_format = get_option( 'date_format' );
+the_post();
 ?>
 
-<section class="hero article-hero module">
+<section class="hero article-hero module" id="hero">
 
 	<div class="content">
 		<div class="row">
@@ -23,7 +24,7 @@ $date_format = get_option( 'date_format' );
 				<?php
 				$intro = get_the_excerpt();
 				if ( !is_generated( $intro ) ) {
-					echo '<p>' . $intro . '</p>';
+					echo '<p>' . sanitize_text_field($intro) . '</p>';
 				} ?>
 			</header>
 		</div>
@@ -83,22 +84,24 @@ $date_format = get_option( 'date_format' );
 				<!-- Media contact -->
 				<aside class="sidebar-block media-contact-block">
 					<div class="sidebar-content">
-						<h2 class="sidebar-header">Media contact</h2>
 						<?php
-						$show_media_contact = get_field( 'media_contact_enabled' );
-						if ( $show_media_contact ) {
-							$email_link = get_field( 'media_contact_email' );
-							$phone_link = get_field( 'media_contact_phone' );
-							$name = get_field('media_contact_name');
-						} else {
-							$widget_data = prh_get_widget_data_for( 1 )[0];
-							$name = $widget_data->name;
-							$email_link = $widget_data->email;
-							$phone_link = $widget_data->phone;
-						}
-						$email_url = '<a class="contact-link contact-info" href="mailto:' . $email_link . '" rel="author">';
-						$phone_url = '<a class="contact-link contact-info" href="tel:' . $phone_link . '" rel="author">';
+							$show_media_contact = get_field( 'media_contact_enabled' );
+							if ( $show_media_contact ) {
+								$email_link = get_field( 'media_contact_email' );
+								$phone_link = get_field( 'media_contact_phone' );
+								$name = get_field('media_contact_name');
+								$label = get_field('media_contact_label');
+							} else {
+								$widget_data = prh_get_widget_data_for( 1 )[0];
+								$name = $widget_data->name;
+								$label = $widget_data->label;
+								$email_link = $widget_data->email;
+								$phone_link = $widget_data->phone;
+							}
+							$email_url = '<a class="contact-link contact-info" href="mailto:' . $email_link . '" rel="author">';
+							$phone_url = '<a class="contact-link contact-info" href="tel:' . $phone_link . '" rel="author">';
 						?>
+						<h2 class="sidebar-header"><?php echo  $label; ?></h2>
 						<p class="contact-info"><?php echo $name; ?></p>
 						<?php echo_wrapped( $email_link, $email_url, '</a>' ); ?>
 						<?php echo_wrapped( $phone_link, $phone_url, '</a>' ); ?>
@@ -136,43 +139,21 @@ $date_format = get_option( 'date_format' );
 
 		</div>
 
-		<div class="row">
-			<div class="col-xs-12">
-				<p class="focus-lead-copy">Latest Articles</p>
-			</div>
-		</div>
-
-		<div class="row">
-			<?php
-				$query = get_latest_articles();
-				while ($query->have_posts()):
-					$query->the_post();
-					$link = get_permalink ( $post );
-					$postImage = get_the_post_thumbnail_url( $post );
-					$post_type = get_post_type( $post ); ?>
-					<a class="aggregate-tile col-xs-12 col-md-4" href="<?php echo $link ?>" aria-label="<?php the_title(); ?>">
-						<div class="tile__container">
-							<div class="tile__type--container">
-								<span class="tile__type"><?php echo CONTENT_TYPES_LABELS[$post_type]; ?></span>
-								<?php if ( $postImage != '' ) : ?>
-									<div class="tile__source">
-										<img src="<?php echo $postImage ?>" />
-									</div>
-								<?php endif; ?>
-							</div>
-							<date class="tile__date"><?php echo get_the_date($dateFormat, $post); ?></date>
-							<h3 class="tile__title"><?php the_title(); ?></h3>
-							<div class="tile__summary">
-								<p><?php echo sanitize_text_field(get_the_excerpt()); ?></p>
-							</div>
-						</div>
-					</a>
-			<?php
-				endwhile;
-				wp_reset_postdata(); ?>
-		</div>
 	</div>
 </main>
 
+<section class="module latest-articles-module">
+	<div class="content">
+		<header class="module__title">
+			<h2>Latest Articles</h2>
+		</header>
+		<div class="row">
+			<?php
+				$query = get_latest_articles();
+				include( locate_template( 'template-parts/components/content-cards.php', false, false ) );
+			?>
+		</div>
+	</div>
+</section>
 <?php
 get_footer();

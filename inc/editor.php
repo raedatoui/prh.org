@@ -133,7 +133,7 @@ add_filter('pre_get_posts', 'set_post_order_in_admin', 5 );
  * Add a quick link to the homepage in the admin menu, because convenience.
  **/
 function prh_admin_menu() {
-		$front_id = get_option(page_on_front);
+		$front_id = get_option('page_on_front');
 		$front_slug = 'post.php?post=' . $front_id . '&action=edit';
 
 		add_pages_page(

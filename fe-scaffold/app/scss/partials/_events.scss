@@ -1,0 +1,113 @@
+.events-content {
+  // Particle man, particle man
+  // Doing the things that a particle can...
+  background-image: image("blue-donut.png"),
+  image("pink-dot.png"),
+  image("tan-disc.png"),
+  image("red-disc.png");
+
+  background-position: 0 25%,
+  100% 50%,
+  0 75%,
+  80% 100%;
+
+  background-repeat: no-repeat;
+  background-size: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  .past-events & {
+    background-image: image("tan-disc.png"),
+    image("blue-donut.png"),
+    image("red-disc.png"),
+    image("pink-dot.png");
+  }
+}
+
+.event-card {
+  background: color(paper);
+  line-height: 1.67;
+  margin-bottom: 20px;
+  padding: 30px 20px 50px;
+  position: relative;
+
+  img {
+    max-width: 100%;
+  }
+
+  // The layout of the date/headline shift at this point, this balances it visually
+  @include responsive-mq("sm") {
+    padding-top: 50px;
+  }
+}
+
+.event-title {
+  border: 0;
+  text-decoration: none;
+
+  h3 {
+    color: inherit;
+  }
+}
+
+.event-date {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 20px;
+  text-align: center;
+
+  span {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+
+.event-meta {
+  color: color(gray);
+  display: block;
+  padding-left: 30px;
+}
+
+.addtocalendar {
+  display: block;
+  margin-top: 20px;
+  padding-left: 30px;
+}
+
+.event-rsvp-row {
+  display: block;
+  text-align: center;
+
+  @include responsive-mq("sm") {
+    text-align: right;
+  }
+}
+
+.rsvp-cta {
+  flex-basis: 100%;
+  margin: 40px auto 0;
+  width: 100%;
+
+  @include responsive-mq("sm") {
+    flex-basis: auto;
+    margin: 0 0 0 auto;
+    width: auto;
+  }
+}
+
+.icon--calendar,
+.icon--map {
+  height: 20px;
+  position: absolute;
+  width: 20px;
+}
+
+.icon--map {
+  margin-top: 5px;
+}
+
+.icon--calendar {
+  margin-top: 23px;
+}

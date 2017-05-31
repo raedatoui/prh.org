@@ -20,7 +20,7 @@ $cats = get_categories();
 ?>
 
 	<!-- Persistent search bar above the results -->
-	<div class="search-open hero search-hero">
+	<div class="search-open hero search-hero" id="hero">
 		<div id="search-bar" class="search-bar">
 			<div class="content search-bar-content">
 			<?php get_search_form(); ?>
@@ -44,7 +44,6 @@ $cats = get_categories();
 				$active_search_query = get_search_query();
 				$active_type_query = $wp_query->query_vars['post_type'];
 				$active_cat_query = $wp_query->query_vars['category_name'];
-				$active_cat_name = get_category($wp_query->query_vars['cat'])->name;
 
 				if ($active_type_query && $active_type_query != 'any' && $active_type_query != '') {
 					$type_queried = true;
@@ -52,6 +51,7 @@ $cats = get_categories();
 
 				if ($active_cat_query && $active_cat_query != 'any' && $active_cat_query != '') {
 					$cat_queried = true;
+					$active_cat_name = get_category($wp_query->query_vars['cat'])->name;
 				}
 
 				$base_query =  '/?s=' . $active_search_query;

@@ -9,6 +9,7 @@ $image-dir: "../images/optimized/";
 @import "vendor/flexboxgrid";
 @import "vendor/flickity";
 @import "vendor/wordpress";
+@import "vendor/addtocalendar";
 
 // Partials
 @import "partials/reset";
@@ -26,6 +27,9 @@ $image-dir: "../images/optimized/";
 @import "partials/tabs";
 @import "partials/routing";
 @import "partials/social";
+@import "partials/events";
+@import "partials/back-to-top";
+@import "partials/action-alert";
 
 // Sections
 @import "sections/nav";
