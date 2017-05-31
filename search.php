@@ -74,7 +74,7 @@ $cats = get_categories();
 					<div class="filter-row row">
 						<div class="col-xs-12 col-md-9 col-lg-8">
 							<div class="row">
-								<div class="col-xs-2 filter-label">My Filters:</div>
+								<div class="col-xs-2 col-md filter-label">My Filters:</div>
 								<div class="col-xs col-md-7">
 									<ul class="active-filters filter-list">
 
@@ -97,7 +97,7 @@ $cats = get_categories();
 
 									</ul>
 								</div>
-								<div class="col-xs-12 col-sm-3 filter-cancel">
+								<div class="col-xs-12 col-sm-3 col-md-3 filter-cancel">
 									<a href="<?php echo $base_query; ?>">Clear all selections</a>
 								</div>
 							</div>
