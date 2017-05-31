@@ -134,15 +134,26 @@ a.tag {
 
 // Header meta
 
+.article-hero h1 {
+  @include responsive-mq("md") {
+    font-size: 44px;
+  }
+}
+
 .post-meta {
   margin-bottom: 75px;
 }
 
 .post-byline {
   border-top: 1px solid $border-color-blue;
+  clear: both;
   font-style: italic;
   margin-top: 80px;
   padding-top: 15px;
+
+  &:empty {
+    display: none;
+  }
 
   p {
     font-size: em(14px);

@@ -140,13 +140,11 @@ the_post();
 	</div>
 </main>
 
-<section class="module">
+<section class="module latest-articles-module">
 	<div class="content">
-		<div class="row">
-			<div class="col-xs-12">
-				<p class="focus-lead-copy">Latest Articles</p>
-			</div>
-		</div>
+		<header class="module__title">
+			<h2>Latest Articles</h2>
+		</header>
 		<div class="row">
 			<?php
 				$query = get_latest_articles();

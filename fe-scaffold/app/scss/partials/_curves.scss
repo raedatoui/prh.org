@@ -88,7 +88,9 @@
 ///////////////////////////////
 
 .page-template .hero ~ .module,
-.story-main-module {
+.story-main-module,
+.latest-articles-module,
+.footer-module {
   position: relative;
 
   &::before {
@@ -135,7 +137,9 @@
       stroke: color(peach-overlay);
     }
   }
+}
 
+body .hero ~ .module {
   &.donate-module {
     @include donate-module-curves;
   }
@@ -145,6 +149,19 @@
   }
 }
 
+// Story template
 .story-main-module {
   @include module-curves(cream);
+}
+
+// Article template
+.latest-articles-module {
+  @include module-curves(peach);
+  margin-top: 8vw;
+  padding-top: 30px;
+  padding-bottom: 11vw;
+
+  @include responsive-mq(sm) {
+    padding-top: 0;
+  }
 }
