@@ -31,8 +31,8 @@ $search-height-lg: 126px;
 .search-field {
   -webkit-appearance: none;
   background: none;
-  border: none;
   border-bottom: 1px solid;
+  border: none;
   color: color(white);
   flex: 1;
   font-family: $lora;
@@ -183,6 +183,10 @@ $search-height-lg: 126px;
 }
 
 // Active filters
+
+.filter-label {
+  margin-right: 1em;
+}
 
 .filter-row {
   margin-bottom: 20px;
