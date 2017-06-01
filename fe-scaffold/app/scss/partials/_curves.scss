@@ -116,7 +116,7 @@
     @include module-curves(cream);
 
     &.stats {
-      background-image: image("tan-particles-bg.png");
+      background-image: image("particles/tan-particles-bg.png");
     }
 
     .module-overlay {
@@ -129,7 +129,7 @@
     @include module-curves(peach);
 
     &.stats {
-      background-image: image("peach-particles-bg.png");
+      background-image: image("particles/peach-particles-bg.png");
     }
 
     .module-overlay {
