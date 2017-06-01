@@ -158,8 +158,8 @@ body .hero ~ .module {
 .latest-articles-module {
   @include module-curves(peach);
   margin-top: 8vw;
-  padding-top: 30px;
   padding-bottom: 11vw;
+  padding-top: 30px;
 
   @include responsive-mq(sm) {
     padding-top: 0;

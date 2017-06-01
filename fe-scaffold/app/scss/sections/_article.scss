@@ -11,17 +11,27 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &:first-child {
+      display: inline;
 
       &::before,
       &::after {
-        display: none;
+        content: image("quote_end.svg");
+        display: inline-block;
+        position: absolute;
+        width: 70px;
+        z-index: -1;
       }
-    }
 
-    &::before,
-    &::after {
-      background-position: center;
-      background-size: 50%;
+      &::before {
+        transform: rotate(180deg) translateX(30px) translateY(45px);
+      }
+
+      &::after {
+        transform: rotate(20deg) translateX(-20px);
+      }
     }
   }
 
