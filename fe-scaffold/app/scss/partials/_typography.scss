@@ -7,7 +7,7 @@
 
 %h1 {
   @extend %headline;
-  font-size: 40px;
+  font-size: 35px;
 
   @include responsive-mq("sm") {
     font-size: 54px;
