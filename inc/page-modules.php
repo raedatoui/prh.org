@@ -202,3 +202,13 @@ class PageModules {
 		return new WP_Query( $args );
 	}
 }
+
+
+function my_acf_update_value( $value, $post_id, $field  ) {
+    // do something else to the $post object via the $post_id
+	// return
+	$anchor = get_field('accordion_group_anchor', $post_id);
+	print_r( json_encode( $anchor ) );
+	return $value;
+}
+add_filter('acf/update_value/name=accordion_groups', 'my_acf_update_value', 10, 3);
