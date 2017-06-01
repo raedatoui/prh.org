@@ -207,21 +207,12 @@ function is_alert_expired() {
 function action_alert_enabled_render() { 
 	$options = get_option( 'prh_settings' );
 	$enabled = ( isset($options['action_alert_enabled']) && $options['action_alert_enabled'] == true );
-	$checked = ( $enabled == true && !is_alert_expired() );
-	// if (is_alert_expired()) {
-	// 	$checked = false;
-	// } else if ( isset($options['action_alert_enabled'] ) ) {
-	// 	$checked = $options['action_alert_enabled'];
-	// } else {
-	// 	$checked = false;
-	// }
-
 	?>
-	<input type='checkbox' name='prh_settings[action_alert_enabled]' <?php checked( $checked, 1 ); ?> value='1'>
+
+	<input type='checkbox' name='prh_settings[action_alert_enabled]' <?php checked( $enabled, 1 ); ?> value='1'>
 	<?php if (is_alert_expired() & $enabled ): ?>
-		<span style="color: red;">Heads up! This alert auto-expired on <?php echo date( 'F j, Y', strtotime($options['action_alert_expires'])); ?>. To re-enable, change or clear the date field below.</span>
-	<?php endif; ?>
-	<?php
+		<span style="color: red;">Heads up! This alert auto-expired on <?php echo date( 'F j, Y', strtotime($options['action_alert_expires'])); ?>. To re-enable it, change or clear the date field below.</span>
+	<?php endif; 
 }
 
 
