@@ -12,6 +12,7 @@ import accordion from './accordion';
 import nav from './nav';
 import jumpLinks from './jump-links';
 import backToTop from './back-to-top';
+import alertBanner from './action-alert.js';
 
 function init(){
 
@@ -19,6 +20,7 @@ function init(){
 	accordion.init();
 	collapsible.init();
 	backToTop.init();
+	alertBanner.init();
 
 	let carousel = document.querySelector('.carousel'),
 			tabs = document.querySelector('.tab-accordion'),
