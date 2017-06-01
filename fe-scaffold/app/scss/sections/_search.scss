@@ -30,9 +30,12 @@ $search-height-lg: 126px;
 
 .search-field {
   -webkit-appearance: none;
+  appearance: none;
   background: none;
   border: none;
   border-bottom: 1px solid;
+  border-radius: 0;
+  box-shadow: none;
   color: color(white);
   flex: 1;
   font-family: $lora;
@@ -42,23 +45,8 @@ $search-height-lg: 126px;
   padding: 0;
   position: relative;
 
-  $placeholder-color: transparentize(#fff, 0.15);
-
-  // Has to be specified like this because it's a nonstandard prop
-  &::-webkit-input-placeholder {
-    color: $placeholder-color;
-  }
-
-  &::-moz-placeholder {
-    color: $placeholder-color;
-  }
-
-  &:-ms-input-placeholder {
-    color: $placeholder-color;
-  }
-
-  &:-moz-placeholder {
-    color: $placeholder-color;
+  &:focus {
+    outline: 1px dotted #fff;
   }
 
   @include responsive-mq(sm) {
@@ -75,11 +63,7 @@ $search-height-lg: 126px;
 // Search results view
 
 .search-hero {
-  padding: 50px 0 0;
-
-  @include responsive-mq(md) {
-    padding-top: 79px;
-  }
+  padding: 0;
 }
 
 .search-page-title {
@@ -184,6 +168,10 @@ $search-height-lg: 126px;
 
 // Active filters
 
+.filter-label {
+  margin-right: 1em;
+}
+
 .filter-row {
   margin-bottom: 20px;
   margin-top: 40px;
@@ -278,3 +266,111 @@ $search-height-lg: 126px;
     background-repeat: no-repeat;
   }
 }
+
+
+// EXPERIMENTAL: new small filter ui
+
+.filter-controls {
+  position: absolute;
+  width: 100%;
+}
+
+@include responsive-mq(md) {
+  .filter-controls {
+    display: none;
+  }
+}
+
+.filters-button {
+  margin: 0 0 30px;
+  padding-right: 35px;
+
+  &::after {
+    display: none;
+  }
+}
+
+.show-filters {
+  display: none;
+}
+
+.show-filters ~ .search-filters {
+  display: none;
+}
+
+.show-filters:checked ~ .search-filters {
+  display: block;
+}
+
+.search-filters {
+
+  background: color(cream);
+  left: 30px;
+  margin-top: -20px;
+  padding: 30px;
+  position: absolute;
+  right: 30px;
+
+  &::after {
+    background: transparentize(mix(color(navy), color(black)), 0.7);
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  .sidebar-content {
+    padding: 10px 0;
+
+    @include responsive-mq(md) {
+      padding: 50px 0;
+    }
+  }
+
+  .filter-list {
+    overflow: hidden;
+  }
+
+  .checkbox-item {
+    float: left;
+    padding-right: 30px;
+  }
+
+  .sidebar-block::before,
+  .sidebar-block::after {
+    display: none;
+  }
+
+  @include responsive-mq(md) {
+    padding: 0;
+    position: static;
+
+    &,
+    .show-filters ~ & {
+      display: block;
+    }
+
+    &::after {
+      display: none;
+    }
+
+    .filter-list {
+      overflow: visible;
+    }
+
+    .checkbox-item {
+      float: none;
+      padding-right: 0;
+    }
+
+    .sidebar-block::after,
+    .sidebar-block:first-child::before {
+      display: block;
+    }
+  }
+}
+
