@@ -28,7 +28,7 @@ const KEY_CODES = {
 			this.titles = Array.prototype.slice.call(this.DOMElement.querySelectorAll(this.settings.titleClass));
 
 			this.targets = this.tabs.map(el => {
-				return document.getElementById(el.getAttribute('href').substr(1)) || console.error('Tab target not found');
+				return document.getElementById(el.getAttribute('href').substr(1));
 			});
 
 			this.current = this.settings.active;
