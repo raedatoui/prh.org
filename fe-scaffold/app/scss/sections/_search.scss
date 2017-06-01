@@ -30,9 +30,12 @@ $search-height-lg: 126px;
 
 .search-field {
   -webkit-appearance: none;
+  appearance: none;
   background: none;
-  border-bottom: 1px solid;
   border: none;
+  border-bottom: 1px solid;
+  border-radius: 0;
+  box-shadow: none;
   color: color(white);
   flex: 1;
   font-family: $lora;
@@ -42,23 +45,8 @@ $search-height-lg: 126px;
   padding: 0;
   position: relative;
 
-  $placeholder-color: transparentize(#fff, 0.15);
-
-  // Has to be specified like this because it's a nonstandard prop
-  &::-webkit-input-placeholder {
-    color: $placeholder-color;
-  }
-
-  &::-moz-placeholder {
-    color: $placeholder-color;
-  }
-
-  &:-ms-input-placeholder {
-    color: $placeholder-color;
-  }
-
-  &:-moz-placeholder {
-    color: $placeholder-color;
+  &:focus {
+    outline: 1px dotted #fff;
   }
 
   @include responsive-mq(sm) {
@@ -75,11 +63,7 @@ $search-height-lg: 126px;
 // Search results view
 
 .search-hero {
-  padding: 50px 0 0;
-
-  @include responsive-mq(md) {
-    padding-top: 79px;
-  }
+  padding: 0;
 }
 
 .search-page-title {
@@ -320,6 +304,25 @@ $search-height-lg: 126px;
 
 .search-filters {
 
+  background: color(cream);
+  left: 30px;
+  margin-top: -20px;
+  padding: 30px;
+  position: absolute;
+  right: 30px;
+
+  &::after {
+    background: transparentize(mix(color(navy), color(black)), 0.7);
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
   .sidebar-content {
     padding: 10px 0;
 
@@ -342,28 +345,9 @@ $search-height-lg: 126px;
     display: none;
   }
 
-  position: absolute;
-  background: color(cream);
-  margin-top: -20px;
-  padding: 30px;
-  right: 30px;
-  left: 30px;
-
-  &::after {
-    content: "";
-    display: block;
-    background: transparentize(mix(color(navy), color(black)), 0.7);
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-  }
-
   @include responsive-mq(md) {
-    position: static;
     padding: 0;
+    position: static;
 
     &,
     .show-filters ~ & {
