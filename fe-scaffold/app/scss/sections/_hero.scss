@@ -66,7 +66,7 @@ $nav-height-lg: 80px;
 }
 
 .shiny-hero {
-  background-image: image("hero-particles.png"), $gradient-linear-blue;
+  background-image: image("particles/hero-particles.png"), $gradient-linear-blue;
   background-size: auto 150%, auto;
 
   .home & {
@@ -91,7 +91,7 @@ $nav-height-lg: 80px;
 }
 
 .story-hero {
-  background-image: image("story-particles.png"), $gradient-linear-blue;
+  background-image: image("particles/story-particles.png"), $gradient-linear-blue;
   background-repeat: no-repeat, repeat-x;
   background-size: auto, auto;
   text-align: left;
