@@ -203,17 +203,18 @@ class PageModules {
 	}
 }
 
-
+/**
+ * Compute the anchor field from the group title. This function is only called
+ * for pages that use the Accordion Section group.
+ */
 function prh_acf_update_accordions( $value, $post_id, $field  ) {
-    // do something else to the $post object via the $post_id
-	// return
 
 	remove_filter('acf/update_value/name=accordion_groups', 'prh_acf_update_accordions', 10, 3);
 
 	$groups = get_field( $field['name'], $post_id );
 	$permalink = get_the_permalink( $post_id );
 
-	foreach ($groups as $index => $group) {
+	foreach ( $groups as $index => $group ) {
 		$title = $group[ACCORDION_GROUP['title']];
 		$anchor = $permalink . "#" . sanitize_title( $title );
 		$group[ACCORDION_GROUP['anchor']] = $anchor;
@@ -221,7 +222,7 @@ function prh_acf_update_accordions( $value, $post_id, $field  ) {
 	}
 
 	update_field( $field['key'], $groups, $post_id );
-	add_filter('acf/update_value/name=accordion_groups', 'prh_acf_update_accordions', 10, 3);
+	add_filter( 'acf/update_value/name=accordion_groups', 'prh_acf_update_accordions', 10, 3 );
 	return $value;
 }
-add_filter('acf/update_value/name=accordion_groups', 'prh_acf_update_accordions', 10, 3);
+add_filter( 'acf/update_value/name=accordion_groups', 'prh_acf_update_accordions', 10, 3 );
