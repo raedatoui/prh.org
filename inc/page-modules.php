@@ -204,11 +204,11 @@ class PageModules {
 }
 
 
-function my_acf_update_value( $value, $post_id, $field  ) {
+function prh_acf_update_accordions( $value, $post_id, $field  ) {
     // do something else to the $post object via the $post_id
 	// return
 
-	remove_filter('acf/update_value/name=accordion_groups', 'my_acf_update_value', 10, 3);
+	remove_filter('acf/update_value/name=accordion_groups', 'prh_acf_update_accordions', 10, 3);
 
 	$groups = get_field( $field['name'], $post_id );
 	$permalink = get_the_permalink( $post_id );
@@ -221,7 +221,7 @@ function my_acf_update_value( $value, $post_id, $field  ) {
 	}
 
 	update_field( $field['key'], $groups, $post_id );
-	add_filter('acf/update_value/name=accordion_groups', 'my_acf_update_value', 10, 3);
+	add_filter('acf/update_value/name=accordion_groups', 'prh_acf_update_accordions', 10, 3);
 	return $value;
 }
-add_filter('acf/update_value/name=accordion_groups', 'my_acf_update_value', 10, 3);
+add_filter('acf/update_value/name=accordion_groups', 'prh_acf_update_accordions', 10, 3);
