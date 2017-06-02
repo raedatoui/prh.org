@@ -207,8 +207,21 @@ class PageModules {
 function my_acf_update_value( $value, $post_id, $field  ) {
     // do something else to the $post object via the $post_id
 	// return
-	$anchor = get_field('accordion_group_anchor', $post_id);
-	print_r( json_encode( $anchor ) );
+
+	remove_filter('acf/update_value/name=accordion_groups', 'my_acf_update_value', 10, 3);
+
+	$groups = get_field( $field['name'], $post_id );
+	$permalink = get_the_permalink( $post_id );
+
+	foreach ($groups as $index => $group) {
+		$title = $group[ACCORDION_GROUP['title']];
+		$anchor = $permalink . "#" . sanitize_title( $title );
+		$group[ACCORDION_GROUP['anchor']] = $anchor;
+		$groups[$index] = $group;
+	}
+
+	update_field( $field['key'], $groups, $post_id );
+	add_filter('acf/update_value/name=accordion_groups', 'my_acf_update_value', 10, 3);
 	return $value;
 }
 add_filter('acf/update_value/name=accordion_groups', 'my_acf_update_value', 10, 3);

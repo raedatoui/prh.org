@@ -86,7 +86,8 @@ const ACCORDION_ITEM = array(
 
 const ACCORDION_GROUP = array(
 	'title' => 'accordion_group_title',
-	'items' => 'accordion_group_items'
+	'items' => 'accordion_group_items',
+	'anchor' => 'accordion_group_anchor'
 );
 
 const ROUTING_BLOCK = array(

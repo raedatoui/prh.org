@@ -22,6 +22,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_592f19aa1be2f",
+            "label": "Group Anchor",
+            "name": "accordion_group_anchor",
+            "type": "text",
+            "instructions": "This URL is automatically derived from the group title. Use this URL to create links to these sections from other pages",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_58f91a0dfe98e",
             "label": "Accordion items",
             "name": "accordion_group_items",
@@ -101,25 +120,6 @@
                     "delay": 0
                 }
             ]
-        },
-        {
-            "key": "field_592f19aa1be2f",
-            "label": "Group Anchor",
-            "name": "accordion_group_anchor",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         }
     ],
     "location": [
@@ -140,5 +140,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1496262437
+    "modified": 1496378813
 }
