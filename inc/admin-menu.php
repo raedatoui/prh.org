@@ -189,6 +189,14 @@ function prh_settings_init(  ) {
 		'actionAlerts', 
 		'prh_actionAlerts_section' 
 	);
+
+	add_settings_field( 
+		'action_alert_timestamp', 
+		'', 
+		'action_alert_timestamp_render', 
+		'actionAlerts', 
+		'prh_actionAlerts_section' 
+	);
 }
 
 function is_alert_expired() {
@@ -198,20 +206,13 @@ function is_alert_expired() {
 
 function action_alert_enabled_render() { 
 	$options = get_option( 'prh_settings' );
-	if (is_alert_expired()) {
-		$checked = false;
-	} else if ( isset($options['action_alert_enabled'] ) ) {
-		$checked = $options['action_alert_enabled'];
-	} else {
-		$checked = false;
-	}
-
+	$enabled = ( isset($options['action_alert_enabled']) && $options['action_alert_enabled'] == true );
 	?>
-	<input type='checkbox' name='prh_settings[action_alert_enabled]' <?php checked( $checked, 1 ); ?> value='1'>
-	<?php if (is_alert_expired() & $checked ): ?>
-		<span style="color: red;">Heads up! This alert auto-expired on <?php echo date( 'F j, Y', strtotime($options['action_alert_expires'])); ?>. To re-enable, change or clear the date field below.</span>
-	<?php endif; ?>
-	<?php
+
+	<input type='checkbox' name='prh_settings[action_alert_enabled]' <?php checked( $enabled, 1 ); ?> value='1'>
+	<?php if (is_alert_expired() & $enabled ): ?>
+		<span style="color: red;">Heads up! This alert auto-expired on <?php echo date( 'F j, Y', strtotime($options['action_alert_expires'])); ?>. To re-enable it, change or clear the date field below.</span>
+	<?php endif; 
 }
 
 
@@ -235,6 +236,13 @@ function action_alert_expires_render() {
 	$options = get_option( 'prh_settings' );
 	?>
 	<input type='date' name='prh_settings[action_alert_expires]' value='<?php echo $options['action_alert_expires']; ?>'>
+	<?php
+}
+
+function action_alert_timestamp_render() {
+	$options = get_option( 'prh_settings' );
+	?>
+	<input type='hidden' name='prh_settings[action_alert_timestamp]' value='<?php echo time(); ?>'>
 	<?php
 }
 

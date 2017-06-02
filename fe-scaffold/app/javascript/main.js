@@ -12,6 +12,7 @@ import accordion from './accordion';
 import nav from './nav';
 import jumpLinks from './jump-links';
 import backToTop from './back-to-top';
+import alertBanner from './action-alert.js';
 
 function init(){
 
@@ -19,12 +20,14 @@ function init(){
 	accordion.init();
 	collapsible.init();
 	backToTop.init();
+	alertBanner.init();
 
 	let carousel = document.querySelector('.carousel'),
 			tabs = document.querySelector('.tab-accordion'),
 			cards = document.querySelectorAll('.macy-grid'),
 			jumps = document.querySelectorAll('.jump-link'),
-			permalink = document.querySelector('.permalink-icon');
+			permalink = document.querySelector('.permalink-icon'),
+			fbLinks = document.querySelectorAll('.fb-link');
 
 	if (permalink) {
 		var clipboard = new Clipboard(permalink),
@@ -47,7 +50,6 @@ function init(){
 		});
 	}
 
-	let fbLinks = document.querySelectorAll('.fb-link');
 	if (fbLinks.length > 0) {
 		
 		for (let i = 0; i < fbLinks.length; i++) {
@@ -55,8 +57,8 @@ function init(){
 				e.preventDefault();
 
 				FB.ui({
-				  method: 'share',
-				  href: window.location.href,
+					method: 'share',
+					href: window.location.href,
 				}, function(response){});
 			})
 		}
@@ -74,7 +76,7 @@ function init(){
 	if (cards.length > 0) {
 		var instances = [];
 		for(let i = 0; i < cards.length; i++) {
-			var instance = Macy({
+			let instance = Macy({
 				container: '#'+cards[i].id,
 				trueOrder: true,
 				waitForImages: false,

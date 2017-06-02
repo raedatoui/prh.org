@@ -1,10 +1,10 @@
 .events-content {
   // Particle man, particle man
   // Doing the things that a particle can...
-  background-image: image("blue-donut.png"),
-  image("pink-dot.png"),
-  image("tan-disc.png"),
-  image("red-disc.png");
+  background-image: image("particles/blue-donut.png"),
+  image("particles/pink-dot.png"),
+  image("particles/tan-disc.png"),
+  image("particles/red-disc.png");
 
   background-position: 0 25%,
   100% 50%,
@@ -17,10 +17,10 @@
   padding-right: 40px;
 
   .past-events & {
-    background-image: image("tan-disc.png"),
-    image("blue-donut.png"),
-    image("red-disc.png"),
-    image("pink-dot.png");
+    background-image: image("particles/tan-disc.png"),
+    image("particles/blue-donut.png"),
+    image("particles/red-disc.png"),
+    image("particles/pink-dot.png");
   }
 }
 

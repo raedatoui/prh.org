@@ -5,16 +5,17 @@ var accordion = {
 		this.triggers = document.querySelectorAll('.accordion-title');
 		this.targets = document.querySelectorAll('.accordion-content');
 
-		var toggle = function(ev) {
+		var i,
+		toggle = function(ev) {
 			let button = ev.currentTarget,
 					target = document.querySelector('[aria-labelledby=accordion-label-' + button.getAttribute('aria-controls') + ']'),
-					state = (button.getAttribute('aria-expanded') == 'false' || false)? true : false;
+					state = (button.getAttribute('aria-expanded') === 'false' || false)? true : false;
 			target.classList.toggle('is-active');
 			button.setAttribute('aria-expanded', state);
 			target.setAttribute('aria-hidden', !state);
 		};
 
-		for (var i = 0; i < this.triggers.length; i++) {
+		for (i = 0; i < this.triggers.length; i++) {
 			let trigger = this.triggers[i],
 					index = 'collapsible--'+i,
 					button = document.createElement('button'),
@@ -36,7 +37,7 @@ var accordion = {
 
 			target.id = index;
 			target.setAttribute('aria-labelledby', 'accordion-label-' + index);
-			target.setAttribute('aria-hidden', 'true');
+			target.setAttribute('aria-hidden', 'true')
 		};
 	}
 };
