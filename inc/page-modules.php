@@ -117,13 +117,24 @@ class PageModules {
 	}
 
 	function module_titles() {
-		$func = function ( $module ) {
+		$mapper = function ( $module ) {
 			return $module['config'][MODULE_OPTIONS['title']];
 		};
 		$filter = function ( $module ) {
 			return $module['config'][MODULE_OPTIONS['use_jump_link']];
 		};
-		return array_map( $func, array_filter( $this->modules, $filter ) );
+		return array_map( $mapper, array_filter( $this->modules, $filter ) );
+	}
+
+	function accordion_titles() {
+		$mapper = function ( $group ) {
+			return $group[ACCORDION_GROUP['title']];
+		};
+		$filter = function ( $group ) {
+			return $group[ACCORDION_GROUP['use_jump_link']];
+		};
+		$section = $this->modules[ACCORDION_SECTION['name']];
+		return array_map( $mapper, array_filter( $section[ACCORDION_SECTION['repeater']], $filter ) );
 	}
 
 	function jump_links() {
@@ -132,7 +143,16 @@ class PageModules {
 			$jump_links[$index]['pretty'] = $title;
 			$jump_links[$index]['slug'] = sanitize_title($title);
 		}
-		return $jump_links;
+
+		if ( in_array( ACCORDION_SECTION['name'], $this->keys ) ) {
+			$accordions = $this->accordion_titles();
+			$accordion_links = array();
+			foreach ( $accordions as $index => $title ) {
+				$accordion_links[$index]['pretty'] = $title;
+				$accordion_links[$index]['slug'] = sanitize_title($title);
+			}
+		}
+		return array_merge( $jump_links, $accordion_links ) ;
 	}
 
 	function render_hero() {

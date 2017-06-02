@@ -41,6 +41,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5930f81ca779d",
+            "label": "Show in Hero",
+            "name": "accordion_group_show_in_hero",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Determines if an accordion group has a jump link in the hero",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_58f91a0dfe98e",
             "label": "Accordion items",
             "name": "accordion_group_items",
@@ -140,5 +159,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1496378813
+    "modified": 1496382112
 }
