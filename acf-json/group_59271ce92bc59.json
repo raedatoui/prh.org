@@ -17,30 +17,6 @@
             },
             "default_value": "",
             "placeholder": ""
-        },
-        {
-            "key": "field_5927bf9ea6480",
-            "label": "test_image",
-            "name": "test_image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
         }
     ],
     "location": [
@@ -61,5 +37,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1495777196
+    "modified": 1496382130
 }
