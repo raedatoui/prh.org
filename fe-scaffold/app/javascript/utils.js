@@ -1,9 +1,37 @@
 var utils = {
+
+  // Debounce execution - use this with scroll/resize listeners
   debounce: function(method, delay) {
     clearTimeout(method._tId);
     method._tId= setTimeout(function(){
         method();
     }, delay);
+  },
+
+  // C is for cookie. That's good enough for me.
+  setCookie: function(name, val, daysToExpire=null) {
+    var expires ='',
+        date;
+
+    if (daysToExpire) {
+      date = new Date();
+      date.setTime( date.getTime() + (daysToExpire*24*60*60*1000) );
+      expires = `; expires=${date.toGMTString()}`;
+    }
+    document.cookie = `${name}=${val}${expires}; path=/`;
+  },
+
+  getCookie: function(name) {
+    var cookies = document.cookie.split(';');
+    cookies.forEach(function(cookie) {
+      if ( cookie.indexOf(name) < 0 ) {
+        return;
+      }
+    });
+  },
+
+  clearCookie: function(name) {
+    this.setCookie(name, '', -1);
   }
 }
 

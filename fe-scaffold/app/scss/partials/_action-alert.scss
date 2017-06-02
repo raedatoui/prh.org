@@ -1,6 +1,7 @@
 .action-alert {
   left: 0;
   margin: 10px auto;
+  max-width: $base-page-max-width;
   position: absolute;
   right: 0;
   text-align: center;
@@ -36,7 +37,6 @@
     color: color(navy);
     display: block;
     margin: auto;
-    max-width: $base-page-max-width;
     padding: 21px;
     text-decoration: none;
     transition: $fx-duration background 0s;
@@ -47,5 +47,32 @@
       background: #fabab4;
       color: color(navy);
     }
+  }
+
+  button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 40px;
+    padding: 0 10px;
+    border-radius: 50%;
+    background: #fc9993;
+
+    &:hover,
+    &:focus {
+      background: #fabab4;
+    }
+
+    svg {
+      pointer-events: none; // otherwise it can interfere with the title tooltip appearing
+      stroke: color(navy);
+      max-width: 100%;
+    }
+  }
+
+  &.is-hidden {
+    display: none;
   }
 }
