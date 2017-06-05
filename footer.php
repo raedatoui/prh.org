@@ -57,59 +57,8 @@ $menu_ids = get_nav_menu_locations(); ?>
 	</div><!-- .page-container-->
 
 	<?php include( locate_template( 'template-parts/components/back-to-top-button.php', false, false)); ?>
-
-	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/bundle.js"></script>
-
+	
 	<div id="fb-root"></div>
-
-	<script>
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId            : '113299352595401',
-				autoLogAppEvents : true,
-				xfbml            : true,
-				version          : 'v2.9'
-			});
-			FB.AppEvents.logPageView();
-		};
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/en_US/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
-
-	<script>
-		window.twttr = (function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0],
-				t = window.twttr || {};
-			if (d.getElementById(id)) return t;
-			js = d.createElement(s);
-			js.id = id;
-			js.src = "https://platform.twitter.com/widgets.js";
-			fjs.parentNode.insertBefore(js, fjs);
-			t._e = [];
-			t.ready = function(f) {
-				t._e.push(f);
-			};
-			return t;
-		}(document, "script", "twitter-wjs"));
-	</script>
-
-	<script type="text/javascript" src="http://platform.tumblr.com/v1/share.js"></script>
-
-	<script type="text/javascript">
-		(function () {
-			if (window.addtocalendar)if(typeof window.addtocalendar.start == "function")return;
-			if (window.ifaddtocalendar == undefined) { window.ifaddtocalendar = 1;
-			var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-			s.type = 'text/javascript';s.charset = 'UTF-8';s.async = true;
-			s.src = ('https:' == window.location.protocol ? 'https' : 'http')+'://addtocalendar.com/atc/1.5/atc.min.js';
-			var h = d[g]('body')[0];h.appendChild(s); }})();
-	</script>
-
 	<?php wp_footer(); ?>
 
 </body>
