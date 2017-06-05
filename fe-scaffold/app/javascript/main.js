@@ -26,8 +26,7 @@ function init(){
 			tabs = document.querySelector('.tab-accordion'),
 			cards = document.querySelectorAll('.macy-grid'),
 			jumps = document.querySelectorAll('.jump-link'),
-			permalink = document.querySelector('.permalink-icon'),
-			fbLinks = document.querySelectorAll('.fb-link');
+			permalink = document.querySelector('.permalink-icon');
 
 	if (permalink) {
 		var clipboard = new Clipboard(permalink),
@@ -42,26 +41,12 @@ function init(){
 	}
 
 	if (carousel) {
-		let flickity = new Flickity(carousel, {
+		new Flickity(carousel, {
 			cellAlign: 'left',
 			imagesLoaded: true,
 			adaptiveHeight: true,
 			wrapAround: 'true'
 		});
-	}
-
-	if (fbLinks.length > 0) {
-		
-		for (let i = 0; i < fbLinks.length; i++) {
-			fbLinks[i].addEventListener('click', function(e) {
-				e.preventDefault();
-
-				FB.ui({
-					method: 'share',
-					href: window.location.href,
-				}, function(response){});
-			})
-		}
 	}
 
 	if (tabs) {
