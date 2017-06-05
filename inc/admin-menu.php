@@ -182,7 +182,7 @@ function prh_settings_init(  ) {
 		'prh_actionAlerts_section' 
 	);
 
-		add_settings_field( 
+	add_settings_field(
 		'action_alert_expires', 
 		'Show this alert until:', 
 		'action_alert_expires_render', 

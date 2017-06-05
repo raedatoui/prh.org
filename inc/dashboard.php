@@ -114,11 +114,31 @@ function prh_members_guide_widget() { ?>
 	Members are managed <a href="/wp-admin/admin.php?page=groups-admin">here.</a>
 <?php }
 
-function prh_lta_members_widget() { ?>
-	<h2>Welcome LTA members</h2>
+function prh_lta_members_widget() {
+	$description = false;
+	require_once( ABSPATH . 'wp-includes/pluggable.php' );
+	if ( $group = Groups_Group::read_by_name( 'LTA' ) ) {
+		$description = $group->description;
+	}
+	?>
+	<h2>Welcome Leadership Training Academy members</h2>
+	<?php if ( $description ) : ?>
+		<p><?php echo $description; ?></p>
+	<?php endif; ?>
+	<p>Please visit the <a href="/lta-welcome-page">LTA welcome page</a> to find resources and general info.</p>
 <?php }
 
-function prh_ps_members_widget() { ?>
+function prh_ps_members_widget() {
+	$description = false;
+	require_once( ABSPATH . 'wp-includes/pluggable.php' );
+	if ( $group = Groups_Group::read_by_name( 'PS' ) ) {
+		$description = $group->description;
+	}
+	?>
 	<h2>Welcome Physician Safety members</h2>
+	<?php if ( $description ) : ?>
+		<p><?php echo $description; ?></p>
+	<?php endif; ?>
+	<p>Please visit the <a href="/ps-welcome-page">Physicians' Safety welcome page</a> to find resources and general info.</p>
 <?php }
 

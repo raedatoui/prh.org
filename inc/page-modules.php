@@ -123,6 +123,7 @@ class PageModules {
 		$filter = function ( $module ) {
 			return $module['config'][MODULE_OPTIONS['use_jump_link']];
 		};
+
 		return array_map( $mapper, array_filter( $this->modules, $filter ) );
 	}
 
@@ -144,9 +145,9 @@ class PageModules {
 			$jump_links[$index]['slug'] = sanitize_title($title);
 		}
 
+		$accordion_links = array();
 		if ( in_array( ACCORDION_SECTION['name'], $this->keys ) ) {
 			$accordions = $this->accordion_titles();
-			$accordion_links = array();
 			foreach ( $accordions as $index => $title ) {
 				$accordion_links[$index]['pretty'] = $title;
 				$accordion_links[$index]['slug'] = sanitize_title($title);
