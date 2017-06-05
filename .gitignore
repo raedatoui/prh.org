@@ -23,7 +23,6 @@ fe-scaffold/pub/
 fe-scaffold/node_modules/
 node_modules/
 
-css/*
 js/bundle.js
 js/bundle.js.map
 static/css/*

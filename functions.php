@@ -101,6 +101,8 @@ require get_template_directory() . '/inc/acf.php';
 require get_template_directory() . '/inc/metaboxes.php';
 require get_template_directory() . '/inc/admin-menu.php';
 require get_template_directory() . '/inc/widgets.php';
+require get_template_directory() . '/inc/dashboard.php';
+require get_template_directory() . '/inc/members.php';
 
 /**
  * Misc settings, excerpt rules
@@ -152,15 +154,16 @@ function prh_only_allow_logged_in_rest_access( $access ) {
 }
 add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );
 
-
-add_filter( 'body_class', 'extra_body_class' );
 // Add specific CSS class by filter
-function extra_body_class( $classes ) {
+function prh_extra_body_class( $classes ) {
 	if ( is_archive() && get_post_type() == 'prh_events') {
 		$classes[] = 'page page-template';
 	}
 	return $classes;
 }
+
+add_filter( 'body_class', 'prh_extra_body_class' );
+
 
 function get_url_target( $url ) {
 	// Parse home URL and parameter URL
@@ -177,3 +180,8 @@ function get_url_target( $url ) {
 	}
 	return $target;
 }
+
+function prh_login_form() {
+	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/css/login.css" />';
+}
+add_action( 'login_head', 'prh_login_form' );
