@@ -1,0 +1,24 @@
+#login h1 a, .login h1 a {
+    background-image: url("../images/optimized/logo-large.png") !important;
+    height:40px;
+    width:220px;
+    background-size: 220px 40px;
+    background-repeat: no-repeat;
+    padding-bottom: 30px;
+}
+#login h3 {
+    color: #fff;
+}
+#login #authy-onetouch h3 {
+    color: #444;
+}
+body {
+    background: #006bb8 !important;
+}
+.login #backtoblog a, .login #nav a {
+    color: ##fff !important;
+}
+
+.login #backtoblog a, .login #nav a {
+    color: #fff !important;
+}

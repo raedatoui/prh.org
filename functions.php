@@ -70,17 +70,23 @@ add_action( 'widgets_init', 'prh_wp_theme_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function prh_wp_theme_scripts() {
+
+function prh_styles() {
 	wp_enqueue_style( 'prh-wp-theme-style', get_template_directory_uri() . '/css/main.css' );
-	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto+Condensed:700|Roboto:400,400i,700,700i' );
+	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto+Condensed:700|Roboto:400,400i,700' );
+}
 
-	// TODO: check if this is needed
-	wp_enqueue_script('prh-wp-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
-
+function prh_scripts() {
 	wp_deregister_script( 'jquery' );
 	wp_deregister_script( 'wp-embed' );
+
+	wp_enqueue_script('mainjs', get_template_directory_uri() . '/js/bundle.js', array(), null, true );
+	wp_enqueue_script('vendor', get_template_directory_uri() . '/js/vendor.js', array(), null, true );
 }
-add_action( 'wp_enqueue_scripts', 'prh_wp_theme_scripts' );
+
+
+add_action( 'wp_enqueue_scripts', 'prh_styles' );
+add_action( 'wp_enqueue_scripts', 'prh_scripts' );
 
 /**
  * Custom functions & features from the theme.
