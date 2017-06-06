@@ -128,7 +128,6 @@
 
   a,
   button {
-    background-color: transparent;
     margin-right: 25px;
 
     &:focus {
@@ -136,12 +135,17 @@
     }
   }
 
+  .login-btn {
+    background-color: transparent;
+  }
+
+
   .menu-btn {
     margin-right: 0;
   }
 
   svg {
-    fill: none;
+    fill: none !important;
   }
 }
 
