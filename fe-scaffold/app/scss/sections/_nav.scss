@@ -8,6 +8,14 @@
   top: 0;
   z-index: 5;
 
+  .admin-bar & {
+    top: 45px;
+
+    @media (min-width: 783px) {
+      top: 32px;
+    }
+  }
+
   svg {
     stroke: #fff;
     width: 30px;
