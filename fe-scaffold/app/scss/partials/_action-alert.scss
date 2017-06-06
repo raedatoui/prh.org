@@ -5,12 +5,8 @@
   position: absolute;
   right: 0;
   text-align: center;
-  top: 65px;
+  top: 110px;
   width: 100%;
-
-  @include responsive-mq(md) {
-    top: 90px;
-  }
 
   span {
     display: block;
