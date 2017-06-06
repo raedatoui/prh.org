@@ -185,3 +185,9 @@ function prh_login_form() {
 	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/css/login.css" />';
 }
 add_action( 'login_head', 'prh_login_form' );
+
+function prh_custom_loginlogo_url( $url ) {
+	return esc_url( home_url( '/' ) );
+}
+add_filter( 'login_headerurl', 'prh_custom_loginlogo_url' );
+

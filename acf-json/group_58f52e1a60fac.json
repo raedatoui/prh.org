@@ -27,7 +27,7 @@
             "key": "field_58f52e566bb0f",
             "label": "Text",
             "name": "tab_card_text",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "Overview copy about the topic being covered in the tab. Example: 'American and state governments...'",
             "required": 1,
             "conditional_logic": 0,
@@ -37,10 +37,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": "wpautop"
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_58f52e7b6bb10",
@@ -151,7 +151,7 @@
                     "label": "Link",
                     "name": "cta_link",
                     "prefix": "acf",
-                    "type": "url",
+                    "type": "text",
                     "value": null,
                     "menu_order": 1,
                     "instructions": "",
@@ -169,7 +169,10 @@
                     "_prepare": 0,
                     "_valid": 1,
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -192,5 +195,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1494520948
+    "modified": 1496779358
 }
