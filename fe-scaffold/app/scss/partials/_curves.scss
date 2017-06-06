@@ -101,11 +101,11 @@
     display: block;
     height: 10vw;
     left: 0;
-    margin-top: 10px; // avoids hairline gaps; this works more reliably than calc()
+    margin-top: 5px; // avoids hairline gaps; this works more reliably than calc()
     padding: 0;
     position: absolute;
     right: 0;
-    top: -9.75vw;
+    top: -10vw;
   }
 }
 
