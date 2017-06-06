@@ -45,3 +45,9 @@
     color: #fff;
   }
 }
+
+.page-template-default {
+  main {
+    min-height: calc(100vh - 650px);
+  }
+}

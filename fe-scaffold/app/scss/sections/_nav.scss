@@ -128,6 +128,7 @@
 
   a,
   button {
+    background-color: transparent;
     margin-right: 25px;
 
     &:focus {
@@ -137,6 +138,10 @@
 
   .menu-btn {
     margin-right: 0;
+  }
+
+  svg {
+    fill: none;
   }
 }
 
