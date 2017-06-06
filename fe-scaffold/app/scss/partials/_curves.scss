@@ -101,7 +101,7 @@
     display: block;
     height: 10vw;
     left: 0;
-    margin-top: 2px; // this works more reliably than using calc() to set the top offset
+    margin-top: 5px; // avoids hairline gaps; this works more reliably than calc()
     padding: 0;
     position: absolute;
     right: 0;
@@ -142,6 +142,10 @@
 body .hero ~ .module {
   &.donate-module {
     @include donate-module-curves;
+
+    &::before {
+      height: 9vw;
+    }
   }
 
   &.footer-module {
