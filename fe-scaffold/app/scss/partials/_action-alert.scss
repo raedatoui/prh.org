@@ -8,8 +8,8 @@
   top: 60px;
   width: 100%;
 
-  @include responsive-mq(lg) {
-    top: 110px;
+  @include responsive-mq(md) {
+    top: 90px;
   }
 
   span {
