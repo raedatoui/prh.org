@@ -5,7 +5,7 @@
 		$overview_class = 'col-md-8';
 	}
 ?>
-<section class="overview module" id="<?php echo sanitize_title($module_title); ?>">
+<section class="overview module">
 	<div class="content">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 

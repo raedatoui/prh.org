@@ -1,5 +1,12 @@
+<?php 
+$module_slug = 'accordion-section';
+if ($module['config']['module_title'] !== null):
+	$module_slug = sanitize_title($module['config']['module_title']);
+endif;
+?>
 <section class="module">
 	<div class="content">
+	<a class="anchor" id="<?php echo $module_slug; ?>" aria-hidden="true">
 
 	<?php foreach ( $module[ACCORDION_SECTION['repeater']] as $group ): ?>
 		<?php $module_title = $group[ACCORDION_GROUP['title']]; ?>

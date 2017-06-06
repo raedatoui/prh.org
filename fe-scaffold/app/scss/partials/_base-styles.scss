@@ -57,6 +57,10 @@ a {
   transition: 0.15s color 0s;
 }
 
+a.anchor {
+  opacity: 0;
+}
+
 button {
   transition: 0.15s background-color 0s;
 }

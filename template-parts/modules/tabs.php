@@ -1,4 +1,4 @@
-<section class="module module__tabs" id="<?php echo sanitize_title($module_title); ?>">
+<section class="module module__tabs">
 	<div class="content">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 

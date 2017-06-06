@@ -121,7 +121,7 @@ class PageModules {
 			return $module['config'][MODULE_OPTIONS['title']];
 		};
 		$filter = function ( $module ) {
-			return $module['config'][MODULE_OPTIONS['use_jump_link']];
+			return ($module['config'][MODULE_OPTIONS['use_jump_link']] && $module['config'][MODULE_OPTIONS['title']]);
 		};
 		return array_map( $mapper, array_filter( $this->modules, $filter ) );
 	}
