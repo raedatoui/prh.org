@@ -39,6 +39,7 @@
     display: block;
     margin: auto;
     padding: 21px;
+    padding-right: 65px; // blocks off space for the X button
     text-decoration: none;
     transition: $fx-duration background 0s;
     width: 100%;
