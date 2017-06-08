@@ -15,7 +15,13 @@
 		if ( is_single() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			$link = esc_url( get_permalink() );
+			$target = '_self';
+			if (  get_post_type() == 'prh_news' ) {
+				$link = get_field( 'article_external_url');
+				$target = '_blank';
+			}
+			the_title( '<h2 class="entry-title"><a href="' . $link . '" rel="bookmark" target="' . $target . '">', '</a></h2>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) : ?>
