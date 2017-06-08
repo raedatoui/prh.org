@@ -18,10 +18,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<?php wp_head(); ?>
 
-
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-PDFCFTR');</script>
+		<!-- End Google Tag Manager -->
 	</head>
 
 	<body <?php body_class();?>>
+
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDFCFTR"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
 
 		<?php get_template_part('svg') ?>
 
@@ -68,7 +79,7 @@
 					<?php wp_nav_menu(array('theme_location' => 'menu-1')); ?>
 
 					<a href="https://secure2.convio.net/prch/site/Donation2?idb=1471799783&DONATION_LEVEL_ID_SELECTED=1&df_id=1542&mfc_pref=T&1542.donation=form1&idb=0" class="nav-btn donate-btn cta cta--red md-down">Donate</a>
-					
+
 				</nav>
 				</div>
 
