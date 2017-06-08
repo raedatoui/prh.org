@@ -6,11 +6,11 @@ endif;
 ?>
 <section class="module">
 	<div class="content">
-	<a class="anchor" id="<?php echo $module_slug; ?>" aria-hidden="true">
+	<a class="anchor" id="<?php echo $module_slug; ?>" aria-hidden="true"></a>
 
 	<?php foreach ( $module[ACCORDION_SECTION['repeater']] as $group ): ?>
 		<?php $module_title = $group[ACCORDION_GROUP['title']]; ?>
-		<section class="accordion-group" id="<?php echo sanitize_title($module_title); ?>">
+		<section class="accordion-group">
 
 			<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 

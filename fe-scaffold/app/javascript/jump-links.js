@@ -7,7 +7,7 @@ var jumpLinks = {
     var dest = document.querySelector(e.target.hash);
     jump(dest, {
         duration: 1000,
-        offset: -400,
+        offset: -200,
         a11y: true
       }
     );
