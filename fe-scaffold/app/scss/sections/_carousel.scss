@@ -62,8 +62,10 @@
   // text-decoration: underline;
 }
 
+// TODO: we're using some of this logic in spotlights now too; refactor accordingly
 .slide-half {
-
+  flex: 1 0 50%;
+  margin: auto;
   padding: 20px;
 
   img {
@@ -81,6 +83,7 @@
     &:nth-child(2) {
       flex: 1 0 50%;
       padding-left: 60px;
+      text-align: left;
     }
   }
 

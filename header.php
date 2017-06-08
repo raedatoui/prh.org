@@ -18,17 +18,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<?php wp_head(); ?>
 
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-PDFCFTR');</script>
+		<!-- End Google Tag Manager -->
 	</head>
 
 	<body <?php body_class();?>>
+
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDFCFTR"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
 
 		<?php get_template_part('svg') ?>
 
@@ -56,7 +60,7 @@
 						</svg>
 					</button>
 
-					<a href="/wp-login.php" class="nav-btn login-btn" title="Log in"> 
+					<a href="/wp-admin/profile.php" class="nav-btn login-btn" title="Log in">
 						<svg class="icon--person" role="presentation">
 							<use xlink:href="#icon--person" />
 						</svg>
@@ -75,7 +79,7 @@
 					<?php wp_nav_menu(array('theme_location' => 'menu-1')); ?>
 
 					<a href="https://secure2.convio.net/prch/site/Donation2?idb=1471799783&DONATION_LEVEL_ID_SELECTED=1&df_id=1542&mfc_pref=T&1542.donation=form1&idb=0" class="nav-btn donate-btn cta cta--red md-down">Donate</a>
-					
+
 				</nav>
 				</div>
 

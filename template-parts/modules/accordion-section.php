@@ -1,11 +1,18 @@
-<section class="module" id="<?php echo sanitize_title($module_title); ?>">
+<?php 
+$module_slug = 'accordion-section';
+if ($module['config']['module_title'] !== null):
+	$module_slug = sanitize_title($module['config']['module_title']);
+endif;
+?>
+<section class="module">
 	<div class="content">
+	<a class="anchor" id="<?php echo $module_slug; ?>" aria-hidden="true">
 
 	<?php foreach ( $module[ACCORDION_SECTION['repeater']] as $group ): ?>
-		<section class="accordion-group">
-			
-			<?php $module_title = $group[ACCORDION_GROUP['title']];
-						include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
+		<?php $module_title = $group[ACCORDION_GROUP['title']]; ?>
+		<section class="accordion-group" id="<?php echo sanitize_title($module_title); ?>">
+
+			<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 
 			<?php foreach ( $group[ACCORDION_GROUP['items']] as $item ): ?>
 				<h3 class="accordion-title">

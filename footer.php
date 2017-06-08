@@ -8,10 +8,9 @@
  *
  * @package prh-wp-theme
  */
-?>
-<?php
-$menu_ids = get_nav_menu_locations();
-?>
+
+$menu_ids = get_nav_menu_locations(); ?>
+
 		<footer id="colophon" class="site-footer footer-module module" role="contentinfo">
 
 			<div class="content">
@@ -57,29 +56,9 @@ $menu_ids = get_nav_menu_locations();
 
 	</div><!-- .page-container-->
 
-
-	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/bundle.js"></script>
-
-
-<script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
-
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
-
-  return t;
-}(document, "script", "twitter-wjs"));</script>
-
-<script type="text/javascript" src="http://platform.tumblr.com/v1/share.js"></script>
-
+	<?php include( locate_template( 'template-parts/components/back-to-top-button.php', false, false)); ?>
+	
+	<div id="fb-root"></div>
 	<?php wp_footer(); ?>
 
 </body>

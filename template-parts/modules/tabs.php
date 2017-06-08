@@ -1,4 +1,4 @@
-<section class="module module__tabs" id="<?php echo sanitize_title($module_title); ?>">
+<section class="module module__tabs">
 	<div class="content">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 
@@ -57,8 +57,9 @@
 									if ( $cta_label == "Donate" ) {
 										$cta_class = "cta cta--red";
 									}
+									$url = $cta[CTA_COMPONENT['link']];
 									?>
-									<a class="<?php echo $cta_class; ?>" href="<? echo $cta[CTA_COMPONENT['link']];?>">
+									<a class="<?php echo $cta_class; ?>" href="<? echo $url; ?>" target="<?php echo get_url_target( $url ); ?>">
 										<? echo $cta_label; ?>
 									</a>
 								<?php endif; ?>

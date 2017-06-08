@@ -1,0 +1,41 @@
+{
+    "key": "group_59271ce92bc59",
+    "title": "PRH in the News",
+    "fields": [
+        {
+            "key": "field_59271cf21b7ad",
+            "label": "External URL",
+            "name": "article_external_url",
+            "type": "url",
+            "instructions": "External URL for articles",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "prh_news"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "is_acf_component": 0,
+    "modified": 1496382130
+}

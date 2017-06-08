@@ -3,10 +3,19 @@
   // background-color: $prh-blue-lt;
   background-color: color(button-blue);
   left: 0;
+  margin-top: -1px; // fixes an occasional gap under the admin bar
   position: fixed;
   right: 0;
   top: 0;
   z-index: 5;
+
+  .admin-bar & {
+    top: 45px;
+
+    @media (min-width: 783px) {
+      top: 32px;
+    }
+  }
 
   svg {
     stroke: #fff;
@@ -135,11 +144,23 @@
     }
   }
 
+  .login-btn {
+    background-color: transparent;
+  }
+
+
   .menu-btn {
     margin-right: 0;
   }
+
+  svg {
+    fill: none !important;
+  }
 }
 
+.icon--person {
+  fill: none;
+}
 
 .logo .logo-svg {
   height: 100%;
@@ -156,6 +177,13 @@
   right: 0;
   top: 0;
   z-index: 3;
+}
+
+@include responsive-mq(sm) {
+  .menu-main-menu-container {
+    margin-left: 20px;
+    width: auto;
+  }
 }
 
 @include responsive-mq(md) {
@@ -194,7 +222,7 @@
   }
 
   .menu-main-menu-container {
-    margin-left: 80px;
+    margin-left: 20px;
     width: auto;
   }
 
@@ -207,6 +235,8 @@
     a {
       border-bottom-width: 0;
     }
+
+    > li > a { white-space: nowrap; }
   }
 
   .sub-menu {
@@ -259,5 +289,11 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+@include responsive-mq(lg) {
+  .menu-main-menu-container {
+    margin-left: 80px;
   }
 }

@@ -70,17 +70,23 @@ add_action( 'widgets_init', 'prh_wp_theme_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function prh_wp_theme_scripts() {
+
+function prh_styles() {
 	wp_enqueue_style( 'prh-wp-theme-style', get_template_directory_uri() . '/css/main.css' );
-	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto+Condensed:700|Roboto:400,400i,700,700i' );
+	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto+Condensed:700|Roboto:400,400i,700' );
+}
 
-	// TODO: check if this is needed
-	wp_enqueue_script('prh-wp-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
-
+function prh_scripts() {
 	wp_deregister_script( 'jquery' );
 	wp_deregister_script( 'wp-embed' );
+
+	wp_enqueue_script('mainjs', get_template_directory_uri() . '/js/bundle.js', array(), null, true );
+	wp_enqueue_script('vendor', get_template_directory_uri() . '/js/vendor.js', array(), null, true );
 }
-add_action( 'wp_enqueue_scripts', 'prh_wp_theme_scripts' );
+
+
+add_action( 'wp_enqueue_scripts', 'prh_styles' );
+add_action( 'wp_enqueue_scripts', 'prh_scripts' );
 
 /**
  * Custom functions & features from the theme.
@@ -95,6 +101,8 @@ require get_template_directory() . '/inc/acf.php';
 require get_template_directory() . '/inc/metaboxes.php';
 require get_template_directory() . '/inc/admin-menu.php';
 require get_template_directory() . '/inc/widgets.php';
+require get_template_directory() . '/inc/dashboard.php';
+require get_template_directory() . '/inc/members.php';
 
 /**
  * Misc settings, excerpt rules
@@ -145,3 +153,41 @@ function prh_only_allow_logged_in_rest_access( $access ) {
 	return $access;
 }
 add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );
+
+// Add specific CSS class by filter
+function prh_extra_body_class( $classes ) {
+	if ( is_archive() && get_post_type() == 'prh_events') {
+		$classes[] = 'page page-template';
+	}
+	return $classes;
+}
+
+add_filter( 'body_class', 'prh_extra_body_class' );
+
+
+function get_url_target( $url ) {
+	// Parse home URL and parameter URL
+	$link_url = parse_url( $url );
+	$home_url = parse_url( "http://" . $_SERVER['HTTP_HOST'] );
+
+	// Decide on target
+	if( $link_url['host'] == $home_url['host'] ) {
+		// Is an internal link
+		$target = '_self';
+	} else {
+		// Is an external link
+		$target = '_blank';
+	}
+	return $target;
+}
+
+function prh_login_form() {
+	echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/css/login.css" />';
+}
+add_action( 'login_head', 'prh_login_form' );
+
+function prh_custom_loginlogo_url( $url ) {
+	return esc_url( home_url( '/' ) );
+}
+add_filter( 'login_headerurl', 'prh_custom_loginlogo_url' );
+

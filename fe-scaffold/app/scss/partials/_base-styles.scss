@@ -40,10 +40,13 @@ section {
 
 // Responsive show/hide helpers
 // specificity hack because these come early in the css
-
+// Two declarations here because IE11 doesn't seem to get 'initial' right.
 .md-up.md-up {
   display: none;
-  @include responsive-mq(md) { display: initial; }
+  @include responsive-mq(md) { 
+    display: block;
+    display: initial;
+  }
 }
 
 .md-down.md-down {
@@ -55,6 +58,10 @@ section {
 
 a {
   transition: 0.15s color 0s;
+}
+
+a.anchor {
+  opacity: 0;
 }
 
 button {

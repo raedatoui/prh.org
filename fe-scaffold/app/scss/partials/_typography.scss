@@ -1,13 +1,13 @@
 %headline {
   font-weight: 400;
   letter-spacing: em((-25/1000), 54px);
-  line-height: lh(45, 40);
+  line-height: lh(54, 40);
   @include lora();
 }
 
 %h1 {
   @extend %headline;
-  font-size: 40px;
+  font-size: 35px;
 
   @include responsive-mq("sm") {
     font-size: 54px;
@@ -91,6 +91,7 @@ a {
   @extend %headline;
   font-size: em(28px);
   line-height: (42 / 28);
+  text-align: center;
 }
 
 .utility-copy {

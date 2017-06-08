@@ -2,6 +2,10 @@
   margin-bottom: 40px;
 }
 
+.resources-sidebar {
+  margin-bottom: 50px;
+}
+
 .resources-sidebar,
 .sidebar-block {
   padding: 0;
@@ -42,13 +46,15 @@
 
   li {
     display: block;
+    font-size: inherit;
+    margin-bottom: 0;
 
     &:not(:last-child) {
       margin-bottom: 0.25em;
     }
 
     &::before {
-      background-image: image("pink-dot.png");
+      background-image: image("particles/pink-dot.png");
       content: "";
       display: inline-block;
       height: 15px;

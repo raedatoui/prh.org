@@ -27,7 +27,7 @@
             "key": "field_58e1c136a8dff",
             "label": "Link",
             "name": "cta_link",
-            "type": "url",
+            "type": "text",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -37,7 +37,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": ""
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -58,5 +61,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1492545548
+    "modified": 1495643765
 }

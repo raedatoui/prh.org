@@ -1,0 +1,80 @@
+.action-alert {
+  left: 0;
+  margin: 10px auto;
+  max-width: $base-page-max-width;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 100%;
+
+  span {
+    display: block;
+    margin-bottom: 8px;
+    padding-right: 2em;
+
+    &::before {
+      background: color(navy);
+      border-radius: 50%;
+      color: #fc9993;
+      content: "!";
+      display: inline-block;
+      font-size: 18px;
+      height: 1em;
+      margin-right: 1em;
+      text-align: center;
+      text-indent: 4px;
+      width: 1em;
+    }
+
+    @include responsive-mq(sm) {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    background:  #fc9993;
+    color: color(navy);
+    display: block;
+    margin: auto;
+    padding: 21px;
+    padding-right: 65px; // blocks off space for the X button
+    text-decoration: none;
+    transition: $fx-duration background 0s;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+      background: #fabab4;
+      color: color(navy);
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 40px;
+    padding: 0 10px;
+    border-radius: 50%;
+    background: #fc9993;
+
+    &:hover,
+    &:focus {
+      background: #fabab4;
+    }
+
+    svg {
+      pointer-events: none; // otherwise it can interfere with the title tooltip appearing
+      stroke: color(navy);
+      max-width: 100%;
+    }
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+}

@@ -11,12 +11,16 @@ import collapsible from './collapsible';
 import accordion from './accordion';
 import nav from './nav';
 import jumpLinks from './jump-links';
+import backToTop from './back-to-top';
+import alertBanner from './action-alert.js';
 
 function init(){
 
 	nav.init();
 	accordion.init();
 	collapsible.init();
+	backToTop.init();
+	alertBanner.init();
 
 	let carousel = document.querySelector('.carousel'),
 			tabs = document.querySelector('.tab-accordion'),
@@ -37,27 +41,12 @@ function init(){
 	}
 
 	if (carousel) {
-		let flickity = new Flickity(carousel, {
+		new Flickity(carousel, {
 			cellAlign: 'left',
 			imagesLoaded: true,
 			adaptiveHeight: true,
 			wrapAround: 'true'
 		});
-	}
-
-	let fbLinks = document.querySelectorAll('.fb-link');
-	if (fbLinks.length > 0) {
-		
-		for (let i = 0; i < fbLinks.length; i++) {
-			fbLinks[i].addEventListener('click', function(e) {
-				e.preventDefault();
-
-				FB.ui({
-				  method: 'share',
-				  href: window.location.href,
-				}, function(response){});
-			})
-		}
 	}
 
 	if (tabs) {
@@ -72,7 +61,7 @@ function init(){
 	if (cards.length > 0) {
 		var instances = [];
 		for(let i = 0; i < cards.length; i++) {
-			var instance = Macy({
+			let instance = Macy({
 				container: '#'+cards[i].id,
 				trueOrder: true,
 				waitForImages: false,

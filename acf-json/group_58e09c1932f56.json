@@ -321,15 +321,44 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
+                            "ID": 15054,
+                            "key": "field_5916021a2126d",
+                            "label": "Eyebrow",
+                            "name": "stat_eyebrow",
+                            "prefix": "acf",
+                            "type": "text",
+                            "value": null,
+                            "menu_order": 0,
+                            "instructions": "Short header that describes the topic of the stat; keep this to a few words at most.",
+                            "required": 0,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": 0,
+                            "parent": 14612,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "_name": "stat_eyebrow",
+                            "_prepare": 0,
+                            "_valid": 1,
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "ID": 14613,
                             "key": "field_58e33c8224087",
                             "label": "Number",
                             "name": "stat_number",
                             "prefix": "acf",
-                            "type": "number",
+                            "type": "text",
                             "value": null,
-                            "menu_order": 0,
-                            "instructions": "",
+                            "menu_order": 1,
+                            "instructions": "The numerical part of this stat. For large numbers, use abbreviations (1K, 1M, etc).",
                             "required": 1,
                             "id": "",
                             "class": "",
@@ -344,14 +373,10 @@
                             "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
-                            "placeholder": "",
+                            "placeholder": "3, 99, $1M, etc",
                             "prepend": "",
                             "append": "",
-                            "min": "",
-                            "max": "",
-                            "step": "",
-                            "readonly": 0,
-                            "disabled": 0
+                            "maxlength": ""
                         },
                         {
                             "ID": 14614,
@@ -361,8 +386,8 @@
                             "prefix": "acf",
                             "type": "text",
                             "value": null,
-                            "menu_order": 1,
-                            "instructions": "",
+                            "menu_order": 2,
+                            "instructions": "Part two of the stat figure, after the number.",
                             "required": 1,
                             "id": "",
                             "class": "",
@@ -377,12 +402,39 @@
                             "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
+                            "placeholder": "women, dollars, lives saved, etc",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "ID": 15055,
+                            "key": "field_591602e72126e",
+                            "label": "Summary",
+                            "name": "stat_summary",
+                            "prefix": "acf",
+                            "type": "text",
+                            "value": null,
+                            "menu_order": 3,
+                            "instructions": "Additional context for the stat; appears below the number and text.",
+                            "required": 0,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": 0,
+                            "parent": 14612,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "_name": "stat_summary",
+                            "_prepare": 0,
+                            "_valid": 1,
+                            "default_value": "",
                             "placeholder": "",
                             "prepend": "",
                             "append": "",
-                            "maxlength": "",
-                            "readonly": 0,
-                            "disabled": 0
+                            "maxlength": ""
                         }
                     ]
                 }
@@ -395,6 +447,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "default"
             }
         ]
     ],
@@ -407,5 +464,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494569004
+    "modified": 1495571963
 }

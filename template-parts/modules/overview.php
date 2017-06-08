@@ -5,7 +5,7 @@
 		$overview_class = 'col-md-8';
 	}
 ?>
-<section class="overview module" id="<?php echo sanitize_title($module_title); ?>">
+<section class="overview module">
 	<div class="content">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 
@@ -46,9 +46,12 @@
 						</h2>
 
 						<ul class="sidebar-links resources-links">
-							<?php foreach ( $module[$module['config']['resources_links']] as $index => $link ): ?>
+							<?php foreach ( $module[$module['config']['resources_links']] as $index => $link ):
+								$url = $link[$module['config']['resources_link_url']];
+								?>
+
 								<li>
-									<a href="<?php echo $link[$module['config']['resources_link_url']]; ?>" class="resource-link">
+									<a href="<?php echo $url; ?>" class="resource-link" target="<?php echo get_url_target( $url ); ?>">
 										<?php echo $link[$module['config']['resources_link_text']]; ?>
 									</a>
 								</li>

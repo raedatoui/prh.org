@@ -87,8 +87,10 @@
 
 ///////////////////////////////
 
-.page-template .hero ~ .module {
-  padding-bottom: 11vw; // This should be a little more than the curve height set below
+.page-template .hero ~ .module,
+.story-main-module,
+.latest-articles-module,
+.footer-module {
   position: relative;
 
   &::before {
@@ -99,18 +101,22 @@
     display: block;
     height: 10vw;
     left: 0;
-    margin-top: 2px; // this works more reliably than using calc() to set the top offset
+    margin-top: 5px; // avoids hairline gaps; this works more reliably than calc()
     padding: 0;
     position: absolute;
     right: 0;
     top: -10vw;
   }
+}
+
+.page-template .hero ~ .module {
+  padding-bottom: 11vw; // This should be a little more than the curve height set below
 
   &:nth-child(even) {
     @include module-curves(cream);
 
     &.stats {
-      background-image: image("tan-particles-bg.png");
+      background-image: image("particles/tan-particles-bg.png");
     }
 
     .module-overlay {
@@ -123,7 +129,7 @@
     @include module-curves(peach);
 
     &.stats {
-      background-image: image("peach-particles-bg.png");
+      background-image: image("particles/peach-particles-bg.png");
     }
 
     .module-overlay {
@@ -131,12 +137,35 @@
       stroke: color(peach-overlay);
     }
   }
+}
 
+body .hero ~ .module {
   &.donate-module {
     @include donate-module-curves;
+
+    &::before {
+      height: 9vw;
+    }
   }
 
   &.footer-module {
     @include footer-module-curves;
+  }
+}
+
+// Story template
+.story-main-module {
+  @include module-curves(cream);
+}
+
+// Article template
+.latest-articles-module {
+  @include module-curves(peach);
+  margin-top: 8vw;
+  padding-bottom: 11vw;
+  padding-top: 30px;
+
+  @include responsive-mq(sm) {
+    padding-top: 0;
   }
 }

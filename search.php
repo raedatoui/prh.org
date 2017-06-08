@@ -20,7 +20,7 @@ $cats = get_categories();
 ?>
 
 	<!-- Persistent search bar above the results -->
-	<div class="search-open hero search-hero">
+	<div class="search-open hero search-hero" id="hero">
 		<div id="search-bar" class="search-bar">
 			<div class="content search-bar-content">
 			<?php get_search_form(); ?>
@@ -44,7 +44,6 @@ $cats = get_categories();
 				$active_search_query = get_search_query();
 				$active_type_query = $wp_query->query_vars['post_type'];
 				$active_cat_query = $wp_query->query_vars['category_name'];
-				$active_cat_name = get_category($wp_query->query_vars['cat'])->name;
 
 				if ($active_type_query && $active_type_query != 'any' && $active_type_query != '') {
 					$type_queried = true;
@@ -52,6 +51,7 @@ $cats = get_categories();
 
 				if ($active_cat_query && $active_cat_query != 'any' && $active_cat_query != '') {
 					$cat_queried = true;
+					$active_cat_name = get_category($wp_query->query_vars['cat'])->name;
 				}
 
 				$base_query =  '/?s=' . $active_search_query;
@@ -63,15 +63,18 @@ $cats = get_categories();
 
 				<header class="page-header row">
 					<h2 class="page-title search-page-title col-xs">
-						<?php printf( esc_html__( '%s results for &ldquo;%s&rdquo;', 'prh-wp-theme' ), $total_results, '<span class="search-query-term">' . get_search_query() . '</span>' ); ?>
+						<?php printf( '%s results <span class="search-query-term md-up"> for &ldquo;%s&rdquo;</span>', $total_results,  get_search_query() ); ?>
 					</h2>
+
+					<!-- This triggers a checkbox a bit further down in the html...no-JS menu toggling? Sure! -->
+					<label for="show-filters" class="md-down cta filters-button">Filters</label>
 				</header><!-- .page-header -->
 
 				<?php if ($type_queried || $cat_queried): ?>
 					<div class="filter-row row">
 						<div class="col-xs-12 col-md-9 col-lg-8">
 							<div class="row">
-								<div class="col-xs-2 filter-label">My Filters:</div>
+								<div class="col-xs-2 col-md filter-label">My Filters:</div>
 								<div class="col-xs col-md-7">
 									<ul class="active-filters filter-list">
 
@@ -94,7 +97,7 @@ $cats = get_categories();
 
 									</ul>
 								</div>
-								<div class="col-xs-12 col-sm-3 filter-cancel">
+								<div class="col-xs-12 col-sm-3 col-md-3 filter-cancel">
 									<a href="<?php echo $base_query; ?>">Clear all selections</a>
 								</div>
 							</div>
@@ -118,8 +121,8 @@ $cats = get_categories();
 						?>
 					</div>
 
-
 					<!-- Right side (filtering) -->
+					<input id="show-filters" type="checkbox" class="show-filters">
 					<div class="sidebar post-sidebar col-xs-12 col-md-3 col-lg-offset-1 search-filters">
 						<aside class="sidebar-block types-filter-block">
 							<div class="sidebar-content">

@@ -66,11 +66,16 @@ $nav-height-lg: 80px;
 }
 
 .shiny-hero {
-  background-image: image("hero-particles.png"), $gradient-linear-blue;
-  background-size: 100vh auto, auto;
+  background-image: image("particles/hero-particles.png"), $gradient-linear-blue;
+  background-size: auto 150%, auto;
+
+  .home & {
+    background-size: auto 100%, auto;
+  }
 
   @include responsive-mq(lg) {
     background-size: auto, auto;
+
   }
 
   .hero__header {
@@ -83,4 +88,15 @@ $nav-height-lg: 80px;
     position: absolute;
     width: 100%;
   }
+}
+
+.story-hero {
+  background-image: image("particles/story-particles.png"), $gradient-linear-blue;
+  background-repeat: no-repeat, repeat-x;
+  background-size: auto, auto;
+  text-align: left;
+}
+
+.home .hero {
+  position: relative;
 }

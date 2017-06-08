@@ -44,7 +44,7 @@ class PageModules {
 		if ( $has_hero ) {
 			$this->hero = $this->modules[$hero_name];
 			$this->hero['config'] = MODULES[$hero_name];
-			unset( $this->modules[$hero_key] );
+			unset( $this->modules[$hero_name] );
 		}
 
 		if ( $has_donate ) {
@@ -117,13 +117,25 @@ class PageModules {
 	}
 
 	function module_titles() {
-		$func = function ( $module ) {
+		$mapper = function ( $module ) {
 			return $module['config'][MODULE_OPTIONS['title']];
 		};
 		$filter = function ( $module ) {
-			return $module['config'][MODULE_OPTIONS['use_jump_link']];
+			return ($module['config'][MODULE_OPTIONS['use_jump_link']] && $module['config'][MODULE_OPTIONS['title']]);
 		};
-		return array_map( $func, array_filter( $this->modules, $filter ) );
+
+		return array_map( $mapper, array_filter( $this->modules, $filter ) );
+	}
+
+	function accordion_titles() {
+		$mapper = function ( $group ) {
+			return $group[ACCORDION_GROUP['title']];
+		};
+		$filter = function ( $group ) {
+			return $group[ACCORDION_GROUP['use_jump_link']];
+		};
+		$section = $this->modules[ACCORDION_SECTION['name']];
+		return array_map( $mapper, array_filter( $section[ACCORDION_SECTION['repeater']], $filter ) );
 	}
 
 	function jump_links() {
@@ -132,7 +144,16 @@ class PageModules {
 			$jump_links[$index]['pretty'] = $title;
 			$jump_links[$index]['slug'] = sanitize_title($title);
 		}
-		return $jump_links;
+
+		$accordion_links = array();
+		if ( in_array( ACCORDION_SECTION['name'], $this->keys ) ) {
+			$accordions = $this->accordion_titles();
+			foreach ( $accordions as $index => $title ) {
+				$accordion_links[$index]['pretty'] = $title;
+				$accordion_links[$index]['slug'] = sanitize_title($title);
+			}
+		}
+		return array_merge( $jump_links, $accordion_links ) ;
 	}
 
 	function render_hero() {
@@ -193,7 +214,36 @@ class PageModules {
 				$args['post_type'] = $module[AGGREGATE_BY_POST_TYPE['post_type']];
 				$args['posts_per_page'] = $module[AGGREGATE_BY_POST_TYPE['count']];
 				break;
+			case AGGREGATE_BY_TAG['name']:
+				$args['tag'] = $module[AGGREGATE_BY_TAG['tag']]->slug;
+				$args['post_type'] = CONTENT_TYPES_FOR_AGGREGATION;
+				$args['posts_per_page'] = $module[AGGREGATE_BY_TAG['count']];
+				break;
 		}
 		return new WP_Query( $args );
 	}
 }
+
+/**
+ * Compute the anchor field from the group title. This function is only called
+ * for pages that use the Accordion Section group.
+ */
+function prh_acf_update_accordions( $value, $post_id, $field  ) {
+
+	remove_filter('acf/update_value/name=accordion_groups', 'prh_acf_update_accordions', 10, 3);
+
+	$groups = get_field( $field['name'], $post_id );
+	$permalink = get_the_permalink( $post_id );
+
+	foreach ( $groups as $index => $group ) {
+		$title = $group[ACCORDION_GROUP['title']];
+		$anchor = $permalink . "#" . sanitize_title( $title );
+		$group[ACCORDION_GROUP['anchor']] = $anchor;
+		$groups[$index] = $group;
+	}
+
+	update_field( $field['key'], $groups, $post_id );
+	add_filter( 'acf/update_value/name=accordion_groups', 'prh_acf_update_accordions', 10, 3 );
+	return $value;
+}
+add_filter( 'acf/update_value/name=accordion_groups', 'prh_acf_update_accordions', 10, 3 );

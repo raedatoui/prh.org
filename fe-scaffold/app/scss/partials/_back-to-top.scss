@@ -1,0 +1,51 @@
+.back-to-top {
+  bottom: 10px;
+  height: 50px;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 10px;
+  transform: translateY(10px);
+  transition: 0s pointer-events, $fx-duration opacity 0.1s, $fx-duration transform 0.1s;
+  width: 50px;
+  z-index: 3;
+
+  svg {
+    fill: color(navy);
+    stroke: none;
+    pointer-events: none;
+  }
+
+  a,
+  svg {
+    display: block;
+    height: 100%;
+    outline: none;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition: $fx-duration opacity 0s, $fx-duration transform 0s, 0s pointer-events $fx-duration;
+
+    a {
+      svg {
+        transition: $fx-duration fill;
+      }
+
+      &:hover,
+      &:focus {
+        svg {
+          fill: color(blue);
+        }
+      }
+    }
+  }
+}

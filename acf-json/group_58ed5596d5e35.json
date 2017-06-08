@@ -533,6 +533,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "default"
             }
         ]
     ],
@@ -545,5 +550,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494569035
+    "modified": 1495571978
 }

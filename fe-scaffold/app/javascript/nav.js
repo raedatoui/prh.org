@@ -8,19 +8,19 @@ var nav = {
         $menuItems = $nav.querySelectorAll('.menu > li'),
         $mask = document.querySelector('.nav-mask'),
         $searchButton = document.querySelector('#site-search-btn'),
-        
+
         // Track the focusable elements so we can trap focus in the menu
         $focusables = (function getFocusables() {
           var focusables = [$menuButton],
               $links = $nav.querySelectorAll('a'),
               $buttons = $nav.querySelectorAll('button');
 
-          Array.prototype.forEach.call($links, function($link) { 
-            focusables.push($link); 
+          Array.prototype.forEach.call($links, function($link) {
+            focusables.push($link);
           });
 
-          Array.prototype.forEach.call($buttons, function($button) { 
-            focusables.push($button); 
+          Array.prototype.forEach.call($buttons, function($button) {
+            focusables.push($button);
           });
 
           return focusables;
@@ -28,14 +28,14 @@ var nav = {
 
         // Here's the trap!
         handleBlur = function(e) {
-          if( $focusables.lastIndexOf(e.target) == $focusables.length - 1) {
+          if( $focusables.lastIndexOf(e.target) === $focusables.length - 1) {
             $menuButton.focus();
           }
         },
 
         // Listen for 'esc' if the menu's open
         handleKeyup = function(e) {
-          if (e.key === "Escape" | e.key === "Esc") {
+          if (e.key === 'Escape' | e.key === 'Esc') {
             closeNav();
           }
         },
