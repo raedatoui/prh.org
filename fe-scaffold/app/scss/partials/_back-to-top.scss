@@ -12,6 +12,7 @@
 
   svg {
     fill: color(navy);
+    stroke: none;
     pointer-events: none;
   }
 
@@ -19,7 +20,13 @@
   svg {
     display: block;
     height: 100%;
+    outline: none;
     width: 100%;
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   }
 
   &.is-visible {
