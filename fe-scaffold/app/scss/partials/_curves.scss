@@ -165,8 +165,4 @@ body .hero ~ .module {
   margin-top: 8vw;
   padding-bottom: 11vw;
   padding-top: 30px;
-
-  @include responsive-mq(sm) {
-    padding-top: 0;
-  }
 }
