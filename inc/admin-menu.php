@@ -262,3 +262,19 @@ function prh_options_page() { ?>
 	<?php
 }
 
+
+// remove links/menus from the admin bar
+function mytheme_admin_bar_render() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_node('new-post');
+	$new = $wp_admin_bar->get_node('new-content');
+	$args = array(
+		'id'     => $new->id,     // id of the existing child node (New > Post)
+		'title'  => $new->title, // alter the title of existing node
+		'parent' => $new->parent,          // set parent to false to make it a top level (parent) node
+		'group' => $new->group,
+		'href' => '/wp-admin/index.php'
+	);
+	$wp_admin_bar->add_node($args);
+}
+add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
