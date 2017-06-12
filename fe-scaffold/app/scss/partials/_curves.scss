@@ -146,7 +146,7 @@ body .hero ~ .module {
     @include donate-module-curves;
 
     &::before {
-      background-position-y: -20px; // IE fix
+      background-position-y: -2px; // IE fix
       height: 9vw;
     }
   }
