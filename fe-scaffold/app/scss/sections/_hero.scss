@@ -1,6 +1,6 @@
 $mob-header-height: 180px;
 
-$nav-height-sm: 62px;
+$nav-height-sm: 61px;
 $nav-height-lg: 80px;
 
 //HERO SECTION
@@ -31,6 +31,7 @@ $nav-height-lg: 80px;
     line-height: lh(24, 14);
     margin: 0 2vw;
     padding-bottom: 1px;
+    white-space: nowrap;
 
     @include responsive-mq(md) {
       font-size: 18px;
