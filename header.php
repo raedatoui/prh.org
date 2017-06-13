@@ -44,13 +44,13 @@
 			<header role="banner" class="site-header" id="site-header">
 			<div class="site-nav-wrap">
 				<a href="/" class="logo col-sm-3 col-md-3">
-						<svg class="logo-svg logo-large md-up" role="presentation">
+						<svg class="logo-svg logo-large role="presentation">
 							<use xlink:href="#logo-large" />
 						</svg>
-						<svg class="logo-svg logo-small md-down" role="presentation">
+						<svg class="logo-svg logo-small" role="presentation">
 							<use xlink:href="#logo-small" />
 						</svg>
-					<span class="visually-hidden">PRH Homepage</span>
+					<span class="visually-hidden">Physicians for Reproductive Health: Homepage</span>
 				</a>
 
 				<div class="nav-ui">

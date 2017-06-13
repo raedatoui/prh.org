@@ -1,3 +1,5 @@
+$nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space we need to fit things neatly
+
 #wpadminbar {
   position: fixed;
 }
@@ -60,6 +62,19 @@
   padding: 0;
   position: relative;
   width: 41px;
+}
+
+.logo-large {
+  display: none;
+  @media (min-width: $nav-breakpoint) {
+    display: block;
+  }
+}
+
+.logo-small {
+  @media (min-width: $nav-breakpoint) {
+    display: none;
+  }
 }
 
 .site-nav {
@@ -190,6 +205,26 @@
   }
 }
 
+@media (min-width: 62em) and (max-width: $nav-breakpoint) {
+  .logo {
+    flex-basis: 80px;
+    height: 40px;
+    left: 20px;
+    padding-right: 40px;
+    width: 80px;
+  }
+}
+
+@media (min-width: $nav-breakpoint) {
+  .logo {
+    flex-basis: 220px;
+    height: 40px;
+    left: 20px;
+    padding-right: 0;
+    width: 220px;
+  }
+}
+
 @include responsive-mq(md) {
 
   .site-header {
@@ -199,12 +234,7 @@
     svg { height: 30px; }
   }
 
-  .logo {
-    flex-basis: 220px;
-    height: 40px;
-    left: 20px;
-    width: 220px;
-  }
+
 
   .logo .logo-svg {
     height: 100%;
@@ -297,6 +327,7 @@
 }
 
 @include responsive-mq(lg) {
+
   .menu-main-menu-container {
     margin-left: 80px;
   }
