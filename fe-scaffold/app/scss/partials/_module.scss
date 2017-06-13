@@ -51,3 +51,16 @@
     min-height: calc(100vh - 650px);
   }
 }
+
+
+@media (max-width: 480px) {
+  .module__aggregate-card,
+  .single .module,
+  .module__quote,
+  .info-module,
+  .routing,
+  .footer-module {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
