@@ -164,8 +164,16 @@ function prh_extra_body_class( $classes ) {
 
 add_filter( 'body_class', 'prh_extra_body_class' );
 
-
+/**
+ * Helper function that determines the target attribute of an anchor tag based
+ * on the href.
+ * @param $url
+ * @return string
+ */
 function get_url_target( $url ) {
+	if ( substr( $url , 0, 7 ) === "mailto:" ) {
+		return '_self';
+	}
 	// Parse home URL and parameter URL
 	$link_url = parse_url( $url );
 	$home_url = parse_url( "http://" . $_SERVER['HTTP_HOST'] );
@@ -191,3 +199,9 @@ function prh_custom_loginlogo_url( $url ) {
 }
 add_filter( 'login_headerurl', 'prh_custom_loginlogo_url' );
 
+function sanitize_module_title( $module_title) {
+	if ( preg_match('/^\d/', $module_title) === 1 ) {
+		$module_title = 'prh-' . $module_title;
+	}
+	return sanitize_title($module_title);
+}

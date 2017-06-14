@@ -142,7 +142,7 @@ class PageModules {
 		$jump_links = array();
 		foreach ( $this->module_titles() as $index => $title ) {
 			$jump_links[$index]['pretty'] = $title;
-			$jump_links[$index]['slug'] = sanitize_title($title);
+			$jump_links[$index]['slug'] = sanitize_module_title($title);
 		}
 
 		$accordion_links = array();
@@ -150,7 +150,7 @@ class PageModules {
 			$accordions = $this->accordion_titles();
 			foreach ( $accordions as $index => $title ) {
 				$accordion_links[$index]['pretty'] = $title;
-				$accordion_links[$index]['slug'] = sanitize_title($title);
+				$accordion_links[$index]['slug'] = sanitize_module_title($title);
 			}
 		}
 		return array_merge( $jump_links, $accordion_links ) ;
@@ -237,7 +237,7 @@ function prh_acf_update_accordions( $value, $post_id, $field  ) {
 
 	foreach ( $groups as $index => $group ) {
 		$title = $group[ACCORDION_GROUP['title']];
-		$anchor = $permalink . "#" . sanitize_title( $title );
+		$anchor = $permalink . "#" . sanitize_module_title( $title );
 		$group[ACCORDION_GROUP['anchor']] = $anchor;
 		$groups[$index] = $group;
 	}
