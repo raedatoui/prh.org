@@ -1,7 +1,7 @@
 <?php 
 $module_slug = 'accordion-section';
 if ($module['config']['module_title'] !== null):
-	$module_slug = sanitize_title($module['config']['module_title']);
+	$module_slug = sanitize_module_title($module['config']['module_title']);
 endif;
 ?>
 <section class="module">
