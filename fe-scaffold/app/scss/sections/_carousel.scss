@@ -97,11 +97,11 @@
 .flickity-prev-next-button {
 
   &.next {
-    right: -40px;
+    right: -20px;
   }
 
   &.previous {
-    left: -40px;
+    left: -20px;
   }
 
   .arrow {
@@ -115,6 +115,14 @@
   &:hover {
     .arrow {
       fill: mix(color(blue), color(sky));
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .touchevents {
+    .flickity-prev-next-button {
+      display: none;
     }
   }
 }
