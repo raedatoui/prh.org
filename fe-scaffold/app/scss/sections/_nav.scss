@@ -10,11 +10,17 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
   background-color: color(button-blue);
   left: 0;
   margin-top: -1px; // fixes an occasional gap under the admin bar
-  position: fixed;
+
   right: 0;
   top: 0;
   z-index: 5;
 
+  position: fixed;
+  @media screen and (max-width: 991px) and (max-height: 750px) {
+    &.is-expanded {
+      position: absolute;
+    }
+  }
   .admin-bar & {
     top: 45px;
 
