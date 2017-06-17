@@ -9,11 +9,20 @@ var jumpLinks = {
 
     e.preventDefault();
     var dest = document.querySelector(e.target.hash),
-        offset = this.baseOffset;
+        offset = this.baseOffset,
+        isNavFixed = !!(window.getComputedStyle(this.nav, null).position == 'fixed');
 
-    offset -= this.nav.clientHeight;
+
+    if (isNavFixed) {
+      offset -= this.nav.clientHeight;
+    }
+
     if (this.adminBar) {
       offset -= this.adminBar.clientHeight;
+    }
+
+    if(e.target.hash == '#hero') {
+      offset -= this.nav.clientHeight;
     }
 
     jump(dest, {

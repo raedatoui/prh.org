@@ -17,9 +17,7 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
 
   position: fixed;
   @media screen and (max-width: 991px) and (max-height: 750px) {
-    &.is-expanded {
-      position: absolute;
-    }
+    position: absolute;
   }
   .admin-bar & {
     top: 45px;
