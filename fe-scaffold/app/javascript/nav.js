@@ -1,3 +1,5 @@
+// All the logic for the nav lives here: dropdown hide/show,
+// small-screen "hamburger button" behavior, and the search bar.
 var nav = {
   init: function() {
 
@@ -86,7 +88,6 @@ var nav = {
         },
 
         // Toggle the visibility of the search bar when the [Q] is cicked
-
         toggleSearchBar = function() {
           if ($header.classList.contains('search-open')) {
             $header.classList.remove('search-open');
@@ -100,7 +101,6 @@ var nav = {
 
 
     // Add event listeners
-
     for (var i = 0; i < $triggers.length; i++) {
       let trigger = $triggers[i];
       trigger.addEventListener('click', expandSubnav);
