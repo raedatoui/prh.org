@@ -40,6 +40,18 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
   .donate-btn {
     margin: 10px auto;
   }
+
+  .icon--close {
+    display: none;
+  }
+  &.is-expanded {
+    .icon--menu {
+      display: none;
+    }
+    .icon--close {
+      display: block;
+    }
+
 }
 
 // the donate button inside the mobile nav
@@ -163,7 +175,7 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
     margin-right: 25px;
 
     &:focus {
-      outline: 1px dotted white;
+      outline: none; //1px dotted white;
     }
   }
 

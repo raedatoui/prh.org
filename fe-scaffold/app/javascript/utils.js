@@ -4,7 +4,8 @@
 var utils = {
 
   // Debounce execution - use this with scroll/resize listeners
-  // (The 'back to top' button uses this to monitor the page scroll.)
+  // (The 'back to top' button and tab-accordion component use this to monitor
+  // the page scroll.)
   debounce: function(method, delay) {
     clearTimeout(method._tId);
     method._tId= setTimeout(function(){

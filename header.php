@@ -90,6 +90,9 @@
 						<svg class="icon--menu" role="presentation">
 							<use xlink:href="#icon--menu" />
 						</svg>
+						<svg class="icon--close" role="presentation">
+							<use xlink:href="#icon--close" />
+					   </svg>
 					</button>
 
 					<a href="https://secure2.convio.net/prch/site/Donation2?idb=1471799783&DONATION_LEVEL_ID_SELECTED=1&df_id=1542&mfc_pref=T&1542.donation=form1&idb=0" class="nav-btn donate-btn cta cta--red md-up">Donate</a>
