@@ -11,7 +11,7 @@
 ?>
 
 <!doctype html>
-<html class="no-js" lang="" <?php language_attributes(); ?> >
+<html class="no-js" lang="en" <?php language_attributes(); ?> >
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
