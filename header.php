@@ -11,7 +11,7 @@
 ?>
 
 <!doctype html>
-<html class="no-js" lang="" <?php language_attributes(); ?> >
+<html class="no-js" lang="en" <?php language_attributes(); ?> >
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -89,6 +89,9 @@
 					<button class="nav-btn menu-btn md-down" id="menu-btn" aria-controls="site-nav" aria-expanded="false" title="Menu">
 						<svg class="icon--menu" role="presentation">
 							<use xlink:href="#icon--menu" />
+						</svg>
+						<svg class="icon--close" role="presentation">
+							<use xlink:href="#icon--close" />
 						</svg>
 					</button>
 

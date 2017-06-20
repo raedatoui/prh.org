@@ -1,4 +1,5 @@
-<section class="hero module shiny-hero" id="hero">
+<a id="hero" class="anchor"></a>
+<section class="hero module shiny-hero">
 <?php include( locate_template( 'template-parts/modules/action-alert.php', false, false ) ); ?>
   <div class="content">
     <?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>

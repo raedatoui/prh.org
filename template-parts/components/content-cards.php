@@ -17,7 +17,7 @@
 					<span class="tile__type"><?php echo CONTENT_TYPES_LABELS[$post_type][0]; ?></span>
 					<?php if ( $post_image != '' && in_array( $post_type, TYPES_WITH_ICONS ) ) : ?>
 						<div class="tile__source">
-							<img src="<?php echo $post_image ?>" />
+							<img alt="" src="<?php echo $post_image ?>" />
 						</div>
 					<?php endif; ?>
 				</div>

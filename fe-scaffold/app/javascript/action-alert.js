@@ -1,3 +1,8 @@
+// Simple alert banner feature, with some cookie handling to save hide/show preferences.
+// The actual cookie manipulation methods are defined in ./utils.
+// See template-parts/modules/action-alert.php for markup 
+// (and the PHP-based part of the cookie handling.)
+
 import utils from './utils';
 
 var alertBanner = {

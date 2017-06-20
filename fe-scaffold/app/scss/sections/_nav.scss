@@ -10,11 +10,15 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
   background-color: color(button-blue);
   left: 0;
   margin-top: -1px; // fixes an occasional gap under the admin bar
-  position: fixed;
+
   right: 0;
   top: 0;
   z-index: 5;
 
+  position: fixed;
+  @media screen and (max-width: 991px) and (max-height: 750px) {
+    position: absolute;
+  }
   .admin-bar & {
     top: 45px;
 
@@ -36,6 +40,18 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
   .donate-btn {
     margin: 10px auto;
   }
+
+  .icon--close {
+    display: none;
+  }
+  &.is-expanded {
+    .icon--menu {
+      display: none;
+    }
+    .icon--close {
+      display: block;
+    }
+
 }
 
 // the donate button inside the mobile nav
@@ -159,7 +175,7 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
     margin-right: 25px;
 
     &:focus {
-      outline: 1px dotted white;
+      outline: none; //1px dotted white;
     }
   }
 

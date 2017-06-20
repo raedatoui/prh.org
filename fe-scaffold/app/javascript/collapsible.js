@@ -1,5 +1,8 @@
-/* Simple hide/show behavior,
-	for long content with 'read more' breaks. */
+// Simple, accessible hide/show behavior,
+// used for our "read more" breaks on certain long pages.
+// (Not to be confused with the accordion module.)
+// If JS fails to load, this should fall back gracefully and leave the content accessible.
+// template-parts/modules/overview.php has some example markup.
 
 var collapsible = {
 	triggers: [],

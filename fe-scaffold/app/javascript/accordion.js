@@ -1,3 +1,9 @@
+// A simple accordion component, built with accessibility in mind.
+// See template-parts/modules/accordion-section.php for sample markup.
+// Styles are in scss/partials/accordions.
+// Note: the "tab-accordion" module shares some of those styles, but uses different JS;
+// see './tabbordion.js'.
+
 var accordion = {
 	triggers: [],
 	targets: [],

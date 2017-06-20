@@ -42,12 +42,12 @@ $menu_ids = get_nav_menu_locations(); ?>
 							$social = wp_get_nav_menu_object( $menu_ids['footer-social'] );
 						?>
 						<h4 class="footer-title"><?php echo $social->name; ?></h4>
-						<ul class="footer-social social-icons">
+						<div class="footer-social social-icons">
 							<?php wp_nav_menu(array('theme_location' => 'footer-social',
 								'menu_class' => 'footer-social-menu',
 								'link_before' => '<span class="visually-hidden">',
 								'link_after' => '</span>')); ?>
-						</ul>
+						</div>
 					</div>
 
 				</div>
