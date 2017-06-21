@@ -1,4 +1,5 @@
-<section class="hero module shiny-hero" id="hero">
+<a id="hero" class="anchor"></a>
+<section class="hero module shiny-hero">
 	<div class="content">
 
 		<h1 class="hero__header"><?php

@@ -15,7 +15,14 @@
 			<div class="result-date"><?php prh_wp_theme_posted_on(); ?></div>
 		</header>
 		<div class="result-content col-xs">
-			<?php the_title( sprintf( '<h3 class="result-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+			<?php
+			$link = esc_url( get_permalink() );
+			$target = '_self';
+			if (  get_post_type() == 'prh_news' ) {
+				$link = get_field( 'article_external_url');
+				$target = '_blank';
+			}
+			the_title( sprintf( '<h3 class="result-title"><a href="%s" target="%s" rel="bookmark">', $link, $target ), '</a></h3>' ); ?>
 			<p><?php echo sanitize_text_field(get_the_excerpt()); ?></p>
 
 			<?php 

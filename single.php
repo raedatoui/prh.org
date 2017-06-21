@@ -101,7 +101,7 @@ the_post();
 							$email_url = '<a class="contact-link contact-info" href="mailto:' . $email_link . '" rel="author">';
 							$phone_url = '<a class="contact-link contact-info" href="tel:' . $phone_link . '" rel="author">';
 						?>
-						<h2 class="sidebar-header"><?php echo  $label; ?></h2>
+						<?php echo_wrapped($label, '<h2 class="sidebar-header">', '</h2>'); ?>
 						<p class="contact-info"><?php echo $name; ?></p>
 						<?php echo_wrapped( $email_link, $email_url, '</a>' ); ?>
 						<?php echo_wrapped( $phone_link, $phone_url, '</a>' ); ?>

@@ -21,7 +21,7 @@ $cats = get_categories();
 
 	<!-- Persistent search bar above the results -->
 	<div class="search-open hero search-hero" id="hero">
-		<div id="search-bar" class="search-bar">
+		<div class="search-bar">
 			<div class="content search-bar-content">
 			<?php get_search_form(); ?>
 			</div>
@@ -210,8 +210,8 @@ $cats = get_categories();
 							'current' => max( 1, get_query_var('paged') ),
 							'total' => $wp_query->max_num_pages,
 							'before_page_number' => '<span class="visually-hidden">'.$translated.' </span>',
-							'prev_text' => '',
-							'next_text' => ''
+							'prev_text' => '<span class="visually-hidden">Previous results page</span>',
+							'next_text' => '<span class="visually-hidden">Next results page</span>'
 						) ); ?>
 					</nav>
 				</div>

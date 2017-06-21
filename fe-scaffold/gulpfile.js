@@ -97,7 +97,8 @@ gulp.task('modernizr', function() {
 				'fnBind'
 			],
 			tests: [
-				'backgroundcliptext'
+				'backgroundcliptext',
+				'touchevents'
 			]
 		}))
 		.pipe(gulp.dest(projJsSrcDir))

@@ -90,3 +90,11 @@ $accordion-border: 1px solid $border-color-blue;
 [aria-labelledby^="accordion-label"].is-active {
   display: block;
 }
+
+// mobile fix
+@media (max-width: 480px) {
+  .accordion-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

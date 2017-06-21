@@ -1,6 +1,11 @@
+// Misc helper functions - some of these are only used in one place now,
+// but aren't tightly coupled to that usage.
+
 var utils = {
 
   // Debounce execution - use this with scroll/resize listeners
+  // (The 'back to top' button and tab-accordion component use this to monitor
+  // the page scroll.)
   debounce: function(method, delay) {
     clearTimeout(method._tId);
     method._tId= setTimeout(function(){
@@ -9,6 +14,7 @@ var utils = {
   },
 
   // C is for cookie. That's good enough for me.
+  // (Currently, these functions are just used by the action alert component.)
   setCookie: function(name, val, daysToExpire=null) {
     var expires ='',
         date;

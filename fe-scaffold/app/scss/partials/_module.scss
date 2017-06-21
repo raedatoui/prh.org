@@ -51,3 +51,21 @@
     min-height: calc(100vh - 650px);
   }
 }
+
+
+@media (max-width: 480px) {
+  .module__aggregate-card,
+  .single .module,
+  .info-module,
+  .routing,
+  .footer-module {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  // needs room too, but not as much or it breaks the layout a bit
+  .module__quote {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}

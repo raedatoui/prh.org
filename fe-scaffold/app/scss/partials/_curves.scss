@@ -95,15 +95,17 @@
 
   &::before {
     background-position: bottom center;
+    background-position-y: 0; // IE fix
     background-repeat: repeat-x; // 'none' also works here
     background-size: 105vw auto; // slightly over-wide to avoid gaps at the edges
     content: "";
     display: block;
     height: 10vw;
     left: 0;
-    margin-top: 5px; // avoids hairline gaps; this works more reliably than calc()
+    margin-top: 5px;
     padding: 0;
     position: absolute;
+    pointer-events: none;
     right: 0;
     top: -10vw;
   }
@@ -144,6 +146,8 @@ body .hero ~ .module {
     @include donate-module-curves;
 
     &::before {
+      background-position-y: -2px; // IE fix
+      background-size: 130% auto;
       height: 9vw;
     }
   }
@@ -164,8 +168,4 @@ body .hero ~ .module {
   margin-top: 8vw;
   padding-bottom: 11vw;
   padding-top: 30px;
-
-  @include responsive-mq(sm) {
-    padding-top: 0;
-  }
 }

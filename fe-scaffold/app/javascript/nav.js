@@ -1,3 +1,5 @@
+// All the logic for the nav lives here: dropdown hide/show,
+// small-screen "hamburger button" behavior, and the search bar.
 var nav = {
   init: function() {
 
@@ -7,6 +9,7 @@ var nav = {
         $triggers = $nav.querySelectorAll('.menu-item > a'),
         $menuItems = $nav.querySelectorAll('.menu > li'),
         $mask = document.querySelector('.nav-mask'),
+        $searchField = document.querySelector('.search-field'),
         $searchButton = document.querySelector('#site-search-btn'),
 
         // Track the focusable elements so we can trap focus in the menu
@@ -37,11 +40,13 @@ var nav = {
         handleKeyup = function(e) {
           if (e.key === 'Escape' | e.key === 'Esc') {
             closeNav();
+            $header.classList.remove('search-open');
           }
         },
 
         // Show or hide the whole menu
         toggleNav = function() {
+          $header.classList.remove('search-open');
           $menuButton.setAttribute('aria-expanded', !$menuButton.getAttribute('aria-expanded'));
           $nav.classList.toggle('is-expanded');
           $header.classList.toggle('is-expanded');
@@ -64,6 +69,8 @@ var nav = {
           var $target = e.target.parentNode,
               i;
 
+          // Search or nav can be expanded, but not both
+          $header.classList.remove('search-open');
           // Don't do anything special if we didn't click a top-level link
           if ($target.parentNode.classList.contains('sub-menu')) {
             return;
@@ -81,14 +88,19 @@ var nav = {
         },
 
         // Toggle the visibility of the search bar when the [Q] is cicked
-
         toggleSearchBar = function() {
-          $header.classList.toggle('search-open');
+          if ($header.classList.contains('search-open')) {
+            $header.classList.remove('search-open');
+            return;
+          }
+          closeNav();
+          $header.classList.add('search-open');
+          $searchField.focus();
+          return;
         };
 
 
     // Add event listeners
-
     for (var i = 0; i < $triggers.length; i++) {
       let trigger = $triggers[i];
       trigger.addEventListener('click', expandSubnav);

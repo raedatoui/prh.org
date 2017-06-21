@@ -328,4 +328,9 @@ const PRH_COLORS = array(
 	'blue' => '#006bb8',
 	'navy' => '#2e3563',
 	'sky' => '#b7d5fb'
-	);
+);
+
+const TYPES_WITH_ICONS = array(
+	'phys_story',
+	'prh_news'
+);

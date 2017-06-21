@@ -148,6 +148,7 @@ $tab-accordion-padding: 50px;
   }
 
   .tab-nav {
+    align-items: flex-start;
     border-bottom: none;
     display: flex;
     left: 0;
@@ -163,11 +164,9 @@ $tab-accordion-padding: 50px;
     align-items: flex-start;
     display: flex;
     margin-right: 30px;
-    max-width: 25%;
     padding: 0 0 65px;
     position: relative;
     text-decoration: none;
-    width: 25%;
 
     &.active {
       &::after {
@@ -175,7 +174,7 @@ $tab-accordion-padding: 50px;
         border-left: 35px solid transparent;
         border-right: 35px solid transparent;
         border-top: 35px solid transparent;
-        bottom: 0;
+        bottom: -5px;
         content: " ";
         display: block;
         height: 0;

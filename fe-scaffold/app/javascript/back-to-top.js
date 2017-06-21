@@ -1,3 +1,7 @@
+// Show a 'back to top' jumplink button if the user's scrolled far enough.
+// See ./utils.js for the debounce helper, ./jump-links.js for the smooth-scroll logic,
+// template-parts/components/back-to-top-button.php for the markup.
+
 import utils from './utils';
 
 var backToTop = {
