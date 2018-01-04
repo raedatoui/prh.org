@@ -50,12 +50,11 @@ function prh_redirect_first_login( $redirect_to, $requested_redirect_to, $user )
 		$is_ps_member = Groups_User_Group::read( $user->ID , $group->group_id );
 	}
 
-
 	if ( ! $is_lta_member && ! $is_ps_member) {
 		return admin_url( 'index.php' );
 	} else {
 		if ( $is_lta_member ) {
-			return '/lta-welcome-page';
+			return '/leadership-training-academy-class-2018';
 		}
 		if ( $is_ps_member ) {
 			return '/ps-welcome-page';

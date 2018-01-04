@@ -73,7 +73,14 @@
                 "Kelsey Rhodes": "Kelsey Rhodes",
                 "Kelsie Harris": "Kelsie Harris",
                 "Mary Humphreys": "Mary Humphreys",
-                "Jen Girdish": "Jen Girdish"
+                "Jen Girdish": "Jen Girdish",
+                "HR Manager": "HR Manager",
+                "Jennifer Blasdell": "Jennifer Blasdell",
+                "Ellen Barker": "Ellen Barker",
+                "Jodi Magee": "Jodi Magee",
+                "Mayra Ferreira": "Mayra Ferreira",
+                "Anita Brakman": "Anita Brakman",
+                "Barbara LaPlaca": "Barbara LaPlaca"
             },
             "default_value": [],
             "allow_null": 0,
@@ -108,7 +115,14 @@
                 "kelsey@prh.org": "kelsey@prh.org",
                 "kelsie@prh.org": "kelsie@prh.org",
                 "marye@prh.org": "marye@prh.org",
-                "jen@prh.org": "jen@prh.org"
+                "jen@prh.org": "jen@prh.org",
+                "recruiting@prh.org": "recruiting@prh.org",
+                "jennifer@prh.org": "jennifer@prh.org",
+                "ellen@prh.org": "ellen@prh.org",
+                "jodi@prh.org": "jodi@prh.org",
+                "mayra@prh.org": "mayra@prh.org",
+                "anita@prh.org": "anita@prh.org",
+                "barbara@prh.org": "barbara@prh.org"
             },
             "default_value": [],
             "allow_null": 0,
@@ -140,10 +154,17 @@
                 "id": ""
             },
             "choices": {
-                "(123) 555-555": "(123) 555-555",
-                "(456) 555-555": "(456) 555-555",
-                "(789) 555-555": "(789) 555-555",
-                "(074) 555-555": "(074) 555-555"
+                "(646) 649-9928": "(646) 649-9928",
+                "(646) 649-9919": "(646) 649-9919",
+                "(646) 649-9921": "(646) 649-9921",
+                "(646) 649-9927": "(646) 649-9927",
+                "(646) 649-9939": "(646) 649-9939",
+                "(646) 649-9914": "(646) 649-9914",
+                "(646) 649-9915": "(646) 649-9915",
+                "(646) 649-9910": "(646) 649-9910",
+                "(646) 649-9917": "(646) 649-9917",
+                "(646) 649-9937": "(646) 649-9937",
+                "(646) 649-9930": "(646) 649-9930"
             },
             "default_value": [],
             "allow_null": 0,
@@ -217,6 +238,13 @@
                 "operator": "==",
                 "value": "default"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "prh_staff"
+            }
         ]
     ],
     "menu_order": 0,
@@ -228,5 +256,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1495655666
+    "modified": 1506094313
 }
