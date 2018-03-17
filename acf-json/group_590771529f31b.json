@@ -7,6 +7,7 @@
             "label": "Title",
             "name": "routing_block_title",
             "type": "text",
+            "value": null,
             "instructions": "Shorter is better!",
             "required": 1,
             "conditional_logic": 0,
@@ -26,6 +27,7 @@
             "label": "Text",
             "name": "routing_block_text",
             "type": "text",
+            "value": null,
             "instructions": "Keep this to a sentence or so.",
             "required": 0,
             "conditional_logic": 0,
@@ -45,6 +47,7 @@
             "label": "Links",
             "name": "routing_block_links",
             "type": "repeater",
+            "value": null,
             "instructions": "Add up to 4 links to appear at the bottom of this routing block.",
             "required": 0,
             "conditional_logic": 0,
@@ -64,6 +67,7 @@
                     "label": "Link text",
                     "name": "routing_block_link_text",
                     "type": "text",
+                    "value": null,
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -83,6 +87,7 @@
                     "label": "Link URL",
                     "name": "routing_block_link_url",
                     "type": "text",
+                    "value": null,
                     "instructions": "",
                     "required": 1,
                     "conditional_logic": 0,
@@ -118,5 +123,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1495660740
+    "modified": 1509153670
 }

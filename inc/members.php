@@ -54,7 +54,7 @@ function prh_redirect_first_login( $redirect_to, $requested_redirect_to, $user )
 		return admin_url( 'index.php' );
 	} else {
 		if ( $is_lta_member ) {
-			return '/leadership-training-academy-class-2018';
+			return '/lta-welcome-page';
 		}
 		if ( $is_ps_member ) {
 			return '/ps-welcome-page';

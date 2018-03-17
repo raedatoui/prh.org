@@ -7,6 +7,7 @@
             "label": "Label",
             "name": "cta_label",
             "type": "text",
+            "value": null,
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -28,6 +29,7 @@
             "label": "Link",
             "name": "cta_link",
             "type": "text",
+            "value": null,
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -61,5 +63,5 @@
     "active": 0,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1495643765
+    "modified": 1511078799
 }
