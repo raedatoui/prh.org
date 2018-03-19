@@ -278,6 +278,11 @@ const DONATE_MODULE = array(
 	'template' => 'template-parts/modules/donate.php'
 );
 
+const PAGE_HERO_BANNER = array(
+	'name' => 'Page Hero Banner',
+	'image' => 'banner_image'
+);
+
 
 /************* Mappings *****************/
 const MODULES = array(
@@ -298,7 +303,8 @@ const MODULES = array(
 	ACCORDION_SECTION['name'] => ACCORDION_SECTION,
 	ROUTING_MODULE['name'] => ROUTING_MODULE,
 	ROUTING_MODULE_SECONDARY['name'] => ROUTING_MODULE_SECONDARY,
-	DONATE_MODULE['name'] => DONATE_MODULE
+	DONATE_MODULE['name'] => DONATE_MODULE,
+	PAGE_HERO_BANNER['name'] => PAGE_HERO_BANNER
 );
 
 const AGGREGATES = array(
