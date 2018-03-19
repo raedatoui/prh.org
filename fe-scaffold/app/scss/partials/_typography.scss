@@ -68,6 +68,16 @@ li {
   margin-bottom: em(20px, 18px);
 }
 
+p {
+  iframe {
+    display: block;
+    margin: 0 auto;
+    @media(max-width: 40em) {
+      width: 100%;
+    }
+  }
+}
+
 a {
   color: color(blue);
 

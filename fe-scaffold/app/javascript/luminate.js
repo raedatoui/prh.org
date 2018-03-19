@@ -6,11 +6,11 @@
 import collapsible from './collapsible';
 import nav from './nav';
 
-function init(){
+function init() {
 	nav.init();
 	collapsible.init();
 }
 
 window.onload = function() {
 	init();
-}
+};
