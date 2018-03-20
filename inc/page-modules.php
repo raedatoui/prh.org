@@ -164,6 +164,7 @@ class PageModules {
 			} else {
 				$module_title = get_the_title();
 			}
+			$banner = $this->hero['banner'];
 			include( locate_template( $module['config']['template'], false, true ) );
 		}
 	}
