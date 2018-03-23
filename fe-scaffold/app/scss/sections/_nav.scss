@@ -16,9 +16,11 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
   z-index: 5;
 
   position: fixed;
+  
   @media screen and (max-width: 991px) and (max-height: 750px) {
     position: absolute;
   }
+  
   .admin-bar & {
     top: 45px;
 
@@ -44,6 +46,7 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
   .icon--close {
     display: none;
   }
+
   &.is-expanded {
     .icon--menu {
       display: none;
@@ -51,7 +54,7 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
     .icon--close {
       display: block;
     }
-
+  }
 }
 
 // the donate button inside the mobile nav
@@ -130,7 +133,6 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
     display: block;
   }
 }
-
 
 .menu-main-menu-container {
   width: 100%;
@@ -248,8 +250,6 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
 
     svg { height: 30px; }
   }
-
-
 
   .logo .logo-svg {
     height: 100%;
