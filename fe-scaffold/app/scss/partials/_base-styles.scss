@@ -43,8 +43,7 @@ section {
 // Two declarations here because IE11 doesn't seem to get 'initial' right.
 .md-up.md-up {
   display: none;
-  @include responsive-mq(md) { 
-    display: block;
+  @include responsive-mq(md) {
     display: initial;
   }
 }

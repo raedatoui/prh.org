@@ -8,34 +8,35 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
 .site-header {
   // background-color: $prh-blue-lt;
   background-color: color(button-blue);
+
   .search-bar {
     background-color: color(blue); // TODO: add gradient
   }
+
   &.page-template-voices-of-courage {
     background-color: color(voc-blue-lt);
+    left: 0;
+    margin-top: -1px; // fixes an occasional gap under the admin bar
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 5;
+
     .site-nav {
       .sub-menu {
         background: color(voc-blue-lt);
       }
     }
+
     .search-bar {
       background-color: color(voc-blue-dk);
     }
   }
 
-  left: 0;
-  margin-top: -1px; // fixes an occasional gap under the admin bar
-
-  right: 0;
-  top: 0;
-  z-index: 5;
-
-  position: fixed;
-  
   @media screen and (max-width: 991px) and (max-height: 750px) {
     position: absolute;
   }
-  
+
   .admin-bar & {
     top: 45px;
 
@@ -66,6 +67,7 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
     .icon--menu {
       display: none;
     }
+
     .icon--close {
       display: block;
     }

@@ -16,13 +16,13 @@
   }
 }
 
-%voc-eyebrow { 
+%voc-eyebrow {
   font-size: 28px;
   justify-content: center;
+  letter-spacing: initial;
   line-height: lh(38, 28);
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: initial;
 }
 
 %module-title {
@@ -50,10 +50,12 @@
   margin: 30px auto;
   text-transform: uppercase;
 
-  h2, span {
+  h2,
+  span {
     @extend %voc-eyebrow;
     padding: 0;
   }
+
   h2 {
     @include roboto-black;
     margin-left: 15px;
@@ -70,14 +72,11 @@
   color: $base-font-blue;
 
   &.voc {
-    display: flex;
     @extend %module-title-voc;
     background-image: none;
-    span {
-
-    }
+    display: flex;
   }
-  
+
   .hero & {
     background-image: image("asset_detail_wave.png");
     color: #fff;
@@ -97,13 +96,13 @@
   .info-module,
   .routing,
   .footer-module {
-    padding-right: 0;
     padding-left: 0;
+    padding-right: 0;
   }
 
   // needs room too, but not as much or it breaks the layout a bit
   .module__quote {
-    padding-right: 10px;
     padding-left: 10px;
+    padding-right: 10px;
   }
 }

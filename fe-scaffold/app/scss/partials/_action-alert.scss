@@ -52,15 +52,15 @@
   }
 
   button {
+    background: #fc9993;
+    border-radius: 50%;
+    height: 40px;
+    padding: 0 10px;
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    height: 40px;
     width: 40px;
-    padding: 0 10px;
-    border-radius: 50%;
-    background: #fc9993;
 
     &:hover,
     &:focus {
@@ -68,9 +68,9 @@
     }
 
     svg {
+      max-width: 100%;
       pointer-events: none; // otherwise it can interfere with the title tooltip appearing
       stroke: color(navy);
-      max-width: 100%;
     }
   }
 

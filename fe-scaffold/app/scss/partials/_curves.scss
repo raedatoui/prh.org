@@ -56,7 +56,7 @@
   $voc-wave-img: "curves/voc-curve--wave2.svg";
   $voc-wave-img2: "curves/voc-curve--wave.svg";
 
-  $bg-color: if($color == voc-curve-grey, color(voc-curve-grey), #ffffff);
+  $bg-color: if($color == voc-curve-grey, color(voc-curve-grey), #fff);
   $img: if($color == voc-curve-grey, $voc-wave-img, $voc-wave-img2);
   $i: if($important, !important, null);
 
@@ -121,8 +121,8 @@
     left: 0;
     margin-top: 5px;
     padding: 0;
-    position: absolute;
     pointer-events: none;
+    position: absolute;
     right: 0;
     top: -10vw;
   }
@@ -172,11 +172,11 @@
   }
 
   &:nth-child(odd) {
-    @include voc-module-curves(#FFF);
+    @include voc-module-curves(#fff);
 
     .module-overlay {
-      fill: #FFF;
-      stroke: #FFF;
+      fill: #fff;
+      stroke: #fff;
     }
   }
 }
