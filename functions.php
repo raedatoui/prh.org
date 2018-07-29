@@ -205,3 +205,4 @@ function sanitize_module_title( $module_title) {
 	}
 	return sanitize_title($module_title);
 }
+

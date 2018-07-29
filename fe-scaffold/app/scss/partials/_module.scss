@@ -16,6 +16,15 @@
   }
 }
 
+%voc-eyebrow { 
+  font-size: 28px;
+  justify-content: center;
+  line-height: lh(38, 28);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: initial;
+}
+
 %module-title {
   background-position: bottom right;
   background-repeat: repeat-x;
@@ -34,12 +43,41 @@
   }
 }
 
+%module-title-voc {
+  background-position: bottom right;
+  background-repeat: repeat-x;
+  display: table;
+  margin: 30px auto;
+  text-transform: uppercase;
+
+  h2, span {
+    @extend %voc-eyebrow;
+    padding: 0;
+  }
+  h2 {
+    @include roboto-black;
+    margin-left: 15px;
+  }
+
+  @include responsive-mq(md) {
+    margin-bottom: 30px;
+  }
+}
+
 .module__title {
   @extend %module-title;
-
   background-image: image("asset_detail_wave_dk.png");
   color: $base-font-blue;
 
+  &.voc {
+    display: flex;
+    @extend %module-title-voc;
+    background-image: none;
+    span {
+
+    }
+  }
+  
   .hero & {
     background-image: image("asset_detail_wave.png");
     color: #fff;

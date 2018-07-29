@@ -31,7 +31,12 @@ $colors: (
   hairline-3: transparentize(#fff, 0.85),
 
   cream-overlay:  #f1dccd,
-  peach-overlay: #f1c1b3
+  peach-overlay: #f1c1b3,
+
+  voc-blue-lt: #2E3563,
+  voc-blue-dk: #333334,
+  voc-curve-grey: #F2F2F2,
+  voc-blue: #0080C4
 );
 
 @function color($which) {
@@ -75,6 +80,7 @@ $gradient-radial-pink: radial-gradient(farthest-corner at 50px 50px , $prh-pink-
 
 $gradient-linear-rose: linear-gradient(30deg, $prh-rose 0%, $prh-rose-lt 66%);
 
+$gradient-voc-linear-blue: linear-gradient(to bottom, color(voc-blue-lt) 25%, color(voc-blue-dk) 100%);
 
 //FONT COLORS
 $base-font-white: color(white);

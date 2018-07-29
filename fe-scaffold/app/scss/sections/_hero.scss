@@ -70,6 +70,12 @@ $nav-height-lg: 80px;
   background-image: image("particles/hero-particles.png"), $gradient-linear-blue;
   background-size: auto 150%, auto;
 
+  &.voc {
+    background-image: image("particles/hero-voc.png"), $gradient-voc-linear-blue;
+    padding-bottom: 20em;
+  }
+ 
+
   .home & {
     background-size: auto 100%, auto;
   }
@@ -101,3 +107,4 @@ $nav-height-lg: 80px;
 .home .hero {
   position: relative;
 }
+

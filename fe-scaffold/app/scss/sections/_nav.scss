@@ -8,6 +8,21 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
 .site-header {
   // background-color: $prh-blue-lt;
   background-color: color(button-blue);
+  .search-bar {
+    background-color: color(blue); // TODO: add gradient
+  }
+  &.page-template-voices-of-courage {
+    background-color: color(voc-blue-lt);
+    .site-nav {
+      .sub-menu {
+        background: color(voc-blue-lt);
+      }
+    }
+    .search-bar {
+      background-color: color(voc-blue-dk);
+    }
+  }
+
   left: 0;
   margin-top: -1px; // fixes an occasional gap under the admin bar
 
