@@ -11,7 +11,7 @@ get_header();?>
 
 <?php
 	while (have_posts()): the_post();
-		$page = new PageModules( get_the_ID() );
+		$page = new PageModules( get_the_ID(), false );
 		$page->init();
 		$page->render();
 

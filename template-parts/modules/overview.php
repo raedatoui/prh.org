@@ -4,6 +4,9 @@
 	if ( $resources_enabled ) {
 		$overview_class = 'col-md-8';
 	}
+	if ($module_class_name) {
+		$overview_class = $overview_class . ' ' . $module_class_name;
+	}
 ?>
 <section class="overview module">
 	<div class="content">

@@ -6,7 +6,7 @@
  * Hide the main editor on specific pages
  */
 define('EDITOR_HIDE_PAGE_TITLES', json_encode(array()));
-define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('homepage.php', 'issue.php', 'about.php')));
+define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('homepage.php', 'issue.php', 'about.php', 'voices-of-courage.php')));
 
 /**
  * Hide the main editor on defined pages

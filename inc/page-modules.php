@@ -5,13 +5,20 @@
  * This class consumes the Custom Fields data for a given page and renders
  * the respective templates
  */
+define("DEBUG", true);
 class PageModules {
 	public $modules;
 	public $keys;
 	public $hero;
 	public $donate;
-
-	function __construct( $post_id ) {
+	public $is_voc;
+	public $module_class_name;
+	
+	function __construct( $post_id, $is_voc = false ) {
+		$this->is_voc = $is_voc;
+		if ($is_voc == true) {
+			$this->module_class_name = 'voc';
+		}
 		$groups = acf_get_field_groups( array( 'post_id' => $post_id ) );
 		$modules = array();
 		foreach( $groups as $group_key => $group ) {
@@ -19,13 +26,13 @@ class PageModules {
 			$key = $group['title'];
 
 			$modules[$key] = array(
-				'module_name' => $group['title'],
-				'module_order' => $group_key,
-				'module_id' => $group['key']
+				'module_name' => $group['title']
 			);
 			foreach($module as $field_name => $field ) {
 				$f = $field['name'];
-				$modules[$key][$f] = get_field($f);
+				if ($f != '') {
+					$modules[$key][$f] = get_field($f);
+				}
 			}
 		}
 		$this->modules = $modules;
@@ -52,12 +59,44 @@ class PageModules {
 			$this->donate['config'] = MODULES[$donate_name];
 			unset( $this->modules[$donate_name]);
 		}
-
-		$this->prepare();
+		$voc_form_name = MODULES['VOC Form']['name'];
+		if ($this->is_voc == true) {
+			$this->modules[$voc_form_name] = array(
+				'module_name' => 'VOC Form',
+				'voc_form_enabled' => 1,
+				'voc_form_options' => array(array(
+					'enabled' => 'voc_form_enabled',
+					'name' => 'VOC Form',
+					'module_title' => 'Share your story',
+					'module_order' => 0,
+					'module_use_cta' => false,
+					'module_show_in_hero' => false
+				))
+			);
+		}
+		
+		$this->prepare();	
 		$this->configure();
 		$this->filter();
+		if ($this->is_voc) {
+			$this->modules[$voc_form_name]['config']['module_order'] = count($this->modules);
+		}
 		$this->sort();
+		//TODO remap the configs to set the count based on the sorted instead of the value of the order
+		// becasue the value can sometime be 0 or some abitrary number set by the user ie 41
 		$this->keys = array_keys($this->modules);
+
+	}
+	function printModules() {
+		if (DEBUG == true) {
+			print("<pre><code>");
+			$func = function ( $module ) {
+				return $module;
+			};		
+			$configs = array_map( $func, $this->modules );
+			print_r(htmlspecialchars(json_encode($configs, JSON_PRETTY_PRINT)));
+			print("</code></pre>");
+		}		
 	}
 
 	function prepare() {
@@ -86,7 +125,7 @@ class PageModules {
 				throw new Exception('Module found but not properly configured');
 			}
 			// unroll module options into $config object
-			$options = $module[$config['options']][0];
+			$options = $module[$config['options']][0];		
 			$config = array_merge( $config, $options );
 			// remove module_options field from module
 			unset( $module[$config['options']] );
@@ -106,8 +145,8 @@ class PageModules {
 
 	function sort() {
 		$cmp = function ($a, $b) {
-			$x = $a['config'][MODULE_OPTIONS['order']];
-			$y = $b['config'][MODULE_OPTIONS['order']];
+			$x = (int)$a['config'][MODULE_OPTIONS['order']];
+			$y = (int)$b['config'][MODULE_OPTIONS['order']];
 			if ($x == $y) {
 				return 0;
 			}
@@ -165,6 +204,7 @@ class PageModules {
 				$module_title = get_the_title();
 			}
 			$banner = $this->hero['banner'];
+			$class_name = $this->hero['class_name'];
 			include( locate_template( $module['config']['template'], false, true ) );
 		}
 	}
@@ -177,6 +217,9 @@ class PageModules {
 				$module['query'] = $this->build_query( $module );
 			}
 			$module_title = $module['config'][MODULE_OPTIONS['title']];
+			$module_order = $module['config'][MODULE_OPTIONS['order']];
+			$show_numbered_titles = $this->is_voc;
+			$module_class_name = $this->module_class_name;
 			include( locate_template( $template, false, true ) );
 		}
 	}

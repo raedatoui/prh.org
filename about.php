@@ -7,7 +7,7 @@ get_header(); ?>
 
 <?php
 
-	$page = new PageModules( get_the_ID() );
+	$page = new PageModules( get_the_ID(), false );
 	// determines the header for an about us or issue page
 	$hero_banner_name = MODULES['Page Hero Banner']['name'];
 	$hero_banner = $page->modules[$hero_banner_name];
