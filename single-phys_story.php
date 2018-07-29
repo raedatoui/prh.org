@@ -155,5 +155,22 @@ the_post();
 		</div>
 	</div>
 </section>
+
+
+<?php
+if (isset( $_POST['cpt_nonce_field'] ) && wp_verify_nonce( $_POST['cpt_nonce_field'], 'cpt_nonce_action' ) ) {
+
+	// create post object with the form values
+	$my_cptpost_args = array(
+	'post_title'    => $_POST['cptTitle'],
+	'post_content'  => $_POST['cptContent'],
+	'post_status'   => 'pending',
+	'post_type' => $_POST['post_type']
+	);
+
+	// insert the post into the database
+	$cpt_id = wp_insert_post( $my_cptpost_args, $wp_error);
+}
+?>
 <?php
 get_footer();

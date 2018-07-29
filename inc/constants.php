@@ -283,6 +283,12 @@ const PAGE_HERO_BANNER = array(
 	'image' => 'banner_image'
 );
 
+const VOC_FORM_MODULE = array(
+	'name' => 'VOC Form',
+	'enabled' => 'voc_form_enabled',
+	'options' => 'voc_form_options',
+	'template' => 'template-parts/modules/voc-form.php'
+);
 
 /************* Mappings *****************/
 const MODULES = array(
@@ -304,7 +310,8 @@ const MODULES = array(
 	ROUTING_MODULE['name'] => ROUTING_MODULE,
 	ROUTING_MODULE_SECONDARY['name'] => ROUTING_MODULE_SECONDARY,
 	DONATE_MODULE['name'] => DONATE_MODULE,
-	PAGE_HERO_BANNER['name'] => PAGE_HERO_BANNER
+	PAGE_HERO_BANNER['name'] => PAGE_HERO_BANNER,
+	VOC_FORM_MODULE['name'] => VOC_FORM_MODULE
 );
 
 const AGGREGATES = array(
