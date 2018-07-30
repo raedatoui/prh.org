@@ -1,21 +1,23 @@
 <?php
-	$overview_class = 'col-md-12';
+	$overview_text_class = 'col-md-12';
+	$overview_class = 'overview module';
 	$resources_enabled = $module[$module['config']['resources_enabled']];
 	if ( $resources_enabled ) {
-		$overview_class = 'col-md-8';
+		$overview_text_class = 'col-md-8';
 	}
 	if ($module_class_name) {
+		$overview_text_class = $overview_text_class . " " . $module_class_name;
 		$overview_class = $overview_class . ' ' . $module_class_name;
 	}
 ?>
-<section class="overview module">
+<section class="<?php echo $overview_class ?>">
 	<div class="content">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 
 		<div class="row top-xs">
 
 			<!-- Text component -->
-			<section class="overview-text main-content <?php echo $overview_class ?>">
+			<section class="overview-text main-content <?php echo $overview_text_class ?>">
 				<?php
 				$full_content = $module[$module['config']['content']];
 				$contents = get_extended($full_content);

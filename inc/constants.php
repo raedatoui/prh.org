@@ -290,6 +290,13 @@ const VOC_FORM_MODULE = array(
 	'template' => 'template-parts/modules/voc-form.php'
 );
 
+const VOC_CATEGORIES = array(
+	'name' => 'VOC Categories',
+	'enabled' => 'voc_categories_enabled',
+	'options' => 'voc_categories_options',
+	'template' => 'template-parts/modules/voc-categories.php'
+);
+
 /************* Mappings *****************/
 const MODULES = array(
 	CAROUSEL_MODULE['name'] => CAROUSEL_MODULE,
@@ -311,7 +318,8 @@ const MODULES = array(
 	ROUTING_MODULE_SECONDARY['name'] => ROUTING_MODULE_SECONDARY,
 	DONATE_MODULE['name'] => DONATE_MODULE,
 	PAGE_HERO_BANNER['name'] => PAGE_HERO_BANNER,
-	VOC_FORM_MODULE['name'] => VOC_FORM_MODULE
+	VOC_FORM_MODULE['name'] => VOC_FORM_MODULE,
+	VOC_CATEGORIES['name'] => VOC_CATEGORIES
 );
 
 const AGGREGATES = array(

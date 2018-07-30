@@ -5,7 +5,6 @@
  * This class consumes the Custom Fields data for a given page and renders
  * the respective templates
  */
-define("DEBUG", true);
 class PageModules {
 	public $modules;
 	public $keys;
@@ -38,8 +37,17 @@ class PageModules {
 		$this->modules = $modules;
 	}
 
-	function init() {
+	function printModules() {
+		print("<pre><code>");
+		$func = function ( $module ) {
+			return $module;
+		};
+		$configs = array_map( $func, $this->modules );
+		print_r(htmlspecialchars(json_encode($configs, JSON_PRETTY_PRINT)));
+		print("</code></pre>");
+	}
 
+	function init() {
 		// Separate out hero and donation modules, which have fixed positions on the page
 		$hero_name = MODULES['Homepage Hero']['name'];
 		$donate_name = MODULES['Donate Module']['name'];
@@ -60,6 +68,8 @@ class PageModules {
 			unset( $this->modules[$donate_name]);
 		}
 		$voc_form_name = MODULES['VOC Form']['name'];
+		$voc_categories_name = MODULES['VOC Categories']['name'];
+
 		if ($this->is_voc == true) {
 			$this->modules[$voc_form_name] = array(
 				'module_name' => 'VOC Form',
@@ -73,13 +83,27 @@ class PageModules {
 					'module_show_in_hero' => false
 				))
 			);
+
+			$this->modules[$voc_categories_name] = array(
+				'module_name' => 'VOC Categories',
+				'voc_categories_enabled' => 1,
+				'voc_categories_options' => array(array(
+					'enabled' => 'voc_categories_enabled',
+					'name' => 'VOC Categories',
+					'module_title' => 'Search Stories',
+					'module_order' => 0,
+					'module_use_cta' => false,
+					'module_show_in_hero' => false
+				))
+			);
 		}
 		
-		$this->prepare();	
+		$this->prepare();
 		$this->configure();
 		$this->filter();
 		if ($this->is_voc) {
-			$this->modules[$voc_form_name]['config']['module_order'] = count($this->modules);
+			$this->modules[$voc_form_name]['config']['module_order'] = count($this->modules) - 1;
+			$this->modules[$voc_categories_name]['config']['module_order'] = count($this->modules);
 		}
 		$this->sort();
 		//TODO remap the configs to set the count based on the sorted instead of the value of the order
@@ -87,22 +111,11 @@ class PageModules {
 		$this->keys = array_keys($this->modules);
 
 	}
-	function printModules() {
-		if (DEBUG == true) {
-			print("<pre><code>");
-			$func = function ( $module ) {
-				return $module;
-			};		
-			$configs = array_map( $func, $this->modules );
-			print_r(htmlspecialchars(json_encode($configs, JSON_PRETTY_PRINT)));
-			print("</code></pre>");
-		}		
-	}
 
 	function prepare() {
 		$filter = function ( $module ) {
 			$config = MODULES[$module['module_name']];
-			return $module[$config['options']] !== null;
+			return array_key_exists('options', $config) && $module[$config['options']] !== null;
 		};
 		$this->modules = array_filter( $this->modules, $filter );
 	}
@@ -240,7 +253,6 @@ class PageModules {
 		$this->render_modules();
 		$this->render_donate_module();
 	}
-
 
 	function build_query( $module ) {
 		$args = array(

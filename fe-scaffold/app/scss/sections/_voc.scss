@@ -1,0 +1,91 @@
+%input-text {
+    @include roboto;
+    font-size: em(14px); 
+    @include responsive-mq("sm") {
+      font-size: em(16px);
+    }    
+}
+
+.voc-form{
+    form {
+        display: flex;
+        textarea {
+            @extend %input-text;
+            max-width: 100%;
+            min-width: 100%;
+            width: 100%;
+            min-height: 300px;
+            padding: 1em;
+            border: none;
+            ::placeholder { 
+                color: ccc;
+            }
+        }
+    }
+    .col {
+        width: 50%;
+    }
+    .col1 {
+        padding-right: 2vw;
+    }
+    .col2 {
+        display: flex;
+        flex-direction: row;
+        align-items: top;
+        flex-wrap: wrap;
+        .input {
+            width: calc(50% - 1vw);
+            margin: 0 0 -3vw 1vw;
+        }
+        input {
+            @extend %input-text;
+            width: 100%;
+            height: 90px;
+            padding: 0.7em;
+            ::placeholder { 
+                color: ccc;
+            }            
+        }
+    }
+}
+
+.voc-categories {
+    ul {
+        display: flex;
+        justify-content: space-around;
+    }
+    li {
+        background-color: #fff;
+        list-style: none;
+        padding: 0.1em;
+        display: flex;
+        flex-flow: column;
+
+        span {
+            @include roboto-condensed;
+            font-weight: $bold;
+            text-align: center;
+            letter-spacing: 0.2em;
+        }
+        .icon {
+            height: 200px;
+            width: 200px;
+            background-size: cover;
+        }
+    }
+    .politics .icon {
+        background: image("icons/politics.png") no-repeat 0 0;
+    }
+    .abortion .icon {
+        background: image("icons/abortion.png") no-repeat 0 0;
+    }
+    .contraception .icon {
+        background: image("icons/contraception.png") no-repeat 0 0;
+    }
+    .health .icon {
+        background: image("icons/health.png") no-repeat 0 0;
+    }
+    .pregnancy .icon {
+        background: image("icons/pregnancy.png") no-repeat 0 0;
+    }    
+}

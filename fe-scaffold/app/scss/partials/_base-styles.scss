@@ -1,6 +1,11 @@
 body {
   -webkit-font-smoothing: antialiased;
   background-color: $base-bg-color;
+
+  &.page-template-voices-of-courage {
+    background-color: color(voc-curve-grey);
+  }
+  
   color: $base-font-color;
   font-size: $base-font-size;
   letter-spacing: $base-font-kerning;
@@ -37,7 +42,6 @@ section {
   min-height: 150px;
 }
 
-
 // Responsive show/hide helpers
 // specificity hack because these come early in the css
 // Two declarations here because IE11 doesn't seem to get 'initial' right.
@@ -49,12 +53,13 @@ section {
 }
 
 .md-down.md-down {
-  @include responsive-mq(md) { display: none; }
+  @include responsive-mq(md) {
+    display: none;
+  }
 }
 
 // Transitions by default for links and buttons;
 // this gets overridden for different effects but it's a good baseline.
-
 a {
   transition: 0.15s color 0s;
 }

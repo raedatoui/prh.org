@@ -1,6 +1,10 @@
 .module {
   padding: $v-padding-sm $h-padding-sm;
 
+  &.voc {
+    padding: $module-padding-xs;
+  }
+
   &:focus {
     outline: none; // jump-links js allows focusing, but we don't need/want a visual indicator in this case
   }

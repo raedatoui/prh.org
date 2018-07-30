@@ -1,15 +1,11 @@
 // Per-output settings; this way we can override for different outputs.
-
 $image-dir: "../images/optimized/";
-
 // Settings & tools
 @import "modules/all";
-
 // 3rd party
 @import "vendor/flexboxgrid";
 @import "vendor/flickity";
 @import "vendor/addtocalendar";
-
 // Partials
 @import "partials/reset";
 @import "partials/base-styles";
@@ -29,7 +25,6 @@ $image-dir: "../images/optimized/";
 @import "partials/events";
 @import "partials/back-to-top";
 @import "partials/action-alert";
-
 // Sections
 @import "sections/nav";
 @import "sections/hero";
@@ -40,3 +35,4 @@ $image-dir: "../images/optimized/";
 @import "sections/search";
 @import "sections/archive";
 @import "sections/footer";
+@import "sections/voc";
