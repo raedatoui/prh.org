@@ -35,6 +35,7 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
     "rollup-stream": "^1.19.0",
+    "sass-lint-auto-fix": "^0.11.1",
     "uglify-js-harmony": "^2.7.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"

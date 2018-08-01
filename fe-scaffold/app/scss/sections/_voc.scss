@@ -1,91 +1,207 @@
 %input-text {
-    @include roboto;
-    font-size: em(14px); 
-    @include responsive-mq("sm") {
-      font-size: em(16px);
-    }    
+  @include roboto;
+  font-size: em(14px);
+  @include responsive-mq("sm") {
+    font-size: em(16px);
+  }
 }
+$input-height: 75px;
 
-.voc-form{
-    form {
-        display: flex;
-        textarea {
-            @extend %input-text;
-            max-width: 100%;
-            min-width: 100%;
-            width: 100%;
-            min-height: 300px;
-            padding: 1em;
-            border: none;
-            ::placeholder { 
-                color: ccc;
-            }
-        }
+.voc-form {
+  form {
+    display: flex;
+
+    textarea {
+      height: 100%;
     }
-    .col {
-        width: 50%;
+
+    textarea,
+    input {
+      @extend %input-text;
+
+      border: none;
+      border-bottom: 1px solid #ccc;
+      border-radius: 0;
+
+      ::placeholder {
+        color: #ccc;
+      }
     }
-    .col1 {
-        padding-right: 2vw;
+
+    input {
+      height: $input-height;
     }
-    .col2 {
-        display: flex;
-        flex-direction: row;
-        align-items: top;
-        flex-wrap: wrap;
-        .input {
-            width: calc(50% - 1vw);
-            margin: 0 0 -3vw 1vw;
-        }
-        input {
-            @extend %input-text;
-            width: 100%;
-            height: 90px;
-            padding: 0.7em;
-            ::placeholder { 
-                color: ccc;
-            }            
-        }
+
+    .inputfile {
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      width: 0.1px;
+      z-index: -1;
     }
+
+    .inputfile+label {
+      @extend %input-text;
+      align-items: center;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      cursor: pointer;
+      display: flex;
+      height: $input-height;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 0.7em;
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    .inputfile:focus+label {
+      outline: 1px dotted #adbdff;
+    }
+
+    .inputfile+label svg {
+      fill: currentColor;
+      height: 1em;
+      margin-right: 0.25em;
+      margin-top: -0.25em;
+      vertical-align: middle;
+      width: 1em;
+    }
+
+    .inputfile+label div.icon {
+      height: 20px;
+      width: 20px;
+
+      &::before {
+        content: image("photo-upload.svg");
+        height: 20px;
+        width: 20px;
+      }
+    }
+
+    button {
+      height: 88.078px;
+      position: relative;
+
+      span {
+        @include roboto-condensed;
+        color: #fff;
+        font-size: 36px;
+        font-weight: $bold;
+        letter-spacing: 0.2em;
+        position: relative;
+        z-index: 1;
+      }
+
+      svg {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .col {
+    width: 50%;
+  }
+
+  .col1 {
+    padding-right: 2vw;
+
+    textarea {
+      max-width: 100%;
+      min-width: 100%;
+      padding: 1em;
+      width: 100%;
+    }
+  }
+
+  .col2 {
+    align-items: top;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .input {
+      margin: 0 0 0 1vw;
+      width: calc(50% - 0.5vw);
+
+      &:nth-child(odd) {
+        margin-right: 0.5vw;
+      }
+
+      &:nth-child(even) {
+        margin-left: 0.5vw;
+      }
+    }
+
+    input:not([type="file"]) {
+      height: $input-height;
+      padding: 0.7em;
+      width: 100%;
+
+      ::placeholder {
+        color: ccc;
+      }
+    }
+
+    button {
+      height: $input-height;
+      width: 100%;
+    }
+  }
 }
 
 .voc-categories {
-    ul {
-        display: flex;
-        justify-content: space-around;
-    }
-    li {
-        background-color: #fff;
-        list-style: none;
-        padding: 0.1em;
-        display: flex;
-        flex-flow: column;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 
-        span {
-            @include roboto-condensed;
-            font-weight: $bold;
-            text-align: center;
-            letter-spacing: 0.2em;
-        }
-        .icon {
-            height: 200px;
-            width: 200px;
-            background-size: cover;
-        }
+  li {
+    background-color: #fff;
+    display: flex;
+    flex-flow: column;
+    list-style: none;
+    padding: 0.1em;
+
+    span {
+      @include roboto-condensed;
+      font-weight: $bold;
+      letter-spacing: 0.2em;
+      text-align: center;
     }
-    .politics .icon {
-        background: image("icons/politics.png") no-repeat 0 0;
+
+    .icon {
+      background-size: cover;
+      height: 200px;
+      width: 200px;
     }
-    .abortion .icon {
-        background: image("icons/abortion.png") no-repeat 0 0;
-    }
-    .contraception .icon {
-        background: image("icons/contraception.png") no-repeat 0 0;
-    }
-    .health .icon {
-        background: image("icons/health.png") no-repeat 0 0;
-    }
-    .pregnancy .icon {
-        background: image("icons/pregnancy.png") no-repeat 0 0;
-    }    
+  }
+
+  .politics .icon {
+    background: image("icons/politics.png") no-repeat 0 0;
+  }
+
+  .abortion .icon {
+    background: image("icons/abortion.png") no-repeat 0 0;
+  }
+
+  .contraception .icon {
+    background: image("icons/contraception.png") no-repeat 0 0;
+  }
+
+  .health .icon {
+    background: image("icons/health.png") no-repeat 0 0;
+  }
+
+  .pregnancy .icon {
+    background: image("icons/pregnancy.png") no-repeat 0 0;
+  }
 }

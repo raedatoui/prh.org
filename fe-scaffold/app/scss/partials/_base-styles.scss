@@ -1,16 +1,16 @@
 body {
   -webkit-font-smoothing: antialiased;
   background-color: $base-bg-color;
-
-  &.page-template-voices-of-courage {
-    background-color: color(voc-curve-grey);
-  }
-  
   color: $base-font-color;
   font-size: $base-font-size;
   letter-spacing: $base-font-kerning;
   line-height: $base-line-height;
   text-rendering: optimizeLegibility;
+
+  &.page-template-voices-of-courage {
+    background-color: color(voc-curve-grey);
+  }
+
   @include roboto();
 }
 
