@@ -27,7 +27,7 @@
 				</div>
 
 				<button type="submit">
-					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100% 100%">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						<defs>
 							<style>.cls-1{fill:url(#linear-gradient);}</style>
 							<linearGradient id="linear-gradient" y1="50%" x2="100%" y2="50%" gradientUnits="userSpaceOnUse">
