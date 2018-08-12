@@ -1,7 +1,7 @@
 <section class="module voc">
 	<div class="content voc-form">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
-		<form method="post" action="" name="new_story">
+		<form method="post" action="" name="new_story" enctype="multipart/form-data">
 			<div class="col col1">
 				<textarea name="storyContent" id="story-content" placeholder="My story is..."></textarea>
 			</div>
@@ -106,24 +106,55 @@
 		if ($_SERVER['REQUEST_METHOD'] == 'POST' &&  isset( $_POST['cpt_nonce_field'] ) && wp_verify_nonce( $_POST['cpt_nonce_field'], 'cpt_nonce_action' ) ) {
 			
 			// create post object with the form values
+			$post_title = $_POST['storyFirstName'] . " ". $_POST['storyLastName'];
 			$my_cptpost_args = array(
-				'post_title' => ($_POST['storyFirstName'] . " ". $_POST['storyLastName']),
-				'post_content' => $_POST['storyContent'],
+				'post_title' => $post_title,
 				'post_status' => 'pending',
 				'post_type' => 'phys_story',
 			);
+
 			// insert the post into the database
 			$cpt_id = wp_insert_post( $my_cptpost_args, $wp_error);
+			update_field('voc_story', $_POST['storyContent'], $cpt_id);
 			update_field('voc_email', $_POST['storyEmail'], $cpt_id);
 			update_field('voc_first_name', $_POST['storyFirstName'], $cpt_id);
 			update_field('voc_last_name', $_POST['storyLastName'], $cpt_id);
 			update_field('voc_state', $_POST['storyState'], $cpt_id);
-			if ($_FILES) {
-				foreach ($_FILES as $file => $array) {
-					$newupload = insert_attachment($file,$post_id);
-					$attchmentIds[] = $newupload;
+
+			// insert the photo is present
+			$f = 'storyPhoto';
+			if( !empty( $_FILES[$f]['name'] )) {
+				require_once( ABSPATH . 'wp-admin/includes/file.php' );
+				$upload_overrides = array( 'test_form' => false );
+				$file = wp_handle_upload( $_FILES[$f], $upload_overrides);
+			
+				if ( isset( $file['error'] )) {
+					return new WP_Error( 'upload_error', $file['error'] );
 				}
-			};	
+				$file_type = wp_check_filetype($_FILES[$f]['name'], array(
+					'jpg|jpeg' => 'image/jpeg',
+					'gif' => 'image/gif',
+					'png' => 'image/png',
+				));
+				if ($file_type['type']) {
+					$name_parts = pathinfo( $file['file'] );
+					$name = $file['filename'];
+					$type = $file['type'];
+					
+					$attachment = array(
+					  'post_title' => ($post_title . "-photo"),
+					  'post_type' => 'attachment',
+					  'post_parent' => $pid,
+					  'post_mime_type' => $type,
+					  'guid' => $file['url'],
+					);
+					
+					$attach_id = wp_insert_attachment( $attachment, $file['file'], $cpt_id );
+					update_field('voc_photo', $attach_id, $cpt_id);
+				}
+			}
+
+			
 		}
 	?>
 	

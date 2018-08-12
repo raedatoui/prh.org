@@ -206,3 +206,32 @@ function sanitize_module_title( $module_title) {
 	return sanitize_title($module_title);
 }
 
+add_action( 'before_delete_post', 'delete_story_attachments' );
+function delete_story_attachments( $post_id ){
+
+    // We check if the global post type isn't ours and just return
+    global $post_type;   
+    if ( $post_type != 'phys_story' ) return;
+
+	global $wpdb;
+
+    $args = array(
+        'post_type'         => 'attachment',
+        'post_status'       => 'any',
+        'posts_per_page'    => -1,
+        'post_parent'       => $post_id
+    );
+    $attachments = new WP_Query($args);
+    $attachment_ids = array();
+    if($attachments->have_posts()) : while($attachments->have_posts()) : $attachments->the_post();
+            $attachment_ids[] = get_the_id();
+        endwhile;
+    endif;
+    wp_reset_postdata();
+
+    if(!empty($attachment_ids)) :
+		$delete_attachments_query = $wpdb->prepare('DELETE FROM %1$s WHERE %1$s.ID IN (%2$s)', $wpdb->posts, join(',', $attachment_ids));
+        $wpdb->query($delete_attachments_query);
+    endif;
+
+}
