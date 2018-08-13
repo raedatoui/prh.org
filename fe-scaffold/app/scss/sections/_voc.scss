@@ -16,29 +16,43 @@ $input-height: 75px;
     }
 
     textarea,
-    input {
+    input,
+    select {
       @extend %input-text;
 
       border: none;
       border-bottom: 1px solid #ccc;
       border-radius: 0;
-
-      ::placeholder {
-        color: #ccc;
-      }
     }
 
-    input {
+    textarea::placeholder,
+    input::placeholder {
+      color: #ccc;
+      opacity: 1;
+    }
+
+    input,
+    select {
       height: $input-height;
     }
 
-    .inputfile {
-      top: 0;
+    select {
+      background-color: #fff;
+      color: #ccc;
       width: 100%;
+    }
+
+    .input {
+      position: relative;
+    }
+
+    .inputfile {
       height: 100%;
       opacity: 0;
       overflow: hidden;
       position: absolute;
+      top: 0;
+      width: 100%;
       z-index: 100;
     }
 
@@ -59,6 +73,10 @@ $input-height: 75px;
 
     .inputfile:focus+label {
       outline: 1px dotted #adbdff;
+    }
+
+    .inputfile+label span {
+      color: #ccc;
     }
 
     .inputfile+label svg {
@@ -105,6 +123,11 @@ $input-height: 75px;
         width: 100%;
       }
     }
+
+    #story-file-preview {
+      width: 60px;
+      opacity: 0;
+    }
   }
 
   .col {
@@ -141,14 +164,15 @@ $input-height: 75px;
       }
     }
 
+
     input:not([type="file"]) {
       height: $input-height;
       padding: 0.7em;
       width: 100%;
+    }
 
-      ::placeholder {
-        color: ccc;
-      }
+    .input.upload {
+      width: 100%;
     }
 
     button {

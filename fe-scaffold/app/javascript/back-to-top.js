@@ -11,7 +11,7 @@ var backToTop = {
         contentHeight = document.body.scrollHeight,
         minHeight = window.innerHeight,
         handleScroll = function() {
-          ( window.scrollY > minHeight / 3 ) ? el.classList.add( 'is-visible' ) : el.classList.remove( 'is-visible' );
+           window.scrollY > minHeight / 3  ? el.classList.add( 'is-visible' ) : el.classList.remove( 'is-visible' );
         };
 
     if ( contentHeight <= minHeight ) {

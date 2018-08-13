@@ -12,6 +12,8 @@ import nav from './nav';
 import jumpLinks from './jump-links';
 import backToTop from './back-to-top';
 import alertBanner from './action-alert.js';
+import vocForm from './voc';
+
 
 var instances = [];
 function init() {
@@ -21,6 +23,7 @@ function init() {
 	collapsible.init();
 	backToTop.init();
 	alertBanner.init();
+	vocForm.init();
 
 	let carousel = document.querySelector( '.carousel' ),
 			tabs = document.querySelector( '.tab-accordion' ),

@@ -17,6 +17,7 @@
 				</div>
 				<div class="input">
 					<select name="storyState" id="story-state" placeholder="State">
+						<option class='select-prompt' value="null">Select State</option>
 						<option value="AL">Alabama</option>
 						<option value="AK">Alaska</option>
 						<option value="AZ">Arizona</option>
@@ -70,16 +71,14 @@
 						<option value="WY">Wyoming</option>
 					</select>
 				</div>
-				<div class="input">
+				<div class="input upload">
 					<input class="inputfile" type="file" name="storyPhoto" id="story-photo"/>
-					<label for="photo">
-						<span>Photo upload</span>
+					<label for="story-photo">
+						<span id="story-filename">Photo upload</span>
+						<img id="story-file-preview" alt="your image" />
 						<div class="icon"><span class="visually-hidden">upload</span></div>
 					</label>
 				</div>
-				<!-- <div class="input">
-					<input type="hidden" name="post_type" id="post_type" value="phys_story" />
-				</div> -->
 
 				<button type="submit">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
