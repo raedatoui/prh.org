@@ -27,7 +27,7 @@ var vocForm = {
             };
 
             stateSelect.onchange = function(event) {
-                if(event.target.value === 'null') {
+                if(event.target.value === '') {
                     stateSelect.style.color = '#ccc';
                 } else {
                     stateSelect.style.color = '#000';

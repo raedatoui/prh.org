@@ -3,21 +3,21 @@
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<form method="post" action="" name="new_story" enctype="multipart/form-data">
 			<div class="col col1">
-				<textarea name="storyContent" id="story-content" placeholder="My story is..."></textarea>
+				<textarea name="storyContent" id="story-content" placeholder="My story is..." required></textarea>
 			</div>
 			<div class="col col2">
 				<div class="input">
-					<input type="text" name="storyFirstName" id="story-first-name" placeholder="First name" />
+					<input type="text"  name="storyFirstName" id="story-first-name" placeholder="First name" required/>
 				</div>
 				<div class="input">
-					<input type="text" name="storyEmail" id="story-email" placeholder="Email"/>
+					<input type="text" name="storyEmail" id="story-email" placeholder="Email" required/>
 				</div>
 				<div class="input">
-					<input type="text" name="storyLastName" id="story-last" placeholder="Last name"/>
+					<input type="text" name="storyLastName" id="story-last" placeholder="Last name" required/>
 				</div>
 				<div class="input">
-					<select name="storyState" id="story-state" placeholder="State">
-						<option class='select-prompt' value="null">Select State</option>
+					<select name="storyState" id="story-state" placeholder="State" required>
+						<option value="">Select State</option>
 						<option value="AL">Alabama</option>
 						<option value="AK">Alaska</option>
 						<option value="AZ">Arizona</option>
