@@ -4,7 +4,7 @@ var vocForm = {
             filePreview = document.getElementById('story-file-preview'),
             fileLabel = document.getElementById('story-filename'),
             stateSelect = document.getElementById('story-state');
-
+        if (fileInput) {
             fileInput.onchange = function(event) {
                 if (fileInput.files && fileInput.files[0]) {
                     var fullPath = event.target.value,
@@ -25,7 +25,8 @@ var vocForm = {
                     reader.readAsDataURL(fileInput.files[0]);
                 }
             };
-
+        }
+        if (stateSelect) {
             stateSelect.onchange = function(event) {
                 if(event.target.value === '') {
                     stateSelect.style.color = '#ccc';
@@ -33,9 +34,8 @@ var vocForm = {
                     stateSelect.style.color = '#000';
                 }
             };
+        }
     }
 }
-
-
 
 export default vocForm;
