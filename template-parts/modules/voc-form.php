@@ -1,4 +1,4 @@
-<section class="module voc">
+<section class="module voc">	
 	<div class="content voc-form">
 		<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<form method="post" action="" name="new_story" enctype="multipart/form-data">
@@ -7,70 +7,70 @@
 			</div>
 			<div class="col col2">
 				<div class="input">
-					<input type="text"  name="storyFirstName" id="story-first-name" placeholder="First name" required/>
+					<input type="text"  name="storyName" id="story-name" placeholder="Name" required/>
 				</div>
+
 				<div class="input">
 					<input type="text" name="storyEmail" id="story-email" placeholder="Email" required/>
 				</div>
-				<div class="input">
-					<input type="text" name="storyLastName" id="story-last" placeholder="Last name" required/>
-				</div>
+
 				<div class="input">
 					<select name="storyState" id="story-state" placeholder="State" required>
 						<option value="">Select State</option>
-						<option value="AL">Alabama</option>
-						<option value="AK">Alaska</option>
-						<option value="AZ">Arizona</option>
-						<option value="AR">Arkansas</option>
-						<option value="CA">California</option>
-						<option value="CO">Colorado</option>
-						<option value="CT">Connecticut</option>
-						<option value="DE">Delaware</option>
-						<option value="DC">District Of Columbia</option>
-						<option value="FL">Florida</option>
-						<option value="GA">Georgia</option>
-						<option value="HI">Hawaii</option>
-						<option value="ID">Idaho</option>
-						<option value="IL">Illinois</option>
-						<option value="IN">Indiana</option>
-						<option value="IA">Iowa</option>
-						<option value="KS">Kansas</option>
-						<option value="KY">Kentucky</option>
-						<option value="LA">Louisiana</option>
-						<option value="ME">Maine</option>
-						<option value="MD">Maryland</option>
-						<option value="MA">Massachusetts</option>
-						<option value="MI">Michigan</option>
-						<option value="MN">Minnesota</option>
-						<option value="MS">Mississippi</option>
-						<option value="MO">Missouri</option>
-						<option value="MT">Montana</option>
-						<option value="NE">Nebraska</option>
-						<option value="NV">Nevada</option>
-						<option value="NH">New Hampshire</option>
-						<option value="NJ">New Jersey</option>
-						<option value="NM">New Mexico</option>
-						<option value="NY">New York</option>
-						<option value="NC">North Carolina</option>
-						<option value="ND">North Dakota</option>
-						<option value="OH">Ohio</option>
-						<option value="OK">Oklahoma</option>
-						<option value="OR">Oregon</option>
-						<option value="PA">Pennsylvania</option>
-						<option value="RI">Rhode Island</option>
-						<option value="SC">South Carolina</option>
-						<option value="SD">South Dakota</option>
-						<option value="TN">Tennessee</option>
-						<option value="TX">Texas</option>
-						<option value="UT">Utah</option>
-						<option value="VT">Vermont</option>
-						<option value="VA">Virginia</option>
-						<option value="WA">Washington</option>
-						<option value="WV">West Virginia</option>
-						<option value="WI">Wisconsin</option>
-						<option value="WY">Wyoming</option>
+						<option value="Alabama">Alabama</option>
+						<option value="Alaska">Alaska</option>
+						<option value="Arizona">Arizona</option>
+						<option value="Arkansas">Arkansas</option>
+						<option value="California">California</option>
+						<option value="Colorado">Colorado</option>
+						<option value="Connecticut">Connecticut</option>
+						<option value="Delaware">Delaware</option>
+						<option value="District Of">District Of Columbia</option>
+						<option value="Florida">Florida</option>
+						<option value="Georgia">Georgia</option>
+						<option value="Hawaii">Hawaii</option>
+						<option value="Idaho">Idaho</option>
+						<option value="Illinois">Illinois</option>
+						<option value="Indiana">Indiana</option>
+						<option value="Iowa">Iowa</option>
+						<option value="Kansas">Kansas</option>
+						<option value="Kentucky">Kentucky</option>
+						<option value="Louisiana">Louisiana</option>
+						<option value="Maine">Maine</option>
+						<option value="Maryland">Maryland</option>
+						<option value="Massachusetts">Massachusetts</option>
+						<option value="Michigan">Michigan</option>
+						<option value="Minnesota">Minnesota</option>
+						<option value="Mississippi">Mississippi</option>
+						<option value="Missouri">Missouri</option>
+						<option value="Montana">Montana</option>
+						<option value="Nebraska">Nebraska</option>
+						<option value="Nevada">Nevada</option>
+						<option value="New Hampshire">New Hampshire</option>
+						<option value="New Jersey">New Jersey</option>
+						<option value="New Mexico">New Mexico</option>
+						<option value="New York">New York</option>
+						<option value="North Carolina">North Carolina</option>
+						<option value="North Dakota">North Dakota</option>
+						<option value="Ohio">Ohio</option>
+						<option value="Oklahoma">Oklahoma</option>
+						<option value="Oregon">Oregon</option>
+						<option value="Pennsylvania">Pennsylvania</option>
+						<option value="Rhode Island">Rhode Island</option>
+						<option value="South Carolina">South Carolina</option>
+						<option value="South Dakota">South Dakota</option>
+						<option value="Tennessee">Tennessee</option>
+						<option value="Texas">Texas</option>
+						<option value="Utah">Utah</option>
+						<option value="Vermont">Vermont</option>
+						<option value="Virginia">Virginia</option>
+						<option value="Washington">Washington</option>
+						<option value="West Virginia">West Virginia</option>
+						<option value="Wisconsin">Wisconsin</option>
+						<option value="Wyoming">Wyoming</option>
 					</select>
 				</div>
+
 				<div class="input upload">
 					<input class="inputfile" type="file" name="storyPhoto" id="story-photo"/>
 					<label for="story-photo">
@@ -101,61 +101,5 @@
 			<?php wp_nonce_field( 'cpt_nonce_action', 'cpt_nonce_field' ); ?>
 		</form>	
 	</div>
-	<?php
-		if ($_SERVER['REQUEST_METHOD'] == 'POST' &&  isset( $_POST['cpt_nonce_field'] ) && wp_verify_nonce( $_POST['cpt_nonce_field'], 'cpt_nonce_action' ) ) {
-			
-			// create post object with the form values
-			$post_title = $_POST['storyFirstName'] . " ". $_POST['storyLastName'];
-			$my_cptpost_args = array(
-				'post_title' => $post_title,
-				'post_status' => 'pending',
-				'post_type' => 'phys_story',
-			);
-
-			// insert the post into the database
-			$cpt_id = wp_insert_post( $my_cptpost_args, $wp_error);
-			update_field('voc_story', $_POST['storyContent'], $cpt_id);
-			update_field('voc_email', $_POST['storyEmail'], $cpt_id);
-			update_field('voc_first_name', $_POST['storyFirstName'], $cpt_id);
-			update_field('voc_last_name', $_POST['storyLastName'], $cpt_id);
-			update_field('voc_state', $_POST['storyState'], $cpt_id);
-
-			// insert the photo is present
-			$f = 'storyPhoto';
-			if( !empty( $_FILES[$f]['name'] )) {
-				require_once( ABSPATH . 'wp-admin/includes/file.php' );
-				$upload_overrides = array( 'test_form' => false );
-				$file = wp_handle_upload( $_FILES[$f], $upload_overrides);
-			
-				if ( isset( $file['error'] )) {
-					return new WP_Error( 'upload_error', $file['error'] );
-				}
-				$file_type = wp_check_filetype($_FILES[$f]['name'], array(
-					'jpg|jpeg' => 'image/jpeg',
-					'gif' => 'image/gif',
-					'png' => 'image/png',
-				));
-				if ($file_type['type']) {
-					$name_parts = pathinfo( $file['file'] );
-					$name = $file['filename'];
-					$type = $file['type'];
-					
-					$attachment = array(
-					  'post_title' => ($post_title . "-photo"),
-					  'post_type' => 'attachment',
-					  'post_parent' => $pid,
-					  'post_mime_type' => $type,
-					  'guid' => $file['url'],
-					);
-					
-					$attach_id = wp_insert_attachment( $attachment, $file['file'], $cpt_id );
-					update_field('voc_photo', $attach_id, $cpt_id);
-				}
-			}
-
-			
-		}
-	?>
-	
 </section>
 

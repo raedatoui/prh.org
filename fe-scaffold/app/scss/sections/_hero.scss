@@ -74,6 +74,7 @@ $nav-height-lg: 80px;
     background-image: image("particles/hero-voc.png"), $gradient-voc-linear-blue;
     background-size: auto 100%;
     padding-bottom: 28em;
+    position: relative;
   }
 
   .home & {

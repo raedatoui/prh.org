@@ -218,11 +218,14 @@ class PageModules {
 			}
 			$banner = null;
 			$class_name = null;
+			$show_alert = false;
+			
 			if (array_key_exists('banner', $this->hero))
 				$banner = $this->hero['banner'];
 			if (array_key_exists('class_name', $this->hero))
 				$class_name = $this->hero['class_name'];
-
+			if (array_key_exists('show_alert', $this->hero))
+				$show_alert = $this->hero['show_alert'];
 			$show_numbered_titles = $this->is_voc;
 			$module_class_name = $this->module_class_name;
 			include( locate_template( $module['config']['template'], false, true ) );

@@ -230,7 +230,7 @@ function delete_story_attachments( $post_id ){
     wp_reset_postdata();
 
     if(!empty($attachment_ids)) :
-		$delete_attachments_query = $wpdb->prepare('DELETE FROM %1$s WHERE %1$s.ID IN (%2$s)', $wpdb->posts, join(',', $attachment_ids));
+		$delete_attachments_query = $wpdb->prepare('DELETE FROM %1$s WHERE %1$s.ID IN (%2$s)', array($wpdb->posts, join(',', $attachment_ids)));
         $wpdb->query($delete_attachments_query);
     endif;
 

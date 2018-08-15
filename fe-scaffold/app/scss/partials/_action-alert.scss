@@ -7,6 +7,7 @@
   text-align: center;
   top: 0;
   width: 100%;
+  z-index: 5;
 
   span {
     display: block;
@@ -76,5 +77,42 @@
 
   &.is-hidden {
     display: none;
+  }
+
+  &.voc {
+    div {
+      background: #4caf50;
+      color: color(white);
+      display: block;
+      margin: auto;
+      padding: 21px;
+      padding-right: 65px; // blocks off space for the X button
+      text-decoration: none;
+      transition: $fx-duration background 0s;
+      width: 100%;
+
+      &:hover,
+      &:focus {
+        background: #4caf50;
+        color: color(white);
+      }
+
+      @include responsive-mq(sm) {
+        display: inline-block;
+        margin-bottom: 0;
+      }
+    }
+
+    button {
+      background: #4caf50;
+      &:hover,
+      &:focus {
+        background: #a4d7a6;
+      }
+
+      svg {
+        stroke: color(white);
+      }
+    }
   }
 }

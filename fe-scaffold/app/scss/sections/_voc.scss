@@ -125,8 +125,8 @@ $input-height: 75px;
     }
 
     #story-file-preview {
-      width: 60px;
       opacity: 0;
+      width: 60px;
     }
   }
 
@@ -169,11 +169,6 @@ $input-height: 75px;
       height: $input-height;
       padding: 0.7em;
       width: 100%;
-    }
-
-    .input.upload {
-      width: 100%;
-      margin-right: 0;
     }
 
     button {
