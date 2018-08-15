@@ -13,8 +13,10 @@ var alertBanner = {
   },
   hideBanner: function() {
     this.banner.classList.add( 'is-hidden' );
-    utils.setCookie( 'alertClosed', true );
-    utils.setCookie( 'alertID', this.getAlertId() );
+    if (document.getElementById( 'alert-banner' ).className.split('voc').length === 1) {
+      utils.setCookie( 'alertClosed', true );
+      utils.setCookie( 'alertID', this.getAlertId() );
+    }
   },
   init: function() {
     if ( this.closeBtn ) {
