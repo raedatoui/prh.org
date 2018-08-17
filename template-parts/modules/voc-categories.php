@@ -25,5 +25,19 @@
 			<span>Politics</span>
 		</li>
 	</ul>
+	<div class="voc-categories search">
+		<div class="search-term">
+			<svg class="icon--search" role="presentation">
+				<use xlink:href="#icon--search" />
+			</svg>
+			<input placeholder="search" />
+		</div>
+		<div class="search-state">
+			<svg class="icon--state" role="presentation">
+				<use xlink:href="#icon--state" />
+			</svg>
+			<input placeholder="by state" />
+		</div>
+	</div>
 </div>
 </section>

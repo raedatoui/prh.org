@@ -225,4 +225,66 @@ $input-height: 75px;
   .pregnancy .icon {
     background: image("icons/pregnancy.png") no-repeat 0 0;
   }
+
+  .search {
+    display: flex;
+
+    div {
+      @include roboto;
+      border-bottom: 1px solid;
+      display: flex;
+      width: calc(50% - 2vw);
+
+      input {
+        -webkit-appearance: none;
+        appearance: none;
+        background: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        color: color(black);
+        flex: 1;
+        font-size: 16px;
+        font-weight: $bold;
+        line-height: 1;
+        padding: 0;
+        text-transform: uppercase;
+      }
+
+      &:focus {
+        outline: 1px dotted #fff;
+      }
+
+      &.search-term {
+        margin-right: 2vw;
+
+        svg {
+          transform: scale(0.85);
+        }
+      }
+
+      &.search-state {
+        margin-left: 2vw;
+
+        svg {
+          transform: scale(0.7);
+        }
+      }
+
+      @include responsive-mq(sm) {
+        font-size: 20px;
+      }
+
+      @include responsive-mq(md) {
+        font-size: 24px;
+      }
+
+    }
+
+    input::placeholder {
+      color: #b3b3b3;
+      opacity: 1;
+    }
+
+  }
 }
