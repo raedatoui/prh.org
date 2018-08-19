@@ -235,3 +235,55 @@ function delete_story_attachments( $post_id ){
     endif;
 
 }
+
+/********************************************************** 
+ * the ajax functions for searching stories on the VOC page.
+***********************************************************/
+
+function search_and_render_stories($args) {
+	$query_args = array_merge($args, array (
+		'post_status'    => array( 'publish' ),
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+		'post_type'      => 'phys_story',
+		'posts_per_page' => 10
+	) );
+	if (isset($_POST['paged']) && ($paged = intval($_POST['paged']))) {
+		$query_args['paged'] = $paged;
+	}
+
+	$the_query = new WP_Query( $query_args );
+
+	$stories = array();
+	if( $the_query->have_posts() ) :
+		while( $the_query->have_posts() ): $the_query->the_post(); 
+			$stories[] = array(
+				'link' => post_permalink()
+			);
+		endwhile;
+		wp_reset_postdata();
+	endif;
+
+	wp_send_json( array( 'stories' => $stories ), 200 );
+}
+
+// search stories by term.
+add_action('wp_ajax_search_stories_by_term' , 'search_stories_by_term');
+add_action('wp_ajax_nopriv_search_stories_by_term','search_stories_by_term');
+function search_stories_by_term() {
+	$args = array(
+		's' => esc_attr( $_POST['keyword'] )
+	);
+	search_and_render_stories( $args );
+}
+
+// search stories by category.
+add_action('wp_ajax_search_stories_by_category' , 'search_stories_by_category');
+add_action('wp_ajax_nopriv_search_stories_by_category','search_stories_by_category');
+function search_stories_by_category() {
+	$args = array(
+		'category_name' => $_POST['category']
+	);
+
+	search_and_render_stories( $args );
+}

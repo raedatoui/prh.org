@@ -69,6 +69,7 @@ class PageModules {
 		}
 		$voc_form_name = MODULES['VOC Form']['name'];
 		$voc_categories_name = MODULES['VOC Categories']['name'];
+		$voc_stories_name = MODULES['VOC Stories']['name'];
 
 		if ($this->is_voc == true) {
 			$this->modules[$voc_form_name] = array(
@@ -96,14 +97,29 @@ class PageModules {
 					'module_show_in_hero' => false
 				))
 			);
+
+			$this->modules[$voc_stories_name] = array(
+				'module_name' => 'VOC Stories',
+				'voc_stories_enabled' => 1,
+				'voc_stories_options' => array(array(
+					'enabled' => 'voc_stories_enabled',
+					'name' => 'VOC Stories',
+					'module_title' => 'Read all stories',
+					'module_order' => 0,
+					'module_use_cta' => false,
+					'module_show_in_hero' => false
+				))
+			);
 		}
 		
 		$this->prepare();
 		$this->configure();
 		$this->filter();
 		if ($this->is_voc) {
-			$this->modules[$voc_form_name]['config']['module_order'] = count($this->modules) - 1;
-			$this->modules[$voc_categories_name]['config']['module_order'] = count($this->modules);
+			$module_count =  count( $this->modules);
+			$this->modules[$voc_form_name]['config']['module_order'] = $module_count - 2;
+			$this->modules[$voc_categories_name]['config']['module_order'] = $module_count - 1;
+			$this->modules[$voc_stories_name]['config']['module_order'] = $module_count;
 		}
 		$this->sort();
 		//TODO remap the configs to set the count based on the sorted instead of the value of the order

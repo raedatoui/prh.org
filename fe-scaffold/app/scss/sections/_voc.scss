@@ -21,13 +21,13 @@ $input-height: 75px;
       @extend %input-text;
 
       border: none;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid color(voc-gray);
       border-radius: 0;
     }
 
     textarea::placeholder,
     input::placeholder {
-      color: #ccc;
+      color: color(voc-gray);
       opacity: 1;
     }
 
@@ -37,8 +37,8 @@ $input-height: 75px;
     }
 
     select {
-      background-color: #fff;
-      color: #ccc;
+      background-color: color(white);
+      color: color(voc-gray);
       width: 100%;
     }
 
@@ -59,8 +59,8 @@ $input-height: 75px;
     .inputfile+label {
       @extend %input-text;
       align-items: center;
-      background-color: #fff;
-      border-bottom: 1px solid #ccc;
+      background-color: color(white);
+      border-bottom: 1px solid color(voc-gray);
       cursor: pointer;
       display: flex;
       height: $input-height;
@@ -76,7 +76,7 @@ $input-height: 75px;
     }
 
     .inputfile+label span {
-      color: #ccc;
+      color: color(voc-gray);
     }
 
     .inputfile+label svg {
@@ -186,11 +186,13 @@ $input-height: 75px;
   }
 
   li {
-    background-color: #fff;
+    background-color: color(white);
+    cursor: pointer;
     display: flex;
     flex-flow: column;
     list-style: none;
     padding: 0.1em;
+
 
     span {
       @include roboto-condensed;
@@ -203,6 +205,10 @@ $input-height: 75px;
       background-size: cover;
       height: 200px;
       width: 200px;
+    }
+
+    &:hover {
+      background-color: color(voc-curve-grey);
     }
   }
 
@@ -230,12 +236,14 @@ $input-height: 75px;
     display: flex;
 
     div {
-      @include roboto;
       border-bottom: 1px solid;
       display: flex;
+      margin-top: 2vh;
       width: calc(50% - 2vw);
 
-      input {
+      .search-field {
+        @include roboto;
+
         -webkit-appearance: none;
         appearance: none;
         background: none;
@@ -248,11 +256,10 @@ $input-height: 75px;
         font-weight: $bold;
         line-height: 1;
         padding: 0;
-        text-transform: uppercase;
       }
 
       &:focus {
-        outline: 1px dotted #fff;
+        outline: 1px dotted color(white);
       }
 
       &.search-term {

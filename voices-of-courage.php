@@ -3,6 +3,7 @@
  * Template name: Voice of Courage
  */
 
+
 function akismet_comment_check( $key, $data ) {
 	$request = 'blog='. urlencode($data['blog']) .
 			'&user_ip='. urlencode($data['user_ip']) .

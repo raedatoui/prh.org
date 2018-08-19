@@ -16,6 +16,7 @@ import vocForm from './voc';
 
 
 var instances = [];
+window.macyInstances = instances;
 function init() {
 
 	nav.init();
