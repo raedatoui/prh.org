@@ -241,30 +241,52 @@ function delete_story_attachments( $post_id ){
 ***********************************************************/
 
 function search_and_render_stories($args) {
+	$per_page = 9;
+	if ( isset( $_POST['per_page']) ) {
+		$per_page = intval( $_POST['per_page'] );
+	}
+
 	$query_args = array_merge($args, array (
 		'post_status'    => array( 'publish' ),
 		'orderby'        => 'date',
 		'order'          => 'DESC',
 		'post_type'      => 'phys_story',
-		'posts_per_page' => 10
+		'posts_per_page' => $per_page,
 	) );
-	if (isset($_POST['paged']) && ($paged = intval($_POST['paged']))) {
+
+	$paged = 1;
+	if ( isset( $_POST['paged']) ) {
+		$paged = intval( $_POST['paged'] );
 		$query_args['paged'] = $paged;
 	}
 
 	$the_query = new WP_Query( $query_args );
 
-	$stories = array();
 	if( $the_query->have_posts() ) :
-		while( $the_query->have_posts() ): $the_query->the_post(); 
-			$stories[] = array(
-				'link' => post_permalink()
-			);
-		endwhile;
+		while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+		<a class="aggregate-tile col-xs-12 col-md-4 voc"
+			href="<?php echo get_permalink(); ?>"
+			aria-label="<?php the_title(); ?>"
+			data-paged="<?php echo $paged ?>"
+			target="_blank"> 
+		<div class="tile__container voc">
+			<div class="tile__image-container"><img alt="" src="<?php echo get_the_post_thumbnail_url(); ?>"/></div>
+			<div class="tile__voc-hover">
+				<h4 class="tile__title voc">
+				<?php
+					$title = get_the_title();
+					$parts = explode( ':', $title);
+					if (count($parts) == 2 ) : ?>
+						<span class="tile__story-num"><? echo $parts[0] ?>:</span><br>
+						<span class="tile__story-title"><? echo $parts[1] ?></span>
+					<? endif; ?>
+				</h4>
+			</div>
+		</div>
+		</a>
+		<?php endwhile;
 		wp_reset_postdata();
 	endif;
-
-	wp_send_json( array( 'stories' => $stories ), 200 );
 }
 
 // search stories by term.
@@ -275,6 +297,7 @@ function search_stories_by_term() {
 		's' => esc_attr( $_POST['keyword'] )
 	);
 	search_and_render_stories( $args );
+	die();
 }
 
 // search stories by category.
@@ -284,6 +307,17 @@ function search_stories_by_category() {
 	$args = array(
 		'category_name' => $_POST['category']
 	);
-
 	search_and_render_stories( $args );
+	die();
+}
+
+// search stories by tag.
+add_action('wp_ajax_search_stories_by_tag' , 'search_stories_by_tag');
+add_action('wp_ajax_nopriv_search_stories_by_tag','search_stories_by_tag');
+function search_stories_by_tag() {
+	$args = array(
+		'tag' => $_POST['tag']
+	);
+	search_and_render_stories( $args );
+	die();
 }

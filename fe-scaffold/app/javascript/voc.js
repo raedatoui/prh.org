@@ -7,8 +7,12 @@ var vocForm = {
     storiesSearchState: document.getElementById('stories-search-state'),
     storyCategories: document.getElementsByClassName('voc-category'),
     storiesContainer: document.getElementById('aggregate-macy-voc'),
+    storiesSearchLabel: document.getElementById('stories-search-label'),
+    storiesReadMore: document.getElementById('stories-read-more'),
+    currentSearch: null,
+    currentSearchLabel: '',
 
-    searchStories: function(method, formaData) {
+    searchStories: function(formaData, searchLabel, appendResults) {
                 // set up a request
                 var request = new XMLHttpRequest();
                 // keep track of the request
@@ -17,24 +21,16 @@ var vocForm = {
                     if(request.readyState === 4) {
                         // check if the request is successful
                         if(request.status === 200) {
-                            // update the HTML of the element
-                            var storiesData = JSON.parse(request.responseText),
-                                stories = storiesData['stories'],
-                                generated = '';
-
-                            for (var i = 0; i < stories.length; i++) {
-                                var image = '';
-                                if ( stories[i].image) {
-                                    image = '<div class="tile__source"><img alt="" src="https://prh.org/wp-content/uploads/2017/09/VOC-No.-2.png"/></div>';
-                                }
-                                generated += 
-                                '<a class="aggregate-tile col-xs-12 col-md-4 voc" href="#" aria-label="title" target="_blank">' + 
-                                    '<div class="tile__container">' +
-                                        '<div><img alt="" src="https://prh.org/wp-content/uploads/2017/09/VOC-No.-2.png"/></div>' +
-                                    '</div>' +
-                                '</a>';
+                            this.currentSearch = formaData;
+                            if (appendResults) {
+                                this.storiesContainer.innerHTML = this.storiesContainer.innerHTML + request.responseText;
+                            } else {
+                                this.storiesContainer.innerHTML = request.responseText;
                             }
-                            this.storiesContainer.innerHTML = generated;
+                            if (searchLabel !== '') {
+                                this.currentSearchLabel = searchLabel;
+                                this.storiesSearchLabel.innerHTML = 'Searching for: ' + searchLabel;
+                            }
                             window.macyInstances[0].recalculate();
                             setTimeout( function() {
                                 window.macyInstances[0].reInit();
@@ -45,7 +41,7 @@ var vocForm = {
                     }
                 }).bind(this);
 
-                request.open(method, 'https://prh.org/wp-admin/admin-ajax.php');
+                request.open('POST', 'https://prh.org/wp-admin/admin-ajax.php');
                 if (formaData !== null) { request.send(formaData); }
     },
 
@@ -57,9 +53,34 @@ var vocForm = {
                 data = new FormData();
                 data.append('keyword', term);
                 data.append('action', 'search_stories_by_term');
-                this.searchStories('POST', data);
+                this.searchStories(data, term, false);
+                this.storiesSearchState.value = '';
             }
         }
+    },
+
+    searchByState: function(event) {
+        if (event.keyCode === 13) {
+            var term = this.storiesSearchState.value,
+                data;
+            if (term !== '') {
+                data = new FormData();
+                data.append('tag', term);
+                data.append('action', 'search_stories_by_tag');
+                this.searchStories(data, term, false);
+                this.storieSearchTerm.value = '';
+            }
+        }
+    },
+
+    searchByCategory: function(event) {
+        var category = event.currentTarget.dataset.category,
+            data = new FormData();
+        data.append('action', 'search_stories_by_category');
+        data.append('category', category);
+        this.searchStories(data, category, false);
+        this.storieSearchTerm.value = '';
+        this.storiesSearchState.value = '';
     },
 
     onFileInputChange: function(event) {
@@ -92,12 +113,13 @@ var vocForm = {
         }
     },
 
-    onCategoryClick: function(event) {
-        var category = event.currentTarget.dataset.category,
-            data = new FormData();
-        data.append('action', 'search_stories_by_category');
-        data.append('category', category);
-        this.searchStories('POST', data);
+    onReadMoreClick: function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        var paged = parseInt(this.storiesContainer.lastElementChild.dataset.paged);
+        this.currentSearch.set('paged', paged+1);
+        this.currentSearch.set('per_page', 3);
+        this.searchStories(this.currentSearch, this.currentSearchLabel, true);
     },
 
     init: function() {
@@ -113,11 +135,24 @@ var vocForm = {
             this.storieSearchTerm.addEventListener( 'keyup', this.searchByTerm.bind( this ) );
         }
 
+        if ( this.storiesSearchState ) {
+            this.storiesSearchState.addEventListener( 'keyup', this.searchByState.bind( this ) );
+        }
+
         if (this.storyCategories) {
             for (var i = 0; i < this.storyCategories.length; i++) {
-                this.storyCategories[i].addEventListener('click', this.onCategoryClick.bind(this));
+                this.storyCategories[i].addEventListener('click', this.searchByCategory.bind(this));
             }
         }
+
+        if (this.storiesReadMore) {
+            this.storiesReadMore.addEventListener('click', this.onReadMoreClick.bind(this));
+        }
+
+        this.currentSearch = new FormData();
+        this.currentSearch.append('s', '');
+        this.currentSearch.append('per_page', 9);
+        this.currentSearch.append('action', 'search_stories_by_term');
     }
 }
 

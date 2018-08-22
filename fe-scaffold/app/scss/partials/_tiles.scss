@@ -11,13 +11,27 @@
     outline: none;
 
     .tile__container {
-      background-color: #fff;
+      background-color: color(white);
+
+      &.voc {
+        background-color: color(voc-curve-grey);
+      }
+
+      .tile__voc-hover {
+        opacity: 1;
+      }
+
     }
   }
 
   &:focus {
     .tile__container {
       outline: 1px dotted $prh-blue-lt;
+
+      &.voc {
+        outline: none;
+      }
+
     }
   }
 }
@@ -27,6 +41,11 @@
   color: #999;
   cursor: pointer;
   padding: 25px 35px;
+
+  &.voc {
+    background-color: color(voc-curve-grey);
+    position: relative;
+  }
 }
 
 .tile__type--container {
@@ -48,6 +67,11 @@
 
 .tile__title {
   @extend %h3;
+
+  &.voc {
+    @include roboto;
+    color: color(white);
+  }
 }
 
 .tile__source {
@@ -82,4 +106,24 @@
   line-height: 24px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.tile__voc-hover {
+  background-color: purple;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 50px);
+  justify-content: center;
+  left: 35px;
+  opacity: 0;
+  padding: 25px 35px;
+  position: absolute;
+  top: 25px;
+  width: calc(100% - 70px);
+}
+
+
+
+.tile__story-num {
+  font-weight: $bold;
 }
