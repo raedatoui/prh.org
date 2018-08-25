@@ -81,7 +81,7 @@
 
   &.voc {
     div {
-      background: #4caf50;
+      background: color(voc-green);
       color: color(white);
       display: block;
       margin: auto;
@@ -93,7 +93,7 @@
 
       &:hover,
       &:focus {
-        background: #4caf50;
+        background: color(voc-green);
         color: color(white);
       }
 
@@ -104,11 +104,11 @@
     }
 
     button {
-      background: #4caf50;
+      background: color(voc-green);
 
       &:hover,
       &:focus {
-        background: #a4d7a6;
+        background: color(voc-light-green);
       }
 
       svg {
