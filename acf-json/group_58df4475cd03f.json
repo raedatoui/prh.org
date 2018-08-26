@@ -53,7 +53,7 @@
             "collapsed": "",
             "sub_fields": [
                 {
-                    "ID": 14576,
+                    "ID": 12972,
                     "key": "field_58e1c06164889",
                     "label": "Title",
                     "name": "module_title",
@@ -66,7 +66,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 14575,
+                    "parent": 12970,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -84,7 +84,7 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 14577,
+                    "ID": 12973,
                     "key": "field_58e1c0696488a",
                     "label": "Order",
                     "name": "module_order",
@@ -97,7 +97,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 14575,
+                    "parent": 12970,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -117,7 +117,7 @@
                     "disabled": 0
                 },
                 {
-                    "ID": 14578,
+                    "ID": 12974,
                     "key": "field_58e1c09e6488b",
                     "label": "Use CTA",
                     "name": "module_use_cta",
@@ -130,7 +130,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 14575,
+                    "parent": 12970,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -146,7 +146,7 @@
                     "ui_off_text": ""
                 },
                 {
-                    "ID": 14579,
+                    "ID": 12975,
                     "key": "field_58e1c16d818a3",
                     "label": "CTA",
                     "name": "module_cta",
@@ -167,7 +167,7 @@
                             }
                         ]
                     ],
-                    "parent": 14575,
+                    "parent": 12970,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -185,7 +185,7 @@
                     "collapsed": "",
                     "sub_fields": [
                         {
-                            "ID": 14564,
+                            "ID": 12964,
                             "key": "field_58e1c124a8dfe",
                             "label": "Label",
                             "name": "cta_label",
@@ -198,7 +198,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 14563,
+                            "parent": 12963,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -216,12 +216,12 @@
                             "disabled": 0
                         },
                         {
-                            "ID": 14565,
+                            "ID": 12965,
                             "key": "field_58e1c136a8dff",
                             "label": "Link",
                             "name": "cta_link",
                             "prefix": "acf",
-                            "type": "url",
+                            "type": "text",
                             "value": null,
                             "menu_order": 1,
                             "instructions": "",
@@ -229,7 +229,7 @@
                             "id": "",
                             "class": "",
                             "conditional_logic": 0,
-                            "parent": 14563,
+                            "parent": 12963,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -239,12 +239,15 @@
                             "_prepare": 0,
                             "_valid": 1,
                             "default_value": "",
-                            "placeholder": ""
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ]
                 },
                 {
-                    "ID": 14688,
+                    "ID": 15097,
                     "key": "field_5910c19e55118",
                     "label": "Show in Hero",
                     "name": "module_show_in_hero",
@@ -257,7 +260,7 @@
                     "id": "",
                     "class": "",
                     "conditional_logic": 0,
-                    "parent": 14575,
+                    "parent": 12970,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -302,13 +305,40 @@
             "button_label": "Add another slide",
             "sub_fields": [
                 {
+                    "key": "field_5b81c474818fe",
+                    "label": "Use Video?",
+                    "name": "slide_use_video",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_58eba8dd4d996",
                     "label": "Image",
                     "name": "slide_image",
                     "type": "image",
                     "instructions": "Images should be cropped into circles - save as .pngs for a transparent background. Recommended size is 400x400 px.",
                     "required": 1,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b81c474818fe",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -324,6 +354,33 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_5b81c4b2818ff",
+                    "label": "Youtube",
+                    "name": "slide_youtube_id",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b81c474818fe",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
                     "key": "field_58eba9c34d997",
@@ -450,5 +507,5 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1495571966
+    "modified": 1535300890
 }

@@ -111,6 +111,8 @@ const CAROUSEL_MODULE = array(
 	'text' => 'slide_text',
 	'details' => 'slide_details',
 	'link' => 'slide_link',
+	'use_video' => 'slide_use_video',
+	'youtube' => 'slide_youtube_id',
 	'template' => 'template-parts/modules/carousel.php'
 );
 

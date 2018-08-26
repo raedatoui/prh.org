@@ -15,10 +15,14 @@ import alertBanner from './action-alert.js';
 import vocForm from './voc';
 
 
-var instances = [];
-window.macyInstances = instances;
-function init() {
+var instances = [],
+	ytPlayers = {};
 
+window.macyInstances = instances;
+window.ytPlayers = ytPlayers;
+window.currentPlayer = null;
+
+function init() {
 	nav.init();
 	accordion.init();
 	collapsible.init();
@@ -45,12 +49,103 @@ function init() {
 	}
 
 	if ( carousel ) {
-		new Flickity( carousel, {
+		const slider = new Flickity( carousel, {
 			cellAlign: 'left',
 			imagesLoaded: true,
 			adaptiveHeight: true,
 			wrapAround: 'true'
-		});
+		}),
+
+		loadYTScripts = (YT, YTConfig) => {
+			YT.ready = (f) => {
+				if (YT.loaded) {
+					f();
+				} else {
+					l.push(f);
+				}
+			};
+
+			window.onYTReady = () => {
+				YT.loaded = 1;
+				for (let i = 0; i < l.length; i++) {
+					try {
+						l[i]();
+					} catch (e) {
+						console.log(e);
+					}
+				}
+			};
+
+			YT.setConfig = (c) => {
+				for (var k in c) {
+					if (c.hasOwnProperty(k)) {
+						YTConfig[k] = c[k];
+					}
+				}
+			};
+
+			let l = [],
+				a = document.createElement('script'),
+				b = document.getElementsByTagName('script')[0];
+			a.type = 'text/javascript';
+			a.id = 'www-widgetapi-script';
+			a.src = 'https://s.ytimg.com/yts/jsbin/www-widgetapi-vflOozvUR/www-widgetapi.js';
+			a.async = true;
+			if (b.parentNode) {
+				b.parentNode.insertBefore(a, b);
+			}
+		},
+
+		loadYT = () => {
+			let YT = window['YT'],
+				YTConfig = window['YTConfig'];
+			if (!YT) {
+				YT = {
+					loading: 0,
+					loaded: 0
+				};
+			}
+
+			if (!YTConfig) {
+				YTConfig = {
+					host: 'http://www.youtube.com'
+				};
+			}
+
+			if (!YT.loading) {
+				YT.loading = 1;
+				loadYTScripts(YT, YTConfig);
+			}
+		};
+
+		window.onYouTubeIframeAPIReady = () => {
+			const embeds = document.querySelectorAll( '.youtube-video' );
+			for ( let i = 0; i < embeds.length; i++ ) {
+				const ytid = embeds[i].id;
+				ytPlayers[ytid] = new YT.Player(ytid, {
+					videoId: ytid,
+					width: '100%',
+					height: '100%',
+				});
+			}
+			slider.on('select', () => {
+				if (window.currentPlayer !== null) {
+					const player = window.ytPlayers[window.currentPlayer];
+					if (player) {
+						player.pauseVideo();
+					}
+				}
+				const el = slider.selectedCell.element.firstElementChild;
+				if (el.classList.contains('video')) {
+					const iframe = el.querySelector('.youtube-video');
+					if (iframe) {
+						window.currentPlayer = iframe.id;
+					}
+				}
+			});
+		};
+
+		loadYT();
 	}
 
 	if ( tabs ) {
