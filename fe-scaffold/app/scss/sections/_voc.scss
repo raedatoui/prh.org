@@ -1,7 +1,7 @@
 %input-text {
   @include roboto;
   font-size: em(14px);
-  @include responsive-mq("sm") {
+  @include responsive-mq(sm) {
     font-size: em(16px);
   }
 }
@@ -10,6 +10,11 @@ $input-height: 75px;
 .voc-form {
   form {
     display: flex;
+    flex-flow: column;
+
+    @include responsive-mq(md) {
+      flex-flow: row;
+    }
 
     textarea {
       height: 100%;
@@ -131,17 +136,26 @@ $input-height: 75px;
   }
 
   .col {
-    width: 50%;
+    flex: 1;
   }
 
   .col1 {
-    padding-right: 2vw;
+    @include responsive-mq(md) {
+      padding-right: 2vw;
+    }
 
     textarea {
+      height: 280px;
+      margin-bottom: 0.5vw;
       max-width: 100%;
       min-width: 100%;
       padding: 1em;
       width: 100%;
+
+      @include responsive-mq(md) {
+        height: 100%;
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -260,6 +274,14 @@ $input-height: 75px;
 
       &:focus {
         outline: 1px dotted color(white);
+      }
+
+      svg {
+        display: none;
+
+        @include responsive-mq(xs) {
+          display: inline;
+        }      
       }
 
       &.search-term {
