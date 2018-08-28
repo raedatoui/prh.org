@@ -20,7 +20,8 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
     background-color: color(blue); // TODO: add gradient
   }
 
-  &.page-template-voices-of-courage {
+  &.page-template-voices-of-courage,
+  &.single-phys_story {
     background-color: color(voc-blue-lt);
 
     .site-nav {

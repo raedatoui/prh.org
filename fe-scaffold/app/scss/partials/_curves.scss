@@ -158,7 +158,8 @@
   }
 }
 
-.page-template-voices-of-courage .hero ~ .module {
+.page-template-voices-of-courage .hero ~ .module,
+.single-phys_story .hero ~ .module {
   padding-bottom: 10vw; // This should be a little more than the curve height set below
 
   &:nth-child(even) {

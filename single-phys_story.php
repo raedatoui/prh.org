@@ -8,8 +8,7 @@ $date_format = get_option( 'date_format' );
 the_post();
 ?>
 
-<section class="hero story-hero module" id="hero">
-
+<section class="hero shiny-hero module voc" id="hero">
 	<div class="content">
 		<div class="row">
 			<header class="col-xs-12 col-md-8">
@@ -29,10 +28,9 @@ the_post();
 			</header>
 		</div>
 	</div>
-
 </section>
 
-<main class="module story-main-module" id="main">
+<main class="module story-main-module voc" id="main">
 	<div class="content">
 		<div class="row row-top">
 			<article class="main-content post-content col-xs-12 col-md-8">
@@ -142,15 +140,17 @@ the_post();
 	</div>
 </main>
 
-<section class="module latest-articles-module">
+<section class="module voc voc-stories latest-articles-module">
 	<div class="content">
 		<header class="module__title">
-			<h2>Latest Articles</h2>
-		</header>
+			<h2>Latest Stories</h2>
+			</header>
 		<div class="row">
 			<?php
-				$query = get_latest_articles();
-				include( locate_template( 'template-parts/components/content-cards.php', false, false ) );
+				$args = array(
+					'per_page' => 3
+				);
+				search_and_render_stories( $args ); 
 			?>
 		</div>
 	</div>

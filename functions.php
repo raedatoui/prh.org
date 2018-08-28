@@ -246,6 +246,10 @@ function search_and_render_stories($args) {
 		$per_page = intval( $_POST['per_page'] );
 	}
 
+	if ( isset( $args['per_page']) ) {
+		$per_page = intval( $args['per_page'] );
+	}
+
 	$query_args = array_merge($args, array (
 		'post_status'    => array( 'publish' ),
 		'orderby'        => 'date',
@@ -253,7 +257,7 @@ function search_and_render_stories($args) {
 		'post_type'      => 'phys_story',
 		'posts_per_page' => $per_page,
 	) );
-
+	
 	$paged = 1;
 	if ( isset( $_POST['paged']) ) {
 		$paged = intval( $_POST['paged'] );
