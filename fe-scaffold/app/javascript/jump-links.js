@@ -7,8 +7,8 @@ import jump from 'jump.js';
 
 var jumpLinks = {
   links: document.querySelectorAll( '.jump-link' ),
-  adminBar: document.querySelector( '#wpadminbar' ),
-  nav: document.querySelector( '#site-header' ),
+  adminBar: document.getElementById( 'wpadminbar' ),
+  nav: document.getElementById( 'site-header' ),
   baseOffset: -100, // the desired gap between the (non fixed) viewport top and the anchor
   jumpScroll: function( e ) {
 

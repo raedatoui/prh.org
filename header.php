@@ -61,7 +61,7 @@
 		<![endif]-->
 
 		<div class="page-container">
-			<header role="banner" class="<?php echo implode(" ", get_body_class()) . " site-header" ?> id="site-header">
+			<header role="banner" class="<?php echo implode(" ", get_body_class()) . " site-header" ?>" id="site-header">
 			<div class="site-nav-wrap">
 				<a href="/" class="logo col-sm-3 col-md-3">
 						<svg class="logo-svg logo-large role="presentation">
