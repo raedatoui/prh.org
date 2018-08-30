@@ -12,14 +12,6 @@ the_post();
 	<div class="content">
 		<div class="row">
 			<header class="col-xs-12 col-md-8">
-
-				<footer class="post-meta">
-					<span class="post-type eyebrow"><?php echo $pt_label; ?> | </span>
-					<time class="post-date utility-copy"><?php the_date( $date_format ); ?></time>
-				</footer>
-
-				<h1><?php the_title(); ?></h1>
-
 				<?php
 				$intro = get_the_excerpt();
 				if ( !is_generated( $intro ) ) {
@@ -32,6 +24,11 @@ the_post();
 
 <main class="module story-main-module voc" id="main">
 	<div class="content">
+		<h1><?php the_title(); ?></h1>
+		<footer class="post-meta">
+			<time class="post-date utility-copy"><?php the_date( $date_format ); ?></time>
+		</footer>
+
 		<div class="row row-top">
 			<article class="main-content post-content col-xs-12 col-md-8">
 
@@ -145,10 +142,10 @@ the_post();
 		<header class="module__title">
 			<h2>Latest Stories</h2>
 			</header>
-		<div class="row">
+		<div class="row macy-grid" id="aggregate-macy-voc">
 			<?php
 				$args = array(
-					'per_page' => 3
+					'per_page' => 6
 				);
 				search_and_render_stories( $args ); 
 			?>
