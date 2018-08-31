@@ -271,8 +271,7 @@ function search_and_render_stories($args) {
 		<a class="aggregate-tile col-xs-12 col-md-4 voc"
 			href="<?php echo get_permalink(); ?>"
 			aria-label="<?php the_title(); ?>"
-			data-paged="<?php echo $paged ?>"
-			target="_blank"> 
+			data-paged="<?php echo $paged ?>"> 
 		<div class="tile__container voc">
 			<div class="tile__image-container"><img alt="" src="<?php echo get_the_post_thumbnail_url(); ?>"/></div>
 			<div class="tile__voc-hover">

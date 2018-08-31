@@ -23,7 +23,7 @@ class prh_media_contact_widget extends WP_Widget {
 		$phone = apply_filters( 'widget_phone', $instance['phone'] );
 
 		// before and after widget arguments are defined by themes
-//		echo $args['before_widget'];
+		// echo $args['before_widget'];
 
 		if ( ! empty( $label ) )
 			echo "<p>" . $label . "</p>";
@@ -39,7 +39,7 @@ class prh_media_contact_widget extends WP_Widget {
 
 		// This is where you run the code and display the output
 		echo __( '', 'prh_media_contact_widget_domain' );
-//		echo $args['after_widget'];
+		// echo $args['after_widget'];
 	}
 
 	// Widget Backend
@@ -73,8 +73,8 @@ class prh_media_contact_widget extends WP_Widget {
 			$phone = __( '', 'prh_media_contact_widget_domain' );
 		}
 
-//			$email_url = '<a class="contact-link" href="mailto:' . $email_link . '" rel="author">';
-//			$phone_url = '<a class="contact-link" href="tel:' . $phone_link . '" rel="author">';
+		// $email_url = '<a class="contact-link" href="mailto:' . $email_link . '" rel="author">';
+		// $phone_url = '<a class="contact-link" href="tel:' . $phone_link . '" rel="author">';
 
 		// Widget admin form
 		?>
@@ -146,7 +146,7 @@ class prh_subscription_widget extends WP_Widget {
 		$url = apply_filters( 'widget_url', $instance['url'] );
 
 		// before and after widget arguments are defined by themes
-//		echo $args['before_widget'];
+		// echo $args['before_widget'];
 
 		if ( ! empty( $title ) )
 			echo $title;
@@ -159,7 +159,7 @@ class prh_subscription_widget extends WP_Widget {
 
 		// This is where you run the code and display the output
 		echo __( '', 'prh_subscription_widget_domain' );
-//		echo $args['after_widget'];
+		// echo $args['after_widget'];
 	}
 
 	// Widget Backend
@@ -218,7 +218,7 @@ class prh_subscription_widget extends WP_Widget {
 		$instance['url'] = ( ! empty( $new_instance['url'] ) ) ? strip_tags( $new_instance['url'] ) : '';
 		return $instance;
 	}
-} // Class prh_media_contact_widget ends here
+} // Class prh_subscription_widget ends here
 
 
 // Register and load the widget

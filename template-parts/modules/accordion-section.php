@@ -23,7 +23,8 @@ endif;
 					<svg class="icon--plus" role="presentation">
 						<use xlink:href="#icon--plus" />
 					</svg>
-					<?php echo $item[ACCORDION_ITEM['title']]; ?></h3>
+					<?php echo $item[ACCORDION_ITEM['title']]; ?>
+				</h3>
 				<div class="accordion-content main-content">
 					<?php echo $item[ACCORDION_ITEM['content']]; ?>
 				</div>

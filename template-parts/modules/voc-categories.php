@@ -40,6 +40,8 @@
 				<input class="search-field" placeholder="BY STATE" id="stories-search-state"/>
 			</div>
 		</div>
-
+		<div class="row cta-row">
+			<div class="cta no-arrow" id="voc-search-btn">Search</a>
+		</div>
 	</div>
 </section>

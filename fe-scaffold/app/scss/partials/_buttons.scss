@@ -68,6 +68,18 @@
   width: 50px;
 }
 
+.cta.no-arrow {
+  padding: 22px 35px;
+  cursor: pointer;
+}
+
+.cta.no-arrow::after {
+  background: none;
+  right: 0;
+  transform: none;
+}
+
+
 .cta:hover::after,
 .cta:focus::after {
   transform: translateY(-14px) translateX(8px);
