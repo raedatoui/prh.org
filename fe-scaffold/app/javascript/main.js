@@ -13,9 +13,9 @@ import jumpLinks from './jump-links';
 import backToTop from './back-to-top';
 import alertBanner from './action-alert.js';
 import vocForm from './voc';
+import ThirdPartyScripts from './third-party-scripts';
 
-
-var instances = [],
+const instances = [],
 	ytPlayers = {};
 
 window.macyInstances = instances;
@@ -54,69 +54,7 @@ function init() {
 			imagesLoaded: true,
 			adaptiveHeight: true,
 			wrapAround: 'true'
-		}),
-
-		loadYTScripts = (YT, YTConfig) => {
-			YT.ready = (f) => {
-				if (YT.loaded) {
-					f();
-				} else {
-					l.push(f);
-				}
-			};
-
-			window.onYTReady = () => {
-				YT.loaded = 1;
-				for (let i = 0; i < l.length; i++) {
-					try {
-						l[i]();
-					} catch (e) {
-						console.log(e);
-					}
-				}
-			};
-
-			YT.setConfig = (c) => {
-				for (var k in c) {
-					if (c.hasOwnProperty(k)) {
-						YTConfig[k] = c[k];
-					}
-				}
-			};
-
-			let l = [],
-				a = document.createElement('script'),
-				b = document.getElementsByTagName('script')[0];
-			a.type = 'text/javascript';
-			a.id = 'www-widgetapi-script';
-			a.src = 'https://s.ytimg.com/yts/jsbin/www-widgetapi-vflOozvUR/www-widgetapi.js';
-			a.async = true;
-			if (b.parentNode) {
-				b.parentNode.insertBefore(a, b);
-			}
-		},
-
-		loadYT = () => {
-			let YT = window['YT'],
-				YTConfig = window['YTConfig'];
-			if (!YT) {
-				YT = {
-					loading: 0,
-					loaded: 0
-				};
-			}
-
-			if (!YTConfig) {
-				YTConfig = {
-					host: 'http://www.youtube.com'
-				};
-			}
-
-			if (!YT.loading) {
-				YT.loading = 1;
-				loadYTScripts(YT, YTConfig);
-			}
-		};
+		});
 
 		window.onYouTubeIframeAPIReady = () => {
 			const embeds = document.querySelectorAll( '.youtube-video' );
@@ -145,7 +83,6 @@ function init() {
 			});
 		};
 
-		loadYT();
 	}
 
 	if ( tabs ) {
@@ -185,23 +122,10 @@ function init() {
 	}
 }
 
+
+
 window.onload = function() {
+	// Init UI
 	init();
-
-	// Google Analytics
-	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-PDFCFTR');	
-
-	// Hotjar Tracking Code for www.prh.org
-	(function(h,o,t,j,a,r){
-		h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-		h._hjSettings={hjid:775714,hjsv:6};
-		a=o.getElementsByTagName('head')[0];
-		r=o.createElement('script');r.async=1;
-		r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-		a.appendChild(r);
-	})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');	
+	new ThirdPartyScripts();
 };

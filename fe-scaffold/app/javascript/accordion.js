@@ -4,7 +4,7 @@
 // Note: the "tab-accordion" module shares some of those styles, but uses different JS;
 // see './tabbordion.js'.
 
-var accordion = {
+const accordion = {
 	triggers: [],
 	targets: [],
 	init: function() {

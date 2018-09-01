@@ -4,7 +4,7 @@
 // If JS fails to load, this should fall back gracefully and leave the content accessible.
 // template-parts/modules/overview.php has some example markup.
 
-var collapsible = {
+const collapsible = {
 	triggers: [],
 	targets: [],
 	init: function() {

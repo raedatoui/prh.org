@@ -4,24 +4,24 @@
 
 import utils from './utils';
 
-var backToTop = {
+const backToTop = {
 
-  init: function() {
-    let el = document.getElementById( 'btt-button' ),
-        contentHeight = document.body.scrollHeight,
-        minHeight = window.innerHeight,
-        handleScroll = function() {
-           return window.scrollY > minHeight / 3  ? el.classList.add( 'is-visible' ) : el.classList.remove( 'is-visible' );
-        };
+	init: function() {
+		const el = document.getElementById( 'btt-button' ),
+				contentHeight = document.body.scrollHeight,
+				minHeight = window.innerHeight,
+				handleScroll = function() {
+					return window.scrollY > minHeight / 3	? el.classList.add( 'is-visible' ) : el.classList.remove( 'is-visible' );
+				};
 
-    if ( contentHeight <= minHeight ) {
-      return;
-    }
+		if ( contentHeight <= minHeight ) {
+			return;
+		}
 
-    window.addEventListener('scroll', function() {
-      utils.debounce( handleScroll, 300 );
-    });
-  }
+		window.addEventListener('scroll', function() {
+			utils.debounce( handleScroll, 300 );
+		});
+	}
 };
 
 export default backToTop;
