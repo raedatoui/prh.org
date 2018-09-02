@@ -71,10 +71,21 @@ $nav-height-lg: 80px;
   background-size: auto 150%, auto;
 
   &.voc {
-    background-image: image("particles/hero-voc.png"), $gradient-voc-linear-blue;
+    background-color: rgb(60, 168, 218);
+    background-image: image("voc/hero-voc-bg.jpg"), $gradient-voc-linear-blue;
     background-size: auto 100%;
-    padding-bottom: 28em;
+    padding: 0;
     position: relative;
+
+    .content {
+      background-image: image("voc/hero-voc.jpg"), $gradient-voc-linear-blue;
+      background-position-x: calc(96vw - 1270px);
+      background-repeat: no-repeat;
+      background-size: auto 840px;
+      height: 840px;
+      margin: 0;
+      max-width: 100%;
+    }
   }
 
   .home & {
@@ -85,7 +96,7 @@ $nav-height-lg: 80px;
     background-size: auto, auto;
 
     &.voc {
-      background-size: auto 100%;
+      background-size: auto 840px;
     }
 
   }
