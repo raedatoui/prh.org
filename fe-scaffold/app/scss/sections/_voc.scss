@@ -248,12 +248,22 @@ $input-height: 75px;
 
   .search {
     display: flex;
+    flex-direction: column;
+
+    @include responsive-mq(sm) {
+      flex-direction: row;
+    }
 
     div {
       border-bottom: 1px solid;
       display: flex;
-      margin-top: 2vh;
-      width: calc(50% - 2vw);
+      margin-top: 4vh;
+      width: 100%;
+
+      @include responsive-mq(sm) {
+        margin-top: 4vh;
+        width: calc(50% - 2vw);
+      }
 
       .search-field {
         @include roboto;
@@ -269,7 +279,7 @@ $input-height: 75px;
         font-size: 16px;
         font-weight: $bold;
         line-height: 1;
-        padding: 0;
+        padding: 0 0 0 2px;
       }
 
       &:focus {
@@ -281,11 +291,13 @@ $input-height: 75px;
 
         @include responsive-mq(xs) {
           display: inline;
-        }      
+        }
       }
 
       &.search-term {
-        margin-right: 2vw;
+        @include responsive-mq(sm) {
+          margin-right: 2vw;
+        }
 
         svg {
           transform: scale(0.85);
@@ -293,7 +305,9 @@ $input-height: 75px;
       }
 
       &.search-state {
-        margin-left: 2vw;
+        @include responsive-mq(sm) {
+          margin-left: 2vw;
+        }
 
         svg {
           transform: scale(0.7);
@@ -314,6 +328,31 @@ $input-height: 75px;
       color: #b3b3b3;
       opacity: 1;
     }
+  }
+}
 
+.row.pagination {
+  justify-content: space-evenly;
+  padding: 2vh 0;
+}
+
+.voc-pagination {
+  border: 1px none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 50px;
+
+  .arrow {
+    fill: mix(color(navy), color(blue));
+    height: 44px;
+    margin: auto;
+    transition: $fx-duration fill 0s;
+    width: 44px;
+  }
+
+  &:hover {
+    .arrow {
+      fill: mix(color(blue), color(sky));
+    }
   }
 }

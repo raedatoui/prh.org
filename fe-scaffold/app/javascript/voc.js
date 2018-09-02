@@ -3,13 +3,15 @@ const vocForm = {
 	filePreview: document.getElementById('story-file-preview'),
 	fileLabel: document.getElementById('story-filename'),
 	stateSelect: document.getElementById('story-state'),
+	
 	storieSearchTerm: document.getElementById('stories-search-term'),
 	storiesSearchState: document.getElementById('stories-search-state'),
-	storyCategories: document.getElementsByClassName('voc-category'),
-	storiesContainer: document.getElementById('aggregate-macy-voc'),
+	storyCategories: document.getElementsByClassName('story-category'),
+	storySearchButton: document.getElementById('strories-search-btn'),
+	
 	storiesSearchLabel: document.getElementById('stories-search-label'),
+	storiesContainer: document.getElementById('aggregate-macy-voc'),
 	storiesReadMore: document.getElementById('stories-read-more'),
-	storySearchButton: document.getElementById('voc-search-btn'),
 	currentSearch: null,
 	currentSearchLabel: '',
 
@@ -46,32 +48,40 @@ const vocForm = {
 				if (formaData !== null) { request.send(formaData); }
 	},
 
-	searchByTerm: function(event) {
-		this.storiesSearchState.value = '';
+	onSearchFieldKeyUp: function(event) {
 		if (event.keyCode === 13) {
-			const term = this.storieSearchTerm.value;
-			let data;
-			if (term !== '') {
-				data = new FormData();
-				data.append('keyword', term);
-				data.append('action', 'search_stories_by_term');
-				this.searchStories(data, term, false);
-			}
+			this.doSearch();
 		}
 	},
 
-	searchByState: function(event) {
-		this.storieSearchTerm.value = '';
-		if (event.keyCode === 13) {
-			const term = this.storiesSearchState.value;
-			let data;
-			if (term !== '') {
-				data = new FormData();
-				data.append('tag', term);
-				data.append('action', 'search_stories_by_tag');
-				this.searchStories(data, term, false);
-			}
-		}
+	onSearchButtonClick: function(event) {
+		event.stopPropagation();
+		event.preventDefault();
+		this.doSearch();
+	},
+
+	doSearch() {
+		const term = this.storieSearchTerm.value,
+				state = this.storiesSearchState.value;
+		let data;
+		if (term !== '' && state === '') {
+			data = new FormData();
+			data.append('keyword', term);
+			data.append('action', 'search_stories_by_term');
+			this.searchStories(data, term, false);
+		} else if (state !== '' && term === '') {
+			data = new FormData();
+			data.append('tag', state);
+			data.append('action', 'search_stories_by_tag');
+			this.searchStories(data, state, false);
+		} else if (term !== '' && state != '') {
+			data = new FormData();
+			data.append('keyword', term);
+			data.append('tag', state);
+			data.append('action', 'search_stories_by_tag_and_term');
+			const searchLabel = term + ' in ' + state; 
+			this.searchStories(data, searchLabel, false);
+		}		
 	},
 
 	searchByCategory: function(event) {
@@ -123,25 +133,6 @@ const vocForm = {
 		this.searchStories(this.currentSearch, this.currentSearchLabel, true);
 	},
 
-	onSearchButtonClick: function(event) {
-		event.stopPropagation();
-		event.preventDefault();
-		const term = this.storieSearchTerm.value,
-				state = this.storiesSearchState.value;
-		let data;
-		if (term !== '') {
-			data = new FormData();
-			data.append('keyword', term);
-			data.append('action', 'search_stories_by_term');
-			this.searchStories(data, term, false);
-		} else if (state !== '') {
-			data = new FormData();
-			data.append('tag', term);
-			data.append('action', 'search_stories_by_tag');
-			this.searchStories(data, term, false);
-		}
-	},
-
 	init: function() {
 		if (this.fileInput) {
 			this.fileInput.onchange = this.onFileInputChange.bind( this );
@@ -152,11 +143,11 @@ const vocForm = {
 		}
 
 		if ( this.storieSearchTerm ) {
-			this.storieSearchTerm.addEventListener( 'keyup', this.searchByTerm.bind( this ) );
+			this.storieSearchTerm.addEventListener( 'keyup', this.onSearchFieldKeyUp.bind( this ) );
 		}
 
 		if ( this.storiesSearchState ) {
-			this.storiesSearchState.addEventListener( 'keyup', this.searchByState.bind( this ) );
+			this.storiesSearchState.addEventListener( 'keyup', this.onSearchFieldKeyUp.bind( this ) );
 		}
 
 		if (this.storyCategories) {

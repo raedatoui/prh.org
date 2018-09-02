@@ -45,6 +45,10 @@
   &.voc {
     background: none;
     position: relative;
+
+    .tile__image-container {
+      text-align: center;
+    }
   }
 }
 
