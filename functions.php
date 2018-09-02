@@ -265,29 +265,36 @@ function search_and_render_stories($args) {
 	}
 
 	$the_query = new WP_Query( $query_args );
-
+	$counter = 0;
 	if( $the_query->have_posts() ) :
 		while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+		<?php 
+			$voc_img = get_the_post_thumbnail_url();
+			if ($voc_img == '' ) {
+				$voc_img = 'https://prh.org/wp-content/uploads/2017/03/Story-Fist-Avatar-e1497389449725.png';
+			}
+			$data_paged = $paged + floor($counter / 3);
+		?>
 		<a class="aggregate-tile col-xs-12 col-md-4 voc"
 			href="<?php echo get_permalink(); ?>"
 			aria-label="<?php the_title(); ?>"
-			data-paged="<?php echo $paged ?>"> 
-		<div class="tile__container voc">
-			<div class="tile__image-container"><img alt="" src="<?php echo get_the_post_thumbnail_url(); ?>"/></div>
-			<div class="tile__voc-hover">
-				<h4 class="tile__title voc">
-				<?php
-					$title = get_the_title();
-					$parts = explode( ':', $title);
-					if (count($parts) == 2 ) : ?>
-						<span class="tile__story-num"><? echo $parts[0] ?>:</span><br>
-						<span class="tile__story-title"><? echo $parts[1] ?></span>
-					<? endif; ?>
-				</h4>
+			data-paged="<?php echo $data_paged ?>"> 
+			<div class="tile__container voc">
+				<div class="tile__image-container"><img alt="" src="<?php echo $voc_img ?>"/></div>
+				<div class="tile__voc-hover">
+					<h4 class="tile__title voc">
+					<?php
+						$title = get_the_title();
+						$parts = explode( ':', $title);
+						if (count($parts) == 2 ) : ?>
+							<span class="tile__story-num"><? echo $parts[0] ?>:</span><br>
+							<span class="tile__story-title"><? echo $parts[1] ?></span>
+						<? endif; ?>
+					</h4>
+				</div>
 			</div>
-		</div>
 		</a>
-		<?php endwhile;
+		<?php $counter = $counter + 1; endwhile;
 		wp_reset_postdata();
 	endif;
 }
