@@ -8,7 +8,7 @@ $date_format = get_option( 'date_format' );
 the_post();
 ?>
 
-<section class="hero shiny-hero module voc" id="hero">
+<section class="hero shiny-hero module voc-story" id="hero">
 	<div class="content">
 		<!-- <a class="anchor" id="<?php echo sanitize_module_title($module_title); ?>" aria-hidden="true"></a> -->
 		<header class="module__title">
@@ -60,7 +60,7 @@ the_post();
 				<aside class="sidebar-block social-block">
 					<div class="sidebar-content sidebar-social">
 
-						<h2 class="sidebar-header">Share</h2>
+						<h2 class="sidebar-header">Share your story</h2>
 						<ul class="social-icons">
 
 							<li><a href="http://facebook.com" class="fb-link"><span class="visually-hidden">Share on Facebook</span></a></li>
@@ -84,8 +84,8 @@ the_post();
 				<!-- VOC Link -->
 				<aside class="sidebar-block media-contact-block">
 					<div class="sidebar-content">
-						<h2 class="sidebar-header">Share you story</h2>
-						<a class="cta" href="https://prh.org/voicesofcourage">Click here</a>
+						<h2 class="sidebar-header">Tell your story</h2>
+						<a class="cta" href="https://prh.org/voicesofcourage">Start here</a>
 					</div>
 				</aside>
 
@@ -93,7 +93,7 @@ the_post();
 				<?php $tags = get_the_tags( $post->ID ); if ( $tags ):  ?>
 					<aside class="sidebar-block tags-block">
 						<div class="sidebar-content">
-							<h2 class="sidebar-header">Tagged under</h2>
+							<h2 class="sidebar-header">Keep Reading</h2>
 							<ul class="tags-list">
 								<?php foreach( $tags as $tag ):  ?>
 									<li>

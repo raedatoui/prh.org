@@ -20,9 +20,9 @@
 				<div class="icon"></div>
 				<span>Health</span>
 			</li>
-			<li class="story-category politics" data-category="politics">
+			<li class="story-category faith" data-category="faith">
 				<div class="icon"></div>
-				<span>Politics</span>
+				<span>Faith</span>
 			</li>
 		</ul>
 

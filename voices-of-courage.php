@@ -134,7 +134,7 @@ if ($hero_banner) {
 $page->init();
 $page->hero = array(
 	'module_name' => 'Page Hero',
-	'config' => PAGE_HERO_MODULE,
+	'config' => VOC_HERO_MODULE,
 	'hero_jump_links' => $page->jump_links(),
 	'banner' => $banner,
 	'class_name' => 'voc',

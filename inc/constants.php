@@ -130,6 +130,12 @@ const PAGE_HERO_MODULE = array(
 	'jump_links' => 'hero_jump_links',
 	'template' => 'template-parts/modules/page-hero.php'
 );
+const VOC_HERO_MODULE = array(
+	'name' => 'Page Hero',
+	'header' => 'hero_header',
+	'jump_links' => 'hero_jump_links',
+	'template' => 'template-parts/modules/voc-hero.php'
+);
 
 const STATISTICS_MODULE = array(
 	'enabled' => 'statistics_enabled',

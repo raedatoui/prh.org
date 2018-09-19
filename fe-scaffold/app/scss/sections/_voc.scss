@@ -213,6 +213,7 @@ $input-height: 75px;
       font-weight: $bold;
       letter-spacing: 0.2em;
       text-align: center;
+      text-transform: uppercase;
     }
 
     .icon {
@@ -244,6 +245,10 @@ $input-height: 75px;
 
   .pregnancy .icon {
     background: image("icons/pregnancy.png") no-repeat 0 0;
+  }
+
+  .faith .icon {
+    background: image("icons/faith.png") no-repeat 0 0;
   }
 
   .search {

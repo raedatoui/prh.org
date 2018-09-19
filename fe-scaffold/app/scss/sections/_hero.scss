@@ -70,7 +70,14 @@ $nav-height-lg: 80px;
   background-image: image("particles/hero-particles.png"), $gradient-linear-blue;
   background-size: auto 150%, auto;
 
-  &.voc {
+  &.voc,  {
+    background-image: image("particles/hero-voc.png"), $gradient-voc-linear-blue;
+    background-size: auto 100%;
+    padding-bottom: 28em;
+    position: relative;
+  }
+
+  &.voc-story {
     background-image: image("particles/hero-story-voc.png"), $gradient-voc-linear-blue;
     background-size: auto 100%;
     padding-bottom: 28em;
