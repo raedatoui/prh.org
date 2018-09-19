@@ -10,24 +10,29 @@ the_post();
 
 <section class="hero shiny-hero module voc" id="hero">
 	<div class="content">
-		<div class="row">
-			<header class="col-xs-12 col-md-8">
-				<?php
+		<!-- <a class="anchor" id="<?php echo sanitize_module_title($module_title); ?>" aria-hidden="true"></a> -->
+		<header class="module__title">
+			<h2>&nbsp;</h2>
+		</header>	
+		<h1 class="hero__header">
+			<?php
 				$intro = get_the_excerpt();
 				if ( !is_generated( $intro ) ) {
-					echo '<p>' . sanitize_text_field($intro) . '</p>';
-				} ?>
-			</header>
-		</div>
+					echo sanitize_text_field($intro);
+				} 
+			?>
+		</h1>
 	</div>
 </section>
 
 <main class="module story-main-module voc" id="main">
 	<div class="content">
-		<h1><?php the_title(); ?></h1>
+	
+		<h1 class=""><?php the_title(); ?></h1>
 		<footer class="post-meta">
-			<time class="post-date utility-copy"><?php the_date( $date_format ); ?></time>
+			<time class="post-date"><?php the_date( $date_format ); ?></time>
 		</footer>
+
 
 		<div class="row row-top">
 			<article class="main-content post-content col-xs-12 col-md-8">
