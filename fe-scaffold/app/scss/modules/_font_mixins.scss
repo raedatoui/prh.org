@@ -23,3 +23,17 @@
   font-family: $lora;
   font-style: normal;
 }
+
+// ROBOTO SLAB
+@mixin roboto-slab {
+  font-family: $roboto-slab;
+  font-style: normal;
+  font-weight: $regular;
+}
+
+// ROBOTO SLAB
+@mixin roboto-slab-black {
+  font-family: $roboto-slab;
+  font-style: normal;
+  font-weight: $black;
+}

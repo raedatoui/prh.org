@@ -1,3 +1,20 @@
+%big-headline {
+  font-weight: 400;
+  letter-spacing: em((-25/1000), 80px);
+  line-height: lh(80, 40);
+  @include roboto-slab();
+}
+
+%big-h1 {
+  @extend %headline;
+  font-size: 52.5px;
+
+  @include responsive-mq("sm") {
+    font-size: 80px;
+  }
+}
+
+
 %headline {
   font-weight: 400;
   letter-spacing: em((-25/1000), 54px);

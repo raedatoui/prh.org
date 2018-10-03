@@ -71,10 +71,22 @@ $nav-height-lg: 80px;
   background-size: auto 150%, auto;
 
   &.voc,  {
-    background-image: image("particles/hero-voc.png"), $gradient-voc-linear-blue;
+    background-image: image("particles/hero-voc.jpg"), $gradient-voc-linear-blue;
     background-size: auto 100%;
     padding-bottom: 28em;
     position: relative;
+
+    h1 {
+      @include roboto-slab;
+      @extend %big-h1;
+
+      word-spacing: 5px;
+      margin-top: 8rem;
+
+      span {
+        @include roboto-slab-black;
+      }
+    }
   }
 
   &.voc-story {

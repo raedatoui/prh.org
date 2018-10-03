@@ -26,14 +26,8 @@
 	<?php endif; ?>
 
 	<div class="content">
-		<header class="module__title">
-			<h2>&nbsp;</h2>
-		</header>	
-		<h1 class="hero__header">&nbsp;</h1>
-		<p class="hero__subhead">
-			<?php foreach ($module[VOC_HERO_MODULE['jump_links']] as $item): ?>
-			<a class="hero__link jump-link" href="#<?php echo $item['slug']; ?>"><?php echo $item['pretty']; ?></a>
-			<?php endforeach; ?>
-		</p>
+		<p class="hero__subhead"></p>
+		<p class="hero__subhead"></p>
+		<h1 class="hero__header"><div>Real <span>stories.</span> Real <span>life.</span></div></h1>
 	</div>
 </section>

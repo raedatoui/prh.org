@@ -44,7 +44,7 @@ const vocForm = {
 					}
 				}).bind(this);
 
-				request.open('POST', 'https://prh.org/wp-admin/admin-ajax.php');
+				request.open('POST', 'http://74x.8f7.mwp.accessdomain.com/wp-admin/admin-ajax.php');
 				if (formaData !== null) { request.send(formaData); }
 	},
 
