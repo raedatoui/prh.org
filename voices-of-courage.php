@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
 			'comment_author' => $_POST['storyName'],
 			'comment_author_email' => $_POST['storyEmail'],
 			// 'comment_author_url' => 'http://www.CheckOutMyCoolSite.com',
-			'comment_content' => 'It means a lot that you would take the time to review our software.  Thanks again.');
+			'comment_content' => $_POST['storyContent']);
 
 	$spam = akismet_comment_check( 'c0384275eb73', $data );
 
