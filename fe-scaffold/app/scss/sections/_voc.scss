@@ -178,7 +178,6 @@ $input-height: 75px;
       }
     }
 
-
     input:not([type="file"]) {
       height: $input-height;
       padding: 0.7em;
@@ -218,8 +217,8 @@ $input-height: 75px;
 
     .icon {
       background-size: cover;
-      transform: scale(0.75);
       height: 200px;
+      transform: scale(0.75);
       width: 200px;
     }
 
@@ -373,9 +372,9 @@ $input-height: 75px;
     }
 
     footer {
-      padding-top: 1rem;
       font-size: em(16px);
       font-weight: $bold;
+      padding-top: 1rem;
 
       @include responsive-mq(sm) {
         font-size: em(24px);

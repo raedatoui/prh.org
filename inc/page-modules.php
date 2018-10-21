@@ -154,8 +154,8 @@ class PageModules {
 				throw new Exception('Module found but not properly configured');
 			}
 			// unroll module options into $config object
-			$options = $module[$config['options']][0];		
-			$config = array_merge( $config, $options );
+			$options = $module[$config['options']][0];
+			$config = array_merge( $config,  (array)$options );
 			// remove module_options field from module
 			unset( $module[$config['options']] );
 			unset( $module['module_name'] );

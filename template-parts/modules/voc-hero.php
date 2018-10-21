@@ -28,6 +28,9 @@
 	<div class="content">
 		<p class="hero__subhead"></p>
 		<p class="hero__subhead"></p>
-		<h1 class="hero__header"><div>Real <span>stories.</span> Real <span>life.</span></div></h1>
+		<h1 class="hero__header">
+			<div>Real <span>stories.</span> Real <span>life.</span></div>
+			<div class="header__subhead">Voices of courage</div>
+		</h1>
 	</div>
 </section>

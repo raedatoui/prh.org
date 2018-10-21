@@ -16,9 +16,9 @@
 				<div class="icon"></div>
 				<span>Contraception</span>
 			</li>
-			<li class="story-category health" data-category="health">
+			<li class="story-category health" data-category="access-to-care">
 				<div class="icon"></div>
-				<span>Health</span>
+				<span>Access to Care</span>
 			</li>
 			<li class="story-category faith" data-category="faith">
 				<div class="icon"></div>

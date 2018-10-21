@@ -239,6 +239,24 @@ function delete_story_attachments( $post_id ){
 /********************************************************** 
  * the ajax functions for searching stories on the VOC page.
 ***********************************************************/
+function slugify($text) {
+	// replace non letter or digits by -
+	$text = preg_replace('~[^\pL\d]+~u', '-', $text);
+	// transliterate
+	$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+	// remove unwanted characters
+	$text = preg_replace('~[^-\w]+~', '', $text);
+	// trim
+	$text = trim($text, '-');
+	// remove duplicate -
+	$text = preg_replace('~-+~', '-', $text);
+	// lowercase
+	$text = strtolower($text);
+	if (empty($text)) {
+		return 'n-a';
+	}
+	return $text;
+}
 
 function search_and_render_stories($args) {
 	$per_page = 9;
@@ -326,7 +344,7 @@ add_action('wp_ajax_search_stories_by_tag' , 'search_stories_by_tag');
 add_action('wp_ajax_nopriv_search_stories_by_tag','search_stories_by_tag');
 function search_stories_by_tag() {
 	$args = array(
-		'tag' => $_POST['tag']
+		'tag' => slugify($_POST['tag'])
 	);
 	search_and_render_stories( $args );
 	die();

@@ -73,18 +73,25 @@ $nav-height-lg: 80px;
   &.voc,  {
     background-image: image("particles/hero-voc.jpg"), $gradient-voc-linear-blue;
     background-size: auto 100%;
-    padding-bottom: 28em;
+    padding-bottom: 26em;
     position: relative;
 
     h1 {
-      @include roboto-slab;
       @extend %big-h1;
+      @include roboto-slab;
 
-      word-spacing: 5px;
       margin-top: 8rem;
+      word-spacing: 5px;
 
       span {
         @include roboto-slab-black;
+      }
+
+      .header__subhead {
+        @include roboto;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 28px;
       }
     }
   }

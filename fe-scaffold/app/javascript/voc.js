@@ -3,12 +3,12 @@ const vocForm = {
 	filePreview: document.getElementById('story-file-preview'),
 	fileLabel: document.getElementById('story-filename'),
 	stateSelect: document.getElementById('story-state'),
-	
+
 	storieSearchTerm: document.getElementById('stories-search-term'),
 	storiesSearchState: document.getElementById('stories-search-state'),
 	storyCategories: document.getElementsByClassName('story-category'),
 	storySearchButton: document.getElementById('strories-search-btn'),
-	
+
 	storiesSearchLabel: document.getElementById('stories-search-label'),
 	storiesContainer: document.getElementById('aggregate-macy-voc'),
 	storiesReadMore: document.getElementById('stories-read-more'),
@@ -44,7 +44,7 @@ const vocForm = {
 					}
 				}).bind(this);
 
-				request.open('POST', 'http://u63.9d5.mwp.accessdomain.com/wp-admin/admin-ajax.php');
+				request.open('POST', 'https://prh.org/wp-admin/admin-ajax.php');
 				if (formaData !== null) { request.send(formaData); }
 	},
 
@@ -74,14 +74,14 @@ const vocForm = {
 			data.append('tag', state);
 			data.append('action', 'search_stories_by_tag');
 			this.searchStories(data, state, false);
-		} else if (term !== '' && state != '') {
+		} else if (term !== '' && state !== '') {
 			data = new FormData();
 			data.append('keyword', term);
 			data.append('tag', state);
 			data.append('action', 'search_stories_by_tag_and_term');
-			const searchLabel = term + ' in ' + state; 
+			const searchLabel = term + ' in ' + state;
 			this.searchStories(data, searchLabel, false);
-		}		
+		}
 	},
 
 	searchByCategory: function(event) {
