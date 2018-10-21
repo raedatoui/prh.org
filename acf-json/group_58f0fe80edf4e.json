@@ -43,14 +43,14 @@
                 "class": "",
                 "id": ""
             },
-            "min": 1,
-            "max": 1,
-            "layout": "block",
+            "field_group_key": "group_58e1c055118d9",
+            "repeatable": 0,
+            "layout": "row",
             "button_label": "Add Row",
             "appearances": "",
+            "min": null,
+            "max": null,
             "collapsed": "",
-            "field_group_key": "group_58e1c055118d9",
-            "repeatable": false,
             "sub_fields": []
         },
         {
@@ -151,5 +151,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1538964501
+    "modified": 1540155025
 }

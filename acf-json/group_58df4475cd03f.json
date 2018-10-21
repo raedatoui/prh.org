@@ -42,17 +42,14 @@
                 "class": "",
                 "id": ""
             },
-            "field_group_id": "group_58e1c055118d9",
-            "min": 1,
-            "max": 1,
+            "field_group_key": "group_58e1c055118d9",
+            "repeatable": 0,
             "layout": "row",
-            "button_label": "Add Row",
-            "appearances": [
-                "hide-outer-label"
-            ],
+            "button_label": "",
+            "appearances": "",
+            "min": null,
+            "max": null,
             "collapsed": "",
-            "field_group_key": null,
-            "repeatable": false,
             "sub_fields": []
         },
         {
@@ -293,5 +290,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1538964528
+    "modified": 1540155044
 }

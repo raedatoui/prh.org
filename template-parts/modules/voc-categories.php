@@ -7,18 +7,18 @@
 				<div class="icon"></div>
 				<span>Abortion</span>
 			</li>
-			<li class="story-category pregnancy" data-category="pregnancy">
+			<li class="story-category pregnancy" data-category="maternal-health">
 				<div class="icon"></div>
-				<span>Pregnancy</span>
+				<span>Maternal Health</span>
 			</li>
 
 			<li class="story-category contraception" data-category="contraception">
 				<div class="icon"></div>
 				<span>Contraception</span>
 			</li>
-			<li class="story-category health" data-category="access-to-care">
+			<li class="story-category health" data-category="aca">
 				<div class="icon"></div>
-				<span>Access to Care</span>
+				<span>ACA</span>
 			</li>
 			<li class="story-category faith" data-category="faith">
 				<div class="icon"></div>

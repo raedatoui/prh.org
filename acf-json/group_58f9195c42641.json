@@ -19,7 +19,8 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_592f19aa1be2f",
@@ -38,7 +39,8 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_5930f81ca779d",
@@ -57,7 +59,8 @@
             "default_value": 0,
             "ui": 0,
             "ui_on_text": "",
-            "ui_off_text": ""
+            "ui_off_text": "",
+            "repeatable": true
         },
         {
             "key": "field_58f91a0dfe98e",
@@ -72,27 +75,42 @@
                 "class": "",
                 "id": ""
             },
-            "field_group_id": "group_58f900523b648",
             "min": 1,
             "max": "",
             "layout": "row",
             "button_label": "Add another block",
             "appearances": "",
             "collapsed": "",
-            "sub_fields": [],
-            "field_group_key": null,
-            "repeatable": false
+            "field_group_key": "group_58f900523b648",
+            "repeatable": true,
+            "sub_fields": []
         }
     ],
-    "location": [],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
     "menu_order": 0,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": 1,
     "description": "",
-    "is_acf_component": true,
-    "modified": 1540138846
+    "is_acf_component": 1,
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1540146419
 }

@@ -19,10 +19,7 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0,
-            "repeatable": true
+            "maxlength": ""
         },
         {
             "key": "field_58e1c0696488a",
@@ -120,16 +117,24 @@
             "repeatable": true
         }
     ],
-    "location": [],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
     "menu_order": 0,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": 1,
     "description": "",
-    "is_acf_component": true,
+    "is_acf_component": 1,
     "acf_component_defaults": {
         "repeatable": "0",
         "min": "",
@@ -138,5 +143,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1540138847
+    "modified": 1540155091
 }

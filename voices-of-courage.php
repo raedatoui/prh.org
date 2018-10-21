@@ -18,7 +18,7 @@ function akismet_comment_check( $key, $data ) {
 			'&blog_lang=en';
 			// '&is_test=true';
 
-	$http_host = $key.'.rest.akismet.com';
+	$host = $http_host = $key.'.rest.akismet.com';
 	$path = '/1.1/comment-check';
 	$port = 443;
 	$akismet_ua = "WordPress/4.9.8 | Akismet/4.0.8";
@@ -49,75 +49,81 @@ function akismet_comment_check( $key, $data ) {
 		return false;
 }
 
+
 $created_story = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' &&  
 	isset( $_POST['cpt_nonce_field'] ) && 
 	wp_verify_nonce( $_POST['cpt_nonce_field'], 'cpt_nonce_action' ) ) {
+	
+	// Call to verify key function
+	$valid_key = akismet_verify_key('c0384275eb73', 'https://prh.org');
+	
+	if ($valid_key) {
+		// story data to check
+		$data = array('blog' => 'https://prh.org',
+				'user_ip' => $_SERVER['REMOTE_ADDR'],
+				'user_agent' => $_SERVER['HTTP_USER_AGENT'],
+				'referrer' => $_SERVER['HTTP_REFERER'],
+				'permalink' => 'https://prh.org/voicesofcourage',
+				'comment_type' => 'blog-post',
+				'comment_author' => $_POST['storyName'],
+				'comment_author_email' => $_POST['storyEmail'],
+				// 'comment_author_url' => 'http://www.CheckOutMyCoolSite.com',
+				'comment_content' => $_POST['storyContent']);
 
-	// story data to check
-	$data = array('blog' => 'https://prh.org',
-			'user_ip' => $_SERVER['REMOTE_ADDR'],
-			'user_agent' => $_SERVER['HTTP_USER_AGENT'],
-			'referrer' => $_SERVER['HTTP_REFERER'],
-			'permalink' => 'https://prh.org/voicesofcourage',
-			'comment_type' => 'blog-post',
-			'comment_author' => $_POST['storyName'],
-			'comment_author_email' => $_POST['storyEmail'],
-			// 'comment_author_url' => 'http://www.CheckOutMyCoolSite.com',
-			'comment_content' => $_POST['storyContent']);
+		$spam = akismet_comment_check( 'c0384275eb73', $data );
 
-	$spam = akismet_comment_check( 'c0384275eb73', $data );
+		if (!$spam) {
+			// create post object with the form values
+			$post_title = $_POST['storyName'];
+			$my_cptpost_args = array(
+				'post_title' => $post_title,
+				'post_status' => 'pending',
+				'post_type' => 'phys_story',
+			);
 
-	if (!$spam) {
-		// create post object with the form values
-		$post_title = $_POST['storyName'];
-		$my_cptpost_args = array(
-			'post_title' => $post_title,
-			'post_status' => 'pending',
-			'post_type' => 'phys_story',
-		);
+			// insert the post into the database
+			$cpt_id = wp_insert_post( $my_cptpost_args);
+			wp_set_post_tags( $cpt_id, $_POST['storyState'], true );
+			update_field('voc_story', $_POST['storyContent'], $cpt_id);
+			update_field('voc_email', $_POST['storyEmail'], $cpt_id);
+			update_field('voc_name', $_POST['storyName'], $cpt_id);
 
-		// insert the post into the database
-		$cpt_id = wp_insert_post( $my_cptpost_args);
-		wp_set_post_tags( $cpt_id, $_POST['storyState'], true );
-		update_field('voc_story', $_POST['storyContent'], $cpt_id);
-		update_field('voc_email', $_POST['storyEmail'], $cpt_id);
-		update_field('voc_name', $_POST['storyName'], $cpt_id);
-
-		// insert the photo is present
-		$f = 'storyPhoto';
-		if( !empty( $_FILES[$f]['name'] )) {
-			require_once( ABSPATH . 'wp-admin/includes/file.php' );
-			$upload_overrides = array( 'test_form' => false );
-			$file = wp_handle_upload( $_FILES[$f], $upload_overrides);
-		
-			if ( isset( $file['error'] )) {
-				return new WP_Error( 'upload_error', $file['error'] );
-			}
-			$file_type = wp_check_filetype($_FILES[$f]['name'], array(
-				'jpg|jpeg' => 'image/jpeg',
-				'gif' => 'image/gif',
-				'png' => 'image/png',
-			));
-			if ($file_type['type']) {
-				$name_parts = pathinfo( $file['file'] );
-				$name = $_FILES[$f]['name'];
-				$type = $file['type'];
-				
-				$attachment = array(
-				'post_title' => ($post_title . "-photo"),
-				'post_type' => 'attachment',
-				'post_mime_type' => $type,
-				'guid' => $file['url'],
-				);
-				
-				$attach_id = wp_insert_attachment( $attachment, $file['file'], $cpt_id );
-				update_field('voc_photo', $attach_id, $cpt_id);
+			// insert the photo is present
+			$f = 'storyPhoto';
+			if( !empty( $_FILES[$f]['name'] )) {
+				require_once( ABSPATH . 'wp-admin/includes/file.php' );
+				$upload_overrides = array( 'test_form' => false );
+				$file = wp_handle_upload( $_FILES[$f], $upload_overrides);
+			
+				if ( isset( $file['error'] )) {
+					return new WP_Error( 'upload_error', $file['error'] );
+				}
+				$file_type = wp_check_filetype($_FILES[$f]['name'], array(
+					'jpg|jpeg' => 'image/jpeg',
+					'gif' => 'image/gif',
+					'png' => 'image/png',
+				));
+				if ($file_type['type']) {
+					$name_parts = pathinfo( $file['file'] );
+					$name = $_FILES[$f]['name'];
+					$type = $file['type'];
+					
+					$attachment = array(
+					'post_title' => ($post_title . "-photo"),
+					'post_type' => 'attachment',
+					'post_mime_type' => $type,
+					'guid' => $file['url'],
+					);
+					
+					$attach_id = wp_insert_attachment( $attachment, $file['file'], $cpt_id );
+					update_field('voc_photo', $attach_id, $cpt_id);
+				}
 			}
 		}
-	}
 
-	$created_story = true;
+		$created_story = true;
+	}
 }
  
 get_header();
