@@ -7,7 +7,6 @@
             "label": "Title",
             "name": "accordion_title",
             "type": "text",
-            "value": null,
             "instructions": "This is the title users click on to expand the content. Shorter is better!",
             "required": 1,
             "conditional_logic": 0,
@@ -27,7 +26,6 @@
             "label": "Content",
             "name": "accordion_content",
             "type": "wysiwyg",
-            "value": null,
             "instructions": "This content will start out collapsed, then appear when its title is clicked.",
             "required": 1,
             "conditional_logic": 0,
@@ -43,23 +41,15 @@
             "delay": 0
         }
     ],
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "page"
-            }
-        ]
-    ],
+    "location": [],
     "menu_order": 0,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
+    "active": true,
     "description": "",
-    "is_acf_component": 1,
-    "modified": 1509153693
+    "is_acf_component": true,
+    "modified": 1538964050
 }

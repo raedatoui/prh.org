@@ -24,7 +24,8 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "repeatable": true
         }
     ],
     "location": [
@@ -55,5 +56,13 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1521389989
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1538964573
 }

@@ -7,7 +7,6 @@
             "label": "Eyebrow",
             "name": "stat_eyebrow",
             "type": "text",
-            "value": null,
             "instructions": "Short header that describes the topic of the stat; keep this to a few words at most.",
             "required": 0,
             "conditional_logic": 0,
@@ -27,7 +26,6 @@
             "label": "Number",
             "name": "stat_number",
             "type": "text",
-            "value": null,
             "instructions": "The numerical part of this stat. For large numbers, use abbreviations (1K, 1M, etc).",
             "required": 1,
             "conditional_logic": 0,
@@ -47,7 +45,6 @@
             "label": "Text",
             "name": "stat_text",
             "type": "text",
-            "value": null,
             "instructions": "Part two of the stat figure, after the number.",
             "required": 1,
             "conditional_logic": 0,
@@ -67,7 +64,6 @@
             "label": "Summary",
             "name": "stat_summary",
             "type": "text",
-            "value": null,
             "instructions": "Additional context for the stat; appears below the number and text.",
             "required": 0,
             "conditional_logic": 0,
@@ -83,23 +79,15 @@
             "maxlength": ""
         }
     ],
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ]
-    ],
+    "location": [],
     "menu_order": 0,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
+    "active": true,
     "description": "",
-    "is_acf_component": 1,
-    "modified": 1509153699
+    "is_acf_component": true,
+    "modified": 1538964050
 }

@@ -79,85 +79,20 @@
             "button_label": "Add another block",
             "appearances": "",
             "collapsed": "",
-            "sub_fields": [
-                {
-                    "ID": 14541,
-                    "key": "field_58f9188ab504c",
-                    "label": "Title",
-                    "name": "accordion_title",
-                    "prefix": "acf",
-                    "type": "text",
-                    "value": null,
-                    "menu_order": 0,
-                    "instructions": "This is the title users click on to expand the content. Shorter is better!",
-                    "required": 1,
-                    "id": "",
-                    "class": "",
-                    "conditional_logic": 0,
-                    "parent": 14540,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "_name": "accordion_title",
-                    "_prepare": 0,
-                    "_valid": 1,
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "ID": 14542,
-                    "key": "field_58f918c1b504d",
-                    "label": "Content",
-                    "name": "accordion_content",
-                    "prefix": "acf",
-                    "type": "wysiwyg",
-                    "value": null,
-                    "menu_order": 1,
-                    "instructions": "This content will start out collapsed, then appear when its title is clicked.",
-                    "required": 1,
-                    "id": "",
-                    "class": "",
-                    "conditional_logic": 0,
-                    "parent": 14540,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "_name": "accordion_content",
-                    "_prepare": 0,
-                    "_valid": 1,
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "basic",
-                    "media_upload": 1,
-                    "delay": 0
-                }
-            ]
+            "sub_fields": [],
+            "field_group_key": null,
+            "repeatable": false
         }
     ],
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "page"
-            }
-        ]
-    ],
+    "location": [],
     "menu_order": 0,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
+    "active": true,
     "description": "",
-    "is_acf_component": 1,
-    "modified": 1496382112
+    "is_acf_component": true,
+    "modified": 1538964050
 }

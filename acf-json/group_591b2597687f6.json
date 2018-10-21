@@ -17,7 +17,8 @@
             },
             "display_format": "F j, Y",
             "return_format": "F j, Y",
-            "first_day": 1
+            "first_day": 1,
+            "repeatable": true
         },
         {
             "key": "field_591b25e25709b",
@@ -33,7 +34,8 @@
                 "id": ""
             },
             "display_format": "g:i a",
-            "return_format": "g:i a"
+            "return_format": "g:i a",
+            "repeatable": true
         },
         {
             "key": "field_591b2bc15709c",
@@ -49,7 +51,8 @@
                 "id": ""
             },
             "display_format": "g:i a",
-            "return_format": "g:i a"
+            "return_format": "g:i a",
+            "repeatable": true
         },
         {
             "key": "field_591b2bda5709d",
@@ -68,7 +71,8 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_591b317ebb855",
@@ -83,72 +87,15 @@
                 "class": "",
                 "id": ""
             },
-            "field_group_id": "group_58e1c120cf8fa",
             "min": 1,
             "max": 1,
             "layout": "block",
             "button_label": "",
             "appearances": "",
             "collapsed": "",
-            "sub_fields": [
-                {
-                    "ID": 14564,
-                    "key": "field_58e1c124a8dfe",
-                    "label": "Label",
-                    "name": "cta_label",
-                    "prefix": "acf",
-                    "type": "text",
-                    "value": null,
-                    "menu_order": 0,
-                    "instructions": "",
-                    "required": 1,
-                    "id": "",
-                    "class": "",
-                    "conditional_logic": 0,
-                    "parent": 14563,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "_name": "cta_label",
-                    "_prepare": 0,
-                    "_valid": 1,
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                },
-                {
-                    "ID": 14565,
-                    "key": "field_58e1c136a8dff",
-                    "label": "Link",
-                    "name": "cta_link",
-                    "prefix": "acf",
-                    "type": "url",
-                    "value": null,
-                    "menu_order": 1,
-                    "instructions": "",
-                    "required": 1,
-                    "id": "",
-                    "class": "",
-                    "conditional_logic": 0,
-                    "parent": 14563,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "_name": "cta_link",
-                    "_prepare": 0,
-                    "_valid": 1,
-                    "default_value": "",
-                    "placeholder": ""
-                }
-            ]
+            "field_group_key": "group_58e1c120cf8fa",
+            "repeatable": false,
+            "sub_fields": []
         }
     ],
     "location": [
@@ -169,5 +116,13 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494954394
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1538964536
 }
