@@ -54,7 +54,7 @@ $created_story = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST' &&  
 	isset( $_POST['cpt_nonce_field'] ) && 
 	wp_verify_nonce( $_POST['cpt_nonce_field'], 'cpt_nonce_action' ) ) {
-	
+		
 	// Call to verify key function
 	$valid_key = akismet_verify_key('c0384275eb73', 'https://prh.org');
 	
@@ -125,7 +125,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
 		$created_story = true;
 	}
 }
- 
+
+
 get_header();
 
 $page = new PageModules( get_the_ID(), true );
@@ -147,5 +148,13 @@ $page->hero = array(
 	'show_alert' => $created_story
 );
 $page->render();
+
+if ( $_SERVER['REQUEST_METHOD'] == 'GET' ) {
+	if ( isset( $_GET['tag'] ) ): ?>
+		<script>
+			window.searchTag = "<?php echo urldecode($_GET['tag']) ?>";
+		</script>
+	<? endif;
+}
 
 get_footer();

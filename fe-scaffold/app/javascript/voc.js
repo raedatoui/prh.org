@@ -14,6 +14,7 @@ const vocForm = {
 	storiesReadMore: document.getElementById('stories-read-more'),
 	currentSearch: null,
 	currentSearchLabel: '',
+	scrollTo: false,
 
 	searchStories: function(formaData, searchLabel, appendResults) {
 				// set up a request
@@ -34,8 +35,11 @@ const vocForm = {
 								this.currentSearchLabel = searchLabel;
 								this.storiesSearchLabel.innerHTML = 'Searching for: ' + searchLabel;
 							}
+							if (this.scrollTo) {
+								this.storySearchButton.scrollIntoView(true);
+							}
 							window.macyInstances[0].recalculate();
-							setTimeout( function() {
+							setTimeout( () => {
 								window.macyInstances[0].reInit();
 							}, 250 );
 						} else {
@@ -50,6 +54,7 @@ const vocForm = {
 
 	onSearchFieldKeyUp: function(event) {
 		if (event.keyCode === 13) {
+			this.scrollTo = true;
 			this.doSearch();
 		}
 	},
@@ -57,6 +62,7 @@ const vocForm = {
 	onSearchButtonClick: function(event) {
 		event.stopPropagation();
 		event.preventDefault();
+		this.scrollTo = true;
 		this.doSearch();
 	},
 
@@ -130,6 +136,7 @@ const vocForm = {
 		const paged = parseInt(this.storiesContainer.lastElementChild.dataset.paged);
 		this.currentSearch.set('paged', paged+1);
 		this.currentSearch.set('per_page', 3);
+		this.scrollTo = false;
 		this.searchStories(this.currentSearch, this.currentSearchLabel, true);
 	},
 
@@ -167,6 +174,11 @@ const vocForm = {
 		this.currentSearch.append('s', '');
 		this.currentSearch.append('per_page', 9);
 		this.currentSearch.append('action', 'search_stories_by_term');
+		if (window.searchTag !== undefined) {
+			this.storiesSearchState.value = window.searchTag;
+			this.doSearch();
+			this.scrollTo = true;
+		}
 	}
 }
 

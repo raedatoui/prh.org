@@ -97,7 +97,7 @@ the_post();
 							<ul class="tags-list">
 								<?php foreach( $tags as $tag ):  ?>
 									<li>
-										<a class="tag" href="<?php bloginfo('url' );?>/tag/<?php print_r( $tag->slug );?>">
+										<a class="tag" href="<?php bloginfo('url' );?>/voicesofcourage?tag=<?php print_r( urlencode($tag->name) );?>">
 											<?php print_r( $tag->name . ' (' . $tag->count . ')' ); ?>
 										</a>
 									</li>
