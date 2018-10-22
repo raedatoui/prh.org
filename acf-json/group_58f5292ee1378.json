@@ -19,7 +19,8 @@
             "default_value": 0,
             "ui": 1,
             "ui_on_text": "",
-            "ui_off_text": ""
+            "ui_off_text": "",
+            "repeatable": true
         },
         {
             "key": "field_58f529aa95e99",
@@ -38,7 +39,8 @@
             "tabs": "all",
             "toolbar": "basic",
             "media_upload": 0,
-            "delay": 0
+            "delay": 0,
+            "repeatable": true
         }
     ],
     "location": [
@@ -105,7 +107,6 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
-        "custom_fields",
         "discussion",
         "format",
         "page_attributes",
@@ -114,5 +115,13 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494569055
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1540154146
 }

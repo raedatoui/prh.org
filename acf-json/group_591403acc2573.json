@@ -7,7 +7,6 @@
             "label": "Enabled",
             "name": "overview_enabled2",
             "type": "true_false",
-            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -20,14 +19,14 @@
             "default_value": 0,
             "ui": 1,
             "ui_on_text": "",
-            "ui_off_text": ""
+            "ui_off_text": "",
+            "repeatable": true
         },
         {
             "key": "field_591403acce169",
             "label": "Options",
             "name": "overview_options2",
             "type": "component_field",
-            "value": null,
             "instructions": "",
             "required": 1,
             "conditional_logic": [
@@ -44,20 +43,21 @@
                 "class": "",
                 "id": ""
             },
-            "field_group_id": "group_58e1c055118d9",
             "min": 1,
             "max": 1,
             "layout": "row",
             "button_label": "Add Row",
             "appearances": "",
-            "collapsed": ""
+            "collapsed": "",
+            "field_group_key": "group_58e1c055118d9",
+            "repeatable": false,
+            "sub_fields": []
         },
         {
             "key": "field_591403acce19c",
             "label": "Text",
             "name": "overview_content2",
             "type": "wysiwyg",
-            "value": null,
             "instructions": "If your content is more than a paragraph or two long, you can use the \"read more\" toolbar button to insert a division - it's the third button from the right in the editing toolbar, the one that looks like two bars with a dotted line between them. Hit enter after a paragraph and press the button; everything after the dividing line it inserts will be hidden behind a \"Read more\" link.",
             "required": 1,
             "conditional_logic": [
@@ -78,14 +78,14 @@
             "tabs": "all",
             "toolbar": "full",
             "media_upload": 0,
-            "delay": 0
+            "delay": 0,
+            "repeatable": true
         },
         {
             "key": "field_591403acce1ad",
             "label": "Resources Enabled",
             "name": "overview_resources_enabled2",
             "type": "true_false",
-            "value": null,
             "instructions": "",
             "required": 0,
             "conditional_logic": [
@@ -106,7 +106,8 @@
             "default_value": 0,
             "ui": 0,
             "ui_on_text": "",
-            "ui_off_text": ""
+            "ui_off_text": "",
+            "repeatable": true
         },
         {
             "key": "field_591403acce1bb",
@@ -136,14 +137,14 @@
             },
             "message": "Add up to four related links to sit alongside the overview. The list title defaults to 'Resources', but can be changed below.",
             "new_lines": "wpautop",
-            "esc_html": 0
+            "esc_html": 0,
+            "repeatable": true
         },
         {
             "key": "field_591403acce1cc",
             "label": "Title",
             "name": "overview_resources_title2",
             "type": "text",
-            "value": null,
             "instructions": "",
             "required": 1,
             "conditional_logic": [
@@ -169,14 +170,14 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_591403acce1dd",
             "label": "Links",
             "name": "overview_resource_links2",
             "type": "repeater",
-            "value": null,
             "instructions": "Add up to four links to display in a list to the right of the overview text.",
             "required": 1,
             "conditional_logic": [
@@ -203,7 +204,46 @@
             "max": 4,
             "layout": "row",
             "button_label": "Add another link",
-            "sub_fields": []
+            "repeatable": true,
+            "sub_fields": [
+                {
+                    "key": "field_591403acdc079",
+                    "label": "Link text",
+                    "name": "overview_resource_link_text2",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "repeatable": true
+                },
+                {
+                    "key": "field_591403acdc08c",
+                    "label": "URL",
+                    "name": "overview_resource_link_url2",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "repeatable": true
+                }
+            ]
         }
     ],
     "location": [
@@ -232,5 +272,13 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1509138395
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1540154127
 }

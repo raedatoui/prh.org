@@ -7,6 +7,7 @@
   text-align: center;
   top: 0;
   width: 100%;
+  z-index: 5;
 
   span {
     display: block;
@@ -52,15 +53,15 @@
   }
 
   button {
+    background: #fc9993;
+    border-radius: 50%;
+    height: 40px;
+    padding: 0 10px;
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    height: 40px;
     width: 40px;
-    padding: 0 10px;
-    border-radius: 50%;
-    background: #fc9993;
 
     &:hover,
     &:focus {
@@ -68,13 +69,51 @@
     }
 
     svg {
+      max-width: 100%;
       pointer-events: none; // otherwise it can interfere with the title tooltip appearing
       stroke: color(navy);
-      max-width: 100%;
     }
   }
 
   &.is-hidden {
     display: none;
+  }
+
+  &.voc {
+    div {
+      background: color(voc-green);
+      color: color(white);
+      display: block;
+      margin: auto;
+      padding: 21px;
+      padding-right: 65px; // blocks off space for the X button
+      text-decoration: none;
+      transition: $fx-duration background 0s;
+      width: 100%;
+
+      &:hover,
+      &:focus {
+        background: color(voc-green);
+        color: color(white);
+      }
+
+      @include responsive-mq(sm) {
+        display: inline-block;
+        margin-bottom: 0;
+      }
+    }
+
+    button {
+      background: color(voc-green);
+
+      &:hover,
+      &:focus {
+        background: color(voc-light-green);
+      }
+
+      svg {
+        stroke: color(white);
+      }
+    }
   }
 }

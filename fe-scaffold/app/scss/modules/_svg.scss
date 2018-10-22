@@ -20,6 +20,7 @@
 }
 
 .icon--search,
+.icon--state,
 .icon--person {
   @extend %svg;
   height: 50px;
@@ -36,7 +37,8 @@
   fill: $base-font-blue;
 }
 
-.icon--menu, .icon--close {
+.icon--menu,
+.icon--close {
   @extend %svg;
   height: 25px;
   width: 30px;

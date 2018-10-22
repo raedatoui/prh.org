@@ -20,6 +20,7 @@ const KEY_CODES = {
 		active: 0,
 		tabCursorEvent: 'click'
 	},
+
 	StormTabAccordion = {
 		init() {
 			this.breakPoint = 977;
@@ -67,8 +68,8 @@ const KEY_CODES = {
 		debounce( func, wait, immediate ) {
 			var timeout;
 			return function() {
-				let context = this,
-args = arguments,
+				const context = this,
+					args = arguments,
 					later = function() {
 						timeout = null;
 						if ( ! immediate ) {
@@ -108,8 +109,8 @@ args = arguments,
 			this.titles.forEach( ( el, i ) => {
 				el.addEventListener( this.settings.tabCursorEvent, e => {
 					if ( !! e.keyCode && e.keyCode === KEY_CODES.TAB ) {
-return;
-}
+						return;
+					}
 
 					if ( ! e.keyCode || e.keyCode === KEY_CODES.ENTER ) {
 						e.preventDefault();
@@ -136,40 +137,40 @@ return;
 						e.preventDefault();
 						this.toggle( ( 0 === this.current ? this.tabs.length - 1 : this.current - 1 ) );
 						window.setTimeout( () => {
- this.tabs[this.current].focus();
-}, 16 );
+							this.tabs[this.current].focus();
+						}, 16 );
 						break;
 					case KEY_CODES.LEFT:
 						this.toggle( ( 0 === this.current ? this.tabs.length - 1 : this.current - 1 ) );
 						window.setTimeout( () => {
- this.tabs[this.current].focus();
-}, 16 );
+							this.tabs[this.current].focus();
+						}, 16 );
 						break;
 					case KEY_CODES.DOWN:
 						e.preventDefault();
 						this.toggle( ( this.current === this.tabs.length - 1 ? 0 : this.current + 1 ) );
 						window.setTimeout( () => {
- this.tabs[this.current].focus();
-}, 16 );
+							this.tabs[this.current].focus();
+						}, 16 );
 						break;
 					case KEY_CODES.RIGHT:
 						this.toggle( ( this.current === this.tabs.length - 1 ? 0 : this.current + 1 ) );
 						window.setTimeout( () => {
- this.tabs[this.current].focus();
-}, 16 );
+							this.tabs[this.current].focus();
+						}, 16 );
 						break;
 					case KEY_CODES.ENTER:
 						handler.call( this, i );
 						window.setTimeout( () => {
- this.tabs[i].focus();
-}, 16 );
+							this.tabs[i].focus();
+						}, 16 );
 						break;
 					case KEY_CODES.SPACE:
 						e.preventDefault();
 						this.toggle( i );
 						window.setTimeout( () => {
- this.tabs[i].focus();
-}, 16 );
+							this.tabs[i].focus();
+						}, 16 );
 						break;
 					case KEY_CODES.TAB:
 						e.preventDefault();
@@ -179,8 +180,6 @@ return;
 						handler.call( this, i );
 						break;
 					default:
-
-							//
 						break;
 					}
 				});
@@ -197,8 +196,8 @@ return;
 		getTabIndex( link ) {
 			for ( let i = 0; i < this.tabs.length; i++ ) {
 				if ( link === this.tabs[i]) {
-return i;
-}
+					return i;
+				}
 			}
 			return null;
 		},
@@ -219,8 +218,8 @@ return i;
 		},
 		keyListener( e ) {
 			if ( e.keyCode !== KEY_CODES.TAB ) {
-return;
-}
+				return;
+			}
 
 			let focusedIndex = this.focusableChildren.indexOf( document.activeElement );
 
@@ -270,7 +269,6 @@ return;
 			this.tabs[i].setAttribute( 'aria-selected', 'true' === this.tabs[i].getAttribute( 'aria-selected' ) ? 'false' : 'true' );
 			this.tabs[i].setAttribute( 'aria-expanded', 'true' === this.tabs[i].getAttribute( 'aria-expanded' ) ? 'false' : 'true' );
 			methods[type].tabIndex.target.setAttribute( 'tabIndex', methods[type].tabIndex.value );
-
 		},
 		open( i ) {
 			this.change( 'open', i );
@@ -312,8 +310,8 @@ return;
 		let els = [].slice.call( document.querySelectorAll( sel ) );
 
 		if ( ! els.length ) {
-throw new Error( 'Tab Accordion cannot be initialised, no augmentable elements found' );
-}
+			throw new Error( 'Tab Accordion cannot be initialised, no augmentable elements found' );
+		}
 
 		return els.map( ( el ) => {
 			return Object.assign( Object.create( StormTabAccordion ), {

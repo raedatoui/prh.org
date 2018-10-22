@@ -1,0 +1,384 @@
+%input-text {
+  @include roboto;
+  font-size: em(14px);
+  @include responsive-mq(sm) {
+    font-size: em(16px);
+  }
+}
+$input-height: 75px;
+
+.voc-form {
+  form {
+    display: flex;
+    flex-flow: column;
+
+    @include responsive-mq(md) {
+      flex-flow: row;
+    }
+
+    textarea {
+      height: 100%;
+    }
+
+    textarea,
+    input,
+    select {
+      @extend %input-text;
+
+      border: none;
+      border-bottom: 1px solid color(voc-gray);
+      border-radius: 0;
+    }
+
+    textarea::placeholder,
+    input::placeholder {
+      color: color(voc-gray);
+      opacity: 1;
+    }
+
+    input,
+    select {
+      height: $input-height;
+    }
+
+    select {
+      background-color: color(white);
+      color: color(voc-gray);
+      width: 100%;
+    }
+
+    .input {
+      position: relative;
+    }
+
+    .inputfile {
+      height: 100%;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .inputfile+label {
+      @extend %input-text;
+      align-items: center;
+      background-color: color(white);
+      border-bottom: 1px solid color(voc-gray);
+      cursor: pointer;
+      display: flex;
+      height: $input-height;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 0.7em;
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    .inputfile:focus+label {
+      outline: 1px dotted #adbdff;
+    }
+
+    .inputfile+label span {
+      color: color(voc-gray);
+    }
+
+    .inputfile+label svg {
+      fill: currentColor;
+      height: 1em;
+      margin-right: 0.25em;
+      margin-top: -0.25em;
+      vertical-align: middle;
+      width: 1em;
+    }
+
+    .inputfile+label div.icon {
+      height: 20px;
+      width: 20px;
+
+      &::before {
+        content: image("photo-upload.svg");
+        height: 20px;
+        width: 20px;
+      }
+    }
+
+    button {
+      height: 88.078px;
+      position: relative;
+
+      span {
+        @include roboto-condensed;
+        color: #fff;
+        font-size: 36px;
+        font-weight: $bold;
+        letter-spacing: 0.2em;
+        position: relative;
+        z-index: 1;
+      }
+
+      svg {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+      }
+    }
+
+    #story-file-preview {
+      opacity: 0;
+      width: 60px;
+    }
+  }
+
+  .col {
+    flex: 1;
+  }
+
+  .col1 {
+    @include responsive-mq(md) {
+      padding-right: 2vw;
+    }
+
+    textarea {
+      height: 280px;
+      margin-bottom: 0.5vw;
+      max-width: 100%;
+      min-width: 100%;
+      padding: 1em;
+      width: 100%;
+
+      @include responsive-mq(md) {
+        height: 100%;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .col2 {
+    align-items: top;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .input {
+      margin: 0 0 1vw;
+      width: calc(50% - 0.5vw);
+
+      &:nth-child(odd) {
+        margin-right: 0.5vw;
+      }
+
+      &:nth-child(even) {
+        margin-left: 0.5vw;
+      }
+    }
+
+    input:not([type="file"]) {
+      height: $input-height;
+      padding: 0.7em;
+      width: 100%;
+    }
+
+    button {
+      height: $input-height;
+      width: 100%;
+    }
+  }
+}
+
+.voc-categories {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  li {
+    background-color: color(white);
+    cursor: pointer;
+    display: flex;
+    flex-flow: column;
+    list-style: none;
+    padding: 0.1em;
+
+
+    span {
+      @include roboto-condensed;
+      font-weight: $bold;
+      letter-spacing: 0.2em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .icon {
+      background-size: cover;
+      height: 200px;
+      transform: scale(0.75);
+      width: 200px;
+    }
+
+    &:hover {
+      background-color: color(voc-curve-grey);
+    }
+  }
+
+  .politics .icon {
+    background: image("icons/politics.png") no-repeat 0 0;
+  }
+
+  .abortion .icon {
+    background: image("icons/abortion.png") no-repeat 0 0;
+  }
+
+  .contraception .icon {
+    background: image("icons/contraception.png") no-repeat 0 0;
+  }
+
+  .health .icon {
+    background: image("icons/health.png") no-repeat 0 0;
+  }
+
+  .pregnancy .icon {
+    background: image("icons/pregnancy.png") no-repeat 0 0;
+  }
+
+  .faith .icon {
+    background: image("icons/faith.png") no-repeat 0 0;
+  }
+
+  .search {
+    display: flex;
+    flex-direction: column;
+
+    @include responsive-mq(sm) {
+      flex-direction: row;
+    }
+
+    div {
+      border-bottom: 1px solid;
+      display: flex;
+      margin-top: 4vh;
+      width: 100%;
+
+      @include responsive-mq(sm) {
+        margin-top: 4vh;
+        width: calc(50% - 2vw);
+      }
+
+      .search-field {
+        @include roboto;
+
+        -webkit-appearance: none;
+        appearance: none;
+        background: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        color: color(black);
+        flex: 1;
+        font-size: 16px;
+        font-weight: $bold;
+        line-height: 1;
+        padding: 0 0 0 2px;
+      }
+
+      &:focus {
+        outline: 1px dotted color(white);
+      }
+
+      svg {
+        display: none;
+
+        @include responsive-mq(xs) {
+          display: inline;
+        }
+      }
+
+      &.search-term {
+        @include responsive-mq(sm) {
+          margin-right: 2vw;
+        }
+
+        svg {
+          transform: scale(0.85);
+        }
+      }
+
+      &.search-state {
+        @include responsive-mq(sm) {
+          margin-left: 2vw;
+        }
+
+        svg {
+          transform: scale(0.7);
+        }
+      }
+
+      @include responsive-mq(sm) {
+        font-size: 20px;
+      }
+
+      @include responsive-mq(md) {
+        font-size: 24px;
+      }
+
+    }
+
+    input::placeholder {
+      color: #b3b3b3;
+      opacity: 1;
+    }
+  }
+}
+
+.row.pagination {
+  justify-content: space-evenly;
+  padding: 2vh 0;
+}
+
+.voc-pagination {
+  border: 1px none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 50px;
+
+  .arrow {
+    fill: mix(color(navy), color(blue));
+    height: 44px;
+    margin: auto;
+    transition: $fx-duration fill 0s;
+    width: 44px;
+  }
+
+  &:hover {
+    .arrow {
+      fill: mix(color(blue), color(sky));
+    }
+  }
+}
+
+.story-main-module {
+  &.voc {
+    .content,
+    footer,
+    h1 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    footer {
+      font-size: em(16px);
+      font-weight: $bold;
+      padding-top: 1rem;
+
+      @include responsive-mq(sm) {
+        font-size: em(24px);
+      }
+    }
+  }
+}

@@ -10,8 +10,14 @@ class PageModules {
 	public $keys;
 	public $hero;
 	public $donate;
-
-	function __construct( $post_id ) {
+	public $is_voc;
+	public $module_class_name;
+	
+	function __construct( $post_id, $is_voc = false ) {
+		$this->is_voc = $is_voc;
+		if ($is_voc == true) {
+			$this->module_class_name = 'voc';
+		}
 		$groups = acf_get_field_groups( array( 'post_id' => $post_id ) );
 		$modules = array();
 		foreach( $groups as $group_key => $group ) {
@@ -19,20 +25,29 @@ class PageModules {
 			$key = $group['title'];
 
 			$modules[$key] = array(
-				'module_name' => $group['title'],
-				'module_order' => $group_key,
-				'module_id' => $group['key']
+				'module_name' => $group['title']
 			);
 			foreach($module as $field_name => $field ) {
 				$f = $field['name'];
-				$modules[$key][$f] = get_field($f);
+				if ($f != '') {
+					$modules[$key][$f] = get_field($f);
+				}
 			}
 		}
 		$this->modules = $modules;
 	}
 
-	function init() {
+	function printModules() {
+		print("<pre><code>");
+		$func = function ( $module ) {
+			return $module;
+		};
+		$configs = array_map( $func, $this->modules );
+		print_r(htmlspecialchars(json_encode($configs, JSON_PRETTY_PRINT)));
+		print("</code></pre>");
+	}
 
+	function init() {
 		// Separate out hero and donation modules, which have fixed positions on the page
 		$hero_name = MODULES['Homepage Hero']['name'];
 		$donate_name = MODULES['Donate Module']['name'];
@@ -52,18 +67,71 @@ class PageModules {
 			$this->donate['config'] = MODULES[$donate_name];
 			unset( $this->modules[$donate_name]);
 		}
+		$voc_form_name = MODULES['VOC Form']['name'];
+		$voc_categories_name = MODULES['VOC Categories']['name'];
+		$voc_stories_name = MODULES['VOC Stories']['name'];
 
+		if ($this->is_voc == true) {
+			$this->modules[$voc_form_name] = array(
+				'module_name' => 'VOC Form',
+				'voc_form_enabled' => 1,
+				'voc_form_options' => array(array(
+					'enabled' => 'voc_form_enabled',
+					'name' => 'VOC Form',
+					'module_title' => 'Share your story',
+					'module_order' => 0,
+					'module_use_cta' => false,
+					'module_show_in_hero' => false
+				))
+			);
+
+			$this->modules[$voc_categories_name] = array(
+				'module_name' => 'VOC Categories',
+				'voc_categories_enabled' => 1,
+				'voc_categories_options' => array(array(
+					'enabled' => 'voc_categories_enabled',
+					'name' => 'VOC Categories',
+					'module_title' => 'Search Stories',
+					'module_order' => 0,
+					'module_use_cta' => false,
+					'module_show_in_hero' => false
+				))
+			);
+
+			$this->modules[$voc_stories_name] = array(
+				'module_name' => 'VOC Stories',
+				'voc_stories_enabled' => 1,
+				'voc_stories_options' => array(array(
+					'enabled' => 'voc_stories_enabled',
+					'name' => 'VOC Stories',
+					'module_title' => 'Read all stories',
+					'module_order' => 0,
+					'module_use_cta' => false,
+					'module_show_in_hero' => false
+				))
+			);
+		}
+		
 		$this->prepare();
 		$this->configure();
 		$this->filter();
+		if ($this->is_voc) {
+			$module_count =  count( $this->modules);
+			$this->modules[$voc_form_name]['config']['module_order'] = $module_count - 2;
+			$this->modules[$voc_categories_name]['config']['module_order'] = $module_count - 1;
+			$this->modules[$voc_stories_name]['config']['module_order'] = $module_count;
+		}
 		$this->sort();
+		//TODO remap the configs to set the count based on the sorted instead of the value of the order
+		// becasue the value can sometime be 0 or some abitrary number set by the user ie 41
 		$this->keys = array_keys($this->modules);
+
 	}
 
 	function prepare() {
 		$filter = function ( $module ) {
 			$config = MODULES[$module['module_name']];
-			return $module[$config['options']] !== null;
+			return array_key_exists('options', $config) && $module[$config['options']] !== null;
 		};
 		$this->modules = array_filter( $this->modules, $filter );
 	}
@@ -87,7 +155,7 @@ class PageModules {
 			}
 			// unroll module options into $config object
 			$options = $module[$config['options']][0];
-			$config = array_merge( $config, $options );
+			$config = array_merge( $config,  (array)$options );
 			// remove module_options field from module
 			unset( $module[$config['options']] );
 			unset( $module['module_name'] );
@@ -106,8 +174,8 @@ class PageModules {
 
 	function sort() {
 		$cmp = function ($a, $b) {
-			$x = $a['config'][MODULE_OPTIONS['order']];
-			$y = $b['config'][MODULE_OPTIONS['order']];
+			$x = (int)$a['config'][MODULE_OPTIONS['order']];
+			$y = (int)$b['config'][MODULE_OPTIONS['order']];
 			if ($x == $y) {
 				return 0;
 			}
@@ -164,7 +232,18 @@ class PageModules {
 			} else {
 				$module_title = get_the_title();
 			}
-			$banner = $this->hero['banner'];
+			$banner = null;
+			$class_name = null;
+			$show_alert = false;
+			
+			if (array_key_exists('banner', $this->hero))
+				$banner = $this->hero['banner'];
+			if (array_key_exists('class_name', $this->hero))
+				$class_name = $this->hero['class_name'];
+			if (array_key_exists('show_alert', $this->hero))
+				$show_alert = $this->hero['show_alert'];
+			$show_numbered_titles = $this->is_voc;
+			$module_class_name = $this->module_class_name;
 			include( locate_template( $module['config']['template'], false, true ) );
 		}
 	}
@@ -177,6 +256,9 @@ class PageModules {
 				$module['query'] = $this->build_query( $module );
 			}
 			$module_title = $module['config'][MODULE_OPTIONS['title']];
+			$module_order = $module['config'][MODULE_OPTIONS['order']];
+			$show_numbered_titles = $this->is_voc;
+			$module_class_name = $this->module_class_name;
 			include( locate_template( $template, false, true ) );
 		}
 	}
@@ -197,7 +279,6 @@ class PageModules {
 		$this->render_modules();
 		$this->render_donate_module();
 	}
-
 
 	function build_query( $module ) {
 		$args = array(

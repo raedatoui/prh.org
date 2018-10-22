@@ -19,7 +19,8 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_58e09ccaeba74",
@@ -38,7 +39,8 @@
             "tabs": "all",
             "toolbar": "full",
             "media_upload": 1,
-            "delay": 0
+            "delay": 0,
+            "repeatable": true
         },
         {
             "key": "field_58e09ceeeba75",
@@ -57,7 +59,8 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         }
     ],
     "location": [
@@ -78,5 +81,13 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1494711863
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1540154264
 }

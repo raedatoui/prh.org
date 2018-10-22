@@ -1,5 +1,15 @@
 .overview-text {
   margin-bottom: 40px;
+
+  &.voc {
+    h4 {
+      @include roboto();
+
+      color: color(voc-blue);
+      font-weight: $bold;
+      letter-spacing: 0.2em;
+    }
+  }
 }
 
 .resources-sidebar {

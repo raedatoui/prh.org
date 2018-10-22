@@ -7,7 +7,6 @@
             "label": "Label",
             "name": "cta_label",
             "type": "text",
-            "value": null,
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -22,19 +21,19 @@
             "append": "",
             "maxlength": "",
             "readonly": 0,
-            "disabled": 0
+            "disabled": 0,
+            "repeatable": true
         },
         {
             "key": "field_58e1c136a8dff",
             "label": "Link",
             "name": "cta_link",
             "type": "text",
-            "value": null,
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -60,8 +59,16 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
+    "active": 1,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1511078799
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1540146187
 }

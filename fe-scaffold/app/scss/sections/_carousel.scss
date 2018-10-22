@@ -15,6 +15,7 @@
   flex-direction: column;
   text-decoration: none;
   width: auto;
+
   &.inactive-slide {
     pointer-events: none;
   }
@@ -71,9 +72,28 @@
   margin: auto;
   padding: 20px;
 
+  &.video {
+    width: 50%;
+  }
+
   img {
     max-width: 100%;
     width: auto;
+  }
+
+  .slide-video-container {
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    width: 100%;
+  }
+
+  .youtube-video {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 
   @include responsive-mq("md") {

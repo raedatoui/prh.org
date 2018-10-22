@@ -8,18 +8,31 @@
 				<div class="slide slide-<?php echo $index ?>">
 					<?php
 						$link_class = "slide-link";
-						$url = "http://" . $slide[CAROUSEL_MODULE['link']];
+						$slide_half_class = "slide-half";
+						$url = "http://" . $slide[CAROUSEL_MODULE['link']];	
+						$use_video = $slide[CAROUSEL_MODULE['use_video']];
+						
 						$link_target =  get_url_target( $url );
-						if (  $slide[CAROUSEL_MODULE['link']] == "" ) {
-							$link_class =  "slide-link inactive-slide";
+						if (  $slide[CAROUSEL_MODULE['link']] == "" && !$use_video  ) {
+							$link_class = "slide-link inactive-slide";
 							$url = "#";
 							$link_target = "_self";
 						}
+						if ($use_video) {
+							$link_class = "slide-link video";
+							$slide_half_class = "slide-half video";
+						}
 					?>
 					<a class="<?php echo $link_class; ?>" href="<?php echo $url ?>" target="<?php echo $link_target; ?>">
-						<div class="slide-half">
-							<img src="<?php echo $slide[CAROUSEL_MODULE['image']]['url'] ?>"
-							alt=""/>
+						<div class="<?php echo $slide_half_class ?>">
+							<?php if (!	$use_video) : ?>
+								<img src="<?php echo $slide[CAROUSEL_MODULE['image']]['url'] ?>" alt=""/>
+							<?php else : ?>
+								<div class="slide-video-container">
+									<div id="<?php echo $slide[CAROUSEL_MODULE['youtube']] ?>" class="youtube-video"></div>
+									<!-- <iframe class="youtube-player" type="text/html" src="<?php echo 'https://www.youtube.com/embed/' . $slide[CAROUSEL_MODULE['youtube']] ?>" frameborder="0"></iframe> -->
+								</div>
+							<?php endif; ?>
 						</div>
 						<div class="slide-half">
 							<?php

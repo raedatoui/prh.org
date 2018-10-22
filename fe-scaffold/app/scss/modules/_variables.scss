@@ -31,7 +31,15 @@ $colors: (
   hairline-3: transparentize(#fff, 0.85),
 
   cream-overlay:  #f1dccd,
-  peach-overlay: #f1c1b3
+  peach-overlay: #f1c1b3,
+
+  voc-blue-lt: #2e3662,
+  voc-blue-dk: #333334,
+  voc-curve-grey: #f2f2f2,
+  voc-blue: #0080c4,
+  voc-gray: #ccc,
+  voc-green: #25ced1,
+  voc-light-green: #68e2e4
 );
 
 @function color($which) {
@@ -75,6 +83,7 @@ $gradient-radial-pink: radial-gradient(farthest-corner at 50px 50px , $prh-pink-
 
 $gradient-linear-rose: linear-gradient(30deg, $prh-rose 0%, $prh-rose-lt 66%);
 
+$gradient-voc-linear-blue: linear-gradient(to bottom, color(voc-blue-lt) 25%, color(voc-blue-dk) 100%);
 
 //FONT COLORS
 $base-font-white: color(white);
@@ -106,6 +115,7 @@ $black: 900;
 $lora: "Lora", serif;
 $roboto: "Roboto", sans-serif;
 $roboto-condensed: "Roboto Condensed", sans-serif;
+$roboto-slab: "Roboto Slab", sans-serif;
 
 $base-font-family: $roboto;
 $base-font-weight: $regular;

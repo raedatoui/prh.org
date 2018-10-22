@@ -7,7 +7,6 @@
             "label": "Title",
             "name": "accordion_title",
             "type": "text",
-            "value": null,
             "instructions": "This is the title users click on to expand the content. Shorter is better!",
             "required": 1,
             "conditional_logic": 0,
@@ -20,14 +19,14 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_58f918c1b504d",
             "label": "Content",
             "name": "accordion_content",
             "type": "wysiwyg",
-            "value": null,
             "instructions": "This content will start out collapsed, then appear when its title is clicked.",
             "required": 1,
             "conditional_logic": 0,
@@ -40,7 +39,8 @@
             "tabs": "all",
             "toolbar": "basic",
             "media_upload": 1,
-            "delay": 0
+            "delay": 0,
+            "repeatable": true
         }
     ],
     "location": [
@@ -48,7 +48,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "page"
+                "value": "post"
             }
         ]
     ],
@@ -58,8 +58,16 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
+    "active": 1,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1509153693
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1540146416
 }

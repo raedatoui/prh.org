@@ -8,32 +8,32 @@ $date_format = get_option( 'date_format' );
 the_post();
 ?>
 
-<section class="hero story-hero module" id="hero">
-
+<section class="hero shiny-hero module voc-story" id="hero">
 	<div class="content">
-		<div class="row">
-			<header class="col-xs-12 col-md-8">
-
-				<footer class="post-meta">
-					<span class="post-type eyebrow"><?php echo $pt_label; ?> | </span>
-					<time class="post-date utility-copy"><?php the_date( $date_format ); ?></time>
-				</footer>
-
-				<h1><?php the_title(); ?></h1>
-
-				<?php
+		<!-- <a class="anchor" id="<?php echo sanitize_module_title($module_title); ?>" aria-hidden="true"></a> -->
+		<header class="module__title">
+			<h2>&nbsp;</h2>
+		</header>	
+		<h1 class="hero__header">
+			<?php
 				$intro = get_the_excerpt();
 				if ( !is_generated( $intro ) ) {
-					echo '<p>' . sanitize_text_field($intro) . '</p>';
-				} ?>
-			</header>
-		</div>
+					echo sanitize_text_field($intro);
+				} 
+			?>
+		</h1>
 	</div>
-
 </section>
 
-<main class="module story-main-module" id="main">
+<main class="module story-main-module voc" id="main">
 	<div class="content">
+	
+		<h1 class=""><?php the_title(); ?></h1>
+		<footer class="post-meta">
+			<time class="post-date"><?php the_date( $date_format ); ?></time>
+		</footer>
+
+
 		<div class="row row-top">
 			<article class="main-content post-content col-xs-12 col-md-8">
 
@@ -60,7 +60,7 @@ the_post();
 				<aside class="sidebar-block social-block">
 					<div class="sidebar-content sidebar-social">
 
-						<h2 class="sidebar-header">Share</h2>
+						<h2 class="sidebar-header">Share your story</h2>
 						<ul class="social-icons">
 
 							<li><a href="http://facebook.com" class="fb-link"><span class="visually-hidden">Share on Facebook</span></a></li>
@@ -81,30 +81,11 @@ the_post();
 					</div>
 				</aside>
 
-				<!-- Media contact -->
+				<!-- VOC Link -->
 				<aside class="sidebar-block media-contact-block">
 					<div class="sidebar-content">
-						<?php
-							$show_media_contact = get_field( 'media_contact_enabled' );
-							if ( $show_media_contact ) {
-								$email_link = get_field( 'media_contact_email' );
-								$phone_link = get_field( 'media_contact_phone' );
-								$name = get_field('media_contact_name');
-								$label = get_field('media_contact_label');
-							} else {
-								$widget_data = prh_get_widget_data_for( 1 )[0];
-								$name = $widget_data->name;
-								$label = $widget_data->label;
-								$email_link = $widget_data->email;
-								$phone_link = $widget_data->phone;
-							}
-							$email_url = '<a class="contact-link contact-info" href="mailto:' . $email_link . '" rel="author">';
-							$phone_url = '<a class="contact-link contact-info" href="tel:' . $phone_link . '" rel="author">';
-						?>
-						<h2 class="sidebar-header"><?php echo  $label; ?></h2>
-						<p class="contact-info"><?php echo $name; ?></p>
-						<?php echo_wrapped( $email_link, $email_url, '</a>' ); ?>
-						<?php echo_wrapped( $phone_link, $phone_url, '</a>' ); ?>
+						<h2 class="sidebar-header">Tell your story</h2>
+						<a class="cta" href="https://prh.org/voicesofcourage">Start here</a>
 					</div>
 				</aside>
 
@@ -112,11 +93,11 @@ the_post();
 				<?php $tags = get_the_tags( $post->ID ); if ( $tags ):  ?>
 					<aside class="sidebar-block tags-block">
 						<div class="sidebar-content">
-							<h2 class="sidebar-header">Tagged under</h2>
+							<h2 class="sidebar-header">Keep Reading</h2>
 							<ul class="tags-list">
 								<?php foreach( $tags as $tag ):  ?>
 									<li>
-										<a class="tag" href="<?php bloginfo('url' );?>/tag/<?php print_r( $tag->slug );?>">
+										<a class="tag" href="<?php bloginfo('url' );?>/voicesofcourage?tag=<?php print_r( urlencode($tag->name) );?>">
 											<?php print_r( $tag->name . ' (' . $tag->count . ')' ); ?>
 										</a>
 									</li>
@@ -142,18 +123,26 @@ the_post();
 	</div>
 </main>
 
-<section class="module latest-articles-module">
+<section class="module voc voc-stories latest-articles-module">
 	<div class="content">
 		<header class="module__title">
-			<h2>Latest Articles</h2>
-		</header>
-		<div class="row">
+			<h2>Latest Stories</h2>
+			</header>
+		<div class="row macy-grid" id="aggregate-macy-voc">
 			<?php
-				$query = get_latest_articles();
-				include( locate_template( 'template-parts/components/content-cards.php', false, false ) );
+				$args = array(
+					'per_page' => 6
+				);
+				search_and_render_stories( $args ); 
 			?>
+		</div>
+		<div class="row cta-row">
+			<a class="cta" href="https://prh.org/voicesofcourage">
+				View All Stories
+			</a>
 		</div>
 	</div>
 </section>
+
 <?php
 get_footer();

@@ -52,6 +52,23 @@
   }
 }
 
+@mixin voc-module-curves($color: voc-curve-grey, $set-color: true, $important: false) {
+  $voc-wave-img: "curves/voc-curve--wave2.svg";
+  $voc-wave-img2: "curves/voc-curve--wave.svg";
+
+  $bg-color: if($color == voc-curve-grey, color(voc-curve-grey), #fff);
+  $img: if($color == voc-curve-grey, $voc-wave-img, $voc-wave-img2);
+  $i: if($important, !important, null);
+
+  @if $set-color {
+    background-color: $bg-color $i;
+  }
+
+  &::before {
+    background-image: image($img) $i;
+  }
+}
+
 
 @mixin donate-module-curves() {
   $odd-arc-img: "curves/cream-arc--concave.svg";
@@ -104,8 +121,8 @@
     left: 0;
     margin-top: 5px;
     padding: 0;
-    position: absolute;
     pointer-events: none;
+    position: absolute;
     right: 0;
     top: -10vw;
   }
@@ -137,6 +154,30 @@
     .module-overlay {
       fill: color(peach-overlay);
       stroke: color(peach-overlay);
+    }
+  }
+}
+
+.page-template-voices-of-courage .hero ~ .module,
+.single-phys_story .hero ~ .module {
+  padding-bottom: 10vw; // This should be a little more than the curve height set below
+
+  &:nth-child(even) {
+    @include voc-module-curves(voc-curve-grey);
+
+
+    .module-overlay {
+      fill: color(voc-curve-grey);
+      stroke: color(voc-curve-grey);
+    }
+  }
+
+  &:nth-child(odd) {
+    @include voc-module-curves(#fff);
+
+    .module-overlay {
+      fill: #fff;
+      stroke: #fff;
     }
   }
 }

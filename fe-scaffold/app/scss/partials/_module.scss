@@ -1,6 +1,10 @@
 .module {
   padding: $v-padding-sm $h-padding-sm;
 
+  &.voc {
+    padding: $module-padding-xs;
+  }
+
   &:focus {
     outline: none; // jump-links js allows focusing, but we don't need/want a visual indicator in this case
   }
@@ -14,6 +18,15 @@
   @include responsive-mq(lg) {
     padding: $v-padding-lg $h-padding-lg;
   }
+}
+
+%voc-eyebrow {
+  font-size: 28px;
+  justify-content: center;
+  letter-spacing: initial;
+  line-height: lh(38, 28);
+  text-align: center;
+  text-transform: uppercase;
 }
 
 %module-title {
@@ -34,11 +47,39 @@
   }
 }
 
+%module-title-voc {
+  background-position: bottom right;
+  background-repeat: repeat-x;
+  display: table;
+  margin: 30px auto;
+  text-transform: uppercase;
+
+  h2,
+  span {
+    @extend %voc-eyebrow;
+    padding: 0;
+  }
+
+  h2 {
+    @include roboto-black;
+    margin-left: 15px;
+  }
+
+  @include responsive-mq(md) {
+    margin-bottom: 30px;
+  }
+}
+
 .module__title {
   @extend %module-title;
-
   background-image: image("asset_detail_wave_dk.png");
   color: $base-font-blue;
+
+  &.voc {
+    @extend %module-title-voc;
+    background-image: none;
+    display: flex;
+  }
 
   .hero & {
     background-image: image("asset_detail_wave.png");
@@ -52,20 +93,19 @@
   }
 }
 
-
 @media (max-width: 480px) {
   .module__aggregate-card,
   .single .module,
   .info-module,
   .routing,
   .footer-module {
-    padding-right: 0;
     padding-left: 0;
+    padding-right: 0;
   }
 
   // needs room too, but not as much or it breaks the layout a bit
   .module__quote {
-    padding-right: 10px;
     padding-left: 10px;
+    padding-right: 10px;
   }
 }

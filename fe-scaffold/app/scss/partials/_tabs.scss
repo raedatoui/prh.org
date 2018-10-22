@@ -48,10 +48,15 @@ $tab-accordion-padding: 50px;
 
   .icon--plus,
   .icon--minus {
-    left: 0;
+    left: 10px;
     position: absolute;
     top: 50%;
-    transform: translateY(-16px);
+    transform: translateY(-16px) scale(0.8);
+
+    @include responsive-mq(md) {
+      left: 50px;
+      transform: translateY(-16px);
+    }
   }
 
   .icon--plus {
@@ -61,6 +66,17 @@ $tab-accordion-padding: 50px;
   .icon--minus {
     display: none;
   }
+
+  &[aria-expanded="true"] {
+    .icon--plus {
+      display: none;
+    }
+
+    .icon--minus {
+      display: inline-block;
+    }
+  }
+
 
   &.active {
     border-bottom: $accordion-border;
@@ -97,6 +113,7 @@ $tab-accordion-padding: 50px;
   position: relative;
 
   button {
+    -webkit-appearance: none;
     background: none;
     border: 0;
     color: inherit;

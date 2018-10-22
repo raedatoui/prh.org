@@ -111,6 +111,8 @@ const CAROUSEL_MODULE = array(
 	'text' => 'slide_text',
 	'details' => 'slide_details',
 	'link' => 'slide_link',
+	'use_video' => 'slide_use_video',
+	'youtube' => 'slide_youtube_id',
 	'template' => 'template-parts/modules/carousel.php'
 );
 
@@ -127,6 +129,12 @@ const PAGE_HERO_MODULE = array(
 	'header' => 'hero_header',
 	'jump_links' => 'hero_jump_links',
 	'template' => 'template-parts/modules/page-hero.php'
+);
+const VOC_HERO_MODULE = array(
+	'name' => 'Page Hero',
+	'header' => 'hero_header',
+	'jump_links' => 'hero_jump_links',
+	'template' => 'template-parts/modules/voc-hero.php'
 );
 
 const STATISTICS_MODULE = array(
@@ -283,6 +291,26 @@ const PAGE_HERO_BANNER = array(
 	'image' => 'banner_image'
 );
 
+const VOC_FORM_MODULE = array(
+	'name' => 'VOC Form',
+	'enabled' => 'voc_form_enabled',
+	'options' => 'voc_form_options',
+	'template' => 'template-parts/modules/voc-form.php'
+);
+
+const VOC_CATEGORIES = array(
+	'name' => 'VOC Categories',
+	'enabled' => 'voc_categories_enabled',
+	'options' => 'voc_categories_options',
+	'template' => 'template-parts/modules/voc-categories.php'
+);
+
+const VOC_STORIES = array(
+	'name' => 'VOC Stories',
+	'enabled' => 'voc_stories_enabled',
+	'options' => 'voc_stories_options',
+	'template' => 'template-parts/modules/voc-stories.php'
+);
 
 /************* Mappings *****************/
 const MODULES = array(
@@ -304,7 +332,10 @@ const MODULES = array(
 	ROUTING_MODULE['name'] => ROUTING_MODULE,
 	ROUTING_MODULE_SECONDARY['name'] => ROUTING_MODULE_SECONDARY,
 	DONATE_MODULE['name'] => DONATE_MODULE,
-	PAGE_HERO_BANNER['name'] => PAGE_HERO_BANNER
+	PAGE_HERO_BANNER['name'] => PAGE_HERO_BANNER,
+	VOC_FORM_MODULE['name'] => VOC_FORM_MODULE,
+	VOC_CATEGORIES['name'] => VOC_CATEGORIES,
+	VOC_STORIES['name'] => VOC_STORIES
 );
 
 const AGGREGATES = array(

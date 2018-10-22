@@ -6,6 +6,12 @@ body {
   letter-spacing: $base-font-kerning;
   line-height: $base-line-height;
   text-rendering: optimizeLegibility;
+
+  &.page-template-voices-of-courage,
+  &.single-phys_story {
+    background-color: color(voc-curve-grey);
+  }
+
   @include roboto();
 }
 
@@ -37,25 +43,24 @@ section {
   min-height: 150px;
 }
 
-
 // Responsive show/hide helpers
 // specificity hack because these come early in the css
 // Two declarations here because IE11 doesn't seem to get 'initial' right.
 .md-up.md-up {
   display: none;
-  @include responsive-mq(md) { 
-    display: block;
+  @include responsive-mq(md) {
     display: initial;
   }
 }
 
 .md-down.md-down {
-  @include responsive-mq(md) { display: none; }
+  @include responsive-mq(md) {
+    display: none;
+  }
 }
 
 // Transitions by default for links and buttons;
 // this gets overridden for different effects but it's a good baseline.
-
 a {
   transition: 0.15s color 0s;
 }

@@ -73,7 +73,7 @@ add_action( 'widgets_init', 'prh_wp_theme_widgets_init' );
 
 function prh_styles() {
 	wp_enqueue_style( 'prh-wp-theme-style', get_template_directory_uri() . '/css/main.css' );
-	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto+Condensed:700|Roboto:400,400i,700' );
+	wp_enqueue_style( 'prh-wp-theme-fonts', 'https://fonts.googleapis.com/css?family=Lora:400,400i|Roboto+Condensed:700|Roboto:400,400i,700|Roboto+Slab:400,700' );
 }
 
 function prh_scripts() {
@@ -204,4 +204,160 @@ function sanitize_module_title( $module_title) {
 		$module_title = 'prh-' . $module_title;
 	}
 	return sanitize_title($module_title);
+}
+
+add_action( 'before_delete_post', 'delete_story_attachments' );
+function delete_story_attachments( $post_id ){
+
+    // We check if the global post type isn't ours and just return
+    global $post_type;   
+    if ( $post_type != 'phys_story' ) return;
+
+	global $wpdb;
+
+    $args = array(
+        'post_type'         => 'attachment',
+        'post_status'       => 'any',
+        'posts_per_page'    => -1,
+        'post_parent'       => $post_id
+    );
+    $attachments = new WP_Query($args);
+    $attachment_ids = array();
+    if($attachments->have_posts()) : while($attachments->have_posts()) : $attachments->the_post();
+            $attachment_ids[] = get_the_id();
+        endwhile;
+    endif;
+    wp_reset_postdata();
+
+    if(!empty($attachment_ids)) :
+		$delete_attachments_query = $wpdb->prepare('DELETE FROM %1$s WHERE %1$s.ID IN (%2$s)', array($wpdb->posts, join(',', $attachment_ids)));
+        $wpdb->query($delete_attachments_query);
+    endif;
+
+}
+
+/********************************************************** 
+ * the ajax functions for searching stories on the VOC page.
+***********************************************************/
+function slugify($text) {
+	// replace non letter or digits by -
+	$text = preg_replace('~[^\pL\d]+~u', '-', $text);
+	// transliterate
+	$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+	// remove unwanted characters
+	$text = preg_replace('~[^-\w]+~', '', $text);
+	// trim
+	$text = trim($text, '-');
+	// remove duplicate -
+	$text = preg_replace('~-+~', '-', $text);
+	// lowercase
+	$text = strtolower($text);
+	if (empty($text)) {
+		return 'n-a';
+	}
+	return $text;
+}
+
+function search_and_render_stories($args) {
+	$per_page = 9;
+	if ( isset( $_POST['per_page']) ) {
+		$per_page = intval( $_POST['per_page'] );
+	}
+
+	if ( isset( $args['per_page']) ) {
+		$per_page = intval( $args['per_page'] );
+	}
+
+	$query_args = array_merge($args, array (
+		'post_status'    => array( 'publish' ),
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+		'post_type'      => 'phys_story',
+		'posts_per_page' => $per_page,
+	) );
+	
+	$paged = 1;
+	if ( isset( $_POST['paged']) ) {
+		$paged = intval( $_POST['paged'] );
+		$query_args['paged'] = $paged;
+	}
+
+	$the_query = new WP_Query( $query_args );
+	$counter = 0;
+	if( $the_query->have_posts() ) :
+		while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+		<?php 
+			$voc_img = get_the_post_thumbnail_url();
+			if ($voc_img == '' ) {
+				$voc_img = 'https://prh.org/wp-content/uploads/2017/03/Story-Fist-Avatar-e1497389449725.png';
+			}
+			$data_paged = $paged + floor($counter / 3);
+		?>
+		<a class="aggregate-tile col-xs-12 col-md-4 voc"
+			href="<?php echo get_permalink(); ?>"
+			aria-label="<?php the_title(); ?>"
+			data-paged="<?php echo $data_paged ?>"> 
+			<div class="tile__container voc">
+				<div class="tile__image-container"><img alt="" src="<?php echo $voc_img ?>"/></div>
+				<div class="tile__voc-hover">
+					<h4 class="tile__title voc">
+					<?php
+						$title = get_the_title();
+						$parts = explode( ':', $title);
+						if (count($parts) == 2 ) : ?>
+							<span class="tile__story-num"><? echo $parts[0] ?>:</span><br>
+							<span class="tile__story-title"><? echo $parts[1] ?></span>
+						<? endif; ?>
+					</h4>
+				</div>
+			</div>
+		</a>
+		<?php $counter = $counter + 1; endwhile;
+		wp_reset_postdata();
+	endif;
+}
+
+// search stories by term.
+add_action('wp_ajax_search_stories_by_term' , 'search_stories_by_term');
+add_action('wp_ajax_nopriv_search_stories_by_term','search_stories_by_term');
+function search_stories_by_term() {
+	$args = array(
+		's' => esc_attr( $_POST['keyword'] )
+	);
+	search_and_render_stories( $args );
+	die();
+}
+
+// search stories by category.
+add_action('wp_ajax_search_stories_by_category' , 'search_stories_by_category');
+add_action('wp_ajax_nopriv_search_stories_by_category','search_stories_by_category');
+function search_stories_by_category() {
+	$args = array(
+		'category_name' => $_POST['category']
+	);
+	search_and_render_stories( $args );
+	die();
+}
+
+// search stories by tag.
+add_action('wp_ajax_search_stories_by_tag' , 'search_stories_by_tag');
+add_action('wp_ajax_nopriv_search_stories_by_tag','search_stories_by_tag');
+function search_stories_by_tag() {
+	$args = array(
+		'tag' => slugify($_POST['tag'])
+	);
+	search_and_render_stories( $args );
+	die();
+}
+
+// search stories by tag and term
+add_action('wp_ajax_search_stories_by_tag_and_term' , 'search_stories_by_tag_and_term');
+add_action('wp_ajax_nopriv_search_stories_by_tag_and_term','search_stories_by_tag_and_term');
+function search_stories_by_tag_and_term() {
+	$args = array(
+		'tag' => $_POST['tag'],
+		's' => esc_attr( $_POST['keyword'] )
+	);
+	search_and_render_stories( $args );
+	die();
 }

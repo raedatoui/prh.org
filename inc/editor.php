@@ -6,7 +6,7 @@
  * Hide the main editor on specific pages
  */
 define('EDITOR_HIDE_PAGE_TITLES', json_encode(array()));
-define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('homepage.php', 'issue.php', 'about.php')));
+define('EDITOR_HIDE_PAGE_TEMPLATES', json_encode(array('homepage.php', 'issue.php', 'about.php', 'voices-of-courage.php')));
 
 /**
  * Hide the main editor on defined pages
@@ -144,3 +144,16 @@ function prh_admin_menu() {
 }
 
 add_action('admin_menu', 'prh_admin_menu');
+
+
+function add_the_table_button( $buttons ) {
+    array_push( $buttons, 'separator', 'table' );
+    return $buttons;
+}
+add_filter( 'mce_buttons', 'add_the_table_button' );
+
+function add_the_table_plugin( $plugins ) {
+      $plugins['table'] = content_url() . '/tinymce-plugins/table/plugin.min.js';
+      return $plugins;
+}
+add_filter( 'mce_external_plugins', 'add_the_table_plugin' );

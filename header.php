@@ -35,16 +35,8 @@
 		<meta name="msapplication-TileImage" content="<?php echo  get_template_directory_uri(); ?>/images/favicons/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
 
-
 		<?php wp_head(); ?>
 
-		<!-- Google Tag Manager -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-PDFCFTR');</script>
-		<!-- End Google Tag Manager -->
 	</head>
 
 	<body <?php body_class();?>>
@@ -61,7 +53,7 @@
 		<![endif]-->
 
 		<div class="page-container">
-			<header role="banner" class="site-header" id="site-header">
+			<header role="banner" class="<?php echo implode(" ", get_body_class()) . " site-header" ?>" id="site-header">
 			<div class="site-nav-wrap">
 				<a href="/" class="logo col-sm-3 col-md-3">
 						<svg class="logo-svg logo-large role="presentation">

@@ -11,7 +11,7 @@
 			</div>
 		<?php endif; ?>
 
-		<div class="row routing-row macy-grid" id="routing-macy-<?php echo $module['module_order']; ?>">
+		<div class="row routing-row macy-grid" id="routing-macy-<?php echo $module['config']['module_order']; ?>">
 			<?php foreach ( $module[$module['config']['repeater']] as $index => $block ): ?>
 			<div class="col-xs-12 col-sm-6 col-lg-4">
 				<div class="routing-block">

@@ -7,7 +7,6 @@
             "label": "Eyebrow",
             "name": "stat_eyebrow",
             "type": "text",
-            "value": null,
             "instructions": "Short header that describes the topic of the stat; keep this to a few words at most.",
             "required": 0,
             "conditional_logic": 0,
@@ -20,14 +19,14 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_58e33c8224087",
             "label": "Number",
             "name": "stat_number",
             "type": "text",
-            "value": null,
             "instructions": "The numerical part of this stat. For large numbers, use abbreviations (1K, 1M, etc).",
             "required": 1,
             "conditional_logic": 0,
@@ -40,14 +39,14 @@
             "placeholder": "3, 99, $1M, etc",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_58e33d9b24088",
             "label": "Text",
             "name": "stat_text",
             "type": "text",
-            "value": null,
             "instructions": "Part two of the stat figure, after the number.",
             "required": 1,
             "conditional_logic": 0,
@@ -60,14 +59,14 @@
             "placeholder": "women, dollars, lives saved, etc",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_591602e72126e",
             "label": "Summary",
             "name": "stat_summary",
             "type": "text",
-            "value": null,
             "instructions": "Additional context for the stat; appears below the number and text.",
             "required": 0,
             "conditional_logic": 0,
@@ -80,7 +79,8 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         }
     ],
     "location": [
@@ -98,8 +98,16 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
+    "active": 1,
     "description": "",
     "is_acf_component": 1,
-    "modified": 1509153699
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1540146427
 }

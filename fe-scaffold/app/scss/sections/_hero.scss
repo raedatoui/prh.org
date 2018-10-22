@@ -70,12 +70,49 @@ $nav-height-lg: 80px;
   background-image: image("particles/hero-particles.png"), $gradient-linear-blue;
   background-size: auto 150%, auto;
 
+  &.voc,  {
+    background-image: image("particles/hero-voc.jpg"), $gradient-voc-linear-blue;
+    background-size: auto 100%;
+    padding-bottom: 26em;
+    position: relative;
+
+    h1 {
+      @extend %big-h1;
+      @include roboto-slab;
+
+      margin-top: 8rem;
+      word-spacing: 5px;
+
+      span {
+        @include roboto-slab-black;
+      }
+
+      .header__subhead {
+        @include roboto;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 28px;
+      }
+    }
+  }
+
+  &.voc-story {
+    background-image: image("particles/hero-story-voc.png"), $gradient-voc-linear-blue;
+    background-size: auto 100%;
+    padding-bottom: 28em;
+    position: relative;
+  }
+
   .home & {
     background-size: auto 100%, auto;
   }
 
   @include responsive-mq(lg) {
     background-size: auto, auto;
+
+    // &.voc {
+    //   background-size: auto 100%;
+    // }
 
   }
 
@@ -101,3 +138,4 @@ $nav-height-lg: 80px;
 .home .hero {
   position: relative;
 }
+

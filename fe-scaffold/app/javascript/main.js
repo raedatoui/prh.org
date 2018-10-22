@@ -12,15 +12,23 @@ import nav from './nav';
 import jumpLinks from './jump-links';
 import backToTop from './back-to-top';
 import alertBanner from './action-alert.js';
+import vocForm from './voc';
+import ThirdPartyScripts from './third-party-scripts';
 
-var instances = [];
+const instances = [],
+	ytPlayers = {};
+
+window.macyInstances = instances;
+window.ytPlayers = ytPlayers;
+window.currentPlayer = null;
+
 function init() {
-
 	nav.init();
 	accordion.init();
 	collapsible.init();
 	backToTop.init();
 	alertBanner.init();
+	vocForm.init();
 
 	let carousel = document.querySelector( '.carousel' ),
 			tabs = document.querySelector( '.tab-accordion' ),
@@ -41,12 +49,40 @@ function init() {
 	}
 
 	if ( carousel ) {
-		new Flickity( carousel, {
+		const slider = new Flickity( carousel, {
 			cellAlign: 'left',
 			imagesLoaded: true,
 			adaptiveHeight: true,
 			wrapAround: 'true'
 		});
+
+		window.onYouTubeIframeAPIReady = () => {
+			const embeds = document.querySelectorAll( '.youtube-video' );
+			for ( let i = 0; i < embeds.length; i++ ) {
+				const ytid = embeds[i].id;
+				ytPlayers[ytid] = new YT.Player(ytid, {
+					videoId: ytid,
+					width: '100%',
+					height: '100%',
+				});
+			}
+			slider.on('select', () => {
+				if (window.currentPlayer !== null) {
+					const player = window.ytPlayers[window.currentPlayer];
+					if (player) {
+						player.pauseVideo();
+					}
+				}
+				const el = slider.selectedCell.element.firstElementChild;
+				if (el.classList.contains('video')) {
+					const iframe = el.querySelector('.youtube-video');
+					if (iframe) {
+						window.currentPlayer = iframe.id;
+					}
+				}
+			});
+		};
+
 	}
 
 	if ( tabs ) {
@@ -86,6 +122,10 @@ function init() {
 	}
 }
 
+
+
 window.onload = function() {
+	// Init UI
 	init();
+	new ThirdPartyScripts();
 };

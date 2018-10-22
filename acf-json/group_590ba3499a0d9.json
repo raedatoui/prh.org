@@ -19,7 +19,8 @@
             "default_value": 1,
             "ui": 1,
             "ui_on_text": "",
-            "ui_off_text": ""
+            "ui_off_text": "",
+            "repeatable": true
         },
         {
             "key": "field_590ba35bfa0f7",
@@ -51,7 +52,8 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "repeatable": true
         },
         {
             "key": "field_590ba39bfa0f8",
@@ -78,7 +80,8 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_590ba3cefa0f9",
@@ -105,7 +108,8 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_590ba3eafa0fa",
@@ -132,7 +136,8 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "repeatable": true
         },
         {
             "key": "field_590ba414fa0fb",
@@ -156,7 +161,8 @@
                 "id": ""
             },
             "default_value": "https:\/\/secure2.convio.net\/prch\/site\/Donation2?idb=1471799783&DONATION_LEVEL_ID_SELECTED=1&df_id=1542&mfc_pref=T&1542.donation=form1&idb=0",
-            "placeholder": ""
+            "placeholder": "",
+            "repeatable": true
         }
     ],
     "location": [
@@ -182,5 +188,13 @@
     "active": 1,
     "description": "",
     "is_acf_component": 0,
-    "modified": 1495488283
+    "acf_component_defaults": {
+        "repeatable": "0",
+        "min": "",
+        "max": "",
+        "layout": "block",
+        "button_label": "",
+        "appearances": ""
+    },
+    "modified": 1540154132
 }
