@@ -109,6 +109,9 @@ function init() {
 				}
 			});
 			instances.push( instance );
+			instance.runOnImageLoad(function () {
+				instance.recalculate(true, true);
+			});
 		}
 		setTimeout( function() {
 			for ( let i = 0; i < instances.length; i++ ) {

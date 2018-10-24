@@ -38,9 +38,12 @@ const vocForm = {
 							if (this.scrollTo) {
 								this.storySearchButton.scrollIntoView(true);
 							}
-							window.macyInstances[0].recalculate();
+							const macyInstance = window.macyInstances[0]; 
 							setTimeout( () => {
-								window.macyInstances[0].reInit();
+								macyInstance.reInit();
+								macyInstance.runOnImageLoad(function () {
+									macyInstance.recalculate(true, true);
+								}, true);
 							}, 250 );
 						} else {
 							console.log(request.status + ' ' + request.statusText);
