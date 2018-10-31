@@ -1,4 +1,4 @@
-<section class="module voc voc-stories module__aggregate-card">
+<section class="module voc voc-stories module__aggregate-card" id="voc-stories-container">
 	<div class="content">
 		<?php  include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<h3 id="stories-search-label"></h3>
