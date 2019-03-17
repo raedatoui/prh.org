@@ -3,6 +3,7 @@
  * Custom functions 
  * @package prh-wp-theme
  */
+add_filter('use_block_editor_for_post', '__return_false');
 
 if ( !function_exists('prh_wp_theme_setup') ):
 	/**

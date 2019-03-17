@@ -19,47 +19,46 @@ Math.inOutQuintic = function(t, b, c, d) {
 };
 
 // requestAnimationFrame for Smart Animating http://goo.gl/sx5sts
-const requestAnimFrame = ((() => 
-	window.requestAnimationFrame || 
-	window.webkitRequestAnimationFrame || 
-	window.mozRequestAnimationFrame || 
+const requestAnimFrame = ((() =>
+	window.requestAnimationFrame ||
+	window.webkitRequestAnimationFrame ||
+	window.mozRequestAnimationFrame ||
 	(callback => { window.setTimeout(callback, 1000 / 60); })))();
 
 function scrollTo(to, callback, duration) {
 	// because it's so fucking difficult to detect the scrolling element, just move them all
 	function move(amount) {
-	  document.documentElement.scrollTop = amount;
-	  document.body.parentNode.scrollTop = amount;
-	  document.body.scrollTop = amount;
+		document.documentElement.scrollTop = amount;
+		document.body.parentNode.scrollTop = amount;
+		document.body.scrollTop = amount;
 	}
 
 	function position() {
-	  return document.documentElement.scrollTop || document.body.parentNode.scrollTop || document.body.scrollTop;
+		return document.documentElement.scrollTop || document.body.parentNode.scrollTop || document.body.scrollTop;
 	}
 
-	const start = position();
-	const change = to - start;
-	let currentTime = 0;
-	const increment = 20;
-	duration = (typeof(duration) === 'undefined') ? 500 : duration;
-
-	const animateScroll = () => {
-		// increment the time
-		currentTime += increment;
-		// find the value with the quadratic in-out easing function
-		const val = Math.easeInOutQuad(currentTime, start, change, duration);
-		// move the document.body
-		move(val);
-		// do the animation unless its over
-		if (currentTime < duration) {
-			requestAnimFrame(animateScroll);
-		} else {
-			if (callback && typeof(callback) === 'function') {
-				// the animation is done so lets callback
-				callback();
+	const start = position(),
+		change = to - start,
+		increment = 20,
+		animateScroll = () => {
+			// increment the time
+			currentTime += increment;
+			// find the value with the quadratic in-out easing function
+			const val = Math.easeInOutQuad(currentTime, start, change, duration);
+			// move the document.body
+			move(val);
+			// do the animation unless its over
+			if (currentTime < duration) {
+				requestAnimFrame(animateScroll);
+			} else {
+				if (callback && typeof(callback) === 'function') {
+					// the animation is done so lets callback
+					callback();
+				}
 			}
-		}
-	};
+		};
+	let currentTime = 0;
+	duration = (typeof(duration) === 'undefined') ? 500 : duration;
 
 	animateScroll();
 }
@@ -83,45 +82,45 @@ const vocForm = {
 	currentSearchLabel: '',
 	scrollTo: false,
 
-	searchStories: function(formaData, searchLabel, appendResults) {
-				// set up a request
-				const request = new XMLHttpRequest();
-				// keep track of the request
-				request.onreadystatechange = (function() {
-					// check if the response data send back to us
-					if(request.readyState === 4) {
-						// check if the request is successful
-						if(request.status === 200) {
-							this.currentSearch = formaData;
-							if (appendResults) {
-								this.storiesContainer.innerHTML = this.storiesContainer.innerHTML + request.responseText;
-							} else {
-								this.storiesContainer.innerHTML = request.responseText;
-							}
-							if (searchLabel !== '') {
-								this.currentSearchLabel = searchLabel;
-								this.storiesSearchLabel.innerHTML = 'Searching for: ' + searchLabel;
-							}
-							const bodyRect = document.body.getBoundingClientRect(),
-								elemRect = this.storiesParentContainer.getBoundingClientRect();
-							const offset = elemRect.top - bodyRect.top - 100;
-							scrollTo(offset, undefined, 500);
-
-							const macyInstance = window.macyInstances[0]; 
-							setTimeout( () => {
-								macyInstance.reInit();
-								macyInstance.runOnImageLoad(function () {
-									macyInstance.recalculate(true, true);
-								}, true);
-							}, 250 );
-						} else {
-							console.log(request.status + ' ' + request.statusText);
-						}
+	searchStories: function(formData, searchLabel, appendResults) {
+		// set up a request
+		const request = new XMLHttpRequest();
+		// keep track of the request
+		request.onreadystatechange = (function() {
+			// check if the response data send back to us
+			if(request.readyState === 4) {
+				// check if the request is successful
+				if(request.status === 200) {
+					this.currentSearch = formData;
+					if (appendResults) {
+						this.storiesContainer.innerHTML = this.storiesContainer.innerHTML + request.responseText;
+					} else {
+						this.storiesContainer.innerHTML = request.responseText;
 					}
-				}).bind(this);
+					if (searchLabel !== '') {
+						this.currentSearchLabel = searchLabel;
+						this.storiesSearchLabel.innerHTML = 'Searching for: ' + searchLabel;
+					}
+					const bodyRect = document.body.getBoundingClientRect(),
+						elemRect = this.storiesParentContainer.getBoundingClientRect();
+					const offset = elemRect.top - bodyRect.top - 100;
+					scrollTo(offset, undefined, 500);
 
-				request.open('POST', 'https://prh.org/wp-admin/admin-ajax.php');
-				if (formaData !== null) { request.send(formaData); }
+					const macyInstance = window.macyInstances[0];
+					setTimeout( () => {
+						macyInstance.reInit();
+						macyInstance.runOnImageLoad(function () {
+							macyInstance.recalculate(true, true);
+						}, true);
+					}, 250 );
+				} else {
+					console.log(request.status + ' ' + request.statusText);
+				}
+			}
+		}).bind(this);
+
+		request.open('POST', 'https://prh.org/wp-admin/admin-ajax.php');
+		if (formData !== null) { request.send(formData); }
 	},
 
 	onSearchFieldKeyUp: function(event) {
@@ -252,6 +251,6 @@ const vocForm = {
 			this.scrollTo = true;
 		}
 	}
-}
+};
 
 export default vocForm;
