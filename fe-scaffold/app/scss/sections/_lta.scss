@@ -1,0 +1,14 @@
+.listcheckbox-wrap, .listradio-wrap {
+  ul {
+    display: flex;
+    li {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      label {
+        padding-right: 8px;
+      }
+    }
+  }
+}

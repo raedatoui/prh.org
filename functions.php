@@ -78,7 +78,7 @@ function prh_styles() {
 }
 
 function prh_scripts() {
-	wp_deregister_script( 'jquery' );
+//	wp_deregister_script( 'jquery' );
 	wp_deregister_script( 'wp-embed' );
 
 	wp_enqueue_script('mainjs', get_template_directory_uri() . '/js/bundle.js', array(), null, true );

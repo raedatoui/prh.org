@@ -82,7 +82,7 @@ const vocForm = {
 	currentSearchLabel: '',
 	scrollTo: false,
 
-	searchStories: function(formData, searchLabel, appendResults) {
+	searchStories(formData, searchLabel, appendResults) {
 		// set up a request
 		const request = new XMLHttpRequest();
 		// keep track of the request
@@ -123,14 +123,14 @@ const vocForm = {
 		if (formData !== null) { request.send(formData); }
 	},
 
-	onSearchFieldKeyUp: function(event) {
+	onSearchFieldKeyUp(event) {
 		if (event.keyCode === 13) {
 			this.scrollTo = true;
 			this.doSearch();
 		}
 	},
 
-	onSearchButtonClick: function(event) {
+	onSearchButtonClick(event) {
 		event.stopPropagation();
 		event.preventDefault();
 		this.scrollTo = true;
@@ -161,7 +161,7 @@ const vocForm = {
 		}
 	},
 
-	searchByCategory: function(event) {
+	searchByCategory(event) {
 		const category = event.currentTarget.dataset.category;
 		let data = new FormData();
 		data.append('action', 'search_stories_by_category');
@@ -171,7 +171,7 @@ const vocForm = {
 		this.storiesSearchState.value = '';
 	},
 
-	onFileInputChange: function(event) {
+	onFileInputChange(event) {
 		if (this.fileInput.files && this.fileInput.files[0]) {
 			let fullPath = event.target.value,
 				startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/')),
@@ -193,7 +193,7 @@ const vocForm = {
 		}
 	},
 
-	onStateInputChange: function(event) {
+	onStateInputChange(event) {
 		if (event.target.value === '') {
 			this.stateSelect.style.color = '#ccc';
 		} else {
@@ -201,7 +201,7 @@ const vocForm = {
 		}
 	},
 
-	onReadMoreClick: function(event) {
+	onReadMoreClick(event) {
 		event.stopPropagation();
 		event.preventDefault();
 		const paged = parseInt(this.storiesContainer.lastElementChild.dataset.paged);
@@ -211,7 +211,7 @@ const vocForm = {
 		this.searchStories(this.currentSearch, this.currentSearchLabel, true);
 	},
 
-	init: function() {
+	init() {
 		if (this.fileInput) {
 			this.fileInput.onchange = this.onFileInputChange.bind( this );
 		}

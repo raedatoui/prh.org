@@ -23,7 +23,7 @@
 			</button>
 		</div> -->
 		<div class="row cta-row">
-			<div class="cta no-arrow" id="stories-read-more">Read More</a>
+            <div class="cta no-arrow" id="stories-read-more">Read More</div>
 		</div>
 	</div>
 </section>
