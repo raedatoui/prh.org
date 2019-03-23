@@ -39,7 +39,9 @@ $colors: (
   voc-blue: #0080c4,
   voc-gray: #ccc,
   voc-green: #25ced1,
-  voc-light-green: #68e2e4
+  voc-light-green: #68e2e4,
+
+  lta-blue: #d5f0f7
 );
 
 @function color($which) {

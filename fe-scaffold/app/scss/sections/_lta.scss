@@ -1,13 +1,57 @@
-.listcheckbox-wrap, .listradio-wrap {
+.listcheckbox-wrap,
+.listradio-wrap {
   ul {
     display: flex;
+
     li {
-      display: flex;
       align-items: center;
+      display: flex;
       flex-direction: row-reverse;
       justify-content: space-around;
+
       label {
         padding-right: 8px;
+      }
+    }
+  }
+}
+
+.nf-form-fields-required {
+  font-size: 14px !important;
+}
+
+.nf-next-item,
+.nf-previous-item {
+  input {
+    @include roboto();
+    background-color: color(navy);
+    color: #fff;
+    display: table;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    padding: 18px 24px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: $fx-duration background-color 0s;
+    will-change: background, transform;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+
+    &:hover {
+      background-color: color(button-blue);
+    }
+
+    &:focus {
+      background-color: color(red);
+
+      &::after {
+        background: none;
       }
     }
   }

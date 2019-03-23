@@ -3,66 +3,33 @@
  * Template name: LTA Application
  */
 
-get_header(); ?>
+get_header();
 
-<?php $post_type = get_post_type();
-$pt_object = get_post_type_object($post_type);
-$pt_label = $pt_object->labels->singular_name;
-$date_format = get_option( 'date_format' );
-the_post();
-?>
+$page = new PageModules( get_the_ID(), false, true );
+// determines the header for an about us or issue page
+$hero_banner_name = MODULES['Page Hero Banner']['name'];
+$hero_banner = $page->modules[$hero_banner_name];
+$banner = false;
+if ($hero_banner) {
+    $hero_banner_image_name = MODULES['Page Hero Banner']['image'];
+    $banner = $hero_banner[$hero_banner_image_name]['url'];
+}
+$page->init();
+$page->hero = array(
+    'module_name' => 'Page Hero',
+    'config' => LTA_HERO_MODULE,
+    'hero_jump_links' => $page->jump_links(),
+    'banner' => $banner,
+    'class_name' => 'lta'
+);
+$page->render();
 
-    <section class="hero article-hero module" id="hero">
+if ( $_SERVER['REQUEST_METHOD'] == 'GET' ) {
+    if ( isset( $_GET['tag'] ) ): ?>
+        <script>
+            window.searchTag = "<?php echo urldecode($_GET['tag']) ?>";
+        </script>
+    <? endif;
+}
 
-        <div class="content">
-            <div class="row">
-                <header class="col-xs-12 col-md-8">
-
-                    <footer class="post-meta">
-                        <time class="post-date utility-copy"><?php the_date( $date_format ); ?></time>
-                    </footer>
-
-                    <h1><?php the_title(); ?></h1>
-
-                    <?php
-                    $intro = get_the_excerpt();
-                    if ( !is_generated( $intro ) ) {
-                        echo '<p>' . sanitize_text_field($intro) . '</p>';
-                    } ?>
-                </header>
-            </div>
-        </div>
-
-    </section>
-
-    <main class="module" id="main">
-        <div class="content">
-            <div class="row row-top">
-                <article class="main-content post-content col-xs-12">
-
-                    <div class="post-body">
-                        <?php the_content(); ?>
-                    </div>
-
-
-                    <?php
-                    $byline_enabled = get_field( 'article_details_enabled');
-                    if ( $byline_enabled ) : ?>
-
-                        <footer class="post-byline">
-                            <?php the_field( 'post_byline' ); ?>
-                        </footer>
-
-                    <?php endif; ?>
-
-                </article>
-
-
-            </div>
-
-        </div>
-    </main>
-
-
-<?php
 get_footer();

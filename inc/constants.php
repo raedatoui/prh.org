@@ -137,6 +137,13 @@ const VOC_HERO_MODULE = array(
 	'template' => 'template-parts/modules/voc-hero.php'
 );
 
+const LTA_HERO_MODULE = array(
+    'name' => 'Page Hero',
+    'header' => 'hero_header',
+    'jump_links' => 'hero_jump_links',
+    'template' => 'template-parts/modules/lta-hero.php'
+);
+
 const STATISTICS_MODULE = array(
 	'enabled' => 'statistics_enabled',
 	'name' => 'Statistics',

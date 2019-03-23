@@ -11,15 +11,24 @@ class PageModules {
 	public $hero;
 	public $donate;
 	public $is_voc;
+	public $is_lta;
 	public $module_class_name;
 	
-	function __construct( $post_id, $is_voc = false ) {
+	function __construct( $post_id, $is_voc = false, $is_lta = false ) {
 		$this->is_voc = $is_voc;
+		$this->is_lta = $is_lta;
+
 		if ($is_voc == true) {
 			$this->module_class_name = 'voc';
 		}
+
+        if ($is_lta == true) {
+            $this->module_class_name = 'lta';
+        }
+
 		$groups = acf_get_field_groups( array( 'post_id' => $post_id ) );
 		$modules = array();
+
 		foreach( $groups as $group_key => $group ) {
 			$module = acf_get_fields($group);
 			$key = $group['title'];
