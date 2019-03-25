@@ -73,7 +73,7 @@
   $lta-wave-img: "curves/lta-curve--wave.svg";
   $lta-wave-img2: "curves/lta-curve--wave2.svg";
 
-  $bg-color: if($color == lta-blue, color(lta-blue), #FFF1E6);
+  $bg-color: if($color == lta-blue, color(lta-blue), color(cream));
   $img: if($color == lta-blue, $lta-wave-img, $lta-wave-img2);
   $i: if($important, !important, null);
 

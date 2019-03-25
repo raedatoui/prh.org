@@ -14,6 +14,5 @@
 <section class="<?php echo $hero_class_name ?>" style="<?php echo $hero_bg ?>" id="hero">
 	<div class="content">
 		<p class="hero__subhead"></p>
-		<p class="hero__subhead"></p>
 	</div>
 </section>

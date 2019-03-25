@@ -36,6 +36,12 @@ $nav-height-lg: 80px;
     @include responsive-mq(md) {
       font-size: 18px;
     }
+
+    &.lta {
+      .hero__subhead {
+        marin: 15px auto;
+      }
+    }
   }
 }
 

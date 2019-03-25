@@ -20,39 +20,214 @@
   font-size: 14px !important;
 }
 
+.nf-error-required-error {
+  font-size: 12px;
+}
+
+.nf-form-content .nf-field-element .ninja-forms-field:not(hr):not(.submit-btn) {
+  background-color: white;
+  border: none;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 0 6px;
+
+  &:focus {
+    outline: 1px solid  color(voc-blue-lt)
+  }
+
+  label {
+    font-size: 13px;
+  }
+}
+
+hr.ninja-forms-field {
+  border: 1px solid color(cream);
+  height: 16px;
+}
+
+.nf-form-content .nf-field-element .ninja-forms-field:not(textarea):not(hr) {
+  height: 40px;
+}
+
+.nf-field-container {
+  margin-bottom: 6px !important;
+}
+
+@mixin nf-action {
+  @include roboto();
+  background-color: color(navy);
+  color: #fff;
+  display: table;
+  font-size: 13px;
+  font-weight: 700;
+  height: 30px;
+  letter-spacing: 0.2em;
+  padding: 5px 15px !important;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: $fx-duration background-color 0s;
+  will-change: background, transform;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: none;
+  }
+
+  &:hover {
+    background-color: color(button-blue);
+  }
+
+  &:focus {
+    background-color: color(red);
+
+    &::after {
+      background: none;
+    }
+  }
+}
+
 .nf-next-item,
 .nf-previous-item {
   input {
+    @include nf-action();
+  }
+}
+
+.upload-btn {
+  button {
+    @include nf-action();
+  }
+}
+
+.nf-element {
+  &.submit-btn {
     @include roboto();
-    background-color: color(navy);
+    background-color: color(red);
     color: #fff;
+    cursor: pointer;
     display: table;
-    font-size: 13px;
+    font-size: 18px !important;
     font-weight: 700;
+    height: 60px !important;
     letter-spacing: 0.2em;
-    padding: 18px 24px;
+    margin: 30px auto 20px !important;
     position: relative;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
     transition: $fx-duration background-color 0s;
+    width: 160px !important;
     will-change: background, transform;
 
     &:hover,
     &:focus {
-      color: #fff;
+      background-color: color(salmon);
+      outline: none;
     }
 
-    &:hover {
-      background-color: color(button-blue);
+    &::after {
+      background: none;
+      right: 0;
+      transform: none;
     }
+  }
+}
 
-    &:focus {
-      background-color: color(red);
+.nf-multi-cell .nf-cell {
+  padding: 0 3px !important;
+}
 
-      &::after {
-        background: none;
+.list-radio-wrap {
+  .nf-field-element {
+    li {
+
+      input {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        overflow: hidden;
+        position: absolute !important;
+        width: 1px;
+
+        &:checked + label {
+          border-bottom: 2px solid color(voc-blue-lt);
+        }
       }
+
+      label {
+        background-color: color(white);
+        border-bottom: 1px solid color(white);
+        color: color(voc-blue-lt);
+        margin: 4px 3px !important;
+        padding: 8px 16px;
+        font-size: 13px;
+        font-weight: 400;
+        text-align: center;
+        transition: all 0.1s ease-in-out;
+
+        &:hover {
+          border-bottom: 2px solid color(voc-blue-lt);
+          cursor: pointer;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+.nf-breadcrumbs {
+
+  li {
+
+    a {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.section-two {
+  &.textarea-container {
+    margin-bottom: 12px !important;
+
+    .field-wrap{
+      align-items: center;
+    }
+
+    .nf-field-label {
+      width: 25% !important;
+    }
+
+    .nf-field-element {
+      width: 75% !important;
+    }
+  }
+
+  .nf-field-label {
+    padding-right: 6px;
+
+    label {
+      font-size: 16px;
+      font-weight: 400;
+      text-align: left;
+    }
+  }
+
+  .nf-field-element {
+    select,
+    input[type=number]{
+      width: 200px !important;
+    }
+
+    textarea {
+      height: 100px !important;
     }
   }
 }
