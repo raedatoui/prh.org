@@ -24,12 +24,4 @@ $page->hero = array(
 );
 $page->render();
 
-if ( $_SERVER['REQUEST_METHOD'] == 'GET' ) {
-    if ( isset( $_GET['tag'] ) ): ?>
-        <script>
-            window.searchTag = "<?php echo urldecode($_GET['tag']) ?>";
-        </script>
-    <? endif;
-}
-
 get_footer();

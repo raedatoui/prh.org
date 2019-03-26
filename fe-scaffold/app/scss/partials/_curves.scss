@@ -205,7 +205,6 @@
   &:nth-child(even) {
     @include lta-module-curves(cream);
 
-
     .module-overlay {
       fill: color(cream);
       stroke: color(cream);

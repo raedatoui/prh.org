@@ -125,9 +125,13 @@ function init() {
 	}
 }
 
-
-
 window.onload = function() {
+	const loaders = document.querySelectorAll('.loader');
+	if (loaders.length > 0) {
+		loaders.forEach(loader => loader.style.display = 'none');
+		const modules = document.querySelectorAll('section.module');
+		modules.forEach(module => module.style.visibility = 'inherit');
+	}
 	// Init UI
 	init();
 	new ThirdPartyScripts();

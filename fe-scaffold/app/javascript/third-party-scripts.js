@@ -6,7 +6,6 @@ export default class ThirdPartyScripts {
 		this.initCalendar();
 		this.initFacebook(document, 'script', 'facebook-jssdk');
 		this.initTwitter(document, 'script', 'twitter-wjs');
-
 	}
 
 	// Google Analytics
