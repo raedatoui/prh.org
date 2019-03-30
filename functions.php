@@ -148,13 +148,16 @@ function echo_wrapped( $var, $before='', $after='' ) {
  * @return WP_Error
  */
 function prh_only_allow_logged_in_rest_access( $access ) {
+    if(is_page_template('lta-application.php')) {
+        return $access;
+    }
 
-	if( !current_user_can('administrator') ) {
+	if( !current_user_can('administrator')) {
 		return new WP_Error( 'rest_cannot_access', __( 'No access.', 'disable-json-api' ), array( 'status' => rest_authorization_required_code() ) );
 	}
 	return $access;
 }
-add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );
+//add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );
 
 // Add specific CSS class by filter
 function prh_extra_body_class( $classes ) {

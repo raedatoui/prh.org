@@ -13,6 +13,8 @@ import jumpLinks from './jump-links';
 import backToTop from './back-to-top';
 import alertBanner from './action-alert.js';
 import vocForm from './voc';
+import ltaForm from './lta';
+
 import ThirdPartyScripts from './third-party-scripts';
 
 const instances = [],
@@ -29,12 +31,14 @@ function init() {
 	backToTop.init();
 	alertBanner.init();
 	vocForm.init();
+	ltaForm.init();
 
 	let carousel = document.querySelector( '.carousel' ),
 			tabs = document.querySelector( '.tab-accordion' ),
 			cards = document.querySelectorAll( '.macy-grid' ),
 			jumps = document.querySelectorAll( '.jump-link' ),
 			permalink = document.querySelector( '.permalink-icon' );
+
 
 	if ( permalink ) {
 		const clipboard = new Clipboard( permalink ),
