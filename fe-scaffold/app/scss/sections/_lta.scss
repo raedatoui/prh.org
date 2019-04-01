@@ -205,7 +205,7 @@ hr.ninja-forms-field {
         margin: 4px 3px !important;
         padding: 8px 16px;
         text-align: center;
-        transition: all 0.1s ease-in-out;
+        transition: all 0.3s ease-in-out;
 
         &:hover {
           border-bottom: 2px solid color(voc-blue-lt);
@@ -321,8 +321,7 @@ hr.ninja-forms-field {
   }
 }
 
-
-// section two overrides
+// section overrides
 .section-two {
   &.textarea-container {
     margin-bottom: 12px !important;
@@ -352,12 +351,41 @@ hr.ninja-forms-field {
 
   .nf-field-element {
     select,
-    input[type="number"] {
+    input.number {
       width: 200px !important;
     }
 
     textarea {
       height: 100px !important;
+    }
+  }
+}
+
+.section-four {
+  &.checkbox-container {
+    .checkbox-wrap {
+      align-items: center;
+    }
+    .nf-field-element .ninja-forms-field {
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+        background: white;
+        border-radius: 1px;
+        box-sizing: border-box;
+        width: 20px;
+        height: 20px;
+        border-width: 0;
+        transition: all .3s linear;
+
+      &:checked {
+        background-color: color(voc-blue-lt);
+      }
+
+      &:focus{
+        outline: 0 none;
+        box-shadow: none;
+      }
     }
   }
 }

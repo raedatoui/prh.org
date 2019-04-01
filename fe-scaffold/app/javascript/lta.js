@@ -1,12 +1,14 @@
 const ltaForm = {
     storage: null,
     formId: '2',
-    formName: 'nfForm-4',
+    formName: 'nfForm-2',
     nav: document.getElementsByClassName( 'nf-mp-footer' ),
     ltaPage: false,
     checkInterval: null,
     saveMessage: null,
     messageInterval: null,
+    introMsg: document.getElementsByClassName('nf-intro')[0],
+
 
     init() {
         const bodyClassList =  document.body.classList;
@@ -18,6 +20,18 @@ const ltaForm = {
                     this.nav = this.nav[0];
                     clearInterval(this.checkInterval);
                     this.addSaveButton();
+                    this.mySubmitController = Marionette.Object.extend( {
+                        initialize: function() {
+                            this.listenTo( Backbone.Radio.channel( 'forms' ), 'submit:response', this.actionSubmit );
+                        },
+
+                        actionSubmit: function( response ) {
+                            console.log(response);
+                            document.getElementsByClassName('nf-intro')[0].style.display = "none";
+                        },
+
+                    });
+                    new this.mySubmitController();
                 }
             }, 100);
         }
@@ -43,6 +57,7 @@ const ltaForm = {
         saveButton.addEventListener('click', this.onSaveClick.bind(this));
         this.saveMessage = saveMessage;
     },
+
 
     onSaveClick() {
         const fieldData = Backbone.Radio.channel( 'forms' ).request( 'save:fieldAttributes', this.formId);
