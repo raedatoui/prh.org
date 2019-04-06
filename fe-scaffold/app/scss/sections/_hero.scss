@@ -36,6 +36,12 @@ $nav-height-lg: 80px;
     @include responsive-mq(md) {
       font-size: 18px;
     }
+
+    &.lta {
+      .hero__subhead {
+        margin: 15px auto;
+      }
+    }
   }
 }
 
@@ -70,8 +76,12 @@ $nav-height-lg: 80px;
   background-image: image("particles/hero-particles.png"), $gradient-linear-blue;
   background-size: auto 150%, auto;
 
-  &.voc,  {
+  &.voc {
     background-image: image("particles/hero-voc.jpg"), $gradient-voc-linear-blue;
+  }
+
+  &.voc,
+  &.lta {
     background-size: auto 100%;
     padding-bottom: 26em;
     position: relative;
@@ -89,9 +99,9 @@ $nav-height-lg: 80px;
 
       .header__subhead {
         @include roboto;
-        text-transform: uppercase;
-        letter-spacing: 4px;
         font-size: 28px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
       }
     }
   }

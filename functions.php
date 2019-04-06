@@ -3,6 +3,7 @@
  * Custom functions 
  * @package prh-wp-theme
  */
+add_filter('use_block_editor_for_post', '__return_false');
 
 if ( !function_exists('prh_wp_theme_setup') ):
 	/**
@@ -77,7 +78,8 @@ function prh_styles() {
 }
 
 function prh_scripts() {
-	wp_deregister_script( 'jquery' );
+    if (!is_page_template('lta-application.php'))
+        wp_deregister_script( 'jquery' );
 	wp_deregister_script( 'wp-embed' );
 
 	wp_enqueue_script('mainjs', get_template_directory_uri() . '/js/bundle.js', array(), null, true );
@@ -146,13 +148,16 @@ function echo_wrapped( $var, $before='', $after='' ) {
  * @return WP_Error
  */
 function prh_only_allow_logged_in_rest_access( $access ) {
+    if(is_page_template('lta-application.php')) {
+        return $access;
+    }
 
-	if( !current_user_can('administrator') ) {
+	if( !current_user_can('administrator')) {
 		return new WP_Error( 'rest_cannot_access', __( 'No access.', 'disable-json-api' ), array( 'status' => rest_authorization_required_code() ) );
 	}
 	return $access;
 }
-add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );
+//add_filter( 'rest_authentication_errors', 'prh_only_allow_logged_in_rest_access' );
 
 // Add specific CSS class by filter
 function prh_extra_body_class( $classes ) {

@@ -69,6 +69,23 @@
   }
 }
 
+@mixin lta-module-curves($color: lta-blue, $set-color: true, $important: false) {
+  $lta-wave-img: "curves/lta-curve--wave.svg";
+  $lta-wave-img2: "curves/lta-curve--wave2.svg";
+
+  $bg-color: if($color == lta-blue, color(lta-blue), color(cream));
+  $img: if($color == lta-blue, $lta-wave-img, $lta-wave-img2);
+  $i: if($important, !important, null);
+
+  @if $set-color {
+    background-color: $bg-color $i;
+  }
+
+  &::before {
+    background-image: image($img) $i;
+  }
+}
+
 
 @mixin donate-module-curves() {
   $odd-arc-img: "curves/cream-arc--concave.svg";
@@ -178,6 +195,28 @@
     .module-overlay {
       fill: #fff;
       stroke: #fff;
+    }
+  }
+}
+
+.page-template-lta-application .hero ~ .module {
+  padding-bottom: 10vw; // This should be a little more than the curve height set below
+
+  &:nth-child(even) {
+    @include lta-module-curves(cream);
+
+    .module-overlay {
+      fill: color(cream);
+      stroke: color(cream);
+    }
+  }
+
+  &:nth-child(odd) {
+    @include lta-module-curves(lta-blue);
+
+    .module-overlay {
+      fill: color(lta-blue);
+      stroke: color(lta-blue);
     }
   }
 }

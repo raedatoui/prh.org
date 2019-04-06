@@ -1,0 +1,391 @@
+// page and loader
+body.page-template-lta-application {
+  section.module:not(.hero)  {
+    visibility: hidden;
+  }
+}
+
+.loader {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  height: 64px;
+  margin: 64px calc(50% - 64px);
+  position: absolute;
+  transform: scale(2);
+  width: 64px;
+  z-index: 1;
+}
+
+.lds-ellipsis div {
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  background: color(voc-blue-lt);
+  border-radius: 50%;
+  height: 11px;
+  position: absolute;
+  top: 27px;
+  width: 11px;
+}
+
+.lds-ellipsis div:nth-child(1) {
+  animation: lds-ellipsis1 0.6s infinite;
+  left: 6px;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  animation: lds-ellipsis2 0.6s infinite;
+  left: 6px;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  animation: lds-ellipsis2 0.6s infinite;
+  left: 26px;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  animation: lds-ellipsis3 0.6s infinite;
+  left: 45px;
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(19px, 0);
+  }
+}
+
+
+// form containers
+.nf-form-cont {
+  width: 100%;
+}
+
+.nf-field-container {
+  margin-bottom: 6px !important;
+}
+
+.nf-multi-cell .nf-cell {
+  padding: 0 3px !important;
+}
+
+.nf-save-container {
+  margin: 2em 0;
+}
+
+// form navigation
+.nf-breadcrumbs {
+  li {
+
+    a {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+// form elements
+.listcheckbox-wrap,
+.listradio-wrap {
+  ul {
+    display: flex;
+
+    li {
+      align-items: center;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+
+      label {
+        padding-right: 8px;
+      }
+    }
+  }
+}
+
+.nf-form-fields-required,
+.ninja-forms-req-symbol   {
+  display: none;
+}
+
+.nf-error-required-error {
+  font-size: 12px;
+}
+
+.nf-field-element {
+  select {
+    -webkit-appearance: none;
+  }
+}
+
+.nf-field-element .ninja-forms-field:not(hr):not(.submit-btn):not(.save-btn) {
+  background-color: white;
+  border: none;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 6px;
+
+  label {
+    font-size: 13px;
+  }
+}
+
+.nf-field-element .ninja-forms-field:not(.submit-btn):not(.save-btn) {
+  &:focus {
+    outline: 1px solid  color(voc-blue-lt);
+  }
+}
+
+input[type="checkbox"].ninja-forms-field {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.nf-field-element .ninja-forms-field:not(textarea):not(hr) {
+  height: 40px;
+}
+
+hr.ninja-forms-field {
+  border: 1px solid color(cream);
+  height: 16px;
+}
+
+// custom toggle button for checkbox list
+.list-radio-wrap {
+  .nf-field-element {
+    li {
+
+      input {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        overflow: hidden;
+        position: absolute !important;
+        width: 1px;
+
+        &:checked + label {
+          border-bottom: 2px solid color(voc-blue-lt);
+        }
+      }
+
+      label {
+        background-color: color(white);
+        border-bottom: 2px solid color(white);
+        color: color(voc-blue-lt);
+        font-size: 13px;
+        font-weight: 400;
+        margin: 4px 3px !important;
+        padding: 8px 16px;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          border-bottom: 2px solid color(voc-blue-lt);
+          cursor: pointer;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+
+// buttons
+@mixin nf-action {
+  @include roboto();
+  background-color: color(navy);
+  color: #fff;
+  display: table;
+  font-size: 13px;
+  font-weight: 700;
+  height: 30px;
+  letter-spacing: 0.2em;
+  padding: 5px 15px !important;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: $fx-duration background-color 0s;
+  will-change: background, transform;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: none;
+  }
+
+  &:hover {
+    background-color: color(button-blue);
+  }
+
+  &:focus {
+    background-color: color(red);
+
+    &::after {
+      background: none;
+    }
+  }
+}
+
+.nf-next-item,
+.nf-previous-item {
+  input {
+    @include nf-action();
+  }
+}
+
+.nf-save-item {
+  @include nf-action();
+  display: table;
+  margin: auto;
+  font-size: 18px;
+  height: 40px;
+}
+
+.nf-save-label {
+  font-size: 14px;
+  margin: auto;
+  display: inline-block;
+  color: color(voc-blue-lt);
+  width: 100%;
+  font-weight: 700;
+  text-align: center;
+}
+
+.upload-btn {
+  button {
+    @include nf-action();
+  }
+}
+
+.nf-element.submit-btn {
+  @include roboto();
+  background-color: color(red);
+  color: #fff;
+  cursor: pointer;
+  display: table;
+  font-size: 18px !important;
+  font-weight: 700;
+  height: 60px !important;
+  letter-spacing: 0.2em;
+  margin: 30px auto 20px !important;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: $fx-duration background-color 0s;
+  width: 160px !important;
+  will-change: background, transform;
+
+  &:hover,
+  &:focus {
+    background-color: color(salmon);
+    outline: none;
+  }
+
+  &::after {
+    background: none;
+    right: 0;
+    transform: none;
+  }
+}
+
+// section overrides
+.section-two {
+  &.textarea-container {
+    margin-bottom: 12px !important;
+
+    .field-wrap {
+      align-items: center;
+    }
+
+    .nf-field-label {
+      width: 25% !important;
+    }
+
+    .nf-field-element {
+      width: 75% !important;
+    }
+  }
+
+  .nf-field-label {
+    padding-right: 6px;
+
+    label {
+      font-size: 16px;
+      font-weight: 400;
+      text-align: left;
+    }
+  }
+
+  .nf-field-element {
+    select,
+    input.number {
+      width: 200px !important;
+    }
+
+    textarea {
+      height: 100px !important;
+    }
+  }
+}
+
+.section-four {
+  &.checkbox-container {
+    .checkbox-wrap {
+      align-items: center;
+    }
+    .nf-field-element .ninja-forms-field {
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+        background: white;
+        border-radius: 1px;
+        box-sizing: border-box;
+        width: 20px;
+        height: 20px;
+        border-width: 0;
+        transition: all .3s linear;
+
+      &:checked {
+        background-color: color(voc-blue-lt);
+      }
+
+      &:focus{
+        outline: 0 none;
+        box-shadow: none;
+      }
+    }
+  }
+}
