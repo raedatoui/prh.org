@@ -13,17 +13,18 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
-    "cssnano": "^3.10.0",
+    "cssnano": "^4.1.10",
     "del": "^2.2.2",
     "eslint-config-wordpress": "^1.1.0",
+    "event-stream": ">=4.0.0",
     "flexboxgrid-sass": "^8.0.5",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-buble": "^0.8.0",
     "gulp-changed": "^2.0.0",
     "gulp-connect": "^5.6.1",
     "gulp-eslint": "^3.0.1",
-    "gulp-image": "^2.7.5",
-    "gulp-modernizr": "^1.0.0-alpha",
+    "gulp-image": "^5.1.0",
+    "gulp-modernizr": "^3.3.0",
     "gulp-postcss": "^6.3.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^3.2.1",
@@ -38,7 +39,9 @@
     "sass-lint-auto-fix": "^0.11.6",
     "uglify-js-harmony": "^2.7.5",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "lodash.template": ">=4.5.0",
+    "eslint": ">=4.18.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
