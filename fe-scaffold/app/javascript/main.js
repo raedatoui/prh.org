@@ -1,7 +1,7 @@
 'use strict';
 
 import './polyfills';
-import Flickity from 'flickity-imagesloaded';
+import Flickity from 'flickity-imaz`gesloaded';
 import Macy from 'macy';
 import Clipboard from 'clipboard';
 
