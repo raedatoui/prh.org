@@ -19,7 +19,7 @@ tmp/
 *.scssc
 
 
-fe-scaffold/pub/
+fe-scaffold/dist/
 fe-scaffold/node_modules/
 node_modules/
 
