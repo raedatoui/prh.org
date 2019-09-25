@@ -1,7 +1,6 @@
 'use strict';
 
 import './scss/main.scss';
-import './scss/editor.scss';
 
 import './polyfills';
 import Flickity from 'flickity-imagesloaded';

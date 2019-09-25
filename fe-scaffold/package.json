@@ -32,7 +32,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production"
+    "build": "./build.sh"
   },
   "browserslist": "last 2 versions",
   "author": "Raed Atoui",

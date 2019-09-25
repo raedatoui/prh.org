@@ -1,20 +1,58 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserJSPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+
+function recursiveIssuer(m) {
+    if (m.issuer) {
+        return recursiveIssuer(m.issuer);
+    } else if (m.name) {
+        return m.name;
+    } else {
+        return false;
+    }
+}
 
 module.exports = {
-    entry: [
-        './src/index.js'
-    ],
-    devtool: 'eval-source-map',
+    entry: {
+        bundle: './src/index.js',
+        editor: './src/editor.js',
+        styleguide: './src/styleguide.js'
+    },
+    devtool: 'source-map',
     optimization: {
+        splitChunks: {
+            cacheGroups: {
+                appStyles: {
+                    name: 'bundle',
+                    test: (m, c, entry = 'bundle') =>
+                        m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
+                    chunks: 'all',
+                    enforce: true,
+                },
+                styleguideStyles: {
+                    name: 'editor',
+                    test: (m, c, entry = 'styleguide') =>
+                        m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
+                    chunks: 'all',
+                    enforce: true,
+                },
+                editorStyles: {
+                    name: 'editor',
+                    test: (m, c, entry = 'editor') =>
+                        m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
+                    chunks: 'all',
+                    enforce: true,
+                },
+            },
+        },
         minimizer: [
             new TerserJSPlugin({
                 test: /\.js(\?.*)?$/i,
                 exclude: /(node_modules)/,
+                extractComments: true,
                 sourceMap: true
             }),
             new OptimizeCSSAssetsPlugin({
@@ -22,8 +60,8 @@ module.exports = {
                 cssProcessor: cssnano,
                 cssProcessorPluginOptions: {
                     preset: ['default', { discardComments: { removeAll: true } }],
+                    sourceMap: true
                 },
-                path: 'css/images',
                 canPrint: true
             })],
 
@@ -31,10 +69,10 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: 'css/[name].css',
             chunkFilename: '[id].css',
             ignoreOrder: false
-        }),
+        })
     ],
     module:{
         rules: [
@@ -44,34 +82,22 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [
-                            '@babel/preset-env']
+                        presets: ['@babel/preset-env']
                     }
                 }
             },
             {
                 test: [/.css$|.scss$/],
-                use:[
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].css',
-                            context: './',
-                            outputPath: 'css/',
-                            publicPath: '/css/'
-                        }
-                    },
+                use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            // you can specify a publicPath here
-                            // by default it uses publicPath in webpackOptions.output
-                            publicPath: 'css/',
+                            sourceMap: true,
                             hmr: process.env.NODE_ENV === 'development',
                         },
                     },
-                    'css-loader',
-                    'sass-loader'
+                    { loader: 'css-loader', options: { sourceMap: true } },
+                    { loader: 'sass-loader', options: { sourceMap: true } }
                 ]
             },
             {
@@ -93,7 +119,7 @@ module.exports = {
 
     },
     output: {
-        filename: 'js/bundle.js',
+        filename: 'js/[name].js',
         libraryTarget: 'umd',
         path: path.resolve(__dirname, 'dist/'),
         globalObject: `(typeof self !== 'undefined' ? self : this)`
