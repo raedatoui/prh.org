@@ -19,11 +19,12 @@ tmp/
 *.scssc
 
 
-fe-scaffold/pub/
+fe-scaffold/dist/
 fe-scaffold/node_modules/
 node_modules/
 
 js/bundle.js
 js/bundle.js.map
+js/bundle.js.LICENSE
 static/css/*
 static/js/*

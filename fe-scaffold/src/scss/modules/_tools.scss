@@ -1,6 +1,6 @@
 @import "font_mixins";
 
-$image-dir: "../images/optimized" !default;
+$image-dir: "../images/" !default;
 
 //Responsive Breakpoints - Hugo Giraudel
 @mixin responsive-mq($name) {

@@ -1,5 +1,7 @@
 'use strict';
 
+import './scss/main.scss';
+
 import './polyfills';
 import Flickity from 'flickity-imagesloaded';
 import Macy from 'macy';
