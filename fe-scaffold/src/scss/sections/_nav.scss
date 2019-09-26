@@ -170,7 +170,6 @@ $nav-breakpoint: 1120px; // slightly larger than a landscape ipad and the space 
 
   a {
     @include lora;
-    font-size: 22px;
     text-indent: 1ch;
 
     &:hover,
