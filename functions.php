@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom functions 
+ * Custom functions
  * @package prh-wp-theme
  */
 add_filter('use_block_editor_for_post', '__return_false');
@@ -120,9 +120,9 @@ function echo_theme_uri() {
 
 /**
  * Helper for checking whether an excerpt is a "real" one
- * or an auto-generated one. For things using the article template - 
+ * or an auto-generated one. For things using the article template -
  * they're supposed to fill out the excerpt field,
- * but if they don't, we shouldn't output the automatic one. 
+ * but if they don't, we shouldn't output the automatic one.
  * If we change the [...] used in auto-excerpts, this needs to be updated.
  */
 function is_generated( $excerpt ) {
@@ -215,7 +215,7 @@ add_action( 'before_delete_post', 'delete_story_attachments' );
 function delete_story_attachments( $post_id ){
 
     // We check if the global post type isn't ours and just return
-    global $post_type;   
+    global $post_type;
     if ( $post_type != 'phys_story' ) return;
 
 	global $wpdb;
@@ -241,7 +241,7 @@ function delete_story_attachments( $post_id ){
 
 }
 
-/********************************************************** 
+/**********************************************************
  * the ajax functions for searching stories on the VOC page.
 ***********************************************************/
 function slugify($text) {
@@ -280,7 +280,7 @@ function search_and_render_stories($args) {
 		'post_type'      => 'phys_story',
 		'posts_per_page' => $per_page,
 	) );
-	
+
 	$paged = 1;
 	if ( isset( $_POST['paged']) ) {
 		$paged = intval( $_POST['paged'] );
@@ -291,7 +291,7 @@ function search_and_render_stories($args) {
 	$counter = 0;
 	if( $the_query->have_posts() ) :
 		while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-		<?php 
+		<?php
 			$voc_img = get_the_post_thumbnail_url();
 			if ($voc_img == '' ) {
 				$voc_img = 'https://prh.org/wp-content/uploads/2017/03/Story-Fist-Avatar-e1497389449725.png';
@@ -301,7 +301,7 @@ function search_and_render_stories($args) {
 		<a class="aggregate-tile col-xs-12 col-md-4 voc"
 			href="<?php echo get_permalink(); ?>"
 			aria-label="<?php the_title(); ?>"
-			data-paged="<?php echo $data_paged ?>"> 
+			data-paged="<?php echo $data_paged ?>">
 			<div class="tile__container voc">
 				<div class="tile__image-container"><img alt="" src="<?php echo $voc_img ?>"/></div>
 				<div class="tile__voc-hover">
@@ -310,9 +310,9 @@ function search_and_render_stories($args) {
 						$title = get_the_title();
 						$parts = explode( ':', $title);
 						if (count($parts) == 2 ) : ?>
-							<span class="tile__story-num"><? echo $parts[0] ?>:</span><br>
-							<span class="tile__story-title"><? echo $parts[1] ?></span>
-						<? endif; ?>
+							<span class="tile__story-num"><?php echo $parts[0] ?>:</span><br>
+							<span class="tile__story-title"><?php echo $parts[1] ?></span>
+						<?php endif; ?>
 					</h4>
 				</div>
 			</div>

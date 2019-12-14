@@ -154,7 +154,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET' ) {
 		<script>
 			window.searchTag = "<?php echo urldecode($_GET['tag']) ?>";
 		</script>
-	<? endif;
+	<?php endif;
 }
 
 get_footer();

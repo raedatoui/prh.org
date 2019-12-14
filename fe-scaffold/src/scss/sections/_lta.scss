@@ -145,7 +145,7 @@ body.page-template-lta-application {
   }
 }
 
-.nf-field-element .ninja-forms-field:not(hr):not(.submit-btn):not(.save-btn) {
+.nf-field-element .ninja-forms-field:not(hr):not(.submit-btn):not(.save-btn):not(.nf-fu-fileinput-button) {
   background-color: white;
   border: none;
   font-size: 13px;
