@@ -112,7 +112,7 @@ the_post();
 					<?php $widget_data = prh_get_widget_data_for( 1 )[1]; ?>
 					<div class="sidebar-content">
 						<h2 class="sidebar-header"><?php echo $widget_data->title; ?></h2>
-						<a class="cta" href="<? echo $widget_data->url;?>">Subscribe</a>
+						<a class="cta" href="<?php echo $widget_data->url;?>">Subscribe</a>
 					</div>
 				</aside>
 

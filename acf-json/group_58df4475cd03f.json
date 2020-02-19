@@ -135,7 +135,7 @@
                     "label": "Youtube",
                     "name": "slide_youtube_id",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "This field requires the ID of youtube video. The ID is usually found in the \"v=<some_id>\" portion of the URL",
                     "required": 1,
                     "conditional_logic": [
                         [
@@ -290,5 +290,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1540155044
+    "modified": 1543292271
 }

@@ -160,9 +160,8 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "https:\/\/secure2.convio.net\/prch\/site\/Donation2?idb=1471799783&DONATION_LEVEL_ID_SELECTED=1&df_id=1542&mfc_pref=T&1542.donation=form1&idb=0",
-            "placeholder": "",
-            "repeatable": true
+            "default_value": "https:\/\/secure.everyaction.com\/Aa6xWmo0bUG_D-3wHE2HRA2",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -196,5 +195,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1540154132
+    "modified": 1565971580
 }

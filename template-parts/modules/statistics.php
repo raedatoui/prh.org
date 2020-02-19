@@ -3,7 +3,7 @@
 	<?php include( locate_template( 'template-parts/components/module-title.php', false, false ) ); ?>
 		<div class="row">
 			<?php foreach ( $module[STATISTICS_MODULE['repeater']] as $index => $card ): ?>
-				<? $card = $card[STATISTICS_MODULE['card']][0]; ?>
+				<?php $card = $card[STATISTICS_MODULE['card']][0]; ?>
 				<div class="stat-card col-xs-12 col-md-4">
 					<?php echo_wrapped($card[STATISTIC_CARD['eyebrow']], '<span class="eyebrow stat-eyebrow">', '</span>'); ?>
 					<span class="stat-number"><?php echo $card[STATISTIC_CARD['number']] ?></span>

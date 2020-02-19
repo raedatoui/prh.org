@@ -72,9 +72,8 @@
                 "id": ""
             },
             "choices": {
-                "Kelsey Rhodes": "Kelsey Rhodes",
+                "Kelsey Brill": "Kelsey Brill",
                 "Kelsie Harris": "Kelsie Harris",
-                "Mary Humphreys": "Mary Humphreys",
                 "Jen Girdish": "Jen Girdish",
                 "HR Manager": "HR Manager",
                 "Jennifer Blasdell": "Jennifer Blasdell",
@@ -85,16 +84,10 @@
                 "Barbara LaPlaca": "Barbara LaPlaca",
                 "Taylor Rose Ellsworth": "Taylor Rose Ellsworth",
                 "Jenna Kronenberg": "Jenna Kronenberg",
-                "Eric Alterman": "Eric Alterman",
                 "Danielle Kapsalakis": "Danielle Kapsalakis",
                 "German Ospina": "German Ospina",
                 "Jeryl Hayes": "Jeryl Hayes",
-                "Keidra Chaney": "Keidra Chaney",
-                "Lauren Boc": "Lauren Boc",
-                "Libby Benedict": "Libby Benedict",
-                "Maria Faraldo": "Maria Faraldo",
                 "Marisa Ceballos": "Marisa Ceballos",
-                "Patty Bachorz": "Patty Bachorz",
                 "Toni Bond Leonard": "Toni Bond Leonard",
                 "Vanessa Furtado": "Vanessa Furtado"
             },
@@ -102,10 +95,9 @@
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
-            "ajax": 0,
             "return_format": "value",
-            "placeholder": "",
-            "repeatable": true
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_58fd0b41ac2c2",
@@ -129,29 +121,22 @@
                 "id": ""
             },
             "choices": {
-                "kelsey@prh.org": "kelsey@prh.org",
-                "kelsie@prh.org": "kelsie@prh.org",
-                "marye@prh.org": "marye@prh.org",
-                "jen@prh.org": "jen@prh.org",
+                "kbrill@prh.org": "kbrill@prh.org",
+                "kharris@prh.org": "kharris@prh.org",
+                "jgirdish@prh.org": "jgirdish@prh.org",
                 "recruiting@prh.org": "recruiting@prh.org",
-                "jennifer@prh.org": "jennifer@prh.org",
-                "ellen@prh.org": "ellen@prh.org",
-                "jodi@prh.org": "jodi@prh.org",
+                "jblasdell@prh.org": "jblasdell@prh.org",
+                "ebarker@prh.org": "ebarker@prh.org",
+                "jmagee@prh.org": "jmagee@prh.org",
                 "mayra@prh.org": "mayra@prh.org",
                 "anita@prh.org": "anita@prh.org",
                 "barbara@prh.org": "barbara@prh.org",
                 "taylorrose@prh.org": "taylorrose@prh.org",
                 "jenna@prh.org": "jenna@prh.org",
-                "eric@prh.org": "eric@prh.org",
                 "danielle@prh.org": "danielle@prh.org",
                 "german@prh.org": "german@prh.org",
                 "jeryl@prh.org": "jeryl@prh.org",
-                "keidra@prh.org": "keidra@prh.org",
-                "laurenb@prh.org": "laurenb@prh.org",
-                "libby@prh.org": "libby@prh.org",
-                "mariaf@prh.org": "mariaf@prh.org",
                 "marisa@prh.org": "marisa@prh.org",
-                "patty@prh.org": "patty@prh.org",
                 "toni@prh.org": "toni@prh.org",
                 "vanessa@prh.org": "vanessa@prh.org"
             },
@@ -159,10 +144,9 @@
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
-            "ajax": 0,
             "return_format": "value",
-            "placeholder": "",
-            "repeatable": true
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_58fd0b73ac2c3",
@@ -188,7 +172,6 @@
             "choices": {
                 "(646) 649-9928": "(646) 649-9928",
                 "(646) 649-9919": "(646) 649-9919",
-                "(646) 649-9921": "(646) 649-9921",
                 "(646) 649-9927": "(646) 649-9927",
                 "(646) 649-9939": "(646) 649-9939",
                 "(646) 649-9914": "(646) 649-9914",
@@ -198,17 +181,11 @@
                 "(646) 649-9937": "(646) 649-9937",
                 "(646) 649-9930": "(646) 649-9930",
                 "(646) 649-9913": "(646) 649-9913",
-                "(646) 259-3511, ext. 240": "(646) 259-3511, ext. 240",
-                "(646) 649-9912": "(646) 649-9912",
+                "(646) 259-3511": "(646) 259-3511",
                 "(646) 649-9940": "(646) 649-9940",
                 "(646) 490-3002, ext. 002": "(646) 490-3002, ext. 002",
                 "(646) 649-9935": "(646) 649-9935",
-                "(646) 259-3545, ext. 241": "(646) 259-3545, ext. 241",
-                "(646) 649-9920": "(646) 649-9920",
-                "(646) 649-9923": "(646) 649-9923",
-                "(646) 649-9925": "(646) 649-9925",
                 "(646) 649-9926": "(646) 649-9926",
-                "(646) 649-9907": "(646) 649-9907",
                 "(646) 649-9916": "(646) 649-9916",
                 "(646) 649-9929": "(646) 649-9929"
             },
@@ -216,10 +193,9 @@
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
-            "ajax": 0,
             "return_format": "value",
-            "placeholder": "",
-            "repeatable": true
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -311,5 +287,5 @@
         "button_label": "",
         "appearances": ""
     },
-    "modified": 1540154139
+    "modified": 1568063552
 }

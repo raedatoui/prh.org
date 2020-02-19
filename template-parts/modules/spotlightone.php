@@ -29,8 +29,8 @@
 							}
 							$url = $cta[CTA_COMPONENT['link']];
 						?>
-						<a class="<?php echo $cta_class; ?>" href="<? echo $url; ?>" target="<?php echo get_url_target( $url ); ?>">
-							<? echo $cta_label; ?>
+						<a class="<?php echo $cta_class; ?>" href="<?php echo $url; ?>" target="<?php echo get_url_target( $url ); ?>">
+							<?php echo $cta_label; ?>
 						</a>
 					<?php endif; ?>
 			</div>

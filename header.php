@@ -42,8 +42,7 @@
 	<body <?php body_class();?>>
 
 		<!-- Google Tag Manager (noscript) -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDFCFTR"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDFCFTR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
 
 		<?php get_template_part('svg') ?>
@@ -54,53 +53,51 @@
 
 		<div class="page-container">
 			<header role="banner" class="<?php echo implode(" ", get_body_class()) . " site-header" ?>" id="site-header">
-			<div class="site-nav-wrap">
-				<a href="/" class="logo col-sm-3 col-md-3">
+				<div class="site-nav-wrap">
+					<a href="/" class="logo col-sm-3 col-md-3">
 						<svg class="logo-svg logo-large role="presentation">
 							<use xlink:href="#logo-large" />
 						</svg>
 						<svg class="logo-svg logo-small" role="presentation">
 							<use xlink:href="#logo-small" />
 						</svg>
-					<span class="visually-hidden">Physicians for Reproductive Health: Homepage</span>
-				</a>
-
-				<div class="nav-ui">
-					<button class="nav-btn search-btn" id="site-search-btn" title="Search">
-						<svg class="icon--search" role="presentation">
-							<use xlink:href="#icon--search" />
-						</svg>
-					</button>
-
-					<a href="/wp-admin/profile.php" class="nav-btn login-btn" title="Log in">
-						<svg class="icon--person" role="presentation">
-							<use xlink:href="#icon--person" />
-						</svg>
+						<span class="visually-hidden">Physicians for Reproductive Health: Homepage</span>
 					</a>
 
-					<button class="nav-btn menu-btn md-down" id="menu-btn" aria-controls="site-nav" aria-expanded="false" title="Menu">
-						<svg class="icon--menu" role="presentation">
-							<use xlink:href="#icon--menu" />
-						</svg>
-						<svg class="icon--close" role="presentation">
-							<use xlink:href="#icon--close" />
-						</svg>
-					</button>
+					<div class="nav-ui">
+						<button class="nav-btn search-btn" id="site-search-btn" title="Search">
+							<svg class="icon--search" role="presentation">
+								<use xlink:href="#icon--search" />
+							</svg>
+						</button>
 
-					<a href="https://secure2.convio.net/prch/site/Donation2?idb=1471799783&DONATION_LEVEL_ID_SELECTED=1&df_id=1542&mfc_pref=T&1542.donation=form1&idb=0" class="nav-btn donate-btn cta cta--red md-up">Donate</a>
-				</div>
+						<a href="/wp-admin/profile.php" class="nav-btn login-btn" title="Log in">
+							<svg class="icon--person" role="presentation">
+								<use xlink:href="#icon--person" />
+							</svg>
+						</a>
 
-				<nav id="site-nav" class="site-nav">
-					<?php wp_nav_menu(array('theme_location' => 'menu-1')); ?>
+						<button class="nav-btn menu-btn md-down" id="menu-btn" aria-controls="site-nav" aria-expanded="false" title="Menu">
+							<svg class="icon--menu" role="presentation">
+								<use xlink:href="#icon--menu" />
+							</svg>
+							<svg class="icon--close" role="presentation">
+								<use xlink:href="#icon--close" />
+							</svg>
+						</button>
 
-					<a href="https://secure2.convio.net/prch/site/Donation2?idb=1471799783&DONATION_LEVEL_ID_SELECTED=1&df_id=1542&mfc_pref=T&1542.donation=form1&idb=0" class="nav-btn donate-btn cta cta--red md-down">Donate</a>
+						<a href="https://secure.everyaction.com/Aa6xWmo0bUG_D-3wHE2HRA2" class="nav-btn donate-btn cta cta--red md-up">Donate</a>
+					</div>
 
-				</nav>
+					<nav id="site-nav" class="site-nav">
+						<?php wp_nav_menu(array('theme_location' => 'menu-1')); ?>
+						<a href="https://secure.everyaction.com/Aa6xWmo0bUG_D-3wHE2HRA2" class="nav-btn donate-btn cta cta--red md-down">Donate</a>
+					</nav>
 				</div>
 
 				<div id="search-bar" class="search-bar">
 					<div class="content search-bar-content">
-					<?php get_search_form(); ?>
+						<?php get_search_form(); ?>
 					</div>
 				</div>
 

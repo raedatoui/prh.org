@@ -19,7 +19,7 @@
 							<span class="tab-nav-ordinal"><?php echo $key + 1 ?></span>
 							<span class="tab-nav-copy"><?php echo $card[TAB_CARD['title']] ?></span>
 						</a>
-					<? endforeach; ?>
+					<?php endforeach; ?>
 				</nav>
 			</div>
 			<?php foreach ( $module[TAB_PANEL['repeater']] as $key => $tabContainer ): ?>
@@ -59,8 +59,8 @@
 									}
 									$url = $cta[CTA_COMPONENT['link']];
 									?>
-									<a class="<?php echo $cta_class; ?>" href="<? echo $url; ?>" target="<?php echo get_url_target( $url ); ?>">
-										<? echo $cta_label; ?>
+									<a class="<?php echo $cta_class; ?>" href="<?php echo $url; ?>" target="<?php echo get_url_target( $url ); ?>">
+										<?php echo $cta_label; ?>
 									</a>
 								<?php endif; ?>
 							</div>
